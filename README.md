@@ -10,6 +10,8 @@ concurrent == solo, chunk width changes no byte, boot to boot).
 > 52 of its 55 rungs stand there, and the three that do not are those targets. It checks each node record's engine commit against the lab's private development checkout of the
 > engine (`ENGINE_SRC`), whose commits are not in the public series, so the rungs that make that check cannot pass outside the lab; the records and `scripts/records_index.py`
 > are the evidence a clone can read. Every measured number in the Results table is read from a record in `bench/records/` by `scripts/records_index.py`; the bounds quoted in the targets table are arithmetic from the documents it cites.
+>
+> The series is offered to REXL as https://github.com/REXL3/REXL3/issues/196; branch `inkling2-mini` of justincasey/REXL3.
 
 ## Results
 
