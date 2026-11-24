@@ -1,0 +1,65 @@
+{
+ "name": "fuse-baseline",
+ "gate": "speed-fuse-baseline",
+ "date": "2026-11-23",
+ "result": "pass",
+ "node": "node-2",
+ "engine": {
+  "commit": "1d53344d874b3a578152e35c500a2718599f5b61",
+  "dirty": false,
+  "version": "0.1.1"
+ },
+ "recipe": {
+  "commit": "76d2c5f950928f6d19dcf2063e1bd2471062fab3"
+ },
+ "tests": [
+  {
+   "bin": "inkling2_loop_graphs",
+   "filter": "decode_step_timing (1, 2, 3, 4, 6, 8 rows)",
+   "passed": 6,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_spec_timing",
+   "filter": "round_cost_table",
+   "passed": 1,
+   "failed": 0
+  }
+ ],
+ "commands": [
+  "NODE=node-2 ./inkling2mini.sh build 1d53344d874b3a578152e35c500a2718599f5b61 (REXL3_SRC=<engine worktree>)",
+  "./inkling2mini.sh gpu-clocks lock",
+  "SPEC=none PREFIX_CACHE=off VISION=off ./inkling2mini.sh start",
+  "./inkling2mini.sh bench decode",
+  "python3 bench/rexl3/sweep_decode.py --url http://node-2:8000 --model inkling-2-mini-1x-dgx-spark --window 262144 --max-total 1048576 --phase both --ctxs 4096 --conc 1,2,4 --modes serial --depth-modes serial --reps 3 --depth-reps 3 --out sweep.json",
+  "NODE=node-2 LAB_SRC=<engine worktree> PKG=gb-model TEST_ENV='LOOP_PROFILE_STEPS=100 LOOP_PROFILE_ROWS=R LOOP_PROFILE_MODE=graph LOOP_LONG_IDS_FILE=<lab>/ids_long.json' scripts/ops_dev.sh test inkling2_loop_graphs decode_step_timing",
+  "NODE=node-2 LAB_SRC=<engine worktree> PKG=gb-model TEST_ENV='LOOP_TIMING=1 LOOP_TIMING_CTX=4096 REXL3_INKLING2_LOOP_DIR=<pack> LOOP_LONG_IDS_FILE=<lab>/ids_long.json' scripts/ops_dev.sh test inkling2_loop_spec_timing round_cost_table",
+  "tools/nsys_run.sh NAME ROWS; tools/nsys_propose.sh NAME",
+  "tools/session.sh base2 (shipping defaults: start, exactness record, bench decode x4, specbench --concurrency 4, stop)"
+ ],
+ "metrics": {
+  "decode_c1_short_tok_s": 53.64,
+  "decode_c1_4k_tok_s": 51.55,
+  "decode_c2_short_tok_s": 75.71,
+  "decode_c4_short_tok_s": 100.733,
+  "step_us_1row_3800": 19146,
+  "step_us_8rows_3800": 32985,
+  "window8_ms_4k": 29.248,
+  "propose_ms": 8.45,
+  "propose_ms_2req": 8.935,
+  "propose_ms_4req": 9.975,
+  "decode_mean4_tok_s": 81.653,
+  "decode_prose_tok_s": 41.812,
+  "decode_code_tok_s": 122.932,
+  "decode_structured_tok_s": 73.601,
+  "decode_json_tok_s": 88.315,
+  "speedup_chat": 0.897,
+  "speedup_code": 2.252,
+  "speedup_json": 1.66,
+  "speedup_longctx": 1.572,
+  "speedup_tool": 2.372,
+  "speedup_reasoning": 1.41,
+  "speedup_c4_aggregate": 1.109
+ },
+ "notes": "Engine 1d53344 built by build REV (lab build). Window and proposal timings use the synthetic cycled ids list of the spec-speed record; real-text windows are in fuse-decode. Kernel durations in nsys include PDL waits."
+}

@@ -1,0 +1,2 @@
+# profile bootstrap (PROFILE_MEASURED=0), spark@node-2, HTTP :8000
+exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --no-vision --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000

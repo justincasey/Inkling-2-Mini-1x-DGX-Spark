@@ -1,0 +1,9 @@
+16:53:43 bench decode-4k against http://node-1:8000 (inkling-2-mini-1x-dgx-spark, window 262144); results in bench/runs/20261123T225343Z-decode-4k
+16:53:43 gate decode-4k: python3 ~/projects/inkling2-mini-k-real/bench/rexl3/sweep_decode.py --url http://node-1:8000 --model inkling-2-mini-1x-dgx-spark --window 262144 --max-total 1048576 --phase depth --ctxs 4096 --conc 1 --modes default --depth-modes default --depth-reps 3 --out ~/projects/inkling2-mini-k-real/bench/runs/20261123T225343Z-decode-4k/decode-4k.json
+PASS decode-4k
+METRIC decode_default_c1_ctx4096_tok_s=98.068
+METRIC decode_default_c1_ctx4096_tpr=3.938
+METRIC decode_sweep_shallow_runs=0
+METRIC decode_sweep_depth_runs=3
+METRIC decode_sweep_flagged=0
+bench decode-4k: pass run=bench/runs/20261123T225343Z-decode-4k

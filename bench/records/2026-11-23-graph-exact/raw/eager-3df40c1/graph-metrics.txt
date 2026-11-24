@@ -1,0 +1,6 @@
+rexl3_graph_cache_replays_total 0
+rexl3_graph_cache_captures_total 0
+rexl3_graph_cache_eager_windows_total 4684
+rexl3_graph_cache_evictions_total 0
+rexl3_graph_cache_capture_failures_total 0
+rexl3_graph_cache_capture_seconds_total 0

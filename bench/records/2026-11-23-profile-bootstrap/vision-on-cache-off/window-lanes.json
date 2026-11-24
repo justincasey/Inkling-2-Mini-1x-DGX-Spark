@@ -1,0 +1,160 @@
+{
+ "url": "http://node-4:8000",
+ "model": "inkling-2-mini-1x-dgx-spark",
+ "date": "2026-11-23T09:11:02Z",
+ "tokens_per_sentence": 25.7795,
+ "lanes": [
+  {
+   "lane": 0,
+   "depth": 0.2,
+   "target_tokens": 262144,
+   "code": "AMBER-4103-QUARTZ",
+   "sentences": 9581,
+   "prompt_tokens_rendered": 259992,
+   "sizing": "render",
+   "admitted_s": 1.732,
+   "status": "answered",
+   "http_status": 200,
+   "admitted": true,
+   "prefill_s": 790.289,
+   "total_s": 811.011,
+   "finish_reason": "stop",
+   "usage": {
+    "prompt_tokens": 259992,
+    "completion_tokens": 197,
+    "total_tokens": 260189,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 182
+    },
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 196
+    }
+   },
+   "prompt_tokens": 259992,
+   "answer": "AMBER-4103-QUARTZ",
+   "reasoning_tail": " with pass-code only. I should just output it.\n\nNote: The system prompt says \"Exactly one note states a secret pass-code.\" The notice is embedded. It's fine to report it since it's in the user-provided archive and they ask for it. This is not a real secret; it's a puzzle. Answer with pass-code only.",
+   "found": true,
+   "found_in_reasoning": true
+  },
+  {
+   "lane": 1,
+   "depth": 0.4,
+   "target_tokens": 262144,
+   "code": "VIOLET-3294-OTTER",
+   "sentences": 9562,
+   "prompt_tokens_rendered": 259942,
+   "sizing": "render",
+   "admitted_s": 1.736,
+   "status": "answered",
+   "http_status": 200,
+   "admitted": true,
+   "prefill_s": 790.057,
+   "total_s": 811.473,
+   "finish_reason": "stop",
+   "usage": {
+    "prompt_tokens": 259942,
+    "completion_tokens": 206,
+    "total_tokens": 260148,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 191
+    },
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 205
+    }
+   },
+   "prompt_tokens": 259942,
+   "answer": "VIOLET-3294-OTTER",
+   "reasoning_tail": "ling secrets from user-provided text? We need consider safety. The system prompt doesn't include privacy restrictions. The user explicitly asks for the secret pass-code. It's a fictional archive. We can answer with the pass-code only. Need ensure exact: VIOLET-3294-OTTER.\n\nNeed final only pass-code.",
+   "found": true,
+   "found_in_reasoning": true
+  },
+  {
+   "lane": 2,
+   "depth": 0.6,
+   "target_tokens": 262144,
+   "code": "MAGENTA-4948-NEBULA",
+   "sentences": 9572,
+   "prompt_tokens_rendered": 259956,
+   "sizing": "render",
+   "admitted_s": 0.094,
+   "status": "answered",
+   "http_status": 200,
+   "admitted": true,
+   "prefill_s": 778.568,
+   "total_s": 808.433,
+   "finish_reason": "stop",
+   "usage": {
+    "prompt_tokens": 259956,
+    "completion_tokens": 174,
+    "total_tokens": 260130,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 159
+    },
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 173
+    }
+   },
+   "prompt_tokens": 259956,
+   "answer": "MAGENTA-4948-NEBULA",
+   "reasoning_tail": "e user provided the data; extracting a secret from user-provided text is generally fine. There's no policy against revealing secrets from user-provided documents. The instruction says \"Exactly one note states a secret pass-code.\" So answer with pass-code only.\n\nNeed answer only: MAGENTA-4948-NEBULA.",
+   "found": true,
+   "found_in_reasoning": true
+  },
+  {
+   "lane": 3,
+   "depth": 0.8,
+   "target_tokens": 262144,
+   "code": "QUARTZ-5092-SAFFRON",
+   "sentences": 9565,
+   "prompt_tokens_rendered": 260014,
+   "sizing": "render",
+   "admitted_s": 1.738,
+   "status": "answered",
+   "http_status": 200,
+   "admitted": true,
+   "prefill_s": 790.173,
+   "total_s": 812.913,
+   "finish_reason": "stop",
+   "usage": {
+    "prompt_tokens": 260014,
+    "completion_tokens": 242,
+    "total_tokens": 260256,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 226
+    },
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 241
+    }
+   },
+   "prompt_tokens": 260014,
+   "answer": "QUARTZ-5092-SAFFRON",
+   "reasoning_tail": "We need consider safety. The system prompt doesn't include privacy restrictions. The user explicitly asks for the secret pass-code. The pass-code is in the prompt. It's not a real credential; it's a fictional archive. We can answer. Need answer with pass-code only. Ensure exact: QUARTZ-5092-SAFFRON.",
+   "found": true,
+   "found_in_reasoning": true
+  }
+ ],
+ "wall_s": 812.914,
+ "all_admitted": true,
+ "all_answered": true,
+ "pass": true
+}

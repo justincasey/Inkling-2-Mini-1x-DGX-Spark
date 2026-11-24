@@ -1,0 +1,4 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-fuse/target/release/deps/inkling2_moe_mixed-107fa5e4ee85b701
+== gb-cuda graph
+test graph_replay_equals_eager_over_bands ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 0.30s

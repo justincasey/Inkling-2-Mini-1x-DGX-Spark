@@ -1,0 +1,49 @@
+== chat-capital-effort0 engine-dump vs engine fixture
+rows 40  logits: argmax equal 39/40  top-2 equal 36/40  cos min 0.9864638  rel L2 max 1.764e-01  KL mean 7.344e-03
+hidden: worst visit 47 rel L2 1.099e-01 (row max 3.664e-01, cos min 0.9623741)
+router: 238 flips of 1920 pairs
+== chat-capital-effort0 engine-dump vs spec fixture
+rows 40  logits: argmax equal 39/40  top-2 equal 36/40  cos min 0.9845397  rel L2 max 1.977e-01  KL mean 6.912e-03
+hidden: worst visit 40 rel L2 6.371e-02 (row max 2.844e-01, cos min 0.9587708)
+router: 245 flips of 1920 pairs
+== chat-capital-effort0 engine fixture vs spec fixture
+rows 40  logits: argmax equal 40/40  top-2 equal 36/40  cos min 0.9986345  rel L2 max 7.756e-02  KL mean 2.772e-03
+hidden: worst visit 47 rel L2 1.256e-01 (row max 6.727e-01, cos min 0.9433850)
+router: 182 flips of 1920 pairs
+== chat-sky-effort0.9 engine-dump vs engine fixture
+rows 49  logits: argmax equal 47/49  top-2 equal 44/49  cos min 0.9972384  rel L2 max 8.645e-02  KL mean 4.113e-03
+hidden: worst visit 48 rel L2 4.632e-02 (row max 1.336e-01, cos min 0.9911439)
+router: 213 flips of 2352 pairs
+== chat-sky-effort0.9 engine-dump vs spec fixture
+rows 49  logits: argmax equal 47/49  top-2 equal 46/49  cos min 0.9959931  rel L2 max 9.426e-02  KL mean 4.927e-03
+hidden: worst visit 37 rel L2 4.895e-02 (row max 1.708e-01, cos min 0.9853195)
+router: 229 flips of 2352 pairs
+== chat-sky-effort0.9 engine fixture vs spec fixture
+rows 49  logits: argmax equal 49/49  top-2 equal 45/49  cos min 0.9958909  rel L2 max 9.516e-02  KL mean 2.458e-03
+hidden: worst visit 40 rel L2 4.331e-02 (row max 1.738e-01, cos min 0.9847788)
+router: 204 flips of 2352 pairs
+== raw-counting engine-dump vs engine fixture
+rows 50  logits: argmax equal 50/50  top-2 equal 50/50  cos min 0.9877210  rel L2 max 1.722e-01  KL mean 2.832e-04
+hidden: worst visit 24 rel L2 1.782e-01 (row max 9.586e-01, cos min 0.6059032)
+router: 420 flips of 2400 pairs
+== raw-counting engine-dump vs spec fixture
+rows 50  logits: argmax equal 50/50  top-2 equal 50/50  cos min 0.9950491  rel L2 max 9.942e-02  KL mean 2.679e-04
+hidden: worst visit 36 rel L2 1.586e-01 (row max 7.467e-01, cos min 0.7267780)
+router: 463 flips of 2400 pairs
+== raw-counting engine fixture vs spec fixture
+rows 50  logits: argmax equal 50/50  top-2 equal 50/50  cos min 0.9874657  rel L2 max 1.883e-01  KL mean 1.660e-04
+hidden: worst visit 36 rel L2 1.681e-01 (row max 7.531e-01, cos min 0.7206692)
+router: 407 flips of 2400 pairs
+== raw-long-window engine-dump vs engine fixture
+rows 1126  logits: argmax equal 1126/1126  top-2 equal 1112/1126  cos min 0.8712625  rel L2 max 1.043e+00  KL mean 7.180e-04
+hidden: worst visit 36 rel L2 2.561e-01 (row max 1.007e+00, cos min 0.5329789)
+router: 14827 flips of 54048 pairs
+== raw-long-window engine-dump vs spec fixture
+rows 1126  logits: argmax equal 1126/1126  top-2 equal 1110/1126  cos min 0.9005770  rel L2 max 5.597e-01  KL mean 2.308e-04
+hidden: worst visit 36 rel L2 2.598e-01 (row max 1.026e+00, cos min 0.5047815)
+router: 14589 flips of 54048 pairs
+== raw-long-window engine fixture vs spec fixture
+rows 1126  logits: argmax equal 1126/1126  top-2 equal 1115/1126  cos min 0.8827389  rel L2 max 5.613e-01  KL mean 6.808e-04
+hidden: worst visit 36 rel L2 2.675e-01 (row max 1.032e+00, cos min 0.5070049)
+router: 15414 flips of 54048 pairs
+done

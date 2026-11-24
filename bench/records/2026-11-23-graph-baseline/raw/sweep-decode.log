@@ -1,0 +1,27 @@
+shallow  serial c1 ctx 4096 run 1: 37.23 tok/s, tokens/round 1.002
+shallow  serial c1 ctx 4096 run 2: 37.21 tok/s, tokens/round 1.002
+shallow  serial c1 ctx 4096 run 3: 37.24 tok/s, tokens/round 1.002
+shallow  serial c2 ctx 4096 run 1: 56.25 tok/s, tokens/round 1.002
+shallow  serial c2 ctx 4096 run 2: 56.25 tok/s, tokens/round 1.002
+shallow  serial c2 ctx 4096 run 3: 56.23 tok/s, tokens/round 1.002
+shallow  serial c4 ctx 4096 run 1: 80.46 tok/s, tokens/round 1.002
+shallow  serial c4 ctx 4096 run 2: 80.35 tok/s, tokens/round 1.002
+shallow  serial c4 ctx 4096 run 3: 80.26 tok/s, tokens/round 1.002
+depth  serial c1 ctx 4096 run 1: 36.14 tok/s, tokens/round 1.004
+depth  serial c1 ctx 4096 run 2: 36.18 tok/s, tokens/round 1.004
+depth  serial c1 ctx 4096 run 3: 36.16 tok/s, tokens/round 1.004
+depth  serial c2 ctx 4096 run 1: FAILED [FLAGGED a stream failed or produced fewer than 2 events]
+depth  serial c2 ctx 4096 run 2: FAILED [FLAGGED a stream failed or produced fewer than 2 events]
+depth  serial c2 ctx 4096 run 3: FAILED [FLAGGED a stream failed or produced fewer than 2 events]
+depth  serial c4 ctx 4096 run 1: FAILED [FLAGGED a stream failed or produced fewer than 2 events]
+depth  serial c4 ctx 4096 run 2: FAILED [FLAGGED a stream failed or produced fewer than 2 events]
+depth  serial c4 ctx 4096 run 3: FAILED [FLAGGED a stream failed or produced fewer than 2 events]
+METRIC decode_serial_c1_ctx4096_tok_s=36.694
+METRIC decode_serial_c1_ctx4096_tpr=1.003
+METRIC decode_serial_c2_ctx4096_tok_s=56.246
+METRIC decode_serial_c2_ctx4096_tpr=1.002
+METRIC decode_serial_c4_ctx4096_tok_s=80.351
+METRIC decode_serial_c4_ctx4096_tpr=1.002
+METRIC decode_sweep_shallow_runs=9
+METRIC decode_sweep_depth_runs=9
+METRIC decode_sweep_flagged=6

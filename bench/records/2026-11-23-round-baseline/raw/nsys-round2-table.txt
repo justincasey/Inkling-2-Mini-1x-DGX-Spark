@@ -1,0 +1,59 @@
+graph launches on the engine thread: 173 kernels 533499 memcpy 4888 memset 444
+rounds analysed: 171
+period       median     52.737  mean     53.660
+win_span     median     43.225  mean     43.019
+win_busy     median     43.038  mean     42.826
+win_n        median   2887.000  mean   2887.000
+launch_lat   median      1.618  mean      1.331
+post_gap     median      0.023  mean      0.024
+mid_span     median      7.709  mean      9.086
+mid_busy     median      7.245  mean      8.472
+mid_n        median    189.000  mean    210.082
+mid_biggap   median      0.092  mean      0.207
+pre_gap      median      1.623  mean      1.531
+win_span 34.7..41.0 ms: n=57 period 52.47 win_busy 38.79 mid_span 11.61 mid_busy 10.80 post_gap 0.023 pre_gap 1.859
+win_span 41.2..45.0 ms: n=57 period 52.48 win_busy 43.08 mid_span 7.77 mid_busy 7.30 post_gap 0.023 pre_gap 1.420
+win_span 45.0..49.4 ms: n=57 period 56.03 win_busy 46.61 mid_span 7.88 mid_busy 7.32 post_gap 0.024 pre_gap 1.316
+WINDOW kernels (per round) total ms/round 60.143
+    36.297 ms  x  252.0  avg    144.0 us  moe_gemv_kernel
+     8.449 ms  x  289.0  avg     29.2 us  linear_kernel
+     2.607 ms  x  400.0  avg      6.5 us  lin_narrow_kernel
+     2.066 ms  x  126.0  avg     16.4 us  down_combine_kernel
+     1.622 ms  x  126.0  avg     12.9 us  gateup_epilogue_kernel
+     1.223 ms  x   48.0  avg     25.5 us  merge_kernel
+     1.211 ms  x   48.0  avg     25.2 us  attn_kernel
+     1.093 ms  x  415.0  avg      2.6 us  rot_in_kernel
+     0.976 ms  x  288.0  avg      3.4 us  rot_out_kernel
+     0.587 ms  x   48.0  avg     12.2 us  select_kernel
+     0.539 ms  x   72.0  avg      7.5 us  mix_raw_kernel
+     0.499 ms  x  126.0  avg      4.0 us  own_remap_kernel
+     0.444 ms  x  126.0  avg      3.5 us  group_kernel
+     0.442 ms  x   96.0  avg      4.6 us  conv_kernel
+BETWEEN-WINDOWS kernels (drafter, commit; per round) total ms/round 9.738
+     3.370 ms  x    7.0  avg    481.4 us  markov_logits_kernel
+     2.400 ms  x   36.0  avg     66.7 us  linear_kernel
+     0.638 ms  x    7.0  avg     91.1 us  local_kernel
+     0.546 ms  x    3.0  avg    182.1 us  attn_part_kernel
+     0.532 ms  x    7.0  avg     76.1 us  merge_kernel
+     0.524 ms  x    3.0  avg    174.8 us  attn_merge_kernel
+     0.513 ms  x    2.2  avg    232.0 us  gateup_kernel
+     0.256 ms  x    2.2  avg    115.9 us  down_kernel
+     0.129 ms  x    1.7  avg     75.3 us  big_kernel
+     0.105 ms  x    3.0  avg     34.8 us  block_prep_kernel
+     0.100 ms  x   36.7  avg      2.7 us  rot_in_kernel
+     0.082 ms  x    2.3  avg     35.1 us  lin_wide2_kernel
+     0.063 ms  x    7.0  avg      9.0 us  markov_gate_kernel
+     0.062 ms  x   29.0  avg      2.1 us  rot_out_kernel
+engine-thread CUDA API ms per round (windows [we-3ms, next ws+0.2ms]):
+     7.321  cudaStreamSynchronize_v3020
+     0.977  cudaGraphLaunch_v10000
+     0.752  cudaLaunchKernelExC_v11060
+     0.587  cudaLaunchKernel_v7000
+     0.127  cudaGraphInstantiate_v12000
+     0.102  cudaMemcpyAsync_v3020
+     0.046  cudaMemcpy_v3020
+     0.029  cudaMemsetAsync_v3020
+     0.013  cudaGraphDestroy_v10000
+     0.001  cudaStreamWaitEvent_v3020
+     0.001  cudaStreamEndCapture_v10000
+     0.001  cudaEventRecord_v3020

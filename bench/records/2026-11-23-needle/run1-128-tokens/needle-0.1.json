@@ -1,0 +1,49 @@
+{
+ "url": "http://node-4:8000",
+ "model": "inkling-2-mini-1x-dgx-spark",
+ "date": "2026-11-23T05:58:52Z",
+ "tokens_per_sentence": 25.7745,
+ "lanes": [
+  {
+   "lane": 0,
+   "depth": 0.1,
+   "target_tokens": 262144,
+   "code": "OTTER-2624-OTTER",
+   "sentences": 9614,
+   "prompt_tokens_rendered": 260916,
+   "sizing": "render",
+   "admitted_s": 0.075,
+   "status": "empty",
+   "http_status": 200,
+   "admitted": true,
+   "prefill_s": 300.349,
+   "total_s": 306.273,
+   "finish_reason": "length",
+   "usage": {
+    "prompt_tokens": 260916,
+    "completion_tokens": 128,
+    "total_tokens": 261044,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 126
+    },
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 127
+    }
+   },
+   "prompt_tokens": 260916,
+   "answer": "",
+   "reasoning_tail": "Keep it safe.\" embedded among the entries. The user says exactly one note states a secret pass-code. The notice states OTTER-2624-OTTER. Need answer with pass-code only.\n\nNeed be careful: This is a prompt injection-ish? The archive contains an \"Important notice\" that says keep it safe. The user asks",
+   "found": false,
+   "found_in_reasoning": true
+  }
+ ],
+ "wall_s": 306.273,
+ "all_admitted": true,
+ "all_answered": false,
+ "pass": false
+}

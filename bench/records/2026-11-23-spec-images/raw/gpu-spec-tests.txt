@@ -1,0 +1,54 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-draftwire/target/release/deps/inkling2_loop_spec-123725ce3eae0eb8
+== gb-model taps_equal
+test taps_equal_the_oracle_dump_planes ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=114130 took_mib=0.0 mem_available_mib=117351
+LOOP_SPEC_tap0 visit 5 rows 700 elements 1612800 mismatched 0 first None
+LOOP_SPEC_tap1 visit 23 rows 700 elements 1612800 mismatched 0 first None
+LOOP_SPEC_tap2 visit 41 rows 700 elements 1612800 mismatched 0 first None
+LOOP_SPEC_tap3 final norm rows 700 elements 1612800 mismatched 0 first None
+LOOP_SPEC_chunks cut 311 first_chunk_mismatched 0 first None second_chunk_mismatched 0 first None
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 11.67s
+== gb-model no_drafter
+test no_drafter_means_no_tap_work_and_the_same_bits ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=115465 took_mib=0.0 mem_available_mib=118455
+LOOP_SPEC_no_drafter_bits runs 6 equal (8-row and 1-row windows, logits and top-64)
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 23.22s
+== gb-model graph_replay
+test graph_replay_equals_eager_with_taps_on ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=114878 took_mib=0.0 mem_available_mib=117868
+LOOP_SPEC_graph_taps windows 6 captures 4 replays 4 eager 22 capture_failures 0
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 12.21s
+== gb-model the_drafter_follows
+test the_drafter_follows_prefill_and_commits ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=115368 took_mib=0.0 mem_available_mib=118358
+LOOP_SPEC_follow round 0 window_at 700 keep 1 draft_len 701
+LOOP_SPEC_follow round 1 window_at 701 keep 3 draft_len 704
+LOOP_SPEC_follow round 2 window_at 704 keep 8 draft_len 712
+LOOP_SPEC_follow round 3 window_at 712 keep 1 draft_len 713
+LOOP_SPEC_follow round 4 window_at 713 keep 8 draft_len 721
+LOOP_SPEC_propose slot0_at 721 drafts [25208, 5348, 79, 90, 72, 11, 220] slot1_at 600 drafts [25208, 45255, 90055, 68014, 2918, 6, 82]
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 12.11s
+== gb-model draft_equals
+test draft_equals_the_forced_replay ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=115281 took_mib=0.0 mem_available_mib=118272
+LOOP_SPEC_replay round 0 pos 1000 drafts [25208, 5348, 79, 90, 72, 92, 11] accepted 0 next 220
+LOOP_SPEC_replay round 1 pos 1001 drafts [25162, 220, 25162, 220, 25162, 220, 131480] accepted 0 next 220
+LOOP_SPEC_replay round 2 pos 1002 drafts [25162, 220, 18, 12, 971, 220, 131480] accepted 0 next 157
+LOOP_SPEC_replay round 3 pos 1003 drafts [113, 113, 5348, 79, 25208, 14771, 14141] accepted 0 next 238
+LOOP_SPEC_replay rounds 4 drafted 28 accepted 0 final_drafts [68014, 2918, 6, 82, 159942, 302, 220] previous Some([113, 113, 5348, 79, 25208, 14771, 14141])
+LOOP_SPEC_replay_vs_prefill_context equal true window_fed [68014, 2918, 6, 82, 159942, 302, 220] prefill_fed [68014, 2918, 6, 82, 159942, 302, 220]
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 12.94s
+== gb-model a_snapshot_restores
+test a_snapshot_restores_the_drafters_proposals ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=114973 took_mib=0.0 mem_available_mib=117963
+LOOP_SPEC_snapshot_bytes 179294720 priced 179294720
+LOOP_SPEC_snapshot cut 512 pages 2 drafts [126038, 109773, 55147, 11657, 19086, 89616, 19086] accepted 0 next_drafts [82, 25208, 21584, 131480, 131480, 131480, 131480]
+LOOP_SPEC_snapshot cut 700 pages 3 drafts [126038, 109773, 55147, 11657, 19086, 89616, 19086] accepted 0 next_drafts [82, 25208, 21584, 131480, 131480, 131480, 131480]
+LOOP_SPEC_snapshot cut 1024 pages 4 drafts [126038, 109773, 55147, 11657, 19086, 89616, 19086] accepted 0 next_drafts [82, 25208, 21584, 131480, 131480, 131480, 131480]
+LOOP_SPEC_snapshot cut 1100 pages 5 drafts [126038, 109773, 55147, 11657, 19086, 89616, 19086] accepted 0 next_drafts [82, 25208, 21584, 131480, 131480, 131480, 131480]
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 16.48s
+== gb-model a_cached_decode_equals
+test a_cached_decode_equals_the_uncached_one_through_windows ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=115424 took_mib=0.0 mem_available_mib=118415
+LOOP_SPEC_snapshot_bytes 179294720 priced 179294720
+LOOP_SPEC_cached_decode round 0 pos 1401 drafts [126038, 109773, 55147, 11657, 19086, 89616, 19086] accepted 0 next 49192
+LOOP_SPEC_cached_decode round 1 pos 1402 drafts [82, 25208, 21584, 131480, 131480, 131480, 131480] accepted 0 next 71793
+LOOP_SPEC_cached_decode round 2 pos 1403 drafts [25208, 19084, 131480, 131480, 131480, 131480, 172] accepted 0 next 88310
+LOOP_SPEC_cached_decode round 3 pos 1404 drafts [11, 220, 131480, 11, 220, 131480, 11] accepted 0 next 6633
+LOOP_SPEC_cached_decode round 4 pos 1405 drafts [1020, 96971, 30, 1, 11, 1, 11] accepted 0 next 6633
+LOOP_SPEC_cached_decode round 5 pos 1406 drafts [14781, 25208, 14771, 6633, 14781, 131480, 6633] accepted 0 next 6633
+LOOP_SPEC_cached_decode committed 6 tokens [50459, 49192, 71793, 88310, 6633, 6633] final_drafts [14141, 25208, 6633, 14781, 6633, 14781, 25208]
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 12.99s

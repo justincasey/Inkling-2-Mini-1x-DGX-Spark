@@ -1,0 +1,6 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-slim/target/release/deps/inkling2_dspark-2190377fb6671b23
+== gb-cuda slim_proposal_timing
+test mini_drafter::slim_proposal_timing ... SLIM_TIMING ctx 32768 b=1: DraftSlim off 7.281 ms, on 4.070 ms, saved 3.212 ms
+SLIM_TIMING ctx 32768 b=2: DraftSlim off 8.709 ms, on 5.250 ms, saved 3.459 ms
+SLIM_TIMING ctx 32768 b=4: DraftSlim off 11.793 ms, on 7.757 ms, saved 4.036 ms
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 30 filtered out; finished in 4.67s

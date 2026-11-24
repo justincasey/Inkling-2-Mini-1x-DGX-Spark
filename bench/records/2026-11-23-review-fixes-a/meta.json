@@ -1,0 +1,181 @@
+{
+ "name": "review-fixes-a",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "399be2b5ab60e07dec22455800c331d9a7dbf329",
+  "dirty_files": []
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "87c39494e8adf195468473793a8d0ffa4fdd97a7",
+  "sha256": "7fff2411881d5cc5cf84e4000800c20c9dabe30f5c8784f3ffc938bd888bed4a",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "87c39494e8adf195468473793a8d0ffa4fdd97a7",
+   "system_fingerprint": "fp_87c39494e8ad_d77a44ac_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "d77a44ac64b94d0d",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2184 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "dspark",
+  "PREFIX_CACHE": "on",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "tests": [
+  {
+   "bin": "gb-model --lib",
+   "filter": "engine::tests::a_fixed_cache_at_max_with_the_drafter_boots_and_is_not_subtracted_twice + a_fixed_cache_on_a_box_one_gib_too_small_is_refused_by_name + an_auto_cache_leaves_the_floor_and_the_variable_part (fix 1; the first fails with the double subtraction put back)",
+   "passed": 3,
+   "failed": 0
+  },
+  {
+   "bin": "gb-server bin",
+   "filter": "the_minis_spec_default_is_the_block_drafter_and_every_explicit_mode_passes_through (fix 2: 8 modes through the real parser)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "config::check_kernel_constants_accepts_the_shipped_config_and_refuses_each_value_changed_alone (fix 3: 20 keys) + engine::the_pack_is_checked_against_the_kernels_before_the_load",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "engine::the_spec_environment_knobs_are_validated_strictly_before_the_load + a_draft_directory_is_refused_by_name (fix 4)",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "memory::memory_the_plan_prices_exactly_the_listed_buffers (named items incl. EXL3 columns and top-k partials) + the engine plan pins (fix 5)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "engine::a_pack_missing_either_tower_anchor_refuses_images_by_name (fix 6: one key at a time)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "docs",
+   "filter": "stale comments and fragments reworded; dims::device_constant_gaps and its test removed (fixes 7, 8)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "backend tests: window limits, commit validation, wrong row count, fatal step, FailRestoreLate, failed prefill after begin (fix 8)",
+   "passed": 7,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "engine tests: drafter plan 18,576 B/token, prefill/window clamps, pool below one context, admission at 1,048,576 with 16,388 pages (fix 8)",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "gb-server --test stop_in_batch",
+   "filter": "the third token of a round and the reasoning count (fix 8)",
+   "passed": 6,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2 (the Small's 31 unchanged)",
+   "passed": 146,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start (node-1)",
+   "filter": "bootstrap with the shipping defaults (spec dspark, cache on, vision on) boots",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start (node-1)",
+   "filter": "max with --prefix-cache-mib 12288 (drafter on, vision on) boots, 16,388 pages, cache 12.00 GiB",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start (node-1)",
+   "filter": "max with --prefix-cache auto boots",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "exactness.py record + diff + concurrent (node-1, drafter on)",
+   "filter": "replies sha256 f7975a6c...433d, identical to the pin; concurrent == solo",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_rank forward_oracle_gate (node-1)",
+   "filter": "dump c25f9876...c45c0 twice; chunk widths a105f245...f41a",
+   "passed": 3,
+   "failed": 0
+  }
+ ],
+ "commands": [
+  "NODES=node-1 REXL3_SRC=<engine worktree> ./inkling2mini.sh build 87c39494e8adf195468473793a8d0ffa4fdd97a7",
+  "run_profile.sh LABEL PROFILE=bootstrap | PROFILE=max PREFIX_CACHE=12288 | PROFILE=max PREFIX_CACHE=auto (the controller's defaults otherwise: --spec dspark, vision on)",
+  "./inkling2mini.sh start; exactness.py record OUT --max-tokens 128; diff PIN OUT; concurrent --max-tokens 64; stop",
+  "scripts/ops_dev.sh test inkling2_loop_rank forward_oracle_gate"
+ ],
+ "metrics": {
+  "max_mib12288_predicted_gib": 12.08,
+  "max_mib12288_measured_ready_mib": 11021,
+  "max_mib12288_guard_min_mib": 10856,
+  "max_mib12288_process_mib": 106220,
+  "max_cacheauto_predicted_gib": 12.28,
+  "max_cacheauto_measured_ready_mib": 12452,
+  "max_cacheauto_guard_min_mib": 12271,
+  "max_cacheauto_process_mib": 104991,
+  "bootstrap_defaults_measured_ready_mib": 71557,
+  "bootstrap_defaults_process_mib": 46663,
+  "exactness_replies_sha256": "f7975a6c1dae761ef24508177ce06da5e0607d94f1e81c1c7a5a72b9e105433d"
+ },
+ "notes": "Engine 87c39494e8ad (branch inkling2-loop-backend). See README.",
+ "gate": "review-fixes-a",
+ "result": "pass",
+ "node": "node-1"
+}

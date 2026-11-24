@@ -1,0 +1,16 @@
+{
+ "request": {
+  "messages": "<messages: 1, image data urls elided>",
+  "reasoning_effort": "none",
+  "max_tokens": 20
+ },
+ "status": 400,
+ "wall_s": 0.04,
+ "reply": {
+  "error": {
+   "message": "messages[0].content[1]: unsupported image: 2720x2720 is 68 x 68 = 4624 tokens of 40 pixels, over the cap of 4096 (Inkling 2 does not resize)",
+   "type": "invalid_request_error",
+   "code": 400
+  }
+ }
+}

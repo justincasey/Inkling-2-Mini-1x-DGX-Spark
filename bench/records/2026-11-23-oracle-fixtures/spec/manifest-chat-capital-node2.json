@@ -1,0 +1,35 @@
+{
+ "meta": {
+  "pack_config_sha256": "d8a196f413ed98937820ba601ada03f98aa608648e6c8406a16f5550af86f473",
+  "oracle_source_sha256": "80f7767c96358b2f5e8a0568755db262a55b84d99bfe98544a8cc332759b1903",
+  "numerics_version": "1",
+  "emulate": "none"
+ },
+ "fixtures": {
+  "chat-capital-effort0": {
+   "sha256": "317571c029c880c2f926de4554b1897820086ec05ebb301e2df91507a33cc926",
+   "prompt_len": 25,
+   "generated": [
+    200001,
+    200008,
+    371,
+    150409,
+    171960,
+    149887,
+    149876,
+    151451,
+    149879,
+    151194,
+    11,
+    150011,
+    151290,
+    13,
+    170289,
+    150893
+   ],
+   "generated_text": "<|message_model|><|content_thinking|>The user asks for the capital of France, one word. Need answer",
+   "seconds": 765.3,
+   "verified_recompute": true
+  }
+ }
+}

@@ -1,0 +1,25 @@
+engine 2e684eb7109f11b6bccc2987de17c967663e3430
+built 2e684eb7109f11b6bccc2987de17c967663e3430: rexl3-serve sha256 e06e78fddd421d03d3d15bbd1f16ddbf11ca20ad01f2f5ec7179ecbd85eda71c
+07:02:43 build: engine 2e684eb7109f installed under /home/spark/inkling-2-mini-1x-dgx-spark/bin
+B1DONE
+bench ref rc=0
+METRIC decode_c1_tok_s=81.464
+METRIC decode_c4_tok_s=101.115
+PASS pin
+exactness record rc=0
+identical: 4 replies (base vs final-b)
+exactness diff rc=0
+exactness concurrent rc=0
+replies sha256 f7975a6c1dae761ef24508177ce06da5e0607d94f1e81c1c7a5a72b9e105433d
+gate spec rc=0
+PASS spec
+specedge rc=0
+  concurrent round 2 stop: equal
+  concurrent round 2 max5: equal
+concurrent_mixed: PASS (0 of 12 cases failed)
+specedge: PASS: 65 cases, 0 failures, 0 warnings -> /tmp/gl/final-b/edge.json
+gate cache rc=0
+PASS cache
+gate vision rc=0
+PASS vision-record
+DONE

@@ -1,0 +1,9 @@
+METRIC decode_c1_tok_s=53.394
+METRIC decode_c4_tok_s=100.393
+METRIC decode_c8_tok_s=103.134
+METRIC decode_code_tok_s=53.857
+METRIC decode_json_tok_s=53.18
+METRIC decode_prose_tok_s=53.125
+METRIC decode_structured_tok_s=53.413
+METRIC decode_tokens=2048
+METRIC decode_tokens_per_round=1.002

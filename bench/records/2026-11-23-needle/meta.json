@@ -1,0 +1,96 @@
+{
+ "name": "needle",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "77d7161e8c6b50afa7082dd3e4a29e75891d93be",
+  "dirty_files": []
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "3287e80d16363703ed3c77725a1732dd4bd254b4",
+  "sha256": "ebcff82705fa38d9119b8b18013106fc707156747a65c1b6628456a26286e7df",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "3287e80d16363703ed3c77725a1732dd4bd254b4",
+   "system_fingerprint": "fp_3287e80d1636_ca3ba287_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "ca3ba287e1a5ac9e",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "none",
+  "PREFIX_CACHE": "off",
+  "VISION": "off",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "REXL3_ALLOW_UNGATED_COMPONENTS=1",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 REXL3_ALLOW_UNGATED_COMPONENTS=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec none --prefix-cache off --no-vision --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-4",
+ "gate": "needle",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "bench/tools/needle.py",
+   "filter": "depth 0.1, 260019 prompt tokens, max-tokens 1024",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/needle.py",
+   "filter": "depth 0.5, 260019 prompt tokens, max-tokens 1024",
+   "passed": 1,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "prompt_tokens": 260019,
+  "prefill_s_depth_0_1": 299.024,
+  "prefill_s_depth_0_5": 299.067,
+  "prefill_tok_s": 869.5,
+  "reasoning_tokens_depth_0_1": 476,
+  "reasoning_tokens_depth_0_5": 268,
+  "guard_min_mib": 78638,
+  "run1_128_tokens_found_in_content": 0
+ },
+ "commands": [
+  "./inkling2mini.sh start",
+  "./inkling2mini.sh memwatch begin",
+  "./inkling2mini.sh bench needle (run 1, default 128 tokens: empty content, code in reasoning)",
+  "python3 bench/tools/needle.py --tokens 262144 --max-model-len 262144 --max-tokens 1024 --depth 0.1",
+  "python3 bench/tools/needle.py --tokens 262144 --max-model-len 262144 --max-tokens 1024 --depth 0.5",
+  "./inkling2mini.sh memwatch report"
+ ],
+ "notes": "Pass requires --max-tokens 1024: the pack reasons before answering and 128 tokens end inside the reasoning. Bring-up lab build with REXL3_ALLOW_UNGATED_COMPONENTS=1. prefill_tok_s = 260019 / 299.0."
+}

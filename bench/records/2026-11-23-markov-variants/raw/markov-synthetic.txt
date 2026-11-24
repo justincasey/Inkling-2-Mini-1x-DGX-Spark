@@ -1,0 +1,10 @@
+MARKOV_VARIANT_AGREE synthetic features, 7 anchors [5, 40, 300, 700, 1024, 1100, 1300]
+MARKOV_VARIANT_AGREE free drafts equal (a vs c) at positions 1..7 of 7: [7, 7, 7, 7, 7, 7, 7]
+MARKOV_VARIANT_AGREE teacher-forced argmax equal (a vs c) at positions 1..7 of 7: [7, 7, 7, 7, 7, 7, 7]
+MARKOV_VARIANT_AGREE teacher-forced logits max |a - c| 0.125 (per step [0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125]), mean 5.762e-3
+MARKOV_VARIANT_GRAPH Bf16 pdl mask 0: variant c twice equal, graph replay == eager (free and forced)
+MARKOV_VARIANT_GRAPH Bf16 pdl mask 15: variant c twice equal, graph replay == eager (free and forced)
+MARKOV_VARIANT_GRAPH Int8 pdl mask 0: variant c twice equal, graph replay == eager (free and forced)
+MARKOV_VARIANT_GRAPH Int8 pdl mask 15: variant c twice equal, graph replay == eager (free and forced)
+MARKOV_VARIANT_TIMING b=1 at 1300 positions (int8 plane, median of 20 propose calls): a 7.862 ms, c 15.304 ms, c - a 7.443 ms per round
+MARKOV_VARIANT_TIMING b=4 at 1300 positions (int8 plane, median of 20 propose calls): a 9.951 ms, c 17.292 ms, c - a 7.341 ms per round

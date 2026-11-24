@@ -1,0 +1,72 @@
+04297485758e244c0d80b81aebb7ee119002d666e361972729a7a360789f656d prefill00000.safetensors 138547304
+a1bc63613eca77aff5720bbee1ba3e19893b82bb657f112832032575c85b4ec5 prefill00001.safetensors 86592464
+6660fe016849b427b1c3b0bdcd30c554cfd5cbe3cb252e291ad1a1504ffca729 prefill00002.safetensors 169720216
+c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0 prefill00003.safetensors 90056120
+d91960e0ec8e8225f59009332bcbc20319d68159aac9dcff32b1ada817bf125c prefill00004.safetensors 173183872
+0773323c2fcb46afeb14e107839700c71659f4dd74e1860655f9390db190f43d prefill00005.safetensors 121229024
+78dd998359eafb3bae0acec58b2ef49d1c5183aa1a34dc69733b2f7b1b020929 prefill00006.safetensors 3900077792
+288f2376b513488845010c4cde3943599fd2d776e1d381ccacbb9334e26987ce prefill00007.safetensors 3875832200
+a1bc63613eca77aff5720bbee1ba3e19893b82bb657f112832032575c85b4ec5 prefill00008.safetensors 86592464
+c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0 prefill00009.safetensors 90056120
+0773323c2fcb46afeb14e107839700c71659f4dd74e1860655f9390db190f43d prefill00010.safetensors 121229024
+288f2376b513488845010c4cde3943599fd2d776e1d381ccacbb9334e26987ce prefill00011.safetensors 3875832200
+prefill00000.json 0 40 [200002, 200004, 34182] ... [13, 170289]
+prefill00001.json 0 25 [200002, 200004, 34182] ... [13, 200010]
+prefill00002.json 0 49 [200002, 200004, 34182] ... [150011, 156021]
+prefill00003.json 0 26 [200002, 200004, 34182] ... [13, 200010]
+prefill00004.json 0 50 [16, 11, 220] ... [68107, 11]
+prefill00005.json 0 35 [16, 11, 220] ... [68040, 11]
+prefill00006.json 0 1126 [16, 220, 17] ... [98238, 220]
+prefill00007.json 0 1119 [16, 220, 17] ... [220, 85877]
+prefill00008.json 0 25 [200002, 200004, 34182] ... [13, 200010]
+prefill00009.json 0 26 [200002, 200004, 34182] ... [13, 200010]
+prefill00010.json 0 35 [16, 11, 220] ... [68040, 11]
+prefill00011.json 0 1119 [16, 220, 17] ... [220, 85877]
+rexl3 event=reexec reason=malloc_arena_max value=2 (set MALLOC_ARENA_MAX, or REXL3_MALLOC_REEXEC=0, to keep it off)
+rexl3 level=info event=prefill_contract contract=p2 default=1 var=REXL3_NEMO_PREFILL_CONTRACT
+rexl3 level=info event=glm_prefill_contract contract=p2 default=1 var=REXL3_GLM_PREFILL_CONTRACT dense=glm-fold128-v1 experts=glm-moe-fold128-2grp-v1 kda=glm-kda-chunk16-v1 mla-ae=glm-mla-ae-fold128-v1
+rexl3 level=info event=ling_mla_contract contract=p2 default=1 var=REXL3_LING_MLA_CONTRACT mla-ae=ling-mla-ae-fold128-bf16-v1 mla-attn=ling-mla-attn-tc32-bf16-v2-decode-split1024 router=ling-router-mma16-kasc-fp32-v1
+rexl3 event=start version=0.1.1 commit=7da8c61344842f4a2605591d22e97f5ad28d1a7e system_fingerprint=fp_7da8c6134484_0677d17b_cb1311_kvi8 nvcc=13.0.88 cuda_arch=sm_121 kernel_hash=0677d17bcd2acfa4 cudart=13.0 cuda_driver=13.0 cublas=13.1.1
+rexl3 event=toks_ready version=0.3.2 tier=neon algo=1 n_ids=200058 n_added=60 paths=0x3 par_threads=8
+rexl3 event=chat_format id=inkling2
+rexl3 event=reasoning_capabilities source=declared verdict=ok reasons=true open=<|content_thinking|> open_id=200008 close=<|end_message|> close_id=200010 switch=- template_default=off controls=reasoning_effort levels=none,minimal,low,medium,high,xhigh,max budget=false top_level=reasoning_effort unread=- undeclared=- findings=[]
+rexl3 event=boot phase=tokenizer_loaded t=0.953
+rexl3 event=boot phase=listening t=0.954
+rexl3 event=listening model=inkling-2-mini-1x-dgx-spark addr=http://0.0.0.0:8000 max_model_len=262144 backend=cuda
+rexl3 event=reasoning_defaults default_thinking=off default_effort=-
+rexl3 level=warn event=unvalidated_pack target=sha256:f8068e796ebca6c14e7af1b703865e1264515de4a970d18b6065fbb672481b55 draft=none reason="this pack is not one this release was validated on (target sha256:f8068e796ebca6c14e7af1b703865e1264515de4a970d18b6065fbb672481b55, draft none); pass --allow-unvalidated-pack to serve it anyway" warning="this pack is not one this release was validated on; it is 
+rexl3 event=memory_view cuda_free_gib=114.9 mem_free_gib=114.9 mem_available_gib=115.7 cached_gib=0.5 planned_from=mem_available plan_free_gib=115.0 floor_gib=8.0
+rexl3 event=inkling2_loop_plan slots=4 max_context=262144 kv_pages=4100 kv_tokens=1048576 kv_gib=16.14 lanes_at_max_context=4 weights_gib=13.55 free_after_gib=101.45 floor_gib=8.00 reserve_gib=5.00 state_mib_per_slot=166.3 kv_bytes_per_token=16512 kv_dtype=int8 drafter=none prefix_cache=off prefix_entries=0 prefix_pages=0 prefix_gib=0.00 prefix_reach_tokens=0 spare_gib=71.66 tower_gib=0.00 vision_
+rexl3 event=prefix_cache_plan entries=0 reason="off" spare_gib=71.66
+rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.0
+rexl3 event=inkling2_loop_load layers=8 gib=4.86 s=3.0
+rexl3 event=inkling2_loop_load layers=12 gib=6.98 s=4.0
+rexl3 event=inkling2_loop_load layers=16 gib=9.10 s=5.1
+rexl3 event=inkling2_loop_load layers=20 gib=11.24 s=6.1
+rexl3 event=inkling2_loop_load layers=24 gib=13.23 s=7.1
+rexl3 event=boot phase=weights_loaded t=11.040 gib=13.55
+rexl3 level=warn event=inkling2_loop_dump dir=/home/spark/inkling-2-mini-1x-dgx-spark/lab/fixgate/dump ops=true (every prefill chunk is written out: oracle runs only)
+rexl3 event=boot phase=kv_planned t=11.767 gib=16.12
+rexl3 event=boot phase=ready t=11.782
+rexl3 event=inkling2_loop_graph_captured rows=1 blocks=1 chunks=1 count=28 nodes=2883 capture_ms=8.3
+rexl3 event=inkling2_loop_graph_captured rows=1 blocks=1 chunks=4 count=28 nodes=2883 capture_ms=9.9
+rexl3 level=info event=shutdown_signal grace_ms=8000 drain_ms=6500
+rexl3 level=info event=draining queued_refused=0 running=0
+rexl3 level=info event=drained after_ms=892
+rexl3 level=info event=stopped
+---
+pid=810604
+started=2026-11-23T10:04:28Z
+updated=2026-11-23T10:06:11Z
+stage=ready
+now_mib=118572
+min_mib=69644
+min_at=2026-11-23T10:05:56Z
+loading_min_mib=78460
+ready_min_mib=69644
+window=
+window_min_mib=69644
+window_min_at=2026-11-23T10:05:56Z
+swap_base_mib=311
+swap_now_mib=311
+floor_mib=1024

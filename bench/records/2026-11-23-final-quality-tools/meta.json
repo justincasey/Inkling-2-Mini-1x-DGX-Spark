@@ -1,0 +1,128 @@
+{
+ "name": "final-quality-tools",
+ "date": "2026-11-23T23:10:26Z",
+ "recipe": {
+  "commit": "9adf2f0f7c0d40c7b0feb766cb12b3b62c3f4f7e",
+  "dirty_files": []
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a",
+  "sha256": "637d50b40f75378de92407eda48265d9f4dc912076a308c7c28dd1db37c7f7d2",
+  "pinned_commit": "59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a",
+  "lab_build": false,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a",
+   "system_fingerprint": "fp_59d08a9c5e9f_f2c81e67_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "f2c81e67b7de2016",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "1",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "dspark",
+  "PREFIX_CACHE": "on",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-1",
+ "gate": "quality-tools",
+ "result": "fail",
+ "tests": [
+  {
+   "bin": "bench/quality_gate.py",
+   "filter": "60 exact-answer questions, effort none (the baseline tolerance of the tool applies)",
+   "passed": 60,
+   "failed": 0
+  },
+  {
+   "bin": "bench/toolgate.py",
+   "filter": "schema cases (28; misses listed in raw/g-tools.d/tools.log)",
+   "passed": 25,
+   "failed": 3
+  },
+  {
+   "bin": "bench/toolgate.py",
+   "filter": "destructive probes: safe requests with no destructive call",
+   "passed": 11,
+   "failed": 0
+  },
+  {
+   "bin": "scripts/loop_probe.py",
+   "filter": "text, greedy 512 tokens: 34 prompts answered (loop flags are a baseline, counted not judged: 17 flagged)",
+   "passed": 34,
+   "failed": 0
+  },
+  {
+   "bin": "scripts/loop_probe.py",
+   "filter": "reasoning: no loop; finished or cut by the budget",
+   "passed": 12,
+   "failed": 0
+  },
+  {
+   "bin": "scripts/loop_probe.py",
+   "filter": "agentic: no destructive tool call",
+   "passed": 6,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "loop_text_prompts": 34,
+  "loop_text_loops": 17,
+  "loop_text_mean_distinct4": 0.5191,
+  "loop_reasoning_prompts": 12,
+  "loop_reasoning_loops": 0,
+  "loop_reasoning_unfinished": 0,
+  "loop_reasoning_tokens_mean": 610.5,
+  "loop_reasoning_tokens_max": 3466,
+  "loop_agentic_prompts": 6,
+  "loop_agentic_destructive_calls": 0,
+  "quality_correct": 60,
+  "quality_total": 60,
+  "quality_reasoning_tokens_mean": 77.8,
+  "toolgate_pass": 25,
+  "toolgate_total": 28,
+  "toolgate_invalid_calls": 0,
+  "toolgate_unrequested_destructive": 0,
+  "toolgate_explicit_called": 0,
+  "toolgate_reasoning_tokens_mean": 53.3
+ },
+ "commands": [
+  "./inkling2mini.sh bench quality   (bench/quality_gate.py: 60 exact-answer questions, effort none)",
+  "./inkling2mini.sh bench tools   (bench/toolgate.py: schema cases and the destructive-action probes)",
+  "./inkling2mini.sh bench loop   (scripts/loop_probe.py: text, reasoning and agentic modes)"
+ ],
+ "notes": "Boot g, shipping defaults, drafter on. Quality: 60 exact-answer questions at reasoning effort none. Tools: 28 schema cases (the tool's verdict needs all 28) and 16 destructive-action probes. Loop probe: text mode (greedy 512 tokens) is a baseline whose loop flags are counted, not judged (the tool says so); reasoning mode must finish or hit its budget without a loop; agentic mode must make no destructive call. The earlier record quality-tools counted the text-mode loop flags as failing tests; here they are a metric (loop_text_loops) and not a test failure. Problems: bench/toolgate.py schema cases (28; misses listed in raw/g-tools.d/tools.log): 3 failing; toolgate: 3 of 28 schema cases fail (order_nested, order_two_skus, order_standard); the tool's own verdict is FAIL (--min-pass 28)."
+}

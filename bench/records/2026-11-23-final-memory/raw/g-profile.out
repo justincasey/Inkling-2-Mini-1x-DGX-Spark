@@ -1,0 +1,24 @@
+17:10:27 bench profile against http://node-1:8000 (inkling-2-mini-1x-dgx-spark, window 262144); results in bench/runs/20261123T231027Z-profile
+17:10:27 gate profile: bench_profile
+PASS profile
+METRIC lanes_at_max_context=4
+METRIC kv_tokens=1048576
+METRIC kv_gib=18.16
+METRIC free_after_gib=101.27
+METRIC prefix_gib=9.47
+METRIC decode_acceptance=0.5279
+METRIC decode_c1_tok_s=92.263
+METRIC decode_c4_tok_s=110.903
+METRIC decode_c8_tok_s=125.114
+METRIC decode_code_tok_s=128.144
+METRIC decode_json_tok_s=98.262
+METRIC decode_prose_tok_s=53.03
+METRIC decode_structured_tok_s=89.617
+METRIC decode_tokens=2048
+METRIC decode_tokens_per_round=2.6392
+METRIC sampled_gpu_peak_mib=47933
+METRIC sampled_avail_min_mib=69075
+METRIC mem_min_gib=67.45
+METRIC mem_loading_min_gib=69.9
+METRIC mem_ready_min_gib=67.45
+bench profile: pass run=bench/runs/20261123T231027Z-profile

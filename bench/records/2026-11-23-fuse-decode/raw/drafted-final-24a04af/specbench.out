@@ -1,0 +1,45 @@
+# specbench 2026-11-23T15:07:15Z - fin
+
+model inkling-2-mini-1x-dgx-spark, 512 greedy tokens, median of 3 timed passes (one warm-up discarded), wall of the request (prefill included)
+
+| kind | prompt tok | gen tok | serial tok/s | drafted tok/s | speedup | acc/drafted | acc/round | tok/round | equal |
+|---|---|---|---|---|---|---|---|---|---|
+| chat | 74 | 512 | 52.15 | 47.82 | 0.917 | 743/3794 (0.20) | 0.94 | 1.94 | True |
+| code | 225 | 512 | 52.31 | 120.12 | 2.296 | 1266/1851 (0.68) | 4.74 | 5.75 | True |
+| json | 251 | 512 | 51.68 | 87.41 | 1.691 | 1190/2359 (0.50) | 3.47 | 4.48 | True |
+| longctx | 6047 | 512 | 40.71 | 65.82 | 1.617 | 1194/2196 (0.54) | 3.52 | 4.53 | True |
+| tool | 166 | 369 | 51.67 | 124.69 | 2.413 | 939/1149 (0.82) | 5.49 | 6.47 | True |
+| reasoning | 150 | 512 | 51.67 | 74.35 | 1.439 | 1063/2805 (0.38) | 2.26 | 3.27 | True |
+
+Conditional acceptance accepted/reached per draft position:
+
+| kind | p1 | p2 | p3 | p4 | p5 | p6 | p7 |
+|---|---|---|---|---|---|---|---|
+| chat | 0.55 | 0.42 | 0.41 | 0.57 | 0.30 | 0.33 | - |
+| code | 0.91 | 0.93 | 0.91 | 0.93 | 0.90 | 0.79 | 0.81 |
+| json | 0.79 | 0.74 | 0.85 | 0.89 | 0.96 | 0.92 | 0.98 |
+| longctx | 0.89 | 0.81 | 0.83 | 0.81 | 0.80 | 0.80 | 0.57 |
+| tool | 0.95 | 0.93 | 0.96 | 0.90 | 0.93 | 1.00 | 1.00 |
+| reasoning | 0.75 | 0.79 | 0.71 | 0.60 | 0.66 | 0.64 | 0.33 |
+
+Rounds by accepted-draft count (solo pass):
+
+| kind | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|---|---|
+| chat | 122 | 83 | 38 | 10 | 10 | 2 | 1 | - |
+| code | 8 | 6 | 7 | 5 | 7 | 12 | 9 | 35 |
+| json | 24 | 23 | 11 | 6 | 2 | 4 | 2 | 42 |
+| longctx | 13 | 19 | 14 | 13 | 11 | 9 | 23 | 12 |
+| tool | 3 | 4 | 2 | 5 | 3 | 0 | 2 | 38 |
+| reasoning | 39 | 25 | 27 | 26 | 14 | 9 | 15 | 1 |
+
+Concurrency 4 (chat, code, json, reasoning), aggregate tok/s over the wall of the batch:
+
+| arm | agg tok/s | tokens | per stream tok/s |
+|---|---|---|---|
+| serial | 100.50 | 2048 | chat 25.19 (512), code 25.23 (512), json 25.17 (512), reasoning 25.15 (512) |
+| drafted | 113.79 | 2048 | chat 28.45 (512), code 54.27 (512), json 44.84 (512), reasoning 37.34 (512) |
+
+speedup 1.132
+
+PASS drafted == serial

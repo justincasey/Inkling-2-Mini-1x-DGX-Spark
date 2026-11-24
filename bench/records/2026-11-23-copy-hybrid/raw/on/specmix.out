@@ -1,0 +1,58 @@
+phase 1: chat x 8
+  chat 1/8: 1.455 tokens/round, drafted 192, accepted 79, 52.6 tok/s
+  chat 2/8: 1.422 tokens/round, drafted 173, accepted 75, 55.02 tok/s
+  chat 3/8: 1.741 tokens/round, drafted 253, accepted 108, 55.96 tok/s
+  chat 4/8: 1.524 tokens/round, drafted 201, accepted 87, 55.41 tok/s
+  chat 5/8: 1.524 tokens/round, drafted 201, accepted 87, 55.44 tok/s
+  chat 6/8: 1.741 tokens/round, drafted 251, accepted 108, 56.23 tok/s
+  chat 7/8: 1.533 tokens/round, drafted 203, accepted 88, 55.6 tok/s
+  chat 8/8: 1.741 tokens/round, drafted 252, accepted 108, 56.22 tok/s
+phase 2: code x 8
+  code 1/8: 4.129 tokens/round, drafted 262, accepted 193, 95.73 tok/s
+  code 2/8: 4.571 tokens/round, drafted 286, accepted 199, 101.26 tok/s
+  code 3/8: 4.741 tokens/round, drafted 283, accepted 201, 104.09 tok/s
+  code 4/8: 4.741 tokens/round, drafted 280, accepted 201, 103.96 tok/s
+  code 5/8: 4.741 tokens/round, drafted 283, accepted 201, 104.41 tok/s
+  code 6/8: 4.655 tokens/round, drafted 296, accepted 200, 101.56 tok/s
+  code 7/8: 4.655 tokens/round, drafted 283, accepted 200, 103.44 tok/s
+  code 8/8: 4.655 tokens/round, drafted 274, accepted 200, 104.11 tok/s
+phase 3: reasoning x 8
+  reasoning 1/8: 3.459 tokens/round, drafted 315, accepted 181, 83.23 tok/s
+  reasoning 2/8: 3.459 tokens/round, drafted 315, accepted 181, 83.57 tok/s
+  reasoning 3/8: 3.459 tokens/round, drafted 312, accepted 181, 83.64 tok/s
+  reasoning 4/8: 3.459 tokens/round, drafted 310, accepted 181, 83.84 tok/s
+  reasoning 5/8: 3.459 tokens/round, drafted 310, accepted 181, 83.38 tok/s
+  reasoning 6/8: 3.459 tokens/round, drafted 310, accepted 181, 83.53 tok/s
+  reasoning 7/8: 3.459 tokens/round, drafted 308, accepted 181, 83.36 tok/s
+  reasoning 8/8: 3.413 tokens/round, drafted 303, accepted 180, 83.64 tok/s
+phase 4: json x 8
+  json 1/8: 3.879 tokens/round, drafted 332, accepted 189, 83.23 tok/s
+  json 2/8: 4.063 tokens/round, drafted 315, accepted 192, 87.23 tok/s
+  json 3/8: 4.063 tokens/round, drafted 318, accepted 192, 86.87 tok/s
+  json 4/8: 4.0 tokens/round, drafted 317, accepted 191, 86.1 tok/s
+  json 5/8: 4.0 tokens/round, drafted 315, accepted 191, 86.54 tok/s
+  json 6/8: 3.821 tokens/round, drafted 339, accepted 188, 82.08 tok/s
+  json 7/8: 3.879 tokens/round, drafted 350, accepted 189, 82.28 tok/s
+  json 8/8: 4.129 tokens/round, drafted 333, accepted 193, 86.38 tok/s
+phase 5: chat x 8
+  chat 1/8: 2.032 tokens/round, drafted 363, accepted 129, 55.72 tok/s
+  chat 2/8: 2.016 tokens/round, drafted 360, accepted 128, 55.65 tok/s
+  chat 3/8: 2.016 tokens/round, drafted 358, accepted 128, 55.52 tok/s
+  chat 4/8: 2.016 tokens/round, drafted 351, accepted 128, 55.91 tok/s
+  chat 5/8: 2.0 tokens/round, drafted 345, accepted 127, 55.77 tok/s
+  chat 6/8: 1.984 tokens/round, drafted 341, accepted 126, 55.52 tok/s
+  chat 7/8: 1.969 tokens/round, drafted 343, accepted 125, 55.21 tok/s
+  chat 8/8: 1.984 tokens/round, drafted 348, accepted 126, 55.42 tok/s
+# specmix 2026-11-23T18:54:56Z
+
+model inkling-2-mini-1x-dgx-spark, mix chat,code,reasoning,json,chat, 8 greedy requests of 256 tokens per phase
+
+| phase | kind | tokens/round | first third | last third | median tok/s | drafted | accepted |
+|---|---|---|---|---|---|---|---|
+| 1 | chat | 1.575 | 1.438 | 1.631 | 55.52 | 1726 | 740 |
+| 2 | code | 4.602 | 4.339 | 4.655 | 103.7 | 2247 | 1595 |
+| 3 | reasoning | 3.454 | 3.459 | 3.436 | 83.55 | 2483 | 1447 |
+| 4 | json | 3.977 | 3.969 | 4.0 | 86.24 | 2619 | 1525 |
+| 5 | chat | 2.002 | 2.024 | 1.977 | 55.59 | 2809 | 1017 |
+
+PASS drafting follows the traffic

@@ -1,0 +1,7 @@
+22:55:49 build a LAB engine df4862be52cb on node-2 (not REXL3_COMMIT: engine.lab_build=true in records)
+built df4862be52cb831072ce420d81412f0eae7039a8: rexl3-serve sha256 acad52f121c5e0f5d1c3fd11f808233cdb63eaf42036f6adb37e4e6393f3fcec
+22:58:07 build: engine df4862be52cb installed under /home/spark/inkling-2-mini-1x-dgx-spark/bin
+
+real	2m17.803s
+user	1m29.417s
+sys	0m27.775s

@@ -1,0 +1,15 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-dense/target/release/deps/inkling2_dspark-2190377fb6671b23
+== gb-cuda 
+test bench_propose ... ignored
+test golden_inkling2_dspark_hashes ... REXL3_INKLING2_DIR unset: not run
+test int8_plane_tracks_the_bf16_plane ... REXL3_INKLING2_DIR unset: not run
+test matches_the_oracle_at_tp4 ... REXL3_INKLING2_DIR unset: not run
+test matches_the_oracle_on_one_rank ... REXL3_INKLING2_DIR unset: not run
+test refuses_what_it_cannot_draft ... REXL3_INKLING2_DIR unset: not run
+test rollback_and_restore_equal_replay ... REXL3_INKLING2_DIR unset: not run
+test rollback_and_restore_equal_replay_int8 ... REXL3_INKLING2_DIR unset: not run
+test rows_are_invariant_and_ranks_agree ... REXL3_INKLING2_DIR unset: not run
+test rows_are_invariant_and_ranks_agree_int8 ... REXL3_INKLING2_DIR unset: not run
+test slot_snapshot_restores_the_bits ... REXL3_INKLING2_DIR unset: not run
+test the_split_counts_agree ... ok
+test result: ok. 11 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.09s

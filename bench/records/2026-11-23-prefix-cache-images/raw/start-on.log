@@ -1,0 +1,22 @@
+02:32:46 pins: manifest intake/manifest.tsv matches MANIFEST_SHA256; pack vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw@44c78c9d229b
+ok   arch aarch64
+ok   gpu NVIDIA GB10, driver 580.178.04
+ok   gpu idle
+ok   /tmp/rexl3-gpu.lock free
+ok   no rexl3-serve of this recipe running
+ok   MemAvailable 117 GiB
+ok   pack: 13 files at full size under /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw (verify checks bytes)
+ok   flock present
+ok   sudo -n works
+engine 6b6b824431f1c4cb52566828f726555cdeec6ce2 5e730e728b78a72a4ef5397ed522d3a85ae8752781fd78a768d6d52b37f893f5
+note REXL3_COMMIT is not pinned yet (plan step 4.8): any installed engine is a lab build
+02:32:47 doctor: the node is ready
+02:32:47 launch on node-3
+pid 2012440, guard 2012309, log /home/spark/inkling-2-mini-1x-dgx-spark/logs/serve.log
+02:32:47 waiting up to 1800s for http://node-3:8000/health
+02:32:48 booting 1s: event=reexec
+rexl3 event=inkling2_loop_plan slots=4 max_context=262144 kv_pages=4100 kv_tokens=1048576 kv_gib=16.14 lanes_at_max_context=4 weights_gib=13.55 free_after_gib=101.66 floor_gib=8.00 reserve_gib=5.00 state_mib_per_slot=166.3 kv_bytes_per_token=16512 kv_dtype=int8 drafter=none prefix_cache=on prefix_entries=16 prefix_pages=1536 prefix_gib=8.59 prefix_reach_tokens=393216 spare_gib=71.58 tower_gib=0.79
+rexl3 event=prefix_cache_plan entries=16 pages=1536 gib=8.59 spare_gib=71.58 reach_tokens=393216 window=262144
+rexl3 event=vision_ready family=inkling2_loop tokens=4096
+02:33:03 start: ready at http://node-3:8000/v1 (inkling-2-mini-1x-dgx-spark)
+boot_s=16

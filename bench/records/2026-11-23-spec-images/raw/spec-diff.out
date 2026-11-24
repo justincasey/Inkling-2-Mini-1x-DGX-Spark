@@ -1,0 +1,12 @@
+replies/short: identical
+replies/medium: identical
+replies/long: identical
+replies/xlong: identical
+replies/70k: identical
+concurrent/short: identical
+concurrent/medium: identical
+concurrent/long: identical
+concurrent/xlong: identical
+/tmp/dw2/A-spec.json: label 'SPEC=dspark PREFIX_CACHE=on VISION=on', drafted 1708 accepted 742 acceptance 0.4344 tokens/round 2.8728
+/tmp/dw2/B-spec.json: label 'SPEC=none PREFIX_CACHE=off VISION=on', drafted 0 accepted 0 acceptance None tokens/round 1.0079
+identical

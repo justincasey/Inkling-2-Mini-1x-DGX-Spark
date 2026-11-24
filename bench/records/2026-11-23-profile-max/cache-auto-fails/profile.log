@@ -1,0 +1,23 @@
+rexl3 event=inkling2_loop_plan slots=4 max_context=1048576 kv_pages=16388 kv_tokens=4194304 kv_gib=64.52 lanes_at_max_context=4 weights_gib=13.55 free_after_gib=102.45 floor_gib=8.00 reserve_gib=5.00 state_mib_per_slot=166.3 kv_bytes_per_token=16512 kv_dtype=int8 drafter=none prefix_cache=on prefix_entries=16 prefix_pages=5013 prefix_gib=22.28 prefix_reach_tokens=1283328 spare_gib=24.28 tower_gib=0.00 vision_reserve_gib=0.00
+ready gpu_mib=113201 avail_mib=4007
+03:14:18 profile: one cold prompt of the window (1048576 tokens)
+note: the solo needle was not found or failed (window-solo.json)
+03:44:19 profile: 4 concurrent cold prompts of the window
+note: a lane did not find its needle or failed (window-lanes.json)
+04:14:23 profile: a decode burst (1, 4 and 8 streams: the CUDA graphs and overlap lanes allocate on first use)
+04:14:23 no bench/reference.json: replies are measured, not compared (bench pin writes it on the pinned engine)
+04:14:23 bench.py warm,decode,conc
+warm: done (discarded)
+decode prose: 512 tokens, ttft 0.1366 s, 53.019 tok/s, spec {'drafted': 0, 'accepted': 0, 'rounds': 511, 'acceptance': None, 'tokens_per_round': 1.002}
+decode code: 512 tokens, ttft 0.1878 s, 53.788 tok/s, spec {'drafted': 0, 'accepted': 0, 'rounds': 511, 'acceptance': None, 'tokens_per_round': 1.002}
+decode structured: 512 tokens, ttft 0.1763 s, 53.427 tok/s, spec {'drafted': 0, 'accepted': 0, 'rounds': 511, 'acceptance': None, 'tokens_per_round': 1.002}
+decode json: 512 tokens, ttft 0.2141 s, 53.17 tok/s, spec {'drafted': 0, 'accepted': 0, 'rounds': 511, 'acceptance': None, 'tokens_per_round': 1.002}
+conc c=4: 2048 tokens in 20.42 s = 100.31 tok/s
+conc c=8: 4096 tokens in 38.92 s = 105.24 tok/s
+METRIC sampled_gpu_peak_mib=113356
+METRIC sampled_avail_min_mib=3531
+memwatch guard=running window=20261123T091418Z-5714 window_min_mib=3492 window_min_at=2026-11-23T09:45:31Z loading_min_mib=4044 ready_min_mib=3492 min_mib=3492 min_at=2026-11-23T09:45:31Z now_mib=3904 updated=2026-11-23T10:16:22Z
+FAIL MemAvailable minimum 3492 MiB is under the 8192 MiB floor
+METRIC mem_min_gib=3.41
+METRIC mem_loading_min_gib=3.95
+METRIC mem_ready_min_gib=3.41

@@ -1,0 +1,71 @@
+gen      short  (16 tokens): equal
+gen      medium (521 tokens): equal
+gen      long   (2030 tokens): equal
+gen      xlong  (8334 tokens): equal
+logprobs short  (16 tokens): equal
+logprobs medium (521 tokens): equal
+logprobs long   (2030 tokens): equal
+logprobs xlong  (8334 tokens): equal
+{
+ "url": "http://node-2:8000",
+ "model": "inkling-2-mini-1x-dgx-spark",
+ "prompt_tokens": {
+  "short": 16,
+  "medium": 521,
+  "long": 2030,
+  "xlong": 8334
+ },
+ "k": 5,
+ "max_tokens": 64,
+ "checks": {
+  "gen/short": {
+   "equal": true,
+   "difference": null,
+   "solo_s": 1.357,
+   "concurrent_s": 2.878
+  },
+  "gen/medium": {
+   "equal": true,
+   "difference": null,
+   "solo_s": 1.102,
+   "concurrent_s": 2.563
+  },
+  "gen/long": {
+   "equal": true,
+   "difference": null,
+   "solo_s": 1.244,
+   "concurrent_s": 2.617
+  },
+  "gen/xlong": {
+   "equal": true,
+   "difference": null,
+   "solo_s": 1.102,
+   "concurrent_s": 2.429
+  },
+  "logprobs/short": {
+   "equal": true,
+   "difference": null,
+   "solo_s": 0.0,
+   "concurrent_s": 0.0
+  },
+  "logprobs/medium": {
+   "equal": true,
+   "difference": null,
+   "solo_s": 0.0,
+   "concurrent_s": 0.0
+  },
+  "logprobs/long": {
+   "equal": true,
+   "difference": null,
+   "solo_s": 0.0,
+   "concurrent_s": 0.0
+  },
+  "logprobs/xlong": {
+   "equal": true,
+   "difference": null,
+   "solo_s": 0.0,
+   "concurrent_s": 0.0
+  }
+ },
+ "pass": true
+}

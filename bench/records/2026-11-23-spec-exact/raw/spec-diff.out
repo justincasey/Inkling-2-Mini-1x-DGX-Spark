@@ -1,0 +1,12 @@
+replies/short: identical
+replies/medium: identical
+replies/long: identical
+replies/xlong: identical
+replies/70k: identical
+concurrent/short: identical
+concurrent/medium: identical
+concurrent/long: identical
+concurrent/xlong: identical
+/tmp/draftwire-final/spec-dspark.json: label 'SPEC=dspark PREFIX_CACHE=off VISION=off', drafted 1708 accepted 742 acceptance 0.4344 tokens/round 2.8728
+/tmp/draftwire-final/spec-serial.json: label 'SPEC=none PREFIX_CACHE=off VISION=off', drafted 0 accepted 0 acceptance None tokens/round 1.0079
+identical

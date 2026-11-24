@@ -1,0 +1,4 @@
+chat-capital-effort0: 25 + 16 tokens in 778s -> fixtures/engine/chat-capital-effort0.safetensors
+chat-sky-effort0.9: 26 + 24 tokens in 985s -> fixtures/engine/chat-sky-effort0.9.safetensors
+raw-counting: 35 + 16 tokens in 629s -> fixtures/engine/raw-counting.safetensors
+raw-long-window: 1119 + 8 tokens in 929s -> fixtures/engine/raw-long-window.safetensors

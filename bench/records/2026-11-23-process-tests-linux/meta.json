@@ -1,0 +1,32 @@
+{
+ "name": "process-tests-linux",
+ "gate": "process-tests",
+ "date": "2026-11-23",
+ "result": "pass",
+ "node": "node-4",
+ "engine": {
+  "commit": "59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a",
+  "dirty": false,
+  "version": "lab test build of the integration head (scripts/ops_dev.sh, REXL3_COMMIT=lab-rexl3-inkling2-loop); pinned_commit is the same commit"
+ },
+ "recipe": {
+  "commit": "c46200f13f9cb180b51b3a5deec380bd6e529404"
+ },
+ "tests": [
+  {
+   "bin": "gb-server --test process",
+   "filter": "(all)",
+   "passed": 14,
+   "failed": 0
+  }
+ ],
+ "commands": [
+  "NODE=<node-4> LAB_SRC=<engine worktree at the pinned commit> PKG=gb-server OPS_LINES=200 scripts/ops_dev.sh test process \"\""
+ ],
+ "metrics": {
+  "process_tests_passed": 14,
+  "process_tests_failed": 0,
+  "cap_proof_lines": 2
+ },
+ "notes": "The whole `process` test binary of gb-server (signals, drain, watchdogs, exit codes, the malloc-arena re-exec) on Linux at the pinned engine commit, node-4 idle, GPU SM clock capped at 2,200 MHz (the cap's success line printed before the build and before the run: raw/process-linux.log). On macOS the test `the_server_caps_its_malloc_arenas_unless_the_caller_named_a_value_or_opted_out` fails at crates/server/tests/process.rs:425 because it reads /proc/<pid>/environ; no server, GPU or pack is involved in these tests. An earlier run at 4f939a6 on node-2 gave the same 14 of 14 after ops_dev.sh was fixed to run the test-profile executable instead of the server binary built as a dependency."
+}

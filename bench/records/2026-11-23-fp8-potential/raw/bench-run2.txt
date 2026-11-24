@@ -1,0 +1,19 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-fp8/target/release/deps/inkling2_fp8_bench-9fe3be217d8680c0
+== gb-cuda fp8_gemm_bench
+test fp8_gemm_bench ... BENCH_F8 start: clocks 2197 MHz, 3003 MHz, 9.63 W, 3 %
+BENCH_F8 plan rows 4096 topk 8: 32768 pairs, 256 per expert, 571 items, 34688 sorted rows, cap 671, grid_c 671
+BENCH_F8 check rows 4096 topk 8: template(fp16) == A lane byte for byte (xd 19980288 words, y 75497472 floats); e4m3 vs fp16 relative L2: gate/up output 0.1249 (weights and activations rounded), down output on identical activations 0.0267 (weights rounded)
+BENCH_F8 moe rows 4096 topk 8 (256 pairs an expert) gate/up ms: A-lane 8.424, template-fp16 8.045, template-e4m3 6.524; fp8/fp16 time ratio 0.811; TFLOP/s 41.3 / 43.2 / 53.3
+BENCH_F8 moe rows 4096 topk 8 (256 pairs an expert) down ms: A-lane 3.718, template-fp16 3.763, template-e4m3 3.508; fp8/fp16 time ratio 0.932; TFLOP/s 46.8 / 46.2 / 49.6
+BENCH_F8 plan rows 4096 topk 16: 65536 pairs, 512 per expert, 1082 items, 67456 sorted rows, cap 1183, grid_c 1183
+BENCH_F8 check rows 4096 topk 16: template(fp16) == A lane byte for byte (xd 38854656 words, y 150994944 floats); e4m3 vs fp16 relative L2: gate/up output 0.1248 (weights and activations rounded), down output on identical activations 0.0266 (weights rounded)
+BENCH_F8 moe rows 4096 topk 16 (512 pairs an expert) gate/up ms: A-lane 15.192, template-fp16 15.151, template-e4m3 12.484; fp8/fp16 time ratio 0.824; TFLOP/s 45.8 / 45.9 / 55.7
+BENCH_F8 moe rows 4096 topk 16 (512 pairs an expert) down ms: A-lane 7.340, template-fp16 6.838, template-e4m3 6.095; fp8/fp16 time ratio 0.891; TFLOP/s 47.4 / 50.9 / 57.1
+BENCH_F8 check dense 4096x2304x3072: e4m3 vs fp16 relative L2 (weights rounded to e4m3, same activations): 0.0267
+BENCH_F8 dense 4096x2304x3072 ms: template-fp16 1.061, template-e4m3 0.932; fp8/fp16 time ratio 0.878; TFLOP/s 54.7 / 62.2
+BENCH_F8 check dense 4096x2304x1024: e4m3 vs fp16 relative L2 (weights rounded to e4m3, same activations): 0.0266
+BENCH_F8 dense 4096x2304x1024 ms: template-fp16 0.379, template-e4m3 0.328; fp8/fp16 time ratio 0.866; TFLOP/s 51.0 / 58.9
+BENCH_F8 check dense 4096x3072x2304: e4m3 vs fp16 relative L2 (weights rounded to e4m3, same activations): 0.0267
+BENCH_F8 dense 4096x3072x2304 ms: template-fp16 1.036, template-e4m3 0.909; fp8/fp16 time ratio 0.877; TFLOP/s 56.0 / 63.8
+BENCH_F8 end: clocks 2197 MHz, 3003 MHz, 12.95 W, 18 %
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 27.84s

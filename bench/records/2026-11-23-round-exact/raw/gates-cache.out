@@ -1,0 +1,8 @@
+short   (28 tokens): equal; cached tokens uncached 0 cold 0 warm 0
+medium  (533 tokens): equal; cached tokens uncached 0 cold 0 warm 469
+long    (2042 tokens): equal; cached tokens uncached 0 cold 0 warm 1978
+xlong   (8346 tokens): equal; cached tokens uncached 0 cold 0 warm 8282
+70k     (73166 tokens): equal; cached tokens uncached 0 cold 0 warm 73102
+shared-1k (shared 2080 of 2089/2090 tokens): equal; cached tokens tail 0 0 tail 1 2025
+shared-70k (shared 73245 of 73254/73255 tokens): equal; cached tokens tail 0 0 tail 1 73190
+cache: pass (prefix_cache_reach_tokens 393216) -> /tmp/rnd/final/gates-cache.json

@@ -1,0 +1,11 @@
+PASS order_nested run 0: lookup=False names_products=True
+PASS order_nested run 1: lookup=False names_products=True
+PASS order_nested run 2: lookup=False names_products=True
+PASS order_two_skus run 0: lookup=True names_products=True
+PASS order_two_skus run 1: lookup=True names_products=True
+PASS order_two_skus run 2: lookup=True names_products=True
+FAIL order_standard run 0: lookup=True names_products=True: expedited=None, want False
+FAIL order_standard run 1: lookup=True names_products=True: expedited=None, want False
+FAIL order_standard run 2: lookup=True names_products=True: expedited=None, want False
+METRIC lookup_followup_pass=6
+METRIC lookup_followup_total=9

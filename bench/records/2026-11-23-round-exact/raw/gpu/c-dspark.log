@@ -1,0 +1,32 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-round/target/release/deps/inkling2_dspark-2190377fb6671b23
+== gb-cuda _
+test bench_propose ... ignored
+test golden_inkling2_dspark_hashes ... REXL3_INKLING2_DIR unset: not run
+test int8_plane_tracks_the_bf16_plane ... REXL3_INKLING2_DIR unset: not run
+test matches_the_oracle_at_tp4 ... REXL3_INKLING2_DIR unset: not run
+test matches_the_oracle_on_one_rank ... REXL3_INKLING2_DIR unset: not run
+test mini_drafter::mini_a_million_positions_use_257_partials ... a million positions committed in 5.0 s
+test mini_drafter::mini_contexts_past_one_group_and_a_full_launch_are_row_invariant ... Bf16: lengths [4095, 4096, 4097, 5000] in one launch: alone == reversed == repeated == batch; drafts [[220, 17, 87, 18, 13, 220, 44150], [220, 17, 25, 220, 19, 12, 69307], [220, 17, 13, 220, 44150, 11, 220], [4153, 11, 220, 19, 13, 20, 33]]
+test mini_drafter::mini_enqueue_proposal_refuses_a_batch_the_scratch_cannot_hold ... ok
+test mini_drafter::mini_golden_hashes ... golden hashes equal /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-round/src/crates/cuda/../../testdata/gpu/golden_inkling2_loop_dspark.txt
+test mini_drafter::mini_graph_replay_equals_eager ... Bf16, pdl mask 0: graph replay == eager (free and forced; drafts, hd, Markov state)
+test mini_drafter::mini_graph_replay_follows_restaged_positions ... Bf16: a graph captured at [40, 700, 1024, 1290] replays at [43, 703, 1027, 1293] as the eager proposal does
+test mini_drafter::mini_incremental_commit_equals_one_commit_and_rollback_equals_replay ... Bf16: drafts at 1103: [62, 1485, 62, 102940, 62, 102940, 62]; rollback, chunked and many-commit replays are bit-equal
+test mini_drafter::mini_int8_plane_tracks_the_bf16_plane ... int8 vs bf16 plane, lengths [5, 300, 700, 1100, 1300]: free drafts agree 35/35; layer-1 K/V max 5.80 steps, 9081 of 10240 differ, rel L2 1.05e-2; hd max 41.21 steps, 77890 of 92160 differ, rel L2 1.34e-2
+test mini_drafter::mini_markov_variant_c_agrees_with_a ... MARKOV_VARIANT_AGREE synthetic features, 7 anchors [5, 40, 300, 700, 1024, 1100, 1300]
+test mini_drafter::mini_markov_variant_c_is_deterministic_and_graph_safe ... MARKOV_VARIANT_GRAPH Bf16 pdl mask 0: variant c twice equal, graph replay == eager (free and forced)
+test mini_drafter::mini_markov_variant_c_timing ... MARKOV_VARIANT_TIMING b=1 at 1300 positions (int8 plane, median of 20 propose calls): a 6.787 ms, c 14.362 ms, c - a 7.575 ms per round
+test mini_drafter::mini_matches_the_oracle ... REXL3_INKLING2_LOOP_DIR / REXL3_INKLING2_LOOP_DSPARK_ORACLE unset: not run
+test mini_drafter::mini_norm_rows_equal_the_float64_reference ... norm rows at 2,304 (256 threads of 9 columns) vs the float64 reference: 0 of 5529600 bf16 outputs differ (worst relative 0.00e0)
+test mini_drafter::mini_propose_timing ... weights on the device 339917888 bytes (the fold's fold_w + fold_b 103359232 of them); state and scratch 28593000 bytes; upload with the fold 0.04 s
+test mini_drafter::mini_refuses_what_it_cannot_draft ... the drafter refuses an empty context, an anchor past the vocabulary, a repeated slot, a hole, a short stride, a wrong geometry
+test mini_drafter::mini_rows_are_invariant_across_windows ... Bf16: lengths [5, 700, 1023, 1024, 1025, 1031, 1032, 1033, 1100, 1300]: every request alone, in a reversed batch and repeated equals the batch (drafts and traces)
+test mini_drafter::mini_slot_snapshot_restores_the_bits ... a slot restored from its snapshot and plane pages proposes the same bits
+test refuses_what_it_cannot_draft ... REXL3_INKLING2_DIR unset: not run
+test rollback_and_restore_equal_replay ... REXL3_INKLING2_DIR unset: not run
+test rollback_and_restore_equal_replay_int8 ... REXL3_INKLING2_DIR unset: not run
+test rows_are_invariant_and_ranks_agree ... REXL3_INKLING2_DIR unset: not run
+test rows_are_invariant_and_ranks_agree_int8 ... REXL3_INKLING2_DIR unset: not run
+test slot_snapshot_restores_the_bits ... REXL3_INKLING2_DIR unset: not run
+test the_split_counts_agree ... ok
+test result: ok. 28 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 18.28s

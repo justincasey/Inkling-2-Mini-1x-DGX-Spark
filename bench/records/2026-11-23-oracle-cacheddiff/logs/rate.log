@@ -1,0 +1,1 @@
+logits compared: 64225280  differing after softcap: 9  differing f32(z): 9  max |diff| in fp32 ulps: 1.0  rate per logit: 1.4e-07  seconds 14

@@ -1,0 +1,30 @@
+{
+ "results": {
+  "4xprose": {
+   "serial": 128.97,
+   "drafted": 139.18,
+   "speedup": 1.079
+  },
+  "4xcode": {
+   "serial": 123.48,
+   "drafted": 259.34,
+   "speedup": 2.1
+  },
+  "4xstructured": {
+   "serial": 122.76,
+   "drafted": 176.61,
+   "speedup": 1.439
+  },
+  "4xjson": {
+   "serial": 114.31,
+   "drafted": 186.11,
+   "speedup": 1.628
+  },
+  "mixed(bench)": {
+   "serial": 99.99,
+   "drafted": 105.86,
+   "speedup": 1.059
+  }
+ },
+ "fails": []
+}

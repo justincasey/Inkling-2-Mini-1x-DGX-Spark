@@ -1,0 +1,8 @@
+ops_dev.sh test inkling2_loop_rank forward_oracle_gate (engine f8bcdea, node-1), the printed lines:
+LOOP_dump_a sha256 c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0 bytes 90056120
+LOOP_top1 200001 logit 26.821056
+LOOP_dump_b sha256 c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0 bytes 90056120
+LOOP_top1 200001 logit 26.821056
+LOOP_chunk_width 7 logits_identical 20806032 bytes sha256 a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a
+LOOP_chunk_width 11 logits_identical 20806032 bytes sha256 a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a
+test result: ok. 1 passed; 0 failed

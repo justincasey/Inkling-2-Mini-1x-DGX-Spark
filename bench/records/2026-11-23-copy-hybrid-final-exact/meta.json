@@ -1,0 +1,126 @@
+{
+ "name": "copy-hybrid-final-exact",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "3f106ccc7c42ee9ecf56ff9b7cc8e217f09b3aee",
+  "dirty_files": [
+   "bench/records/2026-11-23-copy-hybrid-final/"
+  ]
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "f4922eb462ef2d2b27e20024e0fc39bb7673cb11",
+  "sha256": "96ba23d1f570d14d5f92fab060e382888fe4bb112a6b1a2abfe707419dc23044",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "f4922eb462ef2d2b27e20024e0fc39bb7673cb11",
+   "system_fingerprint": "fp_f4922eb462ef_9d409b06_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "9d409b067bcbb8e1",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "1",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "dspark",
+  "PREFIX_CACHE": "on",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-4",
+ "gate": "spec",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "bench/tools/exactness.py",
+   "filter": "record + diff vs graph-exact: identical, replies sha256 f7975a6c...433d",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/exactness.py",
+   "filter": "concurrent == solo (ids and prompt logprobs)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/bench.py",
+   "filter": "--phases warm,decode,conc,prefill-32k --ref (PASS pin)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/gates.py",
+   "filter": "spec --max-tokens 128: drafted == serial, solo and four concurrent",
+   "passed": 9,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/gates.py",
+   "filter": "cache --max-tokens 64: cached == uncached",
+   "passed": 7,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/specedge.py",
+   "filter": "125 cases: 65 block edges + 60 copy_hybrid (EOS, stop strings, max_tokens, rejections at first and middle positions)",
+   "passed": 125,
+   "failed": 0
+  },
+  {
+   "bin": "gb-engine tests copy_hybrid",
+   "filter": "every mix, stop token at every position, length at every offset, sampled streams",
+   "passed": 6,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2",
+   "passed": 146,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "replies_identical": 4,
+  "specedge_cases": 125,
+  "copy_rounds_in_specedge_property": 79,
+  "copy_rejected_first_position": 8,
+  "copy_rejected_last_position": 0
+ },
+ "commands": [
+  "bash ../2026-11-23-copy-hybrid-exact/tools/run_exact.sh raw"
+ ],
+ "notes": "Same battery as copy-hybrid-exact on the final head; the 7th-token rejection warning stands."
+}

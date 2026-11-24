@@ -1,0 +1,10 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-vision/target/release/deps/inkling2_vision-8568259bb02d4c44
+== gb-model 
+test a_batch_encodes_to_the_bits_of_each_image_alone ... ok
+test bench_encode_timings ... ignored
+test golden_inkling2_vision_hashes ... ok
+test the_tower_matches_hf_transformers_on_the_real_pack ... la_150x1000.png: 100 tokens, reduced-digest worst relative deviation 0.0203
+rgb_333x517.png: 117 tokens, reduced-digest worst relative deviation 0.0302
+rgb_480x320.png: 96 tokens, reduced-digest worst relative deviation 0.0225
+rgba_300x220.png: 48 tokens, reduced-digest worst relative deviation 0.0413
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 1.84s

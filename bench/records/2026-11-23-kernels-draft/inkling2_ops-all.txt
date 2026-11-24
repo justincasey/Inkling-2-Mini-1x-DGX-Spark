@@ -1,0 +1,37 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-draft/target/release/deps/inkling2_ops-9fbf0538714d3e0a
+== gb-cuda 
+test bench_inkling2_ops ... ignored
+test bench_l2_pieces ... ignored
+test bench_l2_prefetch_before_a_wait ... ignored
+test bench_markov_walk ... ignored
+test bench_narrow_kernels ... ignored
+test bench_wide_kernels ... ignored
+test conv_commit_layers_equals_per_conv_commits ... ok
+test conv_equals_the_float64_reference ... C=4608: 0 bf16 steps, 0.000% differ
+test conv_residual_is_the_spec_order_exactly ... ok
+test conv_streams_like_a_batch_and_rolls_back_through_the_window_record ... ok
+test golden_inkling2_ops_hashes ... ok
+test linear_columns_are_invariant_under_stacking ... ok
+test linear_equals_the_float64_reference ... m=   1 k= 4608 n= 1536: segments 8, fp32 err 4.39e-8 of sum|xw|, bf16 differs 0.0000%
+test linear_graph_replay_equals_eager ... ok
+test linear_rows_are_invariant_across_row_counts_and_kernels ... ok
+test mini_dense_exl3_real_tensors_equal_the_oracle ... attn_wq_du 2304x3072: fp32 vs oracle(fp16 rotation) 7.38e-5 of rms, vs exact oracle 7.93e-4; bf16 vs oracle 0.9698107287977915 steps beyond the floor, 0.407% differ
+test mini_dense_exl3_rows_are_invariant_at_every_shape ... q_gate 2304x3072: windows 1..8, 4,096 rows and lone rows are bit-identical
+test mini_dense_ops_graph_replay_equals_eager ... pdl mask 0: graph replay == eager for the projection, the message mix, the controller and the unembed
+test mini_dense_ops_timings ... timing q_gate 2304x3072 rows 1: 18.3 us, 290 GB/s of weights
+test mini_exl3_unembed_masks_caps_and_feeds_the_argmax ... argmax over the EXL3 logits [140651, 102058, 105544]: first maximum of the 200,058 unpadded columns
+test mini_loop_controller_stages_equal_the_float64_reference_and_rows_are_invariant ... ok
+test mini_loop_controllers_equal_the_oracle_on_the_real_weights ... l6_attn: blend vs oracle 3.90e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+test mini_message_mix_at_four_queries_equals_the_float64_reference_and_rows_are_invariant ... n=1 nq=1 addend=false: worst error 1.19e-7 of unit scale
+test mini_message_mix_equals_the_oracle_on_the_real_queries ... message mix, 12 core layers, real queries: worst error 4.17e-7 of unit scale against the oracle
+test mini_pack_biases_are_within_half_a_subnormal_step_in_fp16 ... bias not exact in fp16: model.visual.backbone.layers.18.mlp.c_proj.bias[22] = -6.3478946685791016e-6 uploads as -6.318092346191406e-6
+test mini_router_equals_the_reference_ties_to_the_lower_index_and_rows_are_invariant ... 150 rows at E = 128, k = 8: 0 near-ties skipped
+test mini_softcap_constants_are_the_configs ... ok
+test mini_unembed_epilogue_equals_the_bf16_linear_softcap_mode ... col_base 0 valid 200058: epilogue == mode 3 bit for bit; 5150 masked columns, 36290 saturated logits
+test mix_equals_the_float64_reference_and_rows_are_invariant ... n=1 nq=1 addend=false: query 0 0 steps, 0.000% differ
+test ops_equal_the_oracle_on_the_real_weights ... REXL3_INKLING2_ORACLE unset: not run
+test router_equals_the_float64_reference_and_breaks_ties_to_the_lower_index ... 64 rows, 0 near-ties skipped
+test router_rows_are_invariant ... ok
+test sharded_argmax_takes_the_lowest_index_among_equal_maxima ... ok
+test unembed_softcap_masks_the_padding_and_the_sharded_topk_is_the_global_one ... ok
+test result: ok. 28 passed; 0 failed; 6 ignored; 0 measured; 0 filtered out; finished in 7.10s

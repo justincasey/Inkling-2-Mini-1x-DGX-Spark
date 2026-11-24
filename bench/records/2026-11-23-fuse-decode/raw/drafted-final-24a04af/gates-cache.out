@@ -1,0 +1,6 @@
+usage: gates.py cache [-h] [--url URL] [--model MODEL] [--timeout TIMEOUT]
+                      [--max-tokens MAX_TOKENS] [--label LABEL]
+                      [--big-tokens BIG_TOKENS] [--min-cut MIN_CUT]
+                      [--nonce NONCE]
+                      out
+gates.py cache: error: the following arguments are required: out

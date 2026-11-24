@@ -1,0 +1,17 @@
+{
+ "anchors": [
+  1,
+  13,
+  25,
+  35,
+  38,
+  41,
+  44,
+  50
+ ],
+ "n_positions": 50,
+ "feature_source": "oracle fixture raw-counting.safetensors (sha256 efc73ed44c17590ff22aff667d67e03188e745b804f376b3c066f25c40529284): stack(hidden[5, 23, 41], h_final)",
+ "mtp_sha256": "427c8cb04d72a2f2e6db473c24277b9dc0d4b3a099eab1c6fbed1b96af7d2f80",
+ "oracle_source_sha256": "85deb02a926d91059bf9e11f4199d1218c7ad355e81d11c76085dfdd7f7bd0df",
+ "seconds": 13.8
+}

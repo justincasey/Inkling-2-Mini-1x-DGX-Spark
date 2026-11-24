@@ -1,0 +1,37 @@
+{
+ "name": "roofline",
+ "gate": "roofline",
+ "date": "2026-11-23",
+ "result": "pass",
+ "node": "node-2",
+ "engine": {
+  "commit": null,
+  "dirty": false,
+  "version": "none: tools/roofline.cu is a cuBLASLt probe, no engine involved"
+ },
+ "recipe": {
+  "commit": "12eb813506cecec5f7153ae50a56b07149bc4103"
+ },
+ "tests": [],
+ "commands": [
+  "scp tools/roofline.cu node-2:lab/nodeops/",
+  "ssh node-2 'cd lab/nodeops && nvcc -O3 -arch=sm_121 roofline.cu -o roofline -lcublasLt -lcublas'",
+  "ssh node-2 'nvidia-smi --query-gpu=clocks.sm,clocks.mem,power.draw,temperature.gpu --format=csv,noheader -lms 500 > clocks.csv & for i in 1 2 3; do flock -x -w 60 /tmp/rexl3-gpu.lock timeout 600 ./roofline; done > roofline.out'"
+ ],
+ "metrics": {
+  "read_gbs_mean3": 234.0,
+  "bf16_tflops_4096_mean3": 89.1,
+  "fp16_tflops_4096_mean3": 87.3,
+  "fp8_tflops_4096_mean3": 171.1,
+  "bf16_tflops_8192_mean3": 92.6,
+  "fp16_tflops_8192_mean3": 92.8,
+  "fp8_tflops_8192_mean3": 194.8,
+  "bf16_tflops_4096x6144x2048_mean3": 86.6,
+  "bf16_tflops_4096x6144x4096_mean3": 94.6,
+  "bf16_tflops_4096x2304x3072_mean3": 80.7,
+  "bf16_tflops_4096x3072x2304_mean3": 82.2,
+  "bf16_tflops_256x2304x1152_mean3": 56.8,
+  "bf16_tflops_256x1152x2304_mean3": 50.8
+ },
+ "notes": "Three back-to-back runs on idle node-2, SM clock locked at 2200 MHz (sampled 2184-2190 MHz under load, clocks.csv). Compared with the HW table of scripts/roofline.py (mean of 3 runs vs table, %): read_gbs 234.0 vs 233.8 (+0.09 %, best run +0.43 %); bf16_tflops_8192 92.6 vs 93.4 (-0.86 %, best run +0.21 %); fp16_tflops_8192 92.8 vs 91.9 (+0.98 %, best run +1.63 %); fp8_tflops_8192 194.8 vs 195.1 (-0.15 %, best run +0.10 %). No difference exceeds 3 %; the table needs no edit. Shape labels are rows x K x N."
+}

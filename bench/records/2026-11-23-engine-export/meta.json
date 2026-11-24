@@ -1,0 +1,44 @@
+{
+ "name": "engine-export",
+ "date": "2026-11-23",
+ "gate": "engine-export",
+ "result": "pass",
+ "engine": {
+  "dev_head": "59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a",
+  "series_head": "fb5e3a7bbe590db3dc7ac039dd44fe751b92e3fc",
+  "series_tree": "a6b4c684275569bdd2997d1defbe00ed13aecf90",
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "branch": "engine/inkling2-export-work",
+  "topics": 46,
+  "commits": 185
+ },
+ "tests": [
+  {
+   "bin": "gb-model --lib",
+   "filter": "inkling2",
+   "passed": 146,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2::",
+   "passed": 31,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2_loop::",
+   "passed": 115,
+   "failed": 0
+  }
+ ],
+ "host_only": true,
+ "nodes_used": [],
+ "pushed": false,
+ "tagged": false,
+ "files": [
+  "check-output.txt",
+  "prefix-check-output.txt",
+  "tips.txt"
+ ]
+}

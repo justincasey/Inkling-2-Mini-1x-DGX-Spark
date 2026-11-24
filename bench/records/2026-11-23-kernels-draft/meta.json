@@ -1,0 +1,67 @@
+{
+  "name": "kernels-draft",
+  "gate": "kernels-draft",
+  "date": "2026-11-23",
+  "result": "pass",
+  "node": "node-1",
+  "engine": {
+    "commit": "ca8af5148858db7ae19938b790d77bca9d229e1c",
+    "dirty": false,
+    "branch": "inkling2-loop-draft",
+    "version": "no server binary: gb-cuda test binaries only (release profile, built by scripts/ops_dev.sh on node-1)"
+  },
+  "recipe": {
+    "commit": "b48642be0cb48f441764a4e0d187ddaea68785da",
+    "branch": "lane/k-draft"
+  },
+  "tests": [
+    {"bin": "inkling2_dspark", "filter": "", "passed": 21, "failed": 0, "ignored": 1, "note": "the Mini's 10 tests (mini_drafter::, incl. the oracle planes on the long and real_chat-capital-effort0 cases, golden hashes, graph replay) and the Small's 11 on the Small's real pack (golden hashes unchanged); the ignored test is the Small's benchmark; the Small's two oracle tests print 'not run' (no Small oracle fixtures)"},
+    {"bin": "inkling2_ops", "filter": "", "passed": 28, "failed": 0, "ignored": 6, "note": "links the changed gb_i2d_markov_step / gb_i2d_markov_logits; the ops test that needs REXL3_INKLING2_ORACLE prints 'not run'"},
+    {"bin": "gb-model --lib (Mac stub build, REXL3_NO_CUDA=1)", "filter": "families::inkling2::", "passed": 31, "failed": 0},
+    {"bin": "gb-model --lib (Mac stub build, REXL3_NO_CUDA=1)", "filter": "families::inkling2_loop::", "passed": 36, "failed": 0, "note": "33 before this lane + 3 of draft.rs"},
+    {"bin": "gb-cuda --lib (Mac stub build, REXL3_NO_CUDA=1)", "filter": "inkling2::dspark", "passed": 12, "failed": 0}
+  ],
+  "commands": [
+    "NODE=node-1 LAB_SRC=<engine worktree inkling2-loop-draft> TEST_ENV=\"REXL3_INKLING2_DIR=<Small pack> REXL3_INKLING2_LOOP_DSPARK_ORACLE=<lab>/fix/dspark\" OPS_LINES=800 OPS_GREP='ctx K/V|f_rnn|  hd|Markov|logits max|drafts|plane|timing|graph|lengths|rollback|restored|refuses|norm rows|golden|snapshot|proposes|weights on|panicked|assert|left:|right:|error|int8 vs' scripts/ops_dev.sh test inkling2_dspark ''",
+    "NODE=node-1 LAB_SRC=<engine worktree> TEST_ENV=\"REXL3_INKLING2_DIR=<Small pack>\" OPS_LINES=400 scripts/ops_dev.sh test inkling2_ops ''",
+    "<lab>/venv/bin/python oracle/gen_dspark_fixtures.py --pack <Mini pack> --fixtures none --out fix/dspark --threads 8 --only long   (node-1, CPU, niced)",
+    "<lab>/venv/bin/python oracle/gen_real_case.py --pack <Mini pack> --fixtures fix --out fix/dspark --name chat-capital-effort0 --anchors 1,5,13,24,25,26,30,33,39   (node-1, CPU, niced)",
+    "REXL3_NO_CUDA=1 cargo test -p gb-model --lib --locked families::inkling2::   (the Mac)",
+    "REXL3_NO_CUDA=1 cargo test -p gb-model --lib --locked families::inkling2_loop::   (the Mac)",
+    "REXL3_NO_CUDA=1 cargo test -p gb-cuda --lib --locked inkling2::dspark   (the Mac)",
+    "REXL3_NO_CUDA=1 CARGO_BUILD_JOBS=6 cargo check -p gb-cuda --tests --locked   (the Mac)"
+  ],
+  "metrics": {
+    "long_bf16_kv_rel_l2": 9.25e-4,
+    "long_int8_kv_rel_l2": 6.21e-3,
+    "long_bf16_hd_rel_l2": 1.15e-2,
+    "long_int8_hd_rel_l2": 1.54e-2,
+    "long_bf16_markov_state_rel_l2": 1.23e-2,
+    "long_bf16_logits_max_abs_diff": 0.375,
+    "long_int8_logits_max_abs_diff": 0.5,
+    "long_drafts_equal_to_oracle": "56/56 on both planes",
+    "real_bf16_kv_rel_l2": 8.84e-4,
+    "real_int8_kv_rel_l2": 6.17e-3,
+    "real_bf16_hd_rel_l2": 6.32e-3,
+    "real_int8_hd_rel_l2": 9.69e-3,
+    "real_bf16_markov_state_rel_l2": 7.24e-3,
+    "real_bf16_logits_max_abs_diff": 0.3125,
+    "real_int8_logits_max_abs_diff": 0.375,
+    "real_drafts_equal_to_oracle": "60/63 bf16 plane, 63/63 int8 plane",
+    "real_leading_drafts_equal_to_target_tokens_per_anchor": [0, 0, 1, 5, 4, 3, 5, 1, 1],
+    "f_rnn_bit_equal_to_oracle": true,
+    "norm_rows_vs_float64_differing_outputs": "0 of 5529600",
+    "int8_vs_bf16_plane_free_drafts_agree": "35/35",
+    "propose_ms_eager_one_request_1300_positions": 7.89,
+    "propose_ms_graph_one_request_1300_positions": 7.73,
+    "commit_8_rows_ms": 0.18,
+    "weights_device_bytes": 339613248,
+    "fold_device_bytes": 103359232,
+    "state_and_scratch_bytes_one_slot_one_request": 28592224,
+    "slot_bytes": 8458752,
+    "plane_page_bytes_int8": 528384,
+    "upload_with_fold_s": 0.04,
+    "small_golden_hashes": "unchanged (testdata/gpu/golden_inkling2_dspark.txt)"
+  },
+  "notes": "UNKNOWN-17 stays OPEN: the engine builds the oracle's variant (a) (fold_W = bf16(U . hidden_out) through the EXL3 launches themselves); variants (b) and (c) and the experiment against the target's greedy tokens are not done. One real target fixture only (chat-capital-effort0, 40 positions). The drafter is not wired into the rank and the engine. Timings are one run of one request; the 7.89 ms is not broken down or tuned."
+}

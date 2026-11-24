@@ -1,0 +1,4 @@
+07:19:49 bench spec against http://node-2:8000 (inkling-2-mini-1x-dgx-spark, window 262144); results in bench/runs/20261123T131949Z-spec
+07:19:49 gate spec: python3 ~/projects/inkling2-mini-k-graph/bench/tools/gates.py spec ~/projects/inkling2-mini-k-graph/bench/runs/20261123T131949Z-spec/spec.json --url http://node-2:8000 --model inkling-2-mini-1x-dgx-spark
+PASS spec
+bench spec: pass run=bench/runs/20261123T131949Z-spec

@@ -1,0 +1,23 @@
+rexl3 event=mem_stage stage=boot_start cuda_free_mib=118460 took_mib=0.0 mem_available_mib=119139
+rexl3 event=mem_stage stage=planned cuda_free_mib=118459 took_mib=1.5 mem_available_mib=119139
+rexl3 event=inkling2_loop_plan slots=4 max_context=262144 kv_pages=4100 kv_tokens=1048576 kv_gib=18.16 lanes_at_max_context=4 weights_gib=13.87 free_after_gib=101.28 floor_gib=8.00 reserve_gib=4.75 state_mib_per_slot=174.4 kv_bytes_per_token=18576 kv_dtype=int
+rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=116794 took_mib=1664.2 mem_available_mib=118358
+rexl3 event=mem_stage stage=weights_layer_4 cuda_free_mib=115668 took_mib=1126.1 mem_available_mib=116326
+rexl3 event=mem_stage stage=weights_layer_8 cuda_free_mib=113651 took_mib=2017.4 mem_available_mib=114309
+rexl3 event=mem_stage stage=weights_layer_12 cuda_free_mib=111442 took_mib=2208.8 mem_available_mib=112100
+rexl3 event=mem_stage stage=weights_layer_16 cuda_free_mib=109264 took_mib=2177.8 mem_available_mib=109901
+rexl3 event=mem_stage stage=weights_layer_20 cuda_free_mib=107037 took_mib=2227.1 mem_available_mib=107675
+rexl3 event=mem_stage stage=weights_layer_24 cuda_free_mib=104932 took_mib=2105.1 mem_available_mib=105569
+rexl3 event=mem_stage stage=weights_loaded cuda_free_mib=104582 took_mib=350.3 mem_available_mib=105221
+rexl3 event=mem_stage stage=rank_start cuda_free_mib=104581 took_mib=0.6 mem_available_mib=105220
+rexl3 event=mem_stage stage=visit_state_kv_pool_rings cuda_free_mib=80830 took_mib=23751.0 mem_available_mib=81472
+rexl3 event=mem_stage stage=slot_state_conv_tables cuda_free_mib=80812 took_mib=18.0 mem_available_mib=81454
+rexl3 event=mem_stage stage=lane_scratch cuda_free_mib=80636 took_mib=176.5 mem_available_mib=81278
+rexl3 event=mem_stage stage=step_buffers cuda_free_mib=79995 took_mib=641.1 mem_available_mib=80637
+rexl3 event=mem_stage stage=attention_and_controller_scratch cuda_free_mib=79251 took_mib=743.7 mem_available_mib=79893
+rexl3 event=mem_stage stage=moe_scratch_decode_prefill_owned cuda_free_mib=78492 took_mib=758.7 mem_available_mib=79134
+rexl3 event=mem_stage stage=rank_ready cuda_free_mib=78490 took_mib=2.3 mem_available_mib=79132
+rexl3 event=mem_stage stage=drafter_loaded cuda_free_mib=74576 took_mib=3914.1 mem_available_mib=75453
+rexl3 event=mem_stage stage=vision_tower cuda_free_mib=73472 took_mib=1104.2 mem_available_mib=74622
+rexl3 event=mem_stage stage=prefix_cache_arena cuda_free_mib=70688 took_mib=2783.8 mem_available_mib=71839
+rexl3 event=mem_stage stage=engine_ready cuda_free_mib=70688 took_mib=0.2 mem_available_mib=71839

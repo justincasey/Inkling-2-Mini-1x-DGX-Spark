@@ -1,0 +1,10 @@
+short   (16 tokens): equal; drafted 172 accepted 50 rounds 77 acceptance 0.2907 tokens/round 1.6623
+medium  (521 tokens): equal; drafted 128 accepted 91 rounds 36 acceptance 0.7109 tokens/round 3.5556
+long    (2030 tokens): equal; drafted 209 accepted 86 rounds 41 acceptance 0.4115 tokens/round 3.122
+xlong   (8334 tokens): equal; drafted 206 accepted 90 rounds 37 acceptance 0.4369 tokens/round 3.4595
+70k     (73154 tokens): equal; drafted 168 accepted 98 rounds 29 acceptance 0.5833 tokens/round 4.4138
+concurrent short  : equal
+concurrent medium : equal
+concurrent long   : equal
+concurrent xlong  : equal
+spec: pass; drafted 1708 accepted 742 rounds 401 acceptance 0.4344 tokens/round 2.8728 -> /tmp/draftwire-final/spec-dspark.json

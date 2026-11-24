@@ -1,0 +1,217 @@
+### gb-model inkling2_loop_rank forward_oracle_gate long_context_gate
+== gb-model forward_oracle_gate
+LOOP_dump_a sha256 c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0 bytes 90056120
+LOOP_chunk_width 7 logits_identical 20806032 bytes sha256 a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a
+LOOP_chunk_width 11 logits_identical 20806032 bytes sha256 a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 10.32s
+== gb-model long_context_gate
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 12.75s
+### gb-model inkling2_loop_rank forward_oracle_gate long_context_gate
+== gb-model forward_oracle_gate
+LOOP_dump_a sha256 c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0 bytes 90056120
+LOOP_chunk_width 7 logits_identical 20806032 bytes sha256 a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a
+LOOP_chunk_width 11 logits_identical 20806032 bytes sha256 a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 12.74s
+== gb-model long_context_gate
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 12.62s
+### gb-model inkling2_loop_graphs graph_replay_equals capture_refusal a_capture_refused a_capture_that_fails a_slow_lane changing_the_overlap a_graph_captured_early commits_that_cannot
+== gb-model graph_replay_equals
+LOOP_GRAPH_equal windows 37 logits_sha256 6d0a555b92e02953c9e26efecdd9dece0ab211030ba8947cbe03b8407846c06b captures 24 replays 189 eager 112 capture_failures 0 evictions 0
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 19.53s
+== gb-model capture_refusal
+rexl3 level=warn event=inkling2_loop_graph_capture_failed rows=1 blocks=1 chunks=2 count=64 a launch failed while capturing: CUDA error 900 (cudaErrorStreamCaptureUnsupported) (this window shape runs eagerly)
+LOOP_GRAPH_refusal captures 0 capture_failures 1 eager 5 replays 0 last_failure Some("a launch failed while capturing: CUDA error 900 (cudaErrorStreamCaptureUnsupported)")
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 10.65s
+== gb-model a_capture_refused
+rexl3 level=warn event=inkling2_loop_graph_capture_failed rows=1 blocks=1 chunks=2 count=64 a launch failed while capturing: CUDA error 901 (cudaErrorStreamCaptureInvalidated) (this window shape runs eagerly)
+LOOP_GRAPH_refusal_Prologue capture_failures 1 last_failure Some("a launch failed while capturing: CUDA error 901 (cudaErrorStreamCaptureInvalidated)")
+rexl3 level=warn event=inkling2_loop_graph_capture_failed rows=2 blocks=1 chunks=2 count=64 a launch failed while capturing: CUDA error 901 (cudaErrorStreamCaptureInvalidated) (this window shape runs eagerly)
+LOOP_GRAPH_refusal_TopK capture_failures 2 last_failure Some("a launch failed while capturing: CUDA error 901 (cudaErrorStreamCaptureInvalidated)")
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 10.63s
+== gb-model a_capture_that_fails
+rexl3 level=warn event=inkling2_loop_graph_capture_failed rows=1 blocks=1 chunks=2 count=64 a launch failed while capturing: CUDA error 900 (cudaErrorStreamCaptureUnsupported) (this window shape runs eagerly)
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 10.49s
+== gb-model a_slow_lane
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 10.59s
+== gb-model changing_the_overlap
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 10.79s
+== gb-model a_graph_captured_early
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 37.82s
+== gb-model commits_that_cannot
+test commits_that_cannot_be_applied_are_a_fatal_error ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=109150 took_mib=0.0 mem_available_mib=118438
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 9.91s
+### gb-model inkling2_loop_spec _
+== gb-model _
+LOOP_SPEC_snapshot_bytes 179294720 priced 179294720
+LOOP_SPEC_cached_decode round 0 pos 1401 drafts [126038, 109773, 55147, 11657, 19086, 89616, 19086] accepted 0 next 49192
+LOOP_SPEC_cached_decode round 1 pos 1402 drafts [82, 25208, 21584, 131480, 131480, 131480, 131480] accepted 0 next 71793
+LOOP_SPEC_cached_decode round 2 pos 1403 drafts [25208, 19084, 131480, 131480, 131480, 131480, 172] accepted 0 next 88310
+LOOP_SPEC_cached_decode round 3 pos 1404 drafts [11, 220, 131480, 11, 220, 131480, 11] accepted 0 next 6633
+LOOP_SPEC_cached_decode round 4 pos 1405 drafts [1020, 96971, 30, 1, 11, 1, 11] accepted 0 next 6633
+LOOP_SPEC_cached_decode round 5 pos 1406 drafts [14781, 25208, 14771, 6633, 14781, 131480, 6633] accepted 0 next 6633
+LOOP_SPEC_cached_decode committed 6 tokens [50459, 49192, 71793, 88310, 6633, 6633] final_drafts [14141, 25208, 6633, 14781, 6633, 14781, 25208]
+LOOP_SPEC_snapshot_bytes 179294720 priced 179294720
+LOOP_SPEC_snapshot cut 512 pages 2 drafts [126038, 109773, 55147, 11657, 19086, 89616, 19086] accepted 0 next_drafts [82, 25208, 21584, 131480, 131480, 131480, 131480]
+LOOP_SPEC_snapshot cut 700 pages 3 drafts [126038, 109773, 55147, 11657, 19086, 89616, 19086] accepted 0 next_drafts [82, 25208, 21584, 131480, 131480, 131480, 131480]
+LOOP_SPEC_snapshot cut 1024 pages 4 drafts [126038, 109773, 55147, 11657, 19086, 89616, 19086] accepted 0 next_drafts [82, 25208, 21584, 131480, 131480, 131480, 131480]
+LOOP_SPEC_snapshot cut 1100 pages 5 drafts [126038, 109773, 55147, 11657, 19086, 89616, 19086] accepted 0 next_drafts [82, 25208, 21584, 131480, 131480, 131480, 131480]
+LOOP_SPEC_replay round 0 pos 1000 drafts [25208, 5348, 79, 90, 72, 92, 11] accepted 0 next 220
+LOOP_SPEC_replay round 1 pos 1001 drafts [25162, 220, 25162, 220, 25162, 220, 131480] accepted 0 next 220
+LOOP_SPEC_replay round 2 pos 1002 drafts [25162, 220, 18, 12, 971, 220, 131480] accepted 0 next 157
+LOOP_SPEC_replay round 3 pos 1003 drafts [113, 113, 5348, 79, 25208, 14771, 14141] accepted 0 next 238
+LOOP_SPEC_replay rounds 4 drafted 28 accepted 0 final_drafts [68014, 2918, 6, 82, 159942, 302, 220] previous Some([113, 113, 5348, 79, 25208, 14771, 14141])
+LOOP_SPEC_replay_vs_prefill_context equal true window_fed [68014, 2918, 6, 82, 159942, 302, 220] prefill_fed [68014, 2918, 6, 82, 159942, 302, 220]
+LOOP_SPEC_chat round 0 pos 26 drafts [200008, 371, 150409, 171960, 25, 149954, 156021] accepted 5 next 196980
+LOOP_SPEC_chat round 1 pos 32 drafts [100887, 149881, 150011, 156021, 151661, 149876, 151661] accepted 6 next 158808
+LOOP_SPEC_chat round 2 pos 39 drafts [149884, 152978, 152778, 13, 1, 170289, 152198] accepted 6 next 150893
+LOOP_SPEC_chat round 3 pos 46 drafts [149881, 150011, 156021, 13, 170289, 149911, 4123] accepted 0 next 150011
+LOOP_SPEC_chat round 4 pos 47 drafts [156021, 13, 170289, 149895, 162944, 13, 170289] accepted 3 next 151791
+LOOP_SPEC_chat round 5 pos 51 drafts [150845, 13, 150197, 149951, 152134, 25, 196980] accepted 0 next 153606
+LOOP_SPEC_chat round 6 pos 52 drafts [13, 150197, 149951, 152134, 25, 152134, 149884] accepted 0 next 25
+LOOP_SPEC_chat round 7 pos 53 drafts [165477, 149884, 152778, 13, 170289, 149882, 152198] accepted 0 next 158808
+LOOP_SPEC_chat round 8 pos 54 drafts [149884, 152778, 150301, 149879, 220, 47157, 82] accepted 0 next 156090
+LOOP_SPEC_chat round 9 pos 55 drafts [152778, 150301, 150489, 149882, 220, 47157, 14] accepted 1 next 150489
+LOOP_SPEC_chat round 10 pos 57 drafts [149882, 220, 47157, 14, 4662, 149879, 220] accepted 3 next 180553
+LOOP_SPEC_chat round 11 pos 61 drafts [25, 220, 47157, 82, 11, 220, 47157] accepted 0 next 149879
+LOOP_SPEC_chat round 12 pos 62 drafts [180553, 180553, 25, 220, 79217, 82, 11] accepted 0 next 151483
+LOOP_SPEC_chat round 13 pos 63 drafts [12, 30727, 25, 149876, 220, 79217, 150519] accepted 0 next 1638
+LOOP_SPEC_chat round 14 pos 64 drafts [25, 157918, 149910, 220, 36294, 11, 149880] accepted 0 next 149910
+LOOP_SPEC_chat round 15 pos 65 drafts [220, 36294, 25, 149876, 159486, 302, 157918] accepted 0 next 150924
+LOOP_SPEC_chat rounds 16 accepted 24
+LOOP_SPEC_staged worst_after_flush 0
+LOOP_SPEC_graph_taps windows 6 captures 0 replays 0 eager 30 capture_failures 0
+thread 'graph_replay_equals_eager_with_taps_on' panicked at crates/model/tests/inkling2_loop_spec.rs:295:5:
+FAILED
+LOOP_SPEC_no_drafter_bits runs 6 equal (8-row and 1-row windows, logits and top-64)
+LOOP_SPEC_tap0 visit 5 rows 700 elements 1612800 mismatched 0 first None
+LOOP_SPEC_tap1 visit 23 rows 700 elements 1612800 mismatched 0 first None
+LOOP_SPEC_tap2 visit 41 rows 700 elements 1612800 mismatched 0 first None
+LOOP_SPEC_tap3 final norm rows 700 elements 1612800 mismatched 0 first None
+LOOP_SPEC_chunks cut 311 first_chunk_mismatched 0 first None second_chunk_mismatched 0 first None
+LOOP_SPEC_follow round 0 window_at 700 keep 1 draft_len 701
+LOOP_SPEC_follow round 1 window_at 701 keep 3 draft_len 704
+LOOP_SPEC_follow round 2 window_at 704 keep 8 draft_len 712
+LOOP_SPEC_follow round 3 window_at 712 keep 1 draft_len 713
+LOOP_SPEC_follow round 4 window_at 713 keep 8 draft_len 721
+ops_dev: '_' did not pass
+### gb-model inkling2_loop_prefix _
+== gb-model _
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 2
+LOOP_PFX_cut 1 cold_chunk 2048 resumed_chunk 129 last_row_sha cdce5f343b13d39c state_sha b0a651cd9e50a585 decode_sha d194be2f61a6b1a0 identical
+LOOP_PFX_cut 255 cold_chunk 700 resumed_chunk 129 last_row_sha d879929334a0929b state_sha b85d818cf7e66ae4 decode_sha 3672326076fa0e6f identical
+LOOP_PFX_cut 256 cold_chunk 700 resumed_chunk 7 last_row_sha bffa2759f018dda3 state_sha 8550e8bbc3fd7a57 decode_sha e0bdf9d081bbb5f9 identical
+LOOP_PFX_cut 300 cold_chunk 2048 resumed_chunk 300 last_row_sha 0f7f6de8ab703e42 state_sha 72900afd094f8419 decode_sha c7074f1d78d67e11 identical
+LOOP_PFX_cut 512 cold_chunk 129 resumed_chunk 1 last_row_sha 58f723cc5c3db2aa state_sha c028b1eac09cd8f3 decode_sha e0074b6225adca9d identical
+LOOP_PFX_cut 1023 cold_chunk 700 resumed_chunk 129 last_row_sha d7eb5c89000822b3 state_sha ea72bf0edb2fa910 decode_sha e99ef3c21f5584f2 identical
+LOOP_PFX_cut 1024 cold_chunk 2048 resumed_chunk 300 last_row_sha cabcf89dc2d01a96 state_sha d756860f9f0c6db4 decode_sha 5de27757d23a14a0 identical
+LOOP_PFX_cut 1025 cold_chunk 300 resumed_chunk 7 last_row_sha 2e076611d5bb72e5 state_sha bba45c0479c9efda decode_sha 0ca6c3d2329bfe16 identical
+LOOP_PFX_cut 1030 cold_chunk 700 resumed_chunk 129 last_row_sha 7beb528c206e1e96 state_sha 5663bc3b40eceaa4 decode_sha ac849cb743d6d2dc identical
+LOOP_PFX_cut 1031 cold_chunk 700 resumed_chunk 129 last_row_sha 042701665506f8ab state_sha 13a0d41c1f183176 decode_sha 7fac5443a572a2c9 identical
+LOOP_PFX_cut 1032 cold_chunk 2048 resumed_chunk 1 last_row_sha 249e52b48ff9c655 state_sha 285a5e0501d9db44 decode_sha edaf5edaee5d4895 identical
+LOOP_PFX_cut 1100 cold_chunk 300 resumed_chunk 129 last_row_sha b439a55fd0863fec state_sha 76501d4c3f8b2903 decode_sha 22afd449db5d24e7 identical
+LOOP_PFX_cut 1500 cold_chunk 129 resumed_chunk 700 last_row_sha 920cf083880902b7 state_sha beefd772056e8ed8 decode_sha bf903d300f33153c identical
+LOOP_PFX_cut 2047 cold_chunk 2048 resumed_chunk 129 last_row_sha 5d8e85c1a136c52e state_sha af20e60d2425ea4f decode_sha e880b31871e6df24 identical
+LOOP_PFX_cut 2048 cold_chunk 700 resumed_chunk 300 last_row_sha e4cc70379c583b72 state_sha ade780c6340613cc decode_sha 6a6029cbd3ff9d1b identical
+LOOP_PFX_cut 2049 cold_chunk 300 resumed_chunk 129 last_row_sha 2cf093f80fbf9403 state_sha d7f72d51f3351596 decode_sha edf1cb54720e3627 identical
+LOOP_PFX_cut 2062 cold_chunk 2048 resumed_chunk 7 last_row_sha 4ec1f7d6e14d28a9 state_sha 5a16ac5bf8beb0a0 decode_sha 26d151b3c5bf3908 identical
+LOOP_PFX_cut 2063 cold_chunk 700 resumed_chunk 129 last_row_sha bd829e568ff2ff1a state_sha 5230f2056674da93 decode_sha 9dedb85bbe155e91 identical
+LOOP_PFX_cut 3000 cold_chunk 2048 resumed_chunk 300 last_row_sha cd9bea0615348eac state_sha 2fdbf18cfccf4c30 decode_sha aa8577c08a9aaf9e identical
+LOOP_PFX_cut 4096 cold_chunk 700 resumed_chunk 129 last_row_sha 6d5f3ff41ad61778 state_sha d56153549fb108d3 decode_sha f19731f673b4e115 identical
+LOOP_PFX_graphs captures 10 replays 140 eager_windows 10 capture_failures 0
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 2
+LOOP_PFX_image_negative cut 700 a_sha c3ca803ef0fbf925 b_sha 1539e10cec33681b restored_equals_a identical_not_b
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 2
+LOOP_PFX_image_cut 250 images 2 cold_chunk 700 resumed_chunk 129 last_row_sha 2680fdf08f6b07ed state_sha 9111fada329906d6 decode_sha a938a63f4df7acbf identical
+LOOP_PFX_image_cut 364 images 2 cold_chunk 129 resumed_chunk 300 last_row_sha 2680fdf08f6b07ed state_sha 9111fada329906d6 decode_sha a938a63f4df7acbf identical
+LOOP_PFX_image_cut 700 images 2 cold_chunk 2048 resumed_chunk 129 last_row_sha 2680fdf08f6b07ed state_sha 9111fada329906d6 decode_sha a938a63f4df7acbf identical
+LOOP_PFX_image_cut 1200 images 2 cold_chunk 300 resumed_chunk 700 last_row_sha 2680fdf08f6b07ed state_sha 9111fada329906d6 decode_sha a938a63f4df7acbf identical
+LOOP_PFX_image_cut 1300 images 2 cold_chunk 700 resumed_chunk 7 last_row_sha 2680fdf08f6b07ed state_sha 9111fada329906d6 decode_sha a938a63f4df7acbf identical
+LOOP_PFX_graphs captures 2 replays 36 eager_windows 2 capture_failures 0
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 1
+LOOP_PFX_planes cut 300 next_chunk_rows 40 hidden 5d9d57eccd544c10 (9031680 B) core_out 9b8494df88f32eac (368640 B) h_final 9ae3e6c14578b542 (184320 B) logits ef51dc3aa2e86462 (32009280 B) identical
+LOOP_PFX_planes cut 1024 next_chunk_rows 40 hidden 11ca5de1b788ca20 (9031680 B) core_out a968ad9e6d763d0f (368640 B) h_final 752e488700206495 (184320 B) logits 2a0fecfb8b329a39 (32009280 B) identical
+LOOP_PFX_planes cut 1500 next_chunk_rows 40 hidden 18767e45e37d8d40 (9031680 B) core_out eb05056e536156b9 (368640 B) h_final a9b25722577c5542 (184320 B) logits 1f0cf60859cafc44 (32009280 B) identical
+LOOP_PFX_planes cut 2048 next_chunk_rows 40 hidden d0afcec55e466f51 (9031680 B) core_out 8b08686b98dbe082 (368640 B) h_final 84065f37c1df36d2 (184320 B) logits 59c75809466828e9 (32009280 B) identical
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 1
+LOOP_PFX_long total 12300 cut 12000 last_row_sha edb2775fac2927bc state_sha 2a6a27ffce5dc457 decode_sha 4b0a7e44e41511ef identical
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 2
+LOOP_PFX_eviction cut 1092 restores 3 after_reuse after_eviction after_refill identical pages_returned 400
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 2
+LOOP_PFX_concurrent streams 3 a_steps 17 b_steps 12 c_steps 12 a_sha f90a4f28b47411eb b_sha 9a3b8dcf544097e7 c_sha b1dc7ea5227b5049 identical
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 182.19s
+### gb-model inkling2_loop_vision _
+== gb-model _
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.51s
+### gb-model inkling2_loop_stall decode_windows
+== gb-model decode_windows
+LOOP_STALL_nonblocking quiet_median_ms 24.07 during_windows 31 during_median_ms 146.59 during_max_ms 156.21 encode_ms 3694.2
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 15.94s
+### gb-model inkling2_loop_stall decode_windows
+== gb-model decode_windows
+LOOP_STALL_nonblocking quiet_median_ms 24.02 during_windows 10 during_median_ms 408.34 during_max_ms 416.41 encode_ms 3244.8
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 15.70s
+### gb-cuda inkling2_ops _
+== gb-cuda _
+test mini_message_mix_at_four_queries_equals_the_float64_reference_and_rows_are_invariant ... n=1 nq=1 addend=false: worst error 1.19e-7 of unit scale
+test mini_message_mix_equals_the_oracle_on_the_real_queries ... message mix, 12 core layers, real queries: worst error 4.17e-7 of unit scale against the oracle
+test result: ok. 29 passed; 0 failed; 6 ignored; 0 measured; 0 filtered out; finished in 7.35s
+### gb-cuda inkling2_moe _
+== gb-cuda _
+test four_rank_banks_sum_to_the_tp4_result ... TP4 sum: cosine 0.9999972, max error 0.0181 of the row RMS
+test partial_equals_the_float64_reference ... rank None: cosine 0.9999980, max error 0.0171 of the row RMS
+thread 'real_layers_equal_the_reference_and_the_oracle' panicked at crates/cuda/tests/inkling2_moe.rs:40:9:
+FAILED
+test result: FAILED. 7 passed; 1 failed; 1 ignored; 0 measured; 0 filtered out; finished in 1.14s
+ops_dev: '_' did not pass
+### gb-cuda inkling2_moe_mixed _
+error[E0425]: cannot find function `not_run` in this scope
+error[E0425]: cannot find function `not_run` in this scope
+error[E0425]: cannot find function `not_run` in this scope
+error[E0425]: cannot find function `not_run` in this scope
+error[E0425]: cannot find function `not_run` in this scope
+error[E0425]: cannot find function `not_run` in this scope
+### gb-cuda inkling2_attn mini:: small::
+== gb-cuda mini::
+test mini::global_attention_matches_f64_from_the_start_and_past_the_bias_extent ... Global from 0: worst max-rel error 6.141e-3, min cosine 0.99999478
+test mini::global_attention_matches_f64_past_the_floor ... Global from 8187: worst max-rel error 4.543e-3, min cosine 0.99999534
+test mini::local_attention_matches_f64_through_the_ring_wrap ... Local from 0: worst max-rel error 6.051e-3, min cosine 0.99999463
+test result: ok. 14 passed; 0 failed; 1 ignored; 0 measured; 15 filtered out; finished in 20.92s
+== gb-cuda small::
+test small::global_attention_matches_f64_from_the_start_and_past_the_bias_extent ... Global from 0: worst max-rel error 5.722e-3, min cosine 0.99999509
+test small::global_attention_matches_f64_past_the_floor ... Global from 127995: worst max-rel error 4.611e-3, min cosine 0.99999529
+test small::local_attention_matches_f64_through_the_ring_wrap ... Local from 0: worst max-rel error 5.833e-3, min cosine 0.99999388
+test result: ok. 14 passed; 0 failed; 1 ignored; 0 measured; 15 filtered out; finished in 21.83s
+### gb-cuda inkling2_dspark _
+== gb-cuda _
+thread 'golden_inkling2_dspark_hashes' panicked at crates/cuda/tests/inkling2_dspark.rs:40:9:
+FAILED
+thread 'int8_plane_tracks_the_bf16_plane' panicked at crates/cuda/tests/inkling2_dspark.rs:40:9:
+FAILED
+thread 'matches_the_oracle_at_tp4' panicked at crates/cuda/tests/inkling2_dspark.rs:40:9:
+FAILED
+thread 'matches_the_oracle_on_one_rank' panicked at crates/cuda/tests/inkling2_dspark.rs:40:9:
+FAILED
+thread 'refuses_what_it_cannot_draft' panicked at crates/cuda/tests/inkling2_dspark.rs:40:9:
+FAILED
+thread 'rollback_and_restore_equal_replay' panicked at crates/cuda/tests/inkling2_dspark.rs:40:9:
+FAILED
+thread 'rollback_and_restore_equal_replay_int8' panicked at crates/cuda/tests/inkling2_dspark.rs:40:9:
+FAILED
+thread 'rows_are_invariant_and_ranks_agree' panicked at crates/cuda/tests/inkling2_dspark.rs:40:9:
+FAILED
+thread 'rows_are_invariant_and_ranks_agree_int8' panicked at crates/cuda/tests/inkling2_dspark.rs:40:9:
+FAILED
+thread 'slot_snapshot_restores_the_bits' panicked at crates/cuda/tests/inkling2_dspark.rs:40:9:
+FAILED
+test result: FAILED. 18 passed; 10 failed; 1 ignored; 0 measured; 0 filtered out; finished in 16.78s
+ops_dev: '_' did not pass
+### gb-cuda inkling2_loop_vision _
+== gb-cuda _
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.39s
+### gb-cuda inkling2_attn_oracle _
+== gb-cuda _
+test mini::cpu_reference_matches_the_python_oracle ... Local: CPU reference vs oracle: 22 of 347136 outputs differ, by at most 15 bf16 ulp, worst head max-rel error 5.051e-3
+test mini::kernels_match_the_python_oracle ... Local: kernels vs oracle over 113 rows: 81717 outputs differ, worst max-rel error 7.752e-3, min cosine 0.9999927
+test small::cpu_reference_matches_the_python_oracle ... Local: CPU reference vs oracle: 0 of 173568 outputs differ, by at most 0 bf16 ulp, worst head max-rel error 0.000e0
+test small::kernels_match_the_python_oracle ... Local: kernels vs oracle over 113 rows: 39099 outputs differ, worst max-rel error 7.692e-3, min cosine 0.9999922
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.93s

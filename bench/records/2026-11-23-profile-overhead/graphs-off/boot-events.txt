@@ -1,0 +1,7 @@
+rexl3 event=boot phase=tokenizer_loaded t=0.895
+rexl3 event=boot phase=listening t=0.896
+rexl3 event=memory_view cuda_free_gib=115.8 mem_free_gib=115.8 mem_available_gib=116.2 cached_gib=0.5 planned_from=mem_available plan_free_gib=116.0 floor_gib=8.0
+rexl3 event=inkling2_loop_plan slots=4 max_context=262144 kv_pages=4100 kv_tokens=1048576 kv_gib=16.14 lanes_at_max_context=4 weights_gib=13.55 free_after_gib=102.45 floor_gib=8.00 reserve_gib=5.00 state_mib_per_slot=166.3 kv_bytes_per_token=16512 kv_dtype=int8 drafter=none prefix_cache=off prefix_entries=0 prefix_pages=0 prefix_gib=0.00 prefix_reach_tokens=0 spare_gib=72.66 tower_gib=0.00 vision_reserve_gib=0.00
+rexl3 event=boot phase=weights_loaded t=10.854 gib=13.55
+rexl3 event=boot phase=kv_planned t=11.662 gib=16.12
+rexl3 event=boot phase=ready t=11.678

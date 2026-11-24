@@ -1,0 +1,3 @@
+test golden_exl3_big_hashes ... wrote 42 golden lines to /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-densepipe/golden_exl3_big.out
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 2.01s
+GOLDEN_EXL3_BIG identical to testdata/gpu/golden_exl3_big.txt: 42 lines, sha256 c218e2a559f01fd4c81f1fd9ed021f9f67ad12a40840d2600d660bc10cc4fca5

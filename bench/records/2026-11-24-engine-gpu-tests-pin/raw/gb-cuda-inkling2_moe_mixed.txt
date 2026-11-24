@@ -1,0 +1,48 @@
+GPU SM clock capped at 2200 MHz on node-3
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-pintests/target/release/deps/inkling2_moe_mixed-107fa5e4ee85b701
+GPU SM clock capped at 2200 MHz on node-3
+== gb-cuda 
+running 13 tests
+test an_arena_bank_equals_the_from_groups_bank ... arena bank == from_groups bank (hidden 512, 32 experts, tiny bands false, 5 rows)
+arena bank == from_groups bank (hidden 512, 32 experts, tiny bands true, 3 rows)
+arena bank == from_groups bank (hidden 2304, 128 experts, tiny bands false, 4 rows)
+ok
+test band_entries_on_a_uniform_layer_equal_the_single_band_functions ... ok
+test band_split_equals_single_band_mini_shape ... rows=33 hot=false: pairs per class [150, 79, 35]
+rows=33 hot=true: pairs per class [132, 99, 33]
+ok
+test band_split_equals_single_band_small ... rows=40 hot=false: pairs per class [187, 82, 51]
+rows=40 hot=true: pairs per class [160, 120, 40]
+rows=40 hot=false: pairs per class [296, 14, 10]
+rows=40 hot=true: pairs per class [320, 0, 0]
+ok
+test bands_entries_refuse_what_they_do_not_run ... ok
+test bench_decode_cost_of_bands ... REXL3_MOE_BENCH unset: not run
+ok
+test bench_prefill_layers ... REXL3_MOE_BENCH or the pack unset: not run
+ok
+test every_pair_row_is_written_once_mini_shape ... ok
+test every_pair_row_is_written_once_small ... ok
+test graph_replay_equals_eager_over_bands ... ok
+test mul1_bands_decode_equals_prefill_mini_shape ... ok
+test mul1_bands_decode_equals_prefill_small ... ok
+test real_mini_layers_equal_the_oracle ... layer 12: bands (gate/up bits, down bits, experts) = [(4, 4, 107), (5, 5, 4), (4, 5, 17)]
+layer 12 vs the oracle (exact): cosine 0.9999982, max error 0.0137 of the row RMS
+layer 12 vs the oracle (fp16in): cosine 0.9999998, max error 0.0137 of the row RMS
+layer 12 row 0: the 8 pairs' y vs the oracle: cosine 0.9999995, max error 0.0054 of the pair RMS
+layer 12 row 1: the 8 pairs' y vs the oracle: cosine 0.9999995, max error 0.0053 of the pair RMS
+layer 12 row 12: the 8 pairs' y vs the oracle: cosine 0.9999996, max error 0.0045 of the pair RMS
+layer 22: bands (gate/up bits, down bits, experts) = [(4, 4, 125), (4, 5, 2), (5, 5, 1)]
+layer 22 vs the oracle (exact): cosine 0.9999980, max error 0.0164 of the row RMS
+layer 22 vs the oracle (fp16in): cosine 0.9999998, max error 0.0162 of the row RMS
+layer 22 row 0: the 8 pairs' y vs the oracle: cosine 0.9999995, max error 0.0061 of the pair RMS
+layer 22 row 1: the 8 pairs' y vs the oracle: cosine 0.9999994, max error 0.0063 of the pair RMS
+layer 22 row 12: the 8 pairs' y vs the oracle: cosine 0.9999994, max error 0.0054 of the pair RMS
+layer 23: bands (gate/up bits, down bits, experts) = [(4, 5, 1), (4, 4, 127)]
+layer 23 vs the oracle (exact): cosine 0.9999981, max error 0.0171 of the row RMS
+layer 23 vs the oracle (fp16in): cosine 0.9999998, max error 0.0171 of the row RMS
+layer 23 row 0: the 8 pairs' y vs the oracle: cosine 0.9999995, max error 0.0045 of the pair RMS
+layer 23 row 1: the 8 pairs' y vs the oracle: cosine 0.9999994, max error 0.0050 of the pair RMS
+layer 23 row 12: the 8 pairs' y vs the oracle: cosine 0.9999995, max error 0.0073 of the pair RMS
+ok
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.33s

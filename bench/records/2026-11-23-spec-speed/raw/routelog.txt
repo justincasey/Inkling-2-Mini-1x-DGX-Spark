@@ -1,0 +1,321 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-draftwire/target/release/deps/inkling2_loop_routelog-a8d9625931e45a47
+== gb-model route_log
+test route_log ... ROUTE_KMAP expert_classes(gate,up,down)->count over all layers: {(4, 4, 4): 2372, (4, 4, 5): 414, (5, 5, 5): 286}
+ROUTE_TABLE columns: ROUTE_<kind> label=... then the keys of the kind; random 8-of-128 overlap = 0.0625
+ROUTE_TEXT label=chat file=/home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-draftwire/route_chat.json rows=714
+ROUTE_CONSEC label=chat layer_class=prelude mean_overlap=0.2496 random=0.0625
+ROUTE_CONSEC label=chat layer_class=core0 mean_overlap=0.4872 random=0.0625
+ROUTE_CONSEC label=chat layer_class=core1 mean_overlap=0.4498 random=0.0625
+ROUTE_CONSEC label=chat layer_class=core2 mean_overlap=0.4380 random=0.0625
+ROUTE_CONSEC label=chat layer_class=coda mean_overlap=0.4804 random=0.0625
+ROUTE_CONSEC label=chat layer_class=all mean_overlap=0.4350 random=0.0625
+ROUTE_WINDOW label=chat w=1 distinct_per_visit=8.000 frac_of_wx8=1.0000 random_distinct=8.000
+ROUTE_WINDOW label=chat layer_class=prelude w=1 distinct_per_visit=8.000 frac_of_wx8=1.0000 random_distinct=8.000
+ROUTE_WINDOW label=chat layer_class=core w=1 distinct_per_visit=8.000 frac_of_wx8=1.0000 random_distinct=8.000
+ROUTE_WINDOW label=chat layer_class=coda w=1 distinct_per_visit=8.000 frac_of_wx8=1.0000 random_distinct=8.000
+ROUTE_WINDOW label=chat w=2 distinct_per_visit=12.520 frac_of_wx8=0.7825 random_distinct=15.500
+ROUTE_WINDOW label=chat layer_class=prelude w=2 distinct_per_visit=14.003 frac_of_wx8=0.8752 random_distinct=15.500
+ROUTE_WINDOW label=chat layer_class=core w=2 distinct_per_visit=12.333 frac_of_wx8=0.7708 random_distinct=15.500
+ROUTE_WINDOW label=chat layer_class=coda w=2 distinct_per_visit=12.157 frac_of_wx8=0.7598 random_distinct=15.500
+ROUTE_WINDOW label=chat w=3 distinct_per_visit=16.114 frac_of_wx8=0.6714 random_distinct=22.531
+ROUTE_WINDOW label=chat w=4 distinct_per_visit=19.114 frac_of_wx8=0.5973 random_distinct=29.123
+ROUTE_WINDOW label=chat layer_class=prelude w=4 distinct_per_visit=23.695 frac_of_wx8=0.7405 random_distinct=29.123
+ROUTE_WINDOW label=chat layer_class=core w=4 distinct_per_visit=18.527 frac_of_wx8=0.5790 random_distinct=29.123
+ROUTE_WINDOW label=chat layer_class=coda w=4 distinct_per_visit=18.052 frac_of_wx8=0.5641 random_distinct=29.123
+ROUTE_WINDOW label=chat w=5 distinct_per_visit=21.692 frac_of_wx8=0.5423 random_distinct=35.303
+ROUTE_WINDOW label=chat w=6 distinct_per_visit=23.975 frac_of_wx8=0.4995 random_distinct=41.096
+ROUTE_WINDOW label=chat w=7 distinct_per_visit=26.065 frac_of_wx8=0.4654 random_distinct=46.528
+ROUTE_WINDOW label=chat w=8 distinct_per_visit=27.972 frac_of_wx8=0.4371 random_distinct=51.620
+ROUTE_WINDOW label=chat layer_class=prelude w=8 distinct_per_visit=37.068 frac_of_wx8=0.5792 random_distinct=51.620
+ROUTE_WINDOW label=chat layer_class=core w=8 distinct_per_visit=26.819 frac_of_wx8=0.4190 random_distinct=51.620
+ROUTE_WINDOW label=chat layer_class=coda w=8 distinct_per_visit=25.798 frac_of_wx8=0.4031 random_distinct=51.620
+ROUTE_PASS label=chat layer=6 pass_a=0 pass_b=1 mean_overlap=0.5551
+ROUTE_PASS label=chat layer=7 pass_a=0 pass_b=1 mean_overlap=0.6171
+ROUTE_PASS label=chat layer=8 pass_a=0 pass_b=1 mean_overlap=0.6215
+ROUTE_PASS label=chat layer=9 pass_a=0 pass_b=1 mean_overlap=0.7124
+ROUTE_PASS label=chat layer=10 pass_a=0 pass_b=1 mean_overlap=0.6504
+ROUTE_PASS label=chat layer=11 pass_a=0 pass_b=1 mean_overlap=0.7006
+ROUTE_PASS label=chat layer=12 pass_a=0 pass_b=1 mean_overlap=0.6453
+ROUTE_PASS label=chat layer=13 pass_a=0 pass_b=1 mean_overlap=0.6507
+ROUTE_PASS label=chat layer=14 pass_a=0 pass_b=1 mean_overlap=0.6649
+ROUTE_PASS label=chat layer=15 pass_a=0 pass_b=1 mean_overlap=0.6511
+ROUTE_PASS label=chat layer=16 pass_a=0 pass_b=1 mean_overlap=0.6602
+ROUTE_PASS label=chat layer=17 pass_a=0 pass_b=1 mean_overlap=0.3631
+ROUTE_PASS label=chat layer=mean pass_a=0 pass_b=1 mean_overlap=0.6244 random=0.0625
+ROUTE_PASS label=chat layer=6 pass_a=1 pass_b=2 mean_overlap=0.5233
+ROUTE_PASS label=chat layer=7 pass_a=1 pass_b=2 mean_overlap=0.6045
+ROUTE_PASS label=chat layer=8 pass_a=1 pass_b=2 mean_overlap=0.6299
+ROUTE_PASS label=chat layer=9 pass_a=1 pass_b=2 mean_overlap=0.7167
+ROUTE_PASS label=chat layer=10 pass_a=1 pass_b=2 mean_overlap=0.6257
+ROUTE_PASS label=chat layer=11 pass_a=1 pass_b=2 mean_overlap=0.6462
+ROUTE_PASS label=chat layer=12 pass_a=1 pass_b=2 mean_overlap=0.5574
+ROUTE_PASS label=chat layer=13 pass_a=1 pass_b=2 mean_overlap=0.5709
+ROUTE_PASS label=chat layer=14 pass_a=1 pass_b=2 mean_overlap=0.5586
+ROUTE_PASS label=chat layer=15 pass_a=1 pass_b=2 mean_overlap=0.4230
+ROUTE_PASS label=chat layer=16 pass_a=1 pass_b=2 mean_overlap=0.4708
+ROUTE_PASS label=chat layer=17 pass_a=1 pass_b=2 mean_overlap=0.1905
+ROUTE_PASS label=chat layer=mean pass_a=1 pass_b=2 mean_overlap=0.5431 random=0.0625
+ROUTE_PASS label=chat layer=6 pass_a=0 pass_b=2 mean_overlap=0.3864
+ROUTE_PASS label=chat layer=7 pass_a=0 pass_b=2 mean_overlap=0.4949
+ROUTE_PASS label=chat layer=8 pass_a=0 pass_b=2 mean_overlap=0.5198
+ROUTE_PASS label=chat layer=9 pass_a=0 pass_b=2 mean_overlap=0.6248
+ROUTE_PASS label=chat layer=10 pass_a=0 pass_b=2 mean_overlap=0.5159
+ROUTE_PASS label=chat layer=11 pass_a=0 pass_b=2 mean_overlap=0.5734
+ROUTE_PASS label=chat layer=12 pass_a=0 pass_b=2 mean_overlap=0.4459
+ROUTE_PASS label=chat layer=13 pass_a=0 pass_b=2 mean_overlap=0.4743
+ROUTE_PASS label=chat layer=14 pass_a=0 pass_b=2 mean_overlap=0.4636
+ROUTE_PASS label=chat layer=15 pass_a=0 pass_b=2 mean_overlap=0.3675
+ROUTE_PASS label=chat layer=16 pass_a=0 pass_b=2 mean_overlap=0.3549
+ROUTE_PASS label=chat layer=17 pass_a=0 pass_b=2 mean_overlap=0.1057
+ROUTE_PASS label=chat layer=mean pass_a=0 pass_b=2 mean_overlap=0.4439 random=0.0625
+ROUTE_BIT5 label=chat layer_class=prelude pick_share_5bit=0.0000 expert_share_5bit=0.0000
+ROUTE_BIT5 label=chat layer_class=core pick_share_5bit=0.6265 expert_share_5bit=0.4440
+ROUTE_BIT5 label=chat layer_class=coda pick_share_5bit=0.0342 expert_share_5bit=0.0234
+ROUTE_BIT5 label=chat layer_class=all pick_share_5bit=0.4741 expert_share_5bit=0.3359
+ROUTE_BYTES label=chat w=1 expert_read_ratio=1.0000 per_token_ratio=1.0000 weighted_by_bytes=true
+ROUTE_BYTES label=chat w=2 expert_read_ratio=1.5591 per_token_ratio=0.7795 weighted_by_bytes=true
+ROUTE_BYTES label=chat w=3 expert_read_ratio=2.0020 per_token_ratio=0.6673 weighted_by_bytes=true
+ROUTE_BYTES label=chat w=4 expert_read_ratio=2.3705 per_token_ratio=0.5926 weighted_by_bytes=true
+ROUTE_BYTES label=chat w=5 expert_read_ratio=2.6868 per_token_ratio=0.5374 weighted_by_bytes=true
+ROUTE_BYTES label=chat w=6 expert_read_ratio=2.9664 per_token_ratio=0.4944 weighted_by_bytes=true
+ROUTE_BYTES label=chat w=7 expert_read_ratio=3.2221 per_token_ratio=0.4603 weighted_by_bytes=true
+ROUTE_BYTES label=chat w=8 expert_read_ratio=3.4554 per_token_ratio=0.4319 weighted_by_bytes=true
+ROUTE_SUMMARY label=chat rows=714 consec_overlap=0.4350 distinct_w8=27.972 frac_of_wx8=0.4371 pass_overlap_core=0.5371 read_ratio_w8=3.4554 pick_share_5bit=0.4741
+ROUTE_TEXT label=code file=/home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-draftwire/route_code.json rows=865
+ROUTE_CONSEC label=code layer_class=prelude mean_overlap=0.2830 random=0.0625
+ROUTE_CONSEC label=code layer_class=core0 mean_overlap=0.4888 random=0.0625
+ROUTE_CONSEC label=code layer_class=core1 mean_overlap=0.4232 random=0.0625
+ROUTE_CONSEC label=code layer_class=core2 mean_overlap=0.4051 random=0.0625
+ROUTE_CONSEC label=code layer_class=coda mean_overlap=0.4009 random=0.0625
+ROUTE_CONSEC label=code layer_class=all mean_overlap=0.4148 random=0.0625
+ROUTE_WINDOW label=code w=1 distinct_per_visit=8.000 frac_of_wx8=1.0000 random_distinct=8.000
+ROUTE_WINDOW label=code layer_class=prelude w=1 distinct_per_visit=8.000 frac_of_wx8=1.0000 random_distinct=8.000
+ROUTE_WINDOW label=code layer_class=core w=1 distinct_per_visit=8.000 frac_of_wx8=1.0000 random_distinct=8.000
+ROUTE_WINDOW label=code layer_class=coda w=1 distinct_per_visit=8.000 frac_of_wx8=1.0000 random_distinct=8.000
+ROUTE_WINDOW label=code w=2 distinct_per_visit=12.682 frac_of_wx8=0.7926 random_distinct=15.500
+ROUTE_WINDOW label=code layer_class=prelude w=2 distinct_per_visit=13.736 frac_of_wx8=0.8585 random_distinct=15.500
+ROUTE_WINDOW label=code layer_class=core w=2 distinct_per_visit=12.488 frac_of_wx8=0.7805 random_distinct=15.500
+ROUTE_WINDOW label=code layer_class=coda w=2 distinct_per_visit=12.793 frac_of_wx8=0.7996 random_distinct=15.500
+ROUTE_WINDOW label=code w=3 distinct_per_visit=16.434 frac_of_wx8=0.6848 random_distinct=22.531
+ROUTE_WINDOW label=code w=4 distinct_per_visit=19.663 frac_of_wx8=0.6145 random_distinct=29.123
+ROUTE_WINDOW label=code layer_class=prelude w=4 distinct_per_visit=23.237 frac_of_wx8=0.7262 random_distinct=29.123
+ROUTE_WINDOW label=code layer_class=core w=4 distinct_per_visit=18.972 frac_of_wx8=0.5929 random_distinct=29.123
+ROUTE_WINDOW label=code layer_class=coda w=4 distinct_per_visit=20.238 frac_of_wx8=0.6324 random_distinct=29.123
+ROUTE_WINDOW label=code w=5 distinct_per_visit=22.511 frac_of_wx8=0.5628 random_distinct=35.303
+ROUTE_WINDOW label=code w=6 distinct_per_visit=25.015 frac_of_wx8=0.5211 random_distinct=41.096
+ROUTE_WINDOW label=code w=7 distinct_per_visit=27.290 frac_of_wx8=0.4873 random_distinct=46.528
+ROUTE_WINDOW label=code w=8 distinct_per_visit=29.360 frac_of_wx8=0.4588 random_distinct=51.620
+ROUTE_WINDOW label=code layer_class=prelude w=8 distinct_per_visit=37.767 frac_of_wx8=0.5901 random_distinct=51.620
+ROUTE_WINDOW label=code layer_class=core w=8 distinct_per_visit=27.700 frac_of_wx8=0.4328 random_distinct=51.620
+ROUTE_WINDOW label=code layer_class=coda w=8 distinct_per_visit=30.912 frac_of_wx8=0.4830 random_distinct=51.620
+ROUTE_PASS label=code layer=6 pass_a=0 pass_b=1 mean_overlap=0.4181
+ROUTE_PASS label=code layer=7 pass_a=0 pass_b=1 mean_overlap=0.5098
+ROUTE_PASS label=code layer=8 pass_a=0 pass_b=1 mean_overlap=0.5551
+ROUTE_PASS label=code layer=9 pass_a=0 pass_b=1 mean_overlap=0.5899
+ROUTE_PASS label=code layer=10 pass_a=0 pass_b=1 mean_overlap=0.5842
+ROUTE_PASS label=code layer=11 pass_a=0 pass_b=1 mean_overlap=0.5854
+ROUTE_PASS label=code layer=12 pass_a=0 pass_b=1 mean_overlap=0.6094
+ROUTE_PASS label=code layer=13 pass_a=0 pass_b=1 mean_overlap=0.5827
+ROUTE_PASS label=code layer=14 pass_a=0 pass_b=1 mean_overlap=0.6260
+ROUTE_PASS label=code layer=15 pass_a=0 pass_b=1 mean_overlap=0.6329
+ROUTE_PASS label=code layer=16 pass_a=0 pass_b=1 mean_overlap=0.7328
+ROUTE_PASS label=code layer=17 pass_a=0 pass_b=1 mean_overlap=0.5447
+ROUTE_PASS label=code layer=mean pass_a=0 pass_b=1 mean_overlap=0.5809 random=0.0625
+ROUTE_PASS label=code layer=6 pass_a=1 pass_b=2 mean_overlap=0.5561
+ROUTE_PASS label=code layer=7 pass_a=1 pass_b=2 mean_overlap=0.6104
+ROUTE_PASS label=code layer=8 pass_a=1 pass_b=2 mean_overlap=0.6568
+ROUTE_PASS label=code layer=9 pass_a=1 pass_b=2 mean_overlap=0.6559
+ROUTE_PASS label=code layer=10 pass_a=1 pass_b=2 mean_overlap=0.6451
+ROUTE_PASS label=code layer=11 pass_a=1 pass_b=2 mean_overlap=0.6432
+ROUTE_PASS label=code layer=12 pass_a=1 pass_b=2 mean_overlap=0.6741
+ROUTE_PASS label=code layer=13 pass_a=1 pass_b=2 mean_overlap=0.6555
+ROUTE_PASS label=code layer=14 pass_a=1 pass_b=2 mean_overlap=0.6588
+ROUTE_PASS label=code layer=15 pass_a=1 pass_b=2 mean_overlap=0.6370
+ROUTE_PASS label=code layer=16 pass_a=1 pass_b=2 mean_overlap=0.5941
+ROUTE_PASS label=code layer=17 pass_a=1 pass_b=2 mean_overlap=0.3481
+ROUTE_PASS label=code layer=mean pass_a=1 pass_b=2 mean_overlap=0.6113 random=0.0625
+ROUTE_PASS label=code layer=6 pass_a=0 pass_b=2 mean_overlap=0.3289
+ROUTE_PASS label=code layer=7 pass_a=0 pass_b=2 mean_overlap=0.4370
+ROUTE_PASS label=code layer=8 pass_a=0 pass_b=2 mean_overlap=0.4844
+ROUTE_PASS label=code layer=9 pass_a=0 pass_b=2 mean_overlap=0.4983
+ROUTE_PASS label=code layer=10 pass_a=0 pass_b=2 mean_overlap=0.4796
+ROUTE_PASS label=code layer=11 pass_a=0 pass_b=2 mean_overlap=0.4975
+ROUTE_PASS label=code layer=12 pass_a=0 pass_b=2 mean_overlap=0.5104
+ROUTE_PASS label=code layer=13 pass_a=0 pass_b=2 mean_overlap=0.4884
+ROUTE_PASS label=code layer=14 pass_a=0 pass_b=2 mean_overlap=0.5316
+ROUTE_PASS label=code layer=15 pass_a=0 pass_b=2 mean_overlap=0.5137
+ROUTE_PASS label=code layer=16 pass_a=0 pass_b=2 mean_overlap=0.5247
+ROUTE_PASS label=code layer=17 pass_a=0 pass_b=2 mean_overlap=0.2858
+ROUTE_PASS label=code layer=mean pass_a=0 pass_b=2 mean_overlap=0.4650 random=0.0625
+ROUTE_BIT5 label=code layer_class=prelude pick_share_5bit=0.0000 expert_share_5bit=0.0000
+ROUTE_BIT5 label=code layer_class=core pick_share_5bit=0.3657 expert_share_5bit=0.4440
+ROUTE_BIT5 label=code layer_class=coda pick_share_5bit=0.0325 expert_share_5bit=0.0234
+ROUTE_BIT5 label=code layer_class=all pick_share_5bit=0.2783 expert_share_5bit=0.3359
+ROUTE_BYTES label=code w=1 expert_read_ratio=1.0000 per_token_ratio=1.0000 weighted_by_bytes=true
+ROUTE_BYTES label=code w=2 expert_read_ratio=1.5821 per_token_ratio=0.7910 weighted_by_bytes=true
+ROUTE_BYTES label=code w=3 expert_read_ratio=2.0480 per_token_ratio=0.6827 weighted_by_bytes=true
+ROUTE_BYTES label=code w=4 expert_read_ratio=2.4488 per_token_ratio=0.6122 weighted_by_bytes=true
+ROUTE_BYTES label=code w=5 expert_read_ratio=2.8022 per_token_ratio=0.5604 weighted_by_bytes=true
+ROUTE_BYTES label=code w=6 expert_read_ratio=3.1128 per_token_ratio=0.5188 weighted_by_bytes=true
+ROUTE_BYTES label=code w=7 expert_read_ratio=3.3950 per_token_ratio=0.4850 weighted_by_bytes=true
+ROUTE_BYTES label=code w=8 expert_read_ratio=3.6518 per_token_ratio=0.4565 weighted_by_bytes=true
+ROUTE_SUMMARY label=code rows=865 consec_overlap=0.4148 distinct_w8=29.360 frac_of_wx8=0.4588 pass_overlap_core=0.5524 read_ratio_w8=3.6518 pick_share_5bit=0.2783
+ROUTE_TEXT label=reasoning file=/home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-draftwire/route_reasoning.json rows=790
+ROUTE_CONSEC label=reasoning layer_class=prelude mean_overlap=0.2690 random=0.0625
+ROUTE_CONSEC label=reasoning layer_class=core0 mean_overlap=0.4928 random=0.0625
+ROUTE_CONSEC label=reasoning layer_class=core1 mean_overlap=0.4561 random=0.0625
+ROUTE_CONSEC label=reasoning layer_class=core2 mean_overlap=0.4347 random=0.0625
+ROUTE_CONSEC label=reasoning layer_class=coda mean_overlap=0.4179 random=0.0625
+ROUTE_CONSEC label=reasoning layer_class=all mean_overlap=0.4318 random=0.0625
+ROUTE_WINDOW label=reasoning w=1 distinct_per_visit=8.000 frac_of_wx8=1.0000 random_distinct=8.000
+ROUTE_WINDOW label=reasoning layer_class=prelude w=1 distinct_per_visit=8.000 frac_of_wx8=1.0000 random_distinct=8.000
+ROUTE_WINDOW label=reasoning layer_class=core w=1 distinct_per_visit=8.000 frac_of_wx8=1.0000 random_distinct=8.000
+ROUTE_WINDOW label=reasoning layer_class=coda w=1 distinct_per_visit=8.000 frac_of_wx8=1.0000 random_distinct=8.000
+ROUTE_WINDOW label=reasoning w=2 distinct_per_visit=12.546 frac_of_wx8=0.7841 random_distinct=15.500
+ROUTE_WINDOW label=reasoning layer_class=prelude w=2 distinct_per_visit=13.848 frac_of_wx8=0.8655 random_distinct=15.500
+ROUTE_WINDOW label=reasoning layer_class=core w=2 distinct_per_visit=12.311 frac_of_wx8=0.7694 random_distinct=15.500
+ROUTE_WINDOW label=reasoning layer_class=coda w=2 distinct_per_visit=12.657 frac_of_wx8=0.7911 random_distinct=15.500
+ROUTE_WINDOW label=reasoning w=3 distinct_per_visit=16.145 frac_of_wx8=0.6727 random_distinct=22.531
+ROUTE_WINDOW label=reasoning w=4 distinct_per_visit=19.189 frac_of_wx8=0.5997 random_distinct=29.123
+ROUTE_WINDOW label=reasoning layer_class=prelude w=4 distinct_per_visit=23.533 frac_of_wx8=0.7354 random_distinct=29.123
+ROUTE_WINDOW label=reasoning layer_class=core w=4 distinct_per_visit=18.405 frac_of_wx8=0.5752 random_distinct=29.123
+ROUTE_WINDOW label=reasoning layer_class=coda w=4 distinct_per_visit=19.548 frac_of_wx8=0.6109 random_distinct=29.123
+ROUTE_WINDOW label=reasoning w=5 distinct_per_visit=21.833 frac_of_wx8=0.5458 random_distinct=35.303
+ROUTE_WINDOW label=reasoning w=6 distinct_per_visit=24.177 frac_of_wx8=0.5037 random_distinct=41.096
+ROUTE_WINDOW label=reasoning w=7 distinct_per_visit=26.254 frac_of_wx8=0.4688 random_distinct=46.528
+ROUTE_WINDOW label=reasoning w=8 distinct_per_visit=28.121 frac_of_wx8=0.4394 random_distinct=51.620
+ROUTE_WINDOW label=reasoning layer_class=prelude w=8 distinct_per_visit=37.207 frac_of_wx8=0.5814 random_distinct=51.620
+ROUTE_WINDOW label=reasoning layer_class=core w=8 distinct_per_visit=26.493 frac_of_wx8=0.4140 random_distinct=51.620
+ROUTE_WINDOW label=reasoning layer_class=coda w=8 distinct_per_visit=28.798 frac_of_wx8=0.4500 random_distinct=51.620
+ROUTE_PASS label=reasoning layer=6 pass_a=0 pass_b=1 mean_overlap=0.5877
+ROUTE_PASS label=reasoning layer=7 pass_a=0 pass_b=1 mean_overlap=0.6153
+ROUTE_PASS label=reasoning layer=8 pass_a=0 pass_b=1 mean_overlap=0.6464
+ROUTE_PASS label=reasoning layer=9 pass_a=0 pass_b=1 mean_overlap=0.6650
+ROUTE_PASS label=reasoning layer=10 pass_a=0 pass_b=1 mean_overlap=0.6943
+ROUTE_PASS label=reasoning layer=11 pass_a=0 pass_b=1 mean_overlap=0.6759
+ROUTE_PASS label=reasoning layer=12 pass_a=0 pass_b=1 mean_overlap=0.6744
+ROUTE_PASS label=reasoning layer=13 pass_a=0 pass_b=1 mean_overlap=0.6549
+ROUTE_PASS label=reasoning layer=14 pass_a=0 pass_b=1 mean_overlap=0.6809
+ROUTE_PASS label=reasoning layer=15 pass_a=0 pass_b=1 mean_overlap=0.6744
+ROUTE_PASS label=reasoning layer=16 pass_a=0 pass_b=1 mean_overlap=0.6821
+ROUTE_PASS label=reasoning layer=17 pass_a=0 pass_b=1 mean_overlap=0.4210
+ROUTE_PASS label=reasoning layer=mean pass_a=0 pass_b=1 mean_overlap=0.6394 random=0.0625
+ROUTE_PASS label=reasoning layer=6 pass_a=1 pass_b=2 mean_overlap=0.5771
+ROUTE_PASS label=reasoning layer=7 pass_a=1 pass_b=2 mean_overlap=0.6650
+ROUTE_PASS label=reasoning layer=8 pass_a=1 pass_b=2 mean_overlap=0.6886
+ROUTE_PASS label=reasoning layer=9 pass_a=1 pass_b=2 mean_overlap=0.6896
+ROUTE_PASS label=reasoning layer=10 pass_a=1 pass_b=2 mean_overlap=0.6620
+ROUTE_PASS label=reasoning layer=11 pass_a=1 pass_b=2 mean_overlap=0.6293
+ROUTE_PASS label=reasoning layer=12 pass_a=1 pass_b=2 mean_overlap=0.5992
+ROUTE_PASS label=reasoning layer=13 pass_a=1 pass_b=2 mean_overlap=0.6095
+ROUTE_PASS label=reasoning layer=14 pass_a=1 pass_b=2 mean_overlap=0.5261
+ROUTE_PASS label=reasoning layer=15 pass_a=1 pass_b=2 mean_overlap=0.4506
+ROUTE_PASS label=reasoning layer=16 pass_a=1 pass_b=2 mean_overlap=0.4536
+ROUTE_PASS label=reasoning layer=17 pass_a=1 pass_b=2 mean_overlap=0.1717
+ROUTE_PASS label=reasoning layer=mean pass_a=1 pass_b=2 mean_overlap=0.5602 random=0.0625
+ROUTE_PASS label=reasoning layer=6 pass_a=0 pass_b=2 mean_overlap=0.4446
+ROUTE_PASS label=reasoning layer=7 pass_a=0 pass_b=2 mean_overlap=0.5320
+ROUTE_PASS label=reasoning layer=8 pass_a=0 pass_b=2 mean_overlap=0.5582
+ROUTE_PASS label=reasoning layer=9 pass_a=0 pass_b=2 mean_overlap=0.5666
+ROUTE_PASS label=reasoning layer=10 pass_a=0 pass_b=2 mean_overlap=0.5514
+ROUTE_PASS label=reasoning layer=11 pass_a=0 pass_b=2 mean_overlap=0.5316
+ROUTE_PASS label=reasoning layer=12 pass_a=0 pass_b=2 mean_overlap=0.4979
+ROUTE_PASS label=reasoning layer=13 pass_a=0 pass_b=2 mean_overlap=0.5006
+ROUTE_PASS label=reasoning layer=14 pass_a=0 pass_b=2 mean_overlap=0.4699
+ROUTE_PASS label=reasoning layer=15 pass_a=0 pass_b=2 mean_overlap=0.3902
+ROUTE_PASS label=reasoning layer=16 pass_a=0 pass_b=2 mean_overlap=0.3630
+ROUTE_PASS label=reasoning layer=17 pass_a=0 pass_b=2 mean_overlap=0.0949
+ROUTE_PASS label=reasoning layer=mean pass_a=0 pass_b=2 mean_overlap=0.4584 random=0.0625
+ROUTE_BIT5 label=reasoning layer_class=prelude pick_share_5bit=0.0000 expert_share_5bit=0.0000
+ROUTE_BIT5 label=reasoning layer_class=core pick_share_5bit=0.7022 expert_share_5bit=0.4440
+ROUTE_BIT5 label=reasoning layer_class=coda pick_share_5bit=0.0919 expert_share_5bit=0.0234
+ROUTE_BIT5 label=reasoning layer_class=all pick_share_5bit=0.5381 expert_share_5bit=0.3359
+ROUTE_BYTES label=reasoning w=1 expert_read_ratio=1.0000 per_token_ratio=1.0000 weighted_by_bytes=true
+ROUTE_BYTES label=reasoning w=2 expert_read_ratio=1.5562 per_token_ratio=0.7781 weighted_by_bytes=true
+ROUTE_BYTES label=reasoning w=3 expert_read_ratio=1.9938 per_token_ratio=0.6646 weighted_by_bytes=true
+ROUTE_BYTES label=reasoning w=4 expert_read_ratio=2.3625 per_token_ratio=0.5906 weighted_by_bytes=true
+ROUTE_BYTES label=reasoning w=5 expert_read_ratio=2.6822 per_token_ratio=0.5364 weighted_by_bytes=true
+ROUTE_BYTES label=reasoning w=6 expert_read_ratio=2.9653 per_token_ratio=0.4942 weighted_by_bytes=true
+ROUTE_BYTES label=reasoning w=7 expert_read_ratio=3.2158 per_token_ratio=0.4594 weighted_by_bytes=true
+ROUTE_BYTES label=reasoning w=8 expert_read_ratio=3.4408 per_token_ratio=0.4301 weighted_by_bytes=true
+ROUTE_SUMMARY label=reasoning rows=790 consec_overlap=0.4318 distinct_w8=28.121 frac_of_wx8=0.4394 pass_overlap_core=0.5527 read_ratio_w8=3.4408 pick_share_5bit=0.5381
+ROUTE_TEXT label=json file=/home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-draftwire/route_json.json rows=891
+ROUTE_CONSEC label=json layer_class=prelude mean_overlap=0.2793 random=0.0625
+ROUTE_CONSEC label=json layer_class=core0 mean_overlap=0.4056 random=0.0625
+ROUTE_CONSEC label=json layer_class=core1 mean_overlap=0.3516 random=0.0625
+ROUTE_CONSEC label=json layer_class=core2 mean_overlap=0.3121 random=0.0625
+ROUTE_CONSEC label=json layer_class=coda mean_overlap=0.3568 random=0.0625
+ROUTE_CONSEC label=json layer_class=all mean_overlap=0.3468 random=0.0625
+ROUTE_WINDOW label=json w=1 distinct_per_visit=8.000 frac_of_wx8=1.0000 random_distinct=8.000
+ROUTE_WINDOW label=json layer_class=prelude w=1 distinct_per_visit=8.000 frac_of_wx8=1.0000 random_distinct=8.000
+ROUTE_WINDOW label=json layer_class=core w=1 distinct_per_visit=8.000 frac_of_wx8=1.0000 random_distinct=8.000
+ROUTE_WINDOW label=json layer_class=coda w=1 distinct_per_visit=8.000 frac_of_wx8=1.0000 random_distinct=8.000
+ROUTE_WINDOW label=json w=2 distinct_per_visit=13.225 frac_of_wx8=0.8266 random_distinct=15.500
+ROUTE_WINDOW label=json layer_class=prelude w=2 distinct_per_visit=13.766 frac_of_wx8=0.8603 random_distinct=15.500
+ROUTE_WINDOW label=json layer_class=core w=2 distinct_per_visit=13.149 frac_of_wx8=0.8218 random_distinct=15.500
+ROUTE_WINDOW label=json layer_class=coda w=2 distinct_per_visit=13.146 frac_of_wx8=0.8216 random_distinct=15.500
+ROUTE_WINDOW label=json w=3 distinct_per_visit=17.508 frac_of_wx8=0.7295 random_distinct=22.531
+ROUTE_WINDOW label=json w=4 distinct_per_visit=21.296 frac_of_wx8=0.6655 random_distinct=29.123
+ROUTE_WINDOW label=json layer_class=prelude w=4 distinct_per_visit=23.440 frac_of_wx8=0.7325 random_distinct=29.123
+ROUTE_WINDOW label=json layer_class=core w=4 distinct_per_visit=20.972 frac_of_wx8=0.6554 random_distinct=29.123
+ROUTE_WINDOW label=json layer_class=coda w=4 distinct_per_visit=21.094 frac_of_wx8=0.6592 random_distinct=29.123
+ROUTE_WINDOW label=json w=5 distinct_per_visit=24.623 frac_of_wx8=0.6156 random_distinct=35.303
+ROUTE_WINDOW label=json w=6 distinct_per_visit=27.627 frac_of_wx8=0.5756 random_distinct=41.096
+ROUTE_WINDOW label=json w=7 distinct_per_visit=30.407 frac_of_wx8=0.5430 random_distinct=46.528
+ROUTE_WINDOW label=json w=8 distinct_per_visit=32.973 frac_of_wx8=0.5152 random_distinct=51.620
+ROUTE_WINDOW label=json layer_class=prelude w=8 distinct_per_visit=37.780 frac_of_wx8=0.5903 random_distinct=51.620
+ROUTE_WINDOW label=json layer_class=core w=8 distinct_per_visit=32.224 frac_of_wx8=0.5035 random_distinct=51.620
+ROUTE_WINDOW label=json layer_class=coda w=8 distinct_per_visit=32.665 frac_of_wx8=0.5104 random_distinct=51.620
+ROUTE_PASS label=json layer=6 pass_a=0 pass_b=1 mean_overlap=0.3851
+ROUTE_PASS label=json layer=7 pass_a=0 pass_b=1 mean_overlap=0.4067
+ROUTE_PASS label=json layer=8 pass_a=0 pass_b=1 mean_overlap=0.4961
+ROUTE_PASS label=json layer=9 pass_a=0 pass_b=1 mean_overlap=0.4795
+ROUTE_PASS label=json layer=10 pass_a=0 pass_b=1 mean_overlap=0.4940
+ROUTE_PASS label=json layer=11 pass_a=0 pass_b=1 mean_overlap=0.5080
+ROUTE_PASS label=json layer=12 pass_a=0 pass_b=1 mean_overlap=0.5460
+ROUTE_PASS label=json layer=13 pass_a=0 pass_b=1 mean_overlap=0.5976
+ROUTE_PASS label=json layer=14 pass_a=0 pass_b=1 mean_overlap=0.5620
+ROUTE_PASS label=json layer=15 pass_a=0 pass_b=1 mean_overlap=0.5835
+ROUTE_PASS label=json layer=16 pass_a=0 pass_b=1 mean_overlap=0.6647
+ROUTE_PASS label=json layer=17 pass_a=0 pass_b=1 mean_overlap=0.4642
+ROUTE_PASS label=json layer=mean pass_a=0 pass_b=1 mean_overlap=0.5156 random=0.0625
+ROUTE_PASS label=json layer=6 pass_a=1 pass_b=2 mean_overlap=0.5610
+ROUTE_PASS label=json layer=7 pass_a=1 pass_b=2 mean_overlap=0.5579
+ROUTE_PASS label=json layer=8 pass_a=1 pass_b=2 mean_overlap=0.6166
+ROUTE_PASS label=json layer=9 pass_a=1 pass_b=2 mean_overlap=0.6132
+ROUTE_PASS label=json layer=10 pass_a=1 pass_b=2 mean_overlap=0.5936
+ROUTE_PASS label=json layer=11 pass_a=1 pass_b=2 mean_overlap=0.5748
+ROUTE_PASS label=json layer=12 pass_a=1 pass_b=2 mean_overlap=0.6199
+ROUTE_PASS label=json layer=13 pass_a=1 pass_b=2 mean_overlap=0.6279
+ROUTE_PASS label=json layer=14 pass_a=1 pass_b=2 mean_overlap=0.5485
+ROUTE_PASS label=json layer=15 pass_a=1 pass_b=2 mean_overlap=0.4882
+ROUTE_PASS label=json layer=16 pass_a=1 pass_b=2 mean_overlap=0.5058
+ROUTE_PASS label=json layer=17 pass_a=1 pass_b=2 mean_overlap=0.2228
+ROUTE_PASS label=json layer=mean pass_a=1 pass_b=2 mean_overlap=0.5442 random=0.0625
+ROUTE_PASS label=json layer=6 pass_a=0 pass_b=2 mean_overlap=0.3049
+ROUTE_PASS label=json layer=7 pass_a=0 pass_b=2 mean_overlap=0.3314
+ROUTE_PASS label=json layer=8 pass_a=0 pass_b=2 mean_overlap=0.4221
+ROUTE_PASS label=json layer=9 pass_a=0 pass_b=2 mean_overlap=0.4032
+ROUTE_PASS label=json layer=10 pass_a=0 pass_b=2 mean_overlap=0.3900
+ROUTE_PASS label=json layer=11 pass_a=0 pass_b=2 mean_overlap=0.4052
+ROUTE_PASS label=json layer=12 pass_a=0 pass_b=2 mean_overlap=0.4527
+ROUTE_PASS label=json layer=13 pass_a=0 pass_b=2 mean_overlap=0.4792
+ROUTE_PASS label=json layer=14 pass_a=0 pass_b=2 mean_overlap=0.4158
+ROUTE_PASS label=json layer=15 pass_a=0 pass_b=2 mean_overlap=0.3775
+ROUTE_PASS label=json layer=16 pass_a=0 pass_b=2 mean_overlap=0.4003
+ROUTE_PASS label=json layer=17 pass_a=0 pass_b=2 mean_overlap=0.1581
+ROUTE_PASS label=json layer=mean pass_a=0 pass_b=2 mean_overlap=0.3784 random=0.0625
+ROUTE_BIT5 label=json layer_class=prelude pick_share_5bit=0.0000 expert_share_5bit=0.0000
+ROUTE_BIT5 label=json layer_class=core pick_share_5bit=0.5371 expert_share_5bit=0.4440
+ROUTE_BIT5 label=json layer_class=coda pick_share_5bit=0.0369 expert_share_5bit=0.0234
+ROUTE_BIT5 label=json layer_class=all pick_share_5bit=0.4075 expert_share_5bit=0.3359
+ROUTE_BYTES label=json w=1 expert_read_ratio=1.0000 per_token_ratio=1.0000 weighted_by_bytes=true
+ROUTE_BYTES label=json w=2 expert_read_ratio=1.6470 per_token_ratio=0.8235 weighted_by_bytes=true
+ROUTE_BYTES label=json w=3 expert_read_ratio=2.1757 per_token_ratio=0.7252 weighted_by_bytes=true
+ROUTE_BYTES label=json w=4 expert_read_ratio=2.6423 per_token_ratio=0.6606 weighted_by_bytes=true
+ROUTE_BYTES label=json w=5 expert_read_ratio=3.0515 per_token_ratio=0.6103 weighted_by_bytes=true
+ROUTE_BYTES label=json w=6 expert_read_ratio=3.4208 per_token_ratio=0.5701 weighted_by_bytes=true
+ROUTE_BYTES label=json w=7 expert_read_ratio=3.7622 per_token_ratio=0.5375 weighted_by_bytes=true
+ROUTE_BYTES label=json w=8 expert_read_ratio=4.0772 per_token_ratio=0.5097 weighted_by_bytes=true
+ROUTE_SUMMARY label=json rows=891 consec_overlap=0.3468 distinct_w8=32.973 frac_of_wx8=0.5152 pass_overlap_core=0.4794 read_ratio_w8=4.0772 pick_share_5bit=0.4075
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 25.34s

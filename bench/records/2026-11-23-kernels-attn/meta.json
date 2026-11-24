@@ -1,0 +1,52 @@
+{
+ "name": "kernels-attn",
+ "gate": "kernels-attn",
+ "date": "2026-11-23",
+ "result": "pass",
+ "node": "node-3",
+ "engine": {
+  "commit": "dbfa89a04f7adfeda8efed206945eccbe46bf450",
+  "dirty": false,
+  "branch": "inkling2-loop-attn",
+  "version": "no server binary: gb-cuda test binaries only (release profile, built by scripts/ops_dev.sh on node-3)"
+ },
+ "recipe": {
+  "commit": "6beddb77ba1320a598e187fab3392920d2afc8fc",
+  "branch": "lane/k-attn"
+ },
+ "tests": [
+  {"bin": "inkling2_attn", "filter": "small::", "passed": 14, "failed": 0, "ignored": 1, "note": "the Small's regression battery incl. golden hashes testdata/gpu/golden_inkling2_attn.txt (unchanged); per_visit_state_follows_the_loop_schedule and kv8_page_is_264192_bytes_at_the_mini return at once at the Small"},
+  {"bin": "inkling2_attn", "filter": "mini::", "passed": 14, "failed": 0, "ignored": 1, "note": "the same battery at 24 / 8 / 3 heads incl. the Mini's golden hashes testdata/gpu/golden_inkling2_loop_attn.txt, the 48-visit state test and the 264,192-byte page test; the ignored test is the benchmark"},
+  {"bin": "inkling2_attn_oracle", "filter": "small::", "passed": 2, "failed": 0},
+  {"bin": "inkling2_attn_oracle", "filter": "mini::", "passed": 2, "failed": 0},
+  {"bin": "inkling2_attn_oracle", "filter": "real::", "passed": 1, "failed": 0, "env": "I2L_ATTN_REAL=<lab dir>/real/attn_real.bin (sha256 23ee74d4cfb826acfc57b940839b4346e84a495bb7da943cc3f8987b30b677e5)"},
+  {"bin": "gb-model --lib (Mac stub build, REXL3_NO_CUDA=1)", "filter": "families::inkling2::", "passed": 31, "failed": 0},
+  {"bin": "gb-model --lib (Mac stub build, REXL3_NO_CUDA=1)", "filter": "families::inkling2_loop::", "passed": 33, "failed": 0},
+  {"bin": "gb-cuda --lib (Mac stub build, REXL3_NO_CUDA=1)", "filter": "inkling2_attn", "passed": 8, "failed": 0}
+ ],
+ "commands": [
+  "NODE=node-3 LAB_SRC=<engine worktree> OPS_GREP=. OPS_LINES=2000 scripts/ops_dev.sh test inkling2_attn small::",
+  "NODE=node-3 LAB_SRC=<engine worktree> OPS_GREP=. OPS_LINES=2000 scripts/ops_dev.sh test inkling2_attn mini::",
+  "NODE=node-3 LAB_SRC=<engine worktree> OPS_GREP=. OPS_LINES=2000 scripts/ops_dev.sh test inkling2_attn_oracle small:: mini::",
+  "NODE=node-3 LAB_SRC=<engine worktree> OPS_GREP=. OPS_LINES=2000 TEST_ENV=I2L_ATTN_REAL=<lab dir>/real/attn_real.bin scripts/ops_dev.sh test inkling2_attn_oracle real::",
+  "REXL3_NO_CUDA=1 CARGO_BUILD_JOBS=6 cargo test -p gb-model --lib --locked families::inkling2::",
+  "REXL3_NO_CUDA=1 CARGO_BUILD_JOBS=6 cargo test -p gb-model --lib --locked families::inkling2_loop::",
+  "REXL3_NO_CUDA=1 CARGO_BUILD_JOBS=6 cargo test -p gb-cuda --lib --locked inkling2_attn"
+ ],
+ "metrics": {
+  "mini_local_vs_f64_worst_max_rel_error": 6.051e-3,
+  "mini_global_vs_f64_int8_ref_worst_max_rel_error": 6.141e-3,
+  "mini_global_past_the_floor_vs_f64_worst_max_rel_error": 4.543e-3,
+  "mini_local_vs_oracle_worst_max_rel_error": 7.752e-3,
+  "mini_local_vs_oracle_min_cosine": 0.9999927,
+  "mini_global_vs_oracle_kv8_worst_max_rel_error": 7.812e-3,
+  "mini_global_vs_oracle_kv8_min_cosine": 0.9999911,
+  "real_l0_p0_attention_elements_differing_from_out_emul": "3 of 49152 (max 1 ulp, head-scaled 1.163e-3)",
+  "real_g11_p0_attention_elements_differing_from_out_emul": "29 of 49152 (head-scaled 1.645e-3)",
+  "real_g11_int8_bytes_differing_from_oracle_kv8": "0 of 16384 K and 0 of 16384 V at P0 0, 8180, 300000",
+  "real_g11_q_hat_elements_differing_from_oracle": "2 of 49152, 1 ulp (the CPU transcription differs in the same 2)",
+  "real_kv_hat_elements_differing_from_oracle": "0 of 32768 in every case",
+  "small_golden_hashes": "unchanged (testdata/gpu/golden_inkling2_attn.txt)"
+ },
+ "notes": "No timing was taken (the benchmark test is ignored and ops_dev.sh cannot pass --ignored). The raw outputs are in raw/. The engine commit is the committed HEAD the final set ran from (git status clean); the recipe commit is the one that holds the oracle test pin, the record commit follows it."
+}

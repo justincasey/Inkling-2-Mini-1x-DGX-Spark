@@ -1,0 +1,145 @@
+{
+ "gate": "exact-prefill",
+ "result": "pass",
+ "node": "node-3",
+ "tests": [
+  {
+   "bin": "gb-model:inkling2_loop_rank",
+   "filter": "forward_oracle_gate long_context_gate (dump c25f9876...c45c0, chunk-width logits a105f245...f41a)",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model:inkling2_loop_graphs",
+   "filter": "graph_replay_equals_eager capture_refusal_runs_eager_and_counts",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model:inkling2_loop_prefix",
+   "filter": "prefix_exact_at_cuts prefix_logits_planes_equal prefix_restore_after_eviction prefix_long_prompt",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda:inkling2_moe",
+   "filter": "partial_equals prefill_equals_decode mul1_prefill_equals prefill_with_tight four_rank_banks graph_replay_equals golden_inkling2",
+   "passed": 8,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda:inkling2_moe_mixed",
+   "filter": "mul1_bands_decode_equals_prefill band_split_equals every_pair_row graph_replay_equals band_entries_on bands_entries_refuse real_mini_layers",
+   "passed": 10,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda:inkling2_attn",
+   "filter": "mini:: small::",
+   "passed": 28,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda:inkling2_ops",
+   "filter": "split_topk sharded_argmax unembed_softcap golden",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda:exl3_big",
+   "filter": "big_linear_equals_the_decode_path_on big_linear_equals_the_decode_path_for big_linear_rows the_big_plan",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model:inkling2_loop_prefill_perf",
+   "filter": "prefill_curve",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model:inkling2_loop_prefill_perf",
+   "filter": "prefill_curve",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda:inkling2_dspark",
+   "filter": "",
+   "passed": 28,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib (REXL3_NO_CUDA=1)",
+   "filter": "families::inkling2::",
+   "passed": 31,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib (REXL3_NO_CUDA=1)",
+   "filter": "families::inkling2_loop::",
+   "passed": 115,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib (REXL3_NO_CUDA=1)",
+   "filter": "serve::tests::a_family_cap_widens_the_prefill_chunk_check",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/exactness.py",
+   "filter": "shipping server: record vs 7da8c61 record, diff identical 4 replies, replies sha256 f7975a6c...433d",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/bench.py",
+   "filter": "shipping server: --phases warm,decode,conc,prefill-32k --ref pinned-replies-engine-51f2993.json: PASS pin",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/specedge.py",
+   "filter": "shipping server: PASS 65 cases, 0 failures, 0 warnings",
+   "passed": 65,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/exactness.py",
+   "filter": "shipping server: concurrent --max-tokens 64: pass true",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/prefill_sweep.py",
+   "filter": "SPEC=none sweep ids == the 7da8c61 sweep: 16 of 16 passes (sha256 afe69323...defb8)",
+   "passed": 16,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/prefill_sweep.py",
+   "filter": "chunk 8192 shipping sweep ids == chunk 4096 shipping sweep ids: 12 of 12 passes",
+   "passed": 12,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/exactness.py",
+   "filter": "shipping server at --prefill-chunk 8192: diff vs 7da8c61: identical 4 replies (sha256 f7975a6c...)",
+   "passed": 1,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "chunk_digests_equal": 33,
+  "prefix_cuts_equal": 20,
+  "sweep_passes_equal": 16,
+  "sweep_passes_equal_chunk8192": 12,
+  "specedge_cases": 65,
+  "exactness_replies_equal": 4
+ },
+ "commands": [
+  "see README.md"
+ ],
+ "notes": "Before = the values pinned by 2026-11-23-prefill-exact (engine 1a36951 and 7da8c61): the rank gate dump, the chunk-width logits, the 37-window logits hash, the 20 prefix cuts, the 33 chunk digests and the replies hash; each reproduced by the final engine. long_context_gate on the lane's own 1,119-id list (top-1 149897 at 29.695383, as before). golden_exl3_big is #[ignore] and was not run."
+}

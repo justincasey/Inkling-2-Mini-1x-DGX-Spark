@@ -1,0 +1,2 @@
+lane 0: 38255 sentences, 1042547 prompt tokens, depth 0.50
+lane 0: empty found=False prompt_tokens=None prefill_s=None total_s=1800.027 error={'message': 'the request deadline expired', 'type': 'request_timeout', 'code': 'request_timeout'}

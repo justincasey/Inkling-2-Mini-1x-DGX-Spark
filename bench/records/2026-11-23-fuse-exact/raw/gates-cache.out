@@ -1,0 +1,8 @@
+short   (29 tokens): equal; cached tokens uncached 0 cold 0 warm 0
+medium  (534 tokens): equal; cached tokens uncached 0 cold 0 warm 470
+long    (2043 tokens): equal; cached tokens uncached 0 cold 0 warm 1979
+xlong   (8347 tokens): equal; cached tokens uncached 0 cold 0 warm 8283
+70k     (73167 tokens): equal; cached tokens uncached 0 cold 0 warm 73103
+shared-1k (shared 2081 of 2090/2091 tokens): equal; cached tokens tail 0 0 tail 1 2026
+shared-70k (shared 73246 of 73255/73256 tokens): equal; cached tokens tail 0 0 tail 1 73191
+cache: pass (prefix_cache_reach_tokens 393216) -> /tmp/fuse/fin2/gates-cache.json

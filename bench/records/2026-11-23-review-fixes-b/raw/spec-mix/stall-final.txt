@@ -1,0 +1,6 @@
+prio=1: LOOP_STALL_windows_at_ms ["1+26", "27+29", "56+150", "205+145", "350+151", "501+152", "652+150", "802+92", "894+100", "994+148", "1142+143", "1285+150", "1435+148", "1583+118", "1701+98", "1799+127", "1926+139", "2066+148", "2213+151", "2364+134", "2499+56", "2555+145", "2700+145", "2844+146", "2991+150", "3141+121", "3262+76", 
+prio=1: LOOP_STALL_nonblocking quiet_median_ms 24.16 during_windows 30 during_median_ms 144.51 during_max_ms 151.58 encode_ms 3670.8
+prio=1: test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 15.68s
+prio=0: LOOP_STALL_windows_at_ms ["0+27", "27+162", "189+517", "706+300", "1005+396", "1402+407", "1809+411", "2220+411", "2631+412", "3043+179"]
+prio=0: LOOP_STALL_nonblocking quiet_median_ms 24.08 during_windows 10 during_median_ms 407.50 during_max_ms 517.08 encode_ms 3220.3
+prio=0: test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 15.62s

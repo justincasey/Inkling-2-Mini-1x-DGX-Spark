@@ -1,0 +1,8 @@
+short   (26 tokens): equal; cached tokens uncached 0 cold 0 warm 0
+medium  (531 tokens): equal; cached tokens uncached 0 cold 0 warm 467
+long    (2040 tokens): equal; cached tokens uncached 0 cold 0 warm 1976
+xlong   (8344 tokens): equal; cached tokens uncached 0 cold 0 warm 8280
+70k     (73164 tokens): equal; cached tokens uncached 0 cold 0 warm 73100
+shared-1k (shared 2078 of 2087/2088 tokens): equal; cached tokens tail 0 0 tail 1 2023
+shared-70k (shared 73243 of 73252/73253 tokens): equal; cached tokens tail 0 0 tail 1 73188
+cache: pass (prefix_cache_reach_tokens 393216) -> /tmp/slim/runs/slim/gates-cache.json

@@ -1,0 +1,39 @@
+{
+ "request": {
+  "model": "inkling-2-mini-1x-dgx-spark",
+  "temperature": 0,
+  "prompt": "The three primary colors are",
+  "max_tokens": 24
+ },
+ "reply": {
+  "id": "cmpl-f0f6dc83c9630859",
+  "object": "text_completion",
+  "created": 1795414789,
+  "model": "inkling-2-mini-1x-dgx-spark",
+  "system_fingerprint": "fp_bfe68ae1a087_88b4219e_cb1311_kvi8",
+  "choices": [
+   {
+    "index": 0,
+    "text": ":\n\nA. Red, yellow, and blue\nB. Red, green, and blue\nC. Red,",
+    "finish_reason": "length"
+   }
+  ],
+  "usage": {
+   "prompt_tokens": 5,
+   "completion_tokens": 24,
+   "total_tokens": 29,
+   "prompt_tokens_details": {
+    "cached_tokens": 0
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 23
+   }
+  }
+ },
+ "wall_s": 0.683
+}

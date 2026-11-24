@@ -1,0 +1,36 @@
+phase 1: chat x 12
+  chat 1/12: 1.984 tokens/round, drafted 348, accepted 126, 60.48 tok/s
+  chat 2/12: 1.984 tokens/round, drafted 343, accepted 126, 60.65 tok/s
+  chat 3/12: 2.016 tokens/round, drafted 351, accepted 128, 61.25 tok/s
+  chat 4/12: 1.984 tokens/round, drafted 357, accepted 126, 60.3 tok/s
+  chat 5/12: 1.969 tokens/round, drafted 349, accepted 125, 60.08 tok/s
+  chat 6/12: 1.969 tokens/round, drafted 344, accepted 125, 60.36 tok/s
+  chat 7/12: 1.954 tokens/round, drafted 344, accepted 124, 59.87 tok/s
+  chat 8/12: 1.954 tokens/round, drafted 344, accepted 124, 60.09 tok/s
+  chat 9/12: 1.954 tokens/round, drafted 345, accepted 124, 59.9 tok/s
+  chat 10/12: 1.954 tokens/round, drafted 344, accepted 124, 59.99 tok/s
+  chat 11/12: 1.954 tokens/round, drafted 342, accepted 124, 60.15 tok/s
+  chat 12/12: 1.969 tokens/round, drafted 335, accepted 125, 60.83 tok/s
+phase 2: code x 12
+  code 1/12: 4.655 tokens/round, drafted 294, accepted 200, 109.55 tok/s
+  code 2/12: 4.655 tokens/round, drafted 294, accepted 200, 109.79 tok/s
+  code 3/12: 4.655 tokens/round, drafted 294, accepted 200, 110.04 tok/s
+  code 4/12: 4.655 tokens/round, drafted 294, accepted 200, 109.59 tok/s
+  code 5/12: 4.655 tokens/round, drafted 294, accepted 200, 109.88 tok/s
+  code 6/12: 4.655 tokens/round, drafted 299, accepted 200, 109.38 tok/s
+  code 7/12: 4.655 tokens/round, drafted 294, accepted 200, 109.61 tok/s
+  code 8/12: 4.655 tokens/round, drafted 294, accepted 200, 109.75 tok/s
+  code 9/12: 4.655 tokens/round, drafted 295, accepted 200, 109.81 tok/s
+  code 10/12: 4.655 tokens/round, drafted 295, accepted 200, 109.49 tok/s
+  code 11/12: 4.655 tokens/round, drafted 295, accepted 200, 109.75 tok/s
+  code 12/12: 4.655 tokens/round, drafted 295, accepted 200, 109.63 tok/s
+# specmix 2026-11-23T21:26:11Z - confirm
+
+model inkling-2-mini-1x-dgx-spark, mix chat,code, 12 greedy requests of 256 tokens per phase
+
+| phase | kind | tokens/round | first third | last third | median tok/s | drafted | accepted |
+|---|---|---|---|---|---|---|---|
+| 1 | chat | 1.97 | 1.992 | 1.958 | 60.22 | 4146 | 1501 |
+| 2 | code | 4.655 | 4.655 | 4.655 | 109.69 | 3537 | 2400 |
+
+PASS drafting follows the traffic

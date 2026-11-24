@@ -1,0 +1,83 @@
+GPU SM clock capped at 2200 MHz on node-3
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-pintests/target/release/deps/inkling2_dspark-2190377fb6671b23
+GPU SM clock capped at 2200 MHz on node-3
+== gb-cuda 
+running 31 tests
+test bench_propose ... ignored
+test golden_inkling2_dspark_hashes ... ok
+test int8_plane_tracks_the_bf16_plane ... int8 vs bf16 plane, lengths [5, 300, 700, 1100, 1300]: free drafts agree 35/35; layer-2 K/V rel L2 max 1.179e-2; forced hd rel L2 max 2.045e-2; forced step logits max |d| 0.5; bit-equal forced step logit rows 0/35
+ok
+test matches_the_oracle_at_tp4 ... REXL3_INKLING2_DIR / REXL3_INKLING2_DSPARK_ORACLE unset: not run
+ok
+test matches_the_oracle_on_one_rank ... REXL3_INKLING2_DIR / REXL3_INKLING2_DSPARK_ORACLE unset: not run
+ok
+test mini_drafter::mini_a_million_positions_use_33_partials ... a million positions committed in 4.9 s
+a million positions: drafts [82, 25, 198, 149860, 149862, 220, 68199]
+ok
+test mini_drafter::mini_contexts_past_one_group_and_a_full_launch_are_row_invariant ... Bf16: lengths [4095, 4096, 4097, 5000] in one launch: alone == reversed == repeated == batch; drafts [[220, 17, 87, 18, 13, 220, 44150], [220, 17, 25, 220, 19, 12, 69307], [220, 17, 13, 220, 44150, 11, 220], [4153, 11, 220, 19, 13, 20, 33]]
+Int8: lengths [4095, 4096, 4097, 5000] in one launch: alone == reversed == repeated == batch; drafts [[220, 17, 87, 18, 13, 220, 44150], [220, 17, 25, 220, 19, 12, 69307], [220, 17, 13, 220, 44150, 11, 220], [4153, 11, 220, 19, 13, 20, 68]]
+int8 vs bf16 plane at long contexts: 27 of 28 drafts agree
+ok
+test mini_drafter::mini_enqueue_proposal_refuses_a_batch_the_scratch_cannot_hold ... ok
+test mini_drafter::mini_golden_hashes ... golden hashes equal /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-pintests/src/crates/cuda/../../testdata/gpu/golden_inkling2_loop_dspark.txt
+ok
+test mini_drafter::mini_graph_replay_equals_eager ... Bf16, pdl mask 0: graph replay == eager (free and forced; drafts, hd, Markov state)
+Bf16, pdl mask 15: graph replay == eager (free and forced; drafts, hd, Markov state)
+Int8, pdl mask 0: graph replay == eager (free and forced; drafts, hd, Markov state)
+Int8, pdl mask 15: graph replay == eager (free and forced; drafts, hd, Markov state)
+ok
+test mini_drafter::mini_graph_replay_follows_restaged_positions ... Bf16: a graph captured at [40, 700, 1024, 1290] replays at [43, 703, 1027, 1293] as the eager proposal does
+Int8: a graph captured at [40, 700, 1024, 1290] replays at [43, 703, 1027, 1293] as the eager proposal does
+ok
+test mini_drafter::mini_incremental_commit_equals_one_commit_and_rollback_equals_replay ... Bf16: drafts at 1103: [62, 1485, 62, 102940, 62, 102940, 62]; rollback, chunked and many-commit replays are bit-equal
+Int8: drafts at 1103: [62, 1485, 62, 102940, 62, 102940, 62]; rollback, chunked and many-commit replays are bit-equal
+ok
+test mini_drafter::mini_int8_plane_tracks_the_bf16_plane ... int8 vs bf16 plane, lengths [5, 300, 700, 1100, 1300]: free drafts agree 35/35; layer-1 K/V max 5.80 steps, 9081 of 10240 differ, rel L2 1.05e-2; hd max 31.49 steps, 77817 of 92160 differ, rel L2 1.33e-2
+ok
+test mini_drafter::mini_markov_variant_c_agrees_with_a ... MARKOV_VARIANT_AGREE synthetic features, 7 anchors [5, 40, 300, 700, 1024, 1100, 1300]
+MARKOV_VARIANT_AGREE free drafts equal (a vs c) at positions 1..7 of 7: [7, 7, 7, 7, 7, 7, 7]
+MARKOV_VARIANT_AGREE teacher-forced argmax equal (a vs c) at positions 1..7 of 7: [7, 7, 7, 7, 7, 7, 7]
+MARKOV_VARIANT_AGREE teacher-forced logits max |a - c| 0.125 (per step [0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125]), mean 5.759e-3
+ok
+test mini_drafter::mini_markov_variant_c_is_deterministic_and_graph_safe ... MARKOV_VARIANT_GRAPH Bf16 pdl mask 0: variant c twice equal, graph replay == eager (free and forced)
+MARKOV_VARIANT_GRAPH Bf16 pdl mask 15: variant c twice equal, graph replay == eager (free and forced)
+MARKOV_VARIANT_GRAPH Int8 pdl mask 0: variant c twice equal, graph replay == eager (free and forced)
+MARKOV_VARIANT_GRAPH Int8 pdl mask 15: variant c twice equal, graph replay == eager (free and forced)
+ok
+test mini_drafter::mini_markov_variant_c_timing ... MARKOV_VARIANT_TIMING b=1 at 1300 positions (int8 plane, median of 20 propose calls): a 3.290 ms, c 14.031 ms, c - a 10.742 ms per round
+MARKOV_VARIANT_TIMING b=4 at 1300 positions (int8 plane, median of 20 propose calls): a 4.483 ms, c 16.230 ms, c - a 11.748 ms per round
+ok
+test mini_drafter::mini_matches_the_oracle ... REXL3_INKLING2_LOOP_DIR / REXL3_INKLING2_LOOP_DSPARK_ORACLE unset: not run
+ok
+test mini_drafter::mini_norm_rows_equal_the_float64_reference ... norm rows at 2,304 (256 threads of 9 columns) vs the float64 reference: 0 of 5529600 bf16 outputs differ (worst relative 0.00e0)
+ok
+test mini_drafter::mini_propose_timing ... weights on the device 346369088 bytes (the fold's fold_w + fold_b 103359232 of them); state and scratch 29798300 bytes; upload with the fold 0.55 s
+timing at 1300 positions, one request, int8 plane: propose 3.26 ms eager, 3.00 ms as a graph; commit of 8 rows 0.18 ms
+ok
+test mini_drafter::mini_refuses_what_it_cannot_draft ... the drafter refuses an empty context, an anchor past the vocabulary, a repeated slot, a hole, a short stride, a wrong geometry
+ok
+test mini_drafter::mini_rows_are_invariant_across_windows ... Bf16: lengths [5, 700, 1023, 1024, 1025, 1031, 1032, 1033, 1100, 1300]: every request alone, in a reversed batch and repeated equals the batch (drafts and traces)
+  drafts: [[196997, 1050, 13, 1432, 63, 196986, 196997], [62, 1205, 62, 256, 62, 72, 28], [809, 25, 220, 16, 13, 149954, 151226], [262, 220, 16, 12, 1976, 220, 16], [16, 5209, 16, 13, 149954, 151226, 62], [220, 21, 25, 220, 21, 189559, 25], [220, 19, 25, 220, 21, 189559, 8], [386, 220, 68028, 189559, 25, 220, 16], [12, 1980, 12, 1980, 12, 256, 12], [159415, 159302, 150220, 156053, 11, 149904, 150261]]
+Int8: lengths [5, 700, 1023, 1024, 1025, 1031, 1032, 1033, 1100, 1300]: every request alone, in a reversed batch and repeated equals the batch (drafts and traces)
+  drafts: [[196997, 1050, 13, 1432, 63, 196986, 196997], [62, 1205, 62, 256, 62, 72, 28], [809, 25, 220, 16, 13, 149954, 151226], [262, 220, 16, 12, 1976, 220, 16], [16, 5209, 16, 13, 149954, 151226, 62], [220, 21, 25, 220, 21, 189559, 25], [220, 19, 25, 220, 21, 189559, 8], [386, 220, 68028, 189559, 25, 220, 16], [12, 1980, 12, 1980, 12, 256, 12], [159415, 159302, 150220, 156053, 11, 149904, 150261]]
+ok
+test mini_drafter::mini_slot_snapshot_restores_the_bits ... a slot restored from its snapshot and plane pages proposes the same bits
+ok
+test mini_drafter::slim_picks_the_full_heads_winner ... REXL3_INKLING2_LOOP_DIR / REXL3_INKLING2_LOOP_DSPARK_ORACLE unset: not run
+ok
+test mini_drafter::slim_proposal_timing ... SLIM_TIMING ctx 4096 b=1: DraftSlim off 6.500 ms, on 3.330 ms, saved 3.170 ms
+SLIM_TIMING ctx 4096 b=2: DraftSlim off 7.366 ms, on 3.806 ms, saved 3.559 ms
+SLIM_TIMING ctx 4096 b=4: DraftSlim off 9.002 ms, on 4.799 ms, saved 4.203 ms
+ok
+test refuses_what_it_cannot_draft ... ok
+test rollback_and_restore_equal_replay ... Bf16: drafts at 1103: [220, 16, 13, 20, 11, 220, 35252]
+ok
+test rollback_and_restore_equal_replay_int8 ... Int8: drafts at 1103: [220, 16, 13, 20, 11, 220, 35252]
+ok
+test rows_are_invariant_and_ranks_agree ... Bf16: drafts of lengths [5, 700, 1100, 1300]: [[149876, 150046, 150264, 13, 68014, 371, 152103], [68014, 2918, 149991, 150918, 149876, 220, 68111], [62, 1008, 62, 1862, 62, 1008, 7], [11, 220, 44346, 11, 220, 18, 13]]
+ok
+test rows_are_invariant_and_ranks_agree_int8 ... Int8: drafts of lengths [5, 700, 1100, 1300]: [[149876, 150046, 150264, 13, 68014, 371, 152103], [68014, 2918, 149991, 150918, 149876, 220, 68111], [62, 1008, 62, 1862, 62, 1008, 7], [11, 220, 44346, 11, 220, 18, 13]]
+ok
+test slot_snapshot_restores_the_bits ... ok
+test the_split_counts_agree ... ok
+test result: ok. 30 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 119.17s

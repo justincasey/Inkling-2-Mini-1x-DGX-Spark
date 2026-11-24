@@ -1,0 +1,86 @@
+### graph tests + step timing (final)
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-graph/target/release/deps/inkling2_loop_graphs-76816e451b7b124b
+== gb-model graph_replay_equals
+LOOP_GRAPH_equal windows 37 logits_sha256 6d0a555b92e02953c9e26efecdd9dece0ab211030ba8947cbe03b8407846c06b captures 12 replays 213 eager 160 capture_failures 0 evictions 0
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 22.28s
+== gb-model capture_refusal
+rexl3 level=warn event=inkling2_loop_graph_capture_failed rows=1 blocks=1 chunks=2 count=64 a launch failed while capturing: CUDA error 900 (cudaErrorStreamCaptureUnsupported) (this window shape runs eagerly)
+LOOP_GRAPH_refusal captures 0 capture_failures 1 eager 5 replays 0 last_failure Some("a launch failed while capturing: CUDA error 900 (cudaErrorStreamCaptureUnsupported)")
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 11.23s
+== gb-model decode_step_timing
+thread 'decode_step_timing' panicked at crates/model/tests/inkling2_loop_graphs.rs:233:5:
+FAILED
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 2 filtered out; finished in 10.51s
+ops_dev: 'decode_step_timing' did not pass
+### rank gates graphs=on
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-graph/target/release/deps/inkling2_loop_rank-92f335230f3b1d49
+== gb-model forward_oracle_gate
+LOOP_load_seconds 10.1 weight_gib 13.553
+LOOP_buffer_bytes 489257116
+LOOP_dump_a sha256 c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0 bytes 90056120
+LOOP_top1 200001 logit 26.821056
+LOOP_dump_b sha256 c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0 bytes 90056120
+LOOP_top1 200001 logit 26.821056
+LOOP_determinism identical 90056120 bytes
+LOOP_chunk_width 7 logits_identical 20806032 bytes sha256 a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a
+LOOP_chunk_width 11 logits_identical 20806032 bytes sha256 a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a
+LOOP_decode_row 22 identical
+LOOP_decode_row 23 identical
+LOOP_decode_row 24 identical
+LOOP_decode_row 25 identical
+LOOP_window_commit rollback identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 13.02s
+== gb-model long_context_gate
+LOOP_long_tokens 1119
+LOOP_long_top1 157 logit 23.62496
+LOOP_long_chunk_width 129 candidates_identical
+LOOP_long_chunk_width 300 candidates_identical
+LOOP_long_decode_row 1118 candidates_identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 13.55s
+### rank gates graphs=0
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-graph/target/release/deps/inkling2_loop_rank-92f335230f3b1d49
+== gb-model forward_oracle_gate
+LOOP_load_seconds 9.9 weight_gib 13.553
+LOOP_buffer_bytes 489257116
+LOOP_dump_a sha256 c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0 bytes 90056120
+LOOP_top1 200001 logit 26.821056
+LOOP_dump_b sha256 c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0 bytes 90056120
+LOOP_top1 200001 logit 26.821056
+LOOP_determinism identical 90056120 bytes
+LOOP_chunk_width 7 logits_identical 20806032 bytes sha256 a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a
+LOOP_chunk_width 11 logits_identical 20806032 bytes sha256 a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a
+LOOP_decode_row 22 identical
+LOOP_decode_row 23 identical
+LOOP_decode_row 24 identical
+LOOP_decode_row 25 identical
+LOOP_window_commit rollback identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 12.77s
+== gb-model long_context_gate
+LOOP_long_tokens 1119
+LOOP_long_top1 157 logit 23.62496
+LOOP_long_chunk_width 129 candidates_identical
+LOOP_long_chunk_width 300 candidates_identical
+LOOP_long_decode_row 1118 candidates_identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 13.97s
+### cuda kernel tests
+== gb-cuda split_topk
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 34 filtered out; finished in 0.29s
+== gb-cuda sharded_argmax
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 34 filtered out; finished in 0.28s
+== gb-cuda unembed_softcap
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 34 filtered out; finished in 0.29s
+== gb-cuda golden
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 34 filtered out; finished in 0.64s
+== gb-cuda mini::
+test result: ok. 14 passed; 0 failed; 1 ignored; 0 measured; 15 filtered out; finished in 21.69s
+== gb-cuda small::
+test result: ok. 14 passed; 0 failed; 1 ignored; 0 measured; 15 filtered out; finished in 21.78s
+== gb-cuda golden
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.35s
+== gb-cuda graph
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.30s
+== gb-cuda golden
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 11 filtered out; finished in 0.00s
+ops_dev: 'golden' did not pass
+== gb-cuda graph
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.31s

@@ -1,0 +1,17 @@
+{
+ "anchors": [
+  1,
+  8,
+  16,
+  24,
+  25,
+  30,
+  36,
+  40
+ ],
+ "n_positions": 40,
+ "feature_source": "oracle fixture chat-capital-effort0.safetensors (sha256 317571c029c880c2f926de4554b1897820086ec05ebb301e2df91507a33cc926): stack(hidden[5, 23, 41], h_final)",
+ "mtp_sha256": "427c8cb04d72a2f2e6db473c24277b9dc0d4b3a099eab1c6fbed1b96af7d2f80",
+ "oracle_source_sha256": "85deb02a926d91059bf9e11f4199d1218c7ad355e81d11c76085dfdd7f7bd0df",
+ "seconds": 1.4
+}

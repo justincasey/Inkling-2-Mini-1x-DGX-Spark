@@ -1,0 +1,65 @@
+{
+ "name": "oracle-fixtures",
+ "gate": "oracle-fixtures",
+ "date": "2026-11-23",
+ "result": "pass",
+ "node": "node-1",
+ "recipe": {
+  "commit": "ac8a389cb349790429c838c99e39b50793ce54d1"
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44"
+ },
+ "tests": [
+  {
+   "bin": "finalize_fixtures_record.py",
+   "filter": "progress",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "finalize_fixtures_record.py",
+   "filter": "spec",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "finalize_fixtures_record.py",
+   "filter": "engine",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "finalize_fixtures_record.py",
+   "filter": "dspark",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "finalize_fixtures_record.py",
+   "filter": "no-address",
+   "passed": 1,
+   "failed": 0
+  }
+ ],
+ "commands": [
+  "oracle/gen_fixtures.py --pack PACK --out fixtures/spec --workers 3 --threads 4 --weight-cache-gib 12 --verify-recompute (per prompt, two runs)",
+  "oracle/gen_fixtures.py --pack PACK --out fixtures/engine --emulate engine --workers 3 --threads 4 --weight-cache-gib 12",
+  "oracle/gen_dspark_fixtures.py --pack PACK --fixtures fixtures/spec --out fixtures/dspark --threads 16 --weight-cache-gib 10",
+  "fixtures/run-fixtures.sh (engine and dspark stages, nohup setsid, nice 19)",
+  "oracle/finalize_fixtures_record.py --ssh <node> (this record)"
+ ],
+ "metrics": {
+  "fixtures": 4,
+  "engine_fixtures": 4,
+  "dspark_fixtures": 5,
+  "spec_bytes": 1319550544,
+  "engine_bytes": 1319550544,
+  "dspark_bytes": 298693516,
+  "spec_seconds": 4886,
+  "engine_seconds": 3322,
+  "dspark_seconds": 45
+ },
+ "notes": "all 5 verifications passed. The fixtures stay on the node (fixtures/spec, engine, dspark under the base directory); the record holds the manifests, progress, logs and the drafter case metas."
+}

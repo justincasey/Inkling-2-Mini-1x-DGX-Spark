@@ -1,0 +1,12 @@
+# HELP rexl3_spec_drafted_total Draft tokens proposed, accumulated when requests finish.
+# TYPE rexl3_spec_drafted_total counter
+rexl3_spec_drafted_total 28776
+# HELP rexl3_spec_accepted_total Draft tokens accepted, accumulated when requests finish.
+# TYPE rexl3_spec_accepted_total counter
+rexl3_spec_accepted_total 12250
+rexl3_graph_cache_replays_total 8624
+rexl3_graph_cache_captures_total 121
+rexl3_graph_cache_eager_windows_total 145
+rexl3_graph_cache_evictions_total 57
+rexl3_graph_cache_capture_failures_total 0
+rexl3_graph_cache_capture_seconds_total 1.1902428320000005

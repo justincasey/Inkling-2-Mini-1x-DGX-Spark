@@ -1,0 +1,925 @@
+{
+ "meta": {
+  "url": "http://node-1:8000",
+  "model": "inkling-2-mini-1x-dgx-spark",
+  "date": "2026-11-23T20:29:36Z",
+  "label": "slimoff",
+  "passes": 3,
+  "max_tokens": 512,
+  "kinds": [
+   "chat",
+   "code",
+   "json",
+   "longctx",
+   "tool",
+   "reasoning"
+  ],
+  "no_serial": false,
+  "concurrency": 4
+ },
+ "kinds": {
+  "chat": {
+   "prompt_tokens": 74,
+   "prompt_sha256": "d5648b5bc2ccabf9b98259b6d88573bab6a7f5e6b4c475454ea6cb5cc6c57eb6",
+   "prompt_sha256_of": "ids",
+   "path": "/v1/chat/completions",
+   "completion_tokens": 512,
+   "finish_reason": "length",
+   "generated_sha256": "1e45a63c63efd493f15cc0a2824b762f7d1936b78b889cbb134e68d01e2758f3",
+   "serial": {
+    "tok_s": [
+     52.184,
+     52.161,
+     52.121
+    ],
+    "wall_s": [
+     9.811,
+     9.816,
+     9.823
+    ],
+    "median": 52.161
+   },
+   "drafted": {
+    "tok_s": [
+     52.533,
+     52.739,
+     53.675
+    ],
+    "wall_s": [
+     9.746,
+     9.708,
+     9.539
+    ],
+    "median": 52.739,
+    "spec": {
+     "replies": 3,
+     "drafted": 1773,
+     "accepted": 587,
+     "rounds": 946,
+     "acceptance": 0.3311,
+     "accepted_per_round": 0.6205,
+     "tokens_per_round": 1.6237
+    },
+    "per_position": [
+     {
+      "position": 1,
+      "offered": 235,
+      "verified": 235,
+      "reached": 235,
+      "accepted": 130,
+      "conditional": 0.5532,
+      "rate": 0.4305
+     },
+     {
+      "position": 2,
+      "offered": 234,
+      "verified": 234,
+      "reached": 130,
+      "accepted": 59,
+      "conditional": 0.4538,
+      "rate": 0.1954
+     },
+     {
+      "position": 3,
+      "offered": 119,
+      "verified": 119,
+      "reached": 35,
+      "accepted": 15,
+      "conditional": 0.4286,
+      "rate": 0.0497
+     },
+     {
+      "position": 4,
+      "offered": 40,
+      "verified": 40,
+      "reached": 9,
+      "accepted": 4,
+      "conditional": 0.4444,
+      "rate": 0.0132
+     },
+     {
+      "position": 5,
+      "offered": 11,
+      "verified": 11,
+      "reached": 3,
+      "accepted": 1,
+      "conditional": 0.3333,
+      "rate": 0.0033
+     },
+     {
+      "position": 6,
+      "offered": 4,
+      "verified": 4,
+      "reached": 1,
+      "accepted": 0,
+      "conditional": 0.0,
+      "rate": 0.0
+     }
+    ],
+    "accept_hist": [
+     172,
+     71,
+     44,
+     11,
+     3,
+     1,
+     0
+    ],
+    "position_pass": {
+     "rounds": 302,
+     "groups": {
+      "greedy/1": 302
+     },
+     "usage_rounds": 302,
+     "solo": true
+    },
+    "tokens_per_round": 1.6237
+   },
+   "equal": true,
+   "speedup": 1.011
+  },
+  "code": {
+   "prompt_tokens": 225,
+   "prompt_sha256": "c2ca7f967174b20f3ffef004e0459e0643e6e3ca025170a94963d2adc344cbf1",
+   "prompt_sha256_of": "ids",
+   "path": "/v1/completions",
+   "completion_tokens": 512,
+   "finish_reason": "length",
+   "generated_sha256": "e0057ad4bad689b477b8237f57b82aa0f31856f84c33561a8fc9a980cf0e8988",
+   "serial": {
+    "tok_s": [
+     52.252,
+     52.321,
+     52.265
+    ],
+    "wall_s": [
+     9.799,
+     9.786,
+     9.796
+    ],
+    "median": 52.265
+   },
+   "drafted": {
+    "tok_s": [
+     114.233,
+     114.293,
+     116.496
+    ],
+    "wall_s": [
+     4.482,
+     4.48,
+     4.395
+    ],
+    "median": 114.293,
+    "spec": {
+     "replies": 3,
+     "drafted": 1825,
+     "accepted": 1244,
+     "rounds": 289,
+     "acceptance": 0.6816,
+     "accepted_per_round": 4.3045,
+     "tokens_per_round": 5.3149
+    },
+    "per_position": [
+     {
+      "position": 1,
+      "offered": 95,
+      "verified": 95,
+      "reached": 95,
+      "accepted": 86,
+      "conditional": 0.9053,
+      "rate": 0.9053
+     },
+     {
+      "position": 2,
+      "offered": 95,
+      "verified": 95,
+      "reached": 86,
+      "accepted": 79,
+      "conditional": 0.9186,
+      "rate": 0.8316
+     },
+     {
+      "position": 3,
+      "offered": 95,
+      "verified": 95,
+      "reached": 79,
+      "accepted": 70,
+      "conditional": 0.8861,
+      "rate": 0.7368
+     },
+     {
+      "position": 4,
+      "offered": 95,
+      "verified": 95,
+      "reached": 70,
+      "accepted": 64,
+      "conditional": 0.9143,
+      "rate": 0.6737
+     },
+     {
+      "position": 5,
+      "offered": 94,
+      "verified": 94,
+      "reached": 63,
+      "accepted": 56,
+      "conditional": 0.8889,
+      "rate": 0.5895
+     },
+     {
+      "position": 6,
+      "offered": 83,
+      "verified": 83,
+      "reached": 51,
+      "accepted": 41,
+      "conditional": 0.8039,
+      "rate": 0.4316
+     },
+     {
+      "position": 7,
+      "offered": 46,
+      "verified": 46,
+      "reached": 24,
+      "accepted": 20,
+      "conditional": 0.8333,
+      "rate": 0.2105
+     }
+    ],
+    "accept_hist": [
+     9,
+     7,
+     9,
+     6,
+     8,
+     15,
+     21,
+     20
+    ],
+    "position_pass": {
+     "rounds": 95,
+     "groups": {
+      "greedy/1": 95
+     },
+     "usage_rounds": 95,
+     "solo": true
+    },
+    "tokens_per_round": 5.3149
+   },
+   "equal": true,
+   "speedup": 2.187
+  },
+  "json": {
+   "prompt_tokens": 251,
+   "prompt_sha256": "bb3e1238df915093f227fc055b15d75b88a3246be585336e7ace237f575a33ac",
+   "prompt_sha256_of": "ids",
+   "path": "/v1/completions",
+   "completion_tokens": 512,
+   "finish_reason": "length",
+   "generated_sha256": "ef3c421fce7d33559d8aefd3636f627ac5585f84747bb1a308ac80e9f2c07773",
+   "serial": {
+    "tok_s": [
+     51.603,
+     51.546,
+     51.632
+    ],
+    "wall_s": [
+     9.922,
+     9.933,
+     9.916
+    ],
+    "median": 51.603
+   },
+   "drafted": {
+    "tok_s": [
+     85.38,
+     85.436,
+     85.453
+    ],
+    "wall_s": [
+     5.997,
+     5.993,
+     5.992
+    ],
+    "median": 85.436,
+    "spec": {
+     "replies": 3,
+     "drafted": 2273,
+     "accepted": 1153,
+     "rounds": 380,
+     "acceptance": 0.5073,
+     "accepted_per_round": 3.0342,
+     "tokens_per_round": 4.0421
+    },
+    "per_position": [
+     {
+      "position": 1,
+      "offered": 115,
+      "verified": 115,
+      "reached": 115,
+      "accepted": 92,
+      "conditional": 0.8,
+      "rate": 0.7541
+     },
+     {
+      "position": 2,
+      "offered": 115,
+      "verified": 115,
+      "reached": 92,
+      "accepted": 67,
+      "conditional": 0.7283,
+      "rate": 0.5492
+     },
+     {
+      "position": 3,
+      "offered": 113,
+      "verified": 113,
+      "reached": 65,
+      "accepted": 54,
+      "conditional": 0.8308,
+      "rate": 0.4426
+     },
+     {
+      "position": 4,
+      "offered": 112,
+      "verified": 112,
+      "reached": 54,
+      "accepted": 48,
+      "conditional": 0.8889,
+      "rate": 0.3934
+     },
+     {
+      "position": 5,
+      "offered": 110,
+      "verified": 110,
+      "reached": 48,
+      "accepted": 47,
+      "conditional": 0.9792,
+      "rate": 0.3852
+     },
+     {
+      "position": 6,
+      "offered": 107,
+      "verified": 107,
+      "reached": 46,
+      "accepted": 43,
+      "conditional": 0.9348,
+      "rate": 0.3525
+     },
+     {
+      "position": 7,
+      "offered": 99,
+      "verified": 99,
+      "reached": 39,
+      "accepted": 38,
+      "conditional": 0.9744,
+      "rate": 0.3115
+     }
+    ],
+    "accept_hist": [
+     30,
+     25,
+     13,
+     6,
+     1,
+     4,
+     5,
+     38
+    ],
+    "position_pass": {
+     "rounds": 122,
+     "groups": {
+      "greedy/1": 122
+     },
+     "usage_rounds": 122,
+     "solo": true
+    },
+    "tokens_per_round": 4.0421
+   },
+   "equal": true,
+   "speedup": 1.656
+  },
+  "longctx": {
+   "prompt_tokens": 6047,
+   "prompt_sha256": "c17ef87eae1d5f7e97a29d996198f1de48b76a35ae3f37bf5fede8d154db22a4",
+   "prompt_sha256_of": "ids",
+   "path": "/v1/chat/completions",
+   "completion_tokens": 512,
+   "finish_reason": "length",
+   "generated_sha256": "b52069d045dcc975cf1ffff8695dab0abb2812a0e8519d1f19785aa10da1a1d2",
+   "serial": {
+    "tok_s": [
+     40.752,
+     40.815,
+     40.798
+    ],
+    "wall_s": [
+     12.564,
+     12.545,
+     12.55
+    ],
+    "median": 40.798
+   },
+   "drafted": {
+    "tok_s": [
+     66.789,
+     67.142,
+     67.53
+    ],
+    "wall_s": [
+     7.666,
+     7.626,
+     7.582
+    ],
+    "median": 67.142,
+    "spec": {
+     "replies": 3,
+     "drafted": 1935,
+     "accepted": 1179,
+     "rounds": 354,
+     "acceptance": 0.6093,
+     "accepted_per_round": 3.3305,
+     "tokens_per_round": 4.339
+    },
+    "per_position": [
+     {
+      "position": 1,
+      "offered": 118,
+      "verified": 118,
+      "reached": 118,
+      "accepted": 107,
+      "conditional": 0.9068,
+      "rate": 0.8992
+     },
+     {
+      "position": 2,
+      "offered": 118,
+      "verified": 118,
+      "reached": 107,
+      "accepted": 85,
+      "conditional": 0.7944,
+      "rate": 0.7143
+     },
+     {
+      "position": 3,
+      "offered": 118,
+      "verified": 118,
+      "reached": 85,
+      "accepted": 74,
+      "conditional": 0.8706,
+      "rate": 0.6218
+     },
+     {
+      "position": 4,
+      "offered": 117,
+      "verified": 117,
+      "reached": 73,
+      "accepted": 59,
+      "conditional": 0.8082,
+      "rate": 0.4958
+     },
+     {
+      "position": 5,
+      "offered": 87,
+      "verified": 87,
+      "reached": 49,
+      "accepted": 40,
+      "conditional": 0.8163,
+      "rate": 0.3361
+     },
+     {
+      "position": 6,
+      "offered": 58,
+      "verified": 58,
+      "reached": 29,
+      "accepted": 22,
+      "conditional": 0.7586,
+      "rate": 0.1849
+     },
+     {
+      "position": 7,
+      "offered": 25,
+      "verified": 25,
+      "reached": 7,
+      "accepted": 5,
+      "conditional": 0.7143,
+      "rate": 0.042
+     }
+    ],
+    "accept_hist": [
+     12,
+     22,
+     11,
+     15,
+     19,
+     18,
+     17,
+     5
+    ],
+    "position_pass": {
+     "rounds": 119,
+     "groups": {
+      "greedy/1": 119
+     },
+     "usage_rounds": 119,
+     "solo": true
+    },
+    "tokens_per_round": 4.339
+   },
+   "equal": true,
+   "speedup": 1.646
+  },
+  "tool": {
+   "prompt_tokens": 166,
+   "prompt_sha256": "8d16372cc785fa8edc0fb46af9c141fd2e9f49576ad5f3b75566a78990850c92",
+   "prompt_sha256_of": "ids",
+   "path": "/v1/chat/completions",
+   "completion_tokens": 369,
+   "finish_reason": "tool_calls",
+   "generated_sha256": "e00aac8b87c380d22e71b8be2e97887b65b40a990bbe26f183d6f45b7c7bb71c",
+   "serial": {
+    "tok_s": [
+     51.542,
+     51.537,
+     51.51
+    ],
+    "wall_s": [
+     7.159,
+     7.16,
+     7.164
+    ],
+    "median": 51.537
+   },
+   "drafted": {
+    "tok_s": [
+     127.643,
+     127.211,
+     126.925
+    ],
+    "wall_s": [
+     2.891,
+     2.901,
+     2.907
+    ],
+    "median": 127.211,
+    "spec": {
+     "replies": 3,
+     "drafted": 1038,
+     "accepted": 933,
+     "rounds": 174,
+     "acceptance": 0.8988,
+     "accepted_per_round": 5.3621,
+     "tokens_per_round": 6.3621
+    },
+    "per_position": [
+     {
+      "position": 1,
+      "offered": 58,
+      "verified": 58,
+      "reached": 58,
+      "accepted": 55,
+      "conditional": 0.9483,
+      "rate": 0.9483
+     },
+     {
+      "position": 2,
+      "offered": 58,
+      "verified": 58,
+      "reached": 55,
+      "accepted": 51,
+      "conditional": 0.9273,
+      "rate": 0.8793
+     },
+     {
+      "position": 3,
+      "offered": 58,
+      "verified": 58,
+      "reached": 51,
+      "accepted": 48,
+      "conditional": 0.9412,
+      "rate": 0.8276
+     },
+     {
+      "position": 4,
+      "offered": 56,
+      "verified": 56,
+      "reached": 47,
+      "accepted": 42,
+      "conditional": 0.8936,
+      "rate": 0.7241
+     },
+     {
+      "position": 5,
+      "offered": 41,
+      "verified": 41,
+      "reached": 39,
+      "accepted": 39,
+      "conditional": 1.0,
+      "rate": 0.6724
+     },
+     {
+      "position": 6,
+      "offered": 39,
+      "verified": 39,
+      "reached": 38,
+      "accepted": 38,
+      "conditional": 1.0,
+      "rate": 0.6552
+     },
+     {
+      "position": 7,
+      "offered": 39,
+      "verified": 39,
+      "reached": 38,
+      "accepted": 38,
+      "conditional": 1.0,
+      "rate": 0.6552
+     }
+    ],
+    "accept_hist": [
+     3,
+     4,
+     3,
+     6,
+     3,
+     1,
+     0,
+     38
+    ],
+    "position_pass": {
+     "rounds": 58,
+     "groups": {
+      "greedy/1": 58
+     },
+     "usage_rounds": 58,
+     "solo": true
+    },
+    "tokens_per_round": 6.3621
+   },
+   "equal": true,
+   "speedup": 2.468
+  },
+  "reasoning": {
+   "prompt_tokens": 150,
+   "prompt_sha256": "67b8087c5e3e56b8659ce1cd37c34256e65d9a3e93c6b847bb8af6bc6ecf6694",
+   "prompt_sha256_of": "ids",
+   "path": "/v1/chat/completions",
+   "completion_tokens": 512,
+   "finish_reason": "length",
+   "generated_sha256": "f3441cad7a9d6bfb3aaa7f0f643b0279c9fa98c38544c004ee6ae686ca632521",
+   "serial": {
+    "tok_s": [
+     51.481,
+     51.417,
+     51.51
+    ],
+    "wall_s": [
+     9.945,
+     9.958,
+     9.94
+    ],
+    "median": 51.481
+   },
+   "drafted": {
+    "tok_s": [
+     77.413,
+     76.156,
+     76.949
+    ],
+    "wall_s": [
+     6.614,
+     6.723,
+     6.654
+    ],
+    "median": 76.949,
+    "spec": {
+     "replies": 3,
+     "drafted": 2116,
+     "accepted": 1036,
+     "rounds": 497,
+     "acceptance": 0.4896,
+     "accepted_per_round": 2.0845,
+     "tokens_per_round": 3.0905
+    },
+    "per_position": [
+     {
+      "position": 1,
+      "offered": 163,
+      "verified": 163,
+      "reached": 163,
+      "accepted": 125,
+      "conditional": 0.7669,
+      "rate": 0.7622
+     },
+     {
+      "position": 2,
+      "offered": 162,
+      "verified": 162,
+      "reached": 125,
+      "accepted": 100,
+      "conditional": 0.8,
+      "rate": 0.6098
+     },
+     {
+      "position": 3,
+      "offered": 162,
+      "verified": 162,
+      "reached": 100,
+      "accepted": 68,
+      "conditional": 0.68,
+      "rate": 0.4146
+     },
+     {
+      "position": 4,
+      "offered": 137,
+      "verified": 137,
+      "reached": 62,
+      "accepted": 40,
+      "conditional": 0.6452,
+      "rate": 0.2439
+     },
+     {
+      "position": 5,
+      "offered": 54,
+      "verified": 54,
+      "reached": 20,
+      "accepted": 12,
+      "conditional": 0.6,
+      "rate": 0.0732
+     },
+     {
+      "position": 6,
+      "offered": 15,
+      "verified": 15,
+      "reached": 2,
+      "accepted": 2,
+      "conditional": 1.0,
+      "rate": 0.0122
+     },
+     {
+      "position": 7,
+      "offered": 2,
+      "verified": 2,
+      "reached": 1,
+      "accepted": 0,
+      "conditional": 0.0,
+      "rate": 0.0
+     }
+    ],
+    "accept_hist": [
+     39,
+     25,
+     32,
+     28,
+     28,
+     10,
+     2,
+     0
+    ],
+    "position_pass": {
+     "rounds": 164,
+     "groups": {
+      "greedy/1": 164
+     },
+     "usage_rounds": 164,
+     "solo": true
+    },
+    "tokens_per_round": 3.0905
+   },
+   "equal": true,
+   "speedup": 1.495
+  }
+ },
+ "concurrency": {
+  "streams": 4,
+  "kinds": [
+   "chat",
+   "code",
+   "json",
+   "reasoning"
+  ],
+  "max_tokens": 512,
+  "serial": {
+   "agg_tok_s": [
+    100.496,
+    100.281,
+    100.418
+   ],
+   "median": 100.418,
+   "wall_s": [
+    20.379,
+    20.423,
+    20.395
+   ],
+   "completion_tokens": [
+    2048,
+    2048,
+    2048
+   ],
+   "streams": [
+    {
+     "kind": "chat",
+     "completion_tokens": 512,
+     "tok_s": 25.162,
+     "spec": null
+    },
+    {
+     "kind": "code",
+     "completion_tokens": 512,
+     "tok_s": 25.109,
+     "spec": null
+    },
+    {
+     "kind": "json",
+     "completion_tokens": 512,
+     "tok_s": 25.169,
+     "spec": null
+    },
+    {
+     "kind": "reasoning",
+     "completion_tokens": 512,
+     "tok_s": 25.124,
+     "spec": null
+    }
+   ]
+  },
+  "drafted": {
+   "agg_tok_s": [
+    115.484,
+    115.97,
+    115.577
+   ],
+   "median": 115.577,
+   "wall_s": [
+    17.734,
+    17.66,
+    17.72
+   ],
+   "completion_tokens": [
+    2048,
+    2048,
+    2048
+   ],
+   "streams": [
+    {
+     "kind": "chat",
+     "completion_tokens": 512,
+     "tok_s": 28.895,
+     "spec": {
+      "replies": 3,
+      "drafted": 2105,
+      "accepted": 656,
+      "rounds": 877,
+      "acceptance": 0.3116,
+      "accepted_per_round": 0.748,
+      "tokens_per_round": 1.7514
+     }
+    },
+    {
+     "kind": "code",
+     "completion_tokens": 512,
+     "tok_s": 53.014,
+     "spec": {
+      "replies": 3,
+      "drafted": 1792,
+      "accepted": 1238,
+      "rounds": 295,
+      "acceptance": 0.6908,
+      "accepted_per_round": 4.1966,
+      "tokens_per_round": 5.2068
+     }
+    },
+    {
+     "kind": "json",
+     "completion_tokens": 512,
+     "tok_s": 44.619,
+     "spec": {
+      "replies": 3,
+      "drafted": 2020,
+      "accepted": 1165,
+      "rounds": 368,
+      "acceptance": 0.5767,
+      "accepted_per_round": 3.1658,
+      "tokens_per_round": 4.1739
+     }
+    },
+    {
+     "kind": "reasoning",
+     "completion_tokens": 512,
+     "tok_s": 37.144,
+     "spec": {
+      "replies": 3,
+      "drafted": 2161,
+      "accepted": 1030,
+      "rounds": 503,
+      "acceptance": 0.4766,
+      "accepted_per_round": 2.0477,
+      "tokens_per_round": 3.0537
+     }
+    }
+   ]
+  },
+  "speedup": 1.151
+ },
+ "failures": [],
+ "partial": false
+}

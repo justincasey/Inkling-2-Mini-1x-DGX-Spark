@@ -1,0 +1,4 @@
+17:02:42 bench api against http://node-1:8000 (inkling-2-mini-1x-dgx-spark, window 262144); results in bench/runs/20261123T230242Z-api
+17:02:42 gate api-test: bench_records api
+PASS api-test
+bench api: pass run=bench/runs/20261123T230242Z-api

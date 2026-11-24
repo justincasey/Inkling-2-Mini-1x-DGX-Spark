@@ -1,0 +1,47 @@
+### inkling2_ops mix_equals_the split_topk golden
+== gb-cuda mix_equals_the
+test mini_message_mix_equals_the_oracle_on_the_real_queries ... message mix, 12 core layers, real queries: worst error 4.17e-7 of unit scale against the oracle
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 33 filtered out; finished in 0.46s
+== gb-cuda split_topk
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 34 filtered out; finished in 0.31s
+== gb-cuda golden
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 34 filtered out; finished in 0.62s
+### inkling2_moe_mixed an_arena_bank graph
+== gb-cuda an_arena_bank
+test an_arena_bank_equals_the_from_groups_bank ... arena bank == from_groups bank (hidden 512, 32 experts, tiny bands false, 5 rows)
+arena bank == from_groups bank (hidden 512, 32 experts, tiny bands true, 3 rows)
+arena bank == from_groups bank (hidden 2304, 128 experts, tiny bands false, 4 rows)
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 1.27s
+== gb-cuda graph
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 0.30s
+### inkling2_dspark mini_enqueue_proposal mini_contexts_past mini_graph_replay mini_golden mini_a_million
+== gb-cuda mini_enqueue_proposal
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 28 filtered out; finished in 1.89s
+== gb-cuda mini_contexts_past
+test mini_drafter::mini_contexts_past_one_group_and_a_full_launch_are_row_invariant ... Bf16: lengths [4095, 4096, 4097, 5000] in one launch: alone == reversed == repeated == batch; drafts [[220, 17, 87, 18, 13, 220, 44150], [220, 17, 25, 220, 19, 12, 69307], 
+Int8: lengths [4095, 4096, 4097, 5000] in one launch: alone == reversed == repeated == batch; drafts [[220, 17, 87, 18, 13, 220, 44150], [220, 17, 25, 220, 19, 12, 69307], [220, 17, 13, 220, 44150, 11, 220], [4153, 11, 220, 19, 13, 20, 33]]
+int8 vs bf16 plane at long contexts: 28 of 28 drafts agree
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 28 filtered out; finished in 1.66s
+== gb-cuda mini_graph_replay
+test mini_drafter::mini_graph_replay_equals_eager ... Bf16, pdl mask 0: graph replay == eager (free and forced; drafts, hd, Markov state)
+Bf16, pdl mask 15: graph replay == eager (free and forced; drafts, hd, Markov state)
+Int8, pdl mask 0: graph replay == eager (free and forced; drafts, hd, Markov state)
+Int8, pdl mask 15: graph replay == eager (free and forced; drafts, hd, Markov state)
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 27 filtered out; finished in 2.00s
+== gb-cuda mini_golden
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 28 filtered out; finished in 1.36s
+== gb-cuda mini_a_million
+test mini_drafter::mini_a_million_positions_use_257_partials ... a million positions committed in 5.0 s
+a million positions: drafts [82, 25, 198, 149860, 149862, 220, 68199]
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 28 filtered out; finished in 6.46s
+### inkling2_attn mini:: small::
+== gb-cuda mini::
+test mini::global_attention_matches_f64_from_the_start_and_past_the_bias_extent ... Global from 0: worst max-rel error 6.141e-3, min cosine 0.99999478
+test mini::global_attention_matches_f64_past_the_floor ... Global from 8187: worst max-rel error 4.543e-3, min cosine 0.99999534
+test mini::local_attention_matches_f64_through_the_ring_wrap ... Local from 0: worst max-rel error 6.051e-3, min cosine 0.99999463
+test result: ok. 14 passed; 0 failed; 1 ignored; 0 measured; 15 filtered out; finished in 19.84s
+== gb-cuda small::
+test small::global_attention_matches_f64_from_the_start_and_past_the_bias_extent ... Global from 0: worst max-rel error 5.722e-3, min cosine 0.99999509
+test small::global_attention_matches_f64_past_the_floor ... Global from 127995: worst max-rel error 4.611e-3, min cosine 0.99999529
+test small::local_attention_matches_f64_through_the_ring_wrap ... Local from 0: worst max-rel error 5.833e-3, min cosine 0.99999388
+test result: ok. 14 passed; 0 failed; 1 ignored; 0 measured; 15 filtered out; finished in 21.73s

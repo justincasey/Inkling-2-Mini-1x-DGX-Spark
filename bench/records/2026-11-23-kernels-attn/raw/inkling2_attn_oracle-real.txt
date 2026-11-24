@@ -1,0 +1,60 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-attn/target/release/deps/inkling2_attn_oracle-412c748deca64e89
+== gb-cuda real::
+running 1 test
+test real::real_tensors_global_layer_11_and_local_layer_0_per_op ... cpu l0 P0=0 q_hat: 0 of 49152 elements differ, max 0 ulp
+cpu l0 P0=0 bias (r_hat): 1 of 393216 elements differ, max 1 ulp
+cpu l0 P0=0 kv_hat: 0 of 32768 elements differ, max 0 ulp
+cpu l0 P0=0 attention: 8491 of 49152 elements differ from out_emul, max 28656 ulp; vs out_exact: max-rel error 0.000e0, min cosine 1.0000000
+cpu l0 P0=0 attention per head (max-rel, cosine): 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000
+gpu l0 P0=0 q_hat: 0 of 49152 elements differ, max 0 ulp
+gpu l0 P0=0 bias (r_hat): 1 of 393216 elements differ, max 1 ulp
+gpu l0 P0=0 kv_hat: 0 of 32768 elements differ, max 0 ulp
+gpu l0 P0=0 attention: 3 of 49152 elements differ from out_emul, max 1 ulp; vs out_exact: max-rel error 5.181e-3, min cosine 0.9999979
+gpu l0 P0=0 attention per head (max-rel, cosine): 5.18e-3/0.999999 3.85e-3/0.999999 3.50e-3/0.999999 2.33e-3/0.999999 1.13e-3/0.999999 2.48e-3/0.999999 5.39e-4/1.000000 1.79e-3/0.999999 1.26e-3/1.000000 8.39e-4/1.000000 2.54e-3/1.000000 9.88e-4/1.000000 2.91e-3/0.999999 1.75e-3/0.999999 3.73e-3/0.999999 8.87e-4/1.000000 2.60e-4/1.000000 1.21e-3/1.000000 8.01e-4/1.000000 2.33e-4/1.000000 2.94e-3/0.999999 2.12e-3/0.999999 4.72e-3/0.999999 4.08e-3/0.999998
+gpu l0 P0=0 attention vs out_emul: max error 1.163e-3 of the head's largest output
+cpu l0 P0=8180 q_hat: 0 of 49152 elements differ, max 0 ulp
+cpu l0 P0=8180 kv_hat: 0 of 32768 elements differ, max 0 ulp
+gpu l0 P0=8180 q_hat: 0 of 49152 elements differ, max 0 ulp
+gpu l0 P0=8180 kv_hat: 0 of 32768 elements differ, max 0 ulp
+cpu l0 P0=300000 q_hat: 0 of 49152 elements differ, max 0 ulp
+cpu l0 P0=300000 bias (r_hat): 1 of 393216 elements differ, max 1 ulp
+cpu l0 P0=300000 kv_hat: 0 of 32768 elements differ, max 0 ulp
+gpu l0 P0=300000 q_hat: 0 of 49152 elements differ, max 0 ulp
+gpu l0 P0=300000 bias (r_hat): 1 of 393216 elements differ, max 1 ulp
+gpu l0 P0=300000 kv_hat: 0 of 32768 elements differ, max 0 ulp
+cpu g11 P0=0 q_hat: 2 of 49152 elements differ, max 1 ulp
+cpu g11 P0=0 bias (r_hat): 0 of 393216 elements differ, max 0 ulp
+cpu g11 P0=0 kv_hat: 0 of 32768 elements differ, max 0 ulp
+cpu g11 P0=0 k int8: 0 of 16384 elements differ, max 0 ulp
+cpu g11 P0=0 v int8: 0 of 16384 elements differ, max 0 ulp
+cpu g11 P0=0 attention: 7963 of 49152 elements differ from out_emul, max 28782 ulp; vs out_exact: max-rel error 1.871e-4, min cosine 1.0000000
+cpu g11 P0=0 attention per head (max-rel, cosine): 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 4.22e-5/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 1.87e-4/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000 0.00e0/1.000000
+gpu g11 P0=0 q_hat: 2 of 49152 elements differ, max 1 ulp
+gpu g11 P0=0 bias (r_hat): 0 of 393216 elements differ, max 0 ulp
+gpu g11 P0=0 kv_hat: 0 of 32768 elements differ, max 0 ulp
+gpu g11 P0=0 k int8: 0 of 16384 elements differ, max 0 ulp
+gpu g11 P0=0 v int8: 0 of 16384 elements differ, max 0 ulp
+gpu g11 P0=0 attention: 29 of 49152 elements differ from out_emul, max 76 ulp; vs out_exact: max-rel error 5.814e-3, min cosine 0.9999975
+gpu g11 P0=0 attention per head (max-rel, cosine): 2.86e-3/0.999998 2.76e-3/0.999999 9.53e-5/1.000000 3.95e-3/0.999998 1.46e-3/0.999999 2.17e-3/0.999999 4.83e-3/0.999999 3.18e-3/0.999999 2.70e-3/0.999999 3.36e-3/0.999999 5.08e-3/0.999998 5.81e-3/0.999998 4.17e-3/0.999999 5.00e-3/0.999999 1.64e-3/0.999999 2.73e-3/0.999999 1.77e-3/1.000000 5.24e-3/0.999998 2.99e-3/0.999999 4.10e-3/0.999999 4.69e-3/0.999999 3.18e-3/0.999999 2.19e-3/0.999999 4.95e-3/0.999999
+gpu g11 P0=0 attention vs out_emul: max error 1.645e-3 of the head's largest output
+cpu g11 P0=8180 q_hat: 2 of 49152 elements differ, max 1 ulp
+cpu g11 P0=8180 kv_hat: 0 of 32768 elements differ, max 0 ulp
+cpu g11 P0=8180 k int8: 0 of 16384 elements differ, max 0 ulp
+cpu g11 P0=8180 v int8: 0 of 16384 elements differ, max 0 ulp
+gpu g11 P0=8180 q_hat: 2 of 49152 elements differ, max 1 ulp
+gpu g11 P0=8180 kv_hat: 0 of 32768 elements differ, max 0 ulp
+gpu g11 P0=8180 k int8: 0 of 16384 elements differ, max 0 ulp
+gpu g11 P0=8180 v int8: 0 of 16384 elements differ, max 0 ulp
+cpu g11 P0=300000 q_hat: 2 of 49152 elements differ, max 1 ulp
+cpu g11 P0=300000 bias (r_hat): 4 of 393216 elements differ, max 1 ulp
+cpu g11 P0=300000 kv_hat: 0 of 32768 elements differ, max 0 ulp
+cpu g11 P0=300000 k int8: 0 of 16384 elements differ, max 0 ulp
+cpu g11 P0=300000 v int8: 0 of 16384 elements differ, max 0 ulp
+gpu g11 P0=300000 q_hat: 2 of 49152 elements differ, max 1 ulp
+gpu g11 P0=300000 bias (r_hat): 4 of 393216 elements differ, max 1 ulp
+gpu g11 P0=300000 kv_hat: 0 of 32768 elements differ, max 0 ulp
+gpu g11 P0=300000 k int8: 0 of 16384 elements differ, max 0 ulp
+gpu g11 P0=300000 v int8: 0 of 16384 elements differ, max 0 ulp
+ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 4 filtered out; finished in 0.36s
+rc=0

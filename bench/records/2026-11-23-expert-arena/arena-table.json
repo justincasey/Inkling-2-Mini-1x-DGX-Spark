@@ -1,0 +1,157 @@
+[
+ [
+  "bootstrap",
+  {
+   "run": "after-bootstrap",
+   "boot_start": 106683,
+   "weights_stage": 20133,
+   "gpu": 39680,
+   "pred": 65905,
+   "ready": 66247,
+   "err": -342,
+   "guard_min": 66097,
+   "cache_gib": 0.0,
+   "pad_gib": 6.7,
+   "spare": 54.36,
+   "fixed": 9.29
+  },
+  {
+   "run": "arena-bootstrap",
+   "boot_start": 118812,
+   "weights_stage": 14114,
+   "gpu": 33588,
+   "pred": 84992,
+   "ready": 84577,
+   "err": 415,
+   "guard_min": 84482,
+   "cache_gib": 0.0,
+   "pad_gib": 0.06,
+   "spare": 73.0,
+   "fixed": 2.65
+  }
+ ],
+ [
+  "long",
+  {
+   "run": "after-long",
+   "boot_start": 107115,
+   "weights_stage": 20700,
+   "gpu": 57031,
+   "pred": 48568,
+   "ready": 48406,
+   "err": 162,
+   "guard_min": 48339,
+   "cache_gib": 0.0,
+   "pad_gib": 6.7,
+   "spare": 37.43,
+   "fixed": 10.44
+  },
+  {
+   "run": "arena-long2",
+   "boot_start": 118925,
+   "weights_stage": 13837,
+   "gpu": 50927,
+   "pred": 67656,
+   "ready": 67549,
+   "err": 107,
+   "guard_min": 67416,
+   "cache_gib": 0.0,
+   "pad_gib": 0.06,
+   "spare": 56.07,
+   "fixed": 3.79
+  }
+ ],
+ [
+  "max cache off",
+  {
+   "run": "after-max-cacheoff",
+   "boot_start": 106983,
+   "weights_stage": 21269,
+   "gpu": 90386,
+   "pred": 15196,
+   "ready": 15722,
+   "err": -526,
+   "guard_min": 15612,
+   "cache_gib": 0.0,
+   "pad_gib": 6.7,
+   "spare": 4.84,
+   "fixed": 10.44
+  },
+  {
+   "run": "arena-max-cacheoff2",
+   "boot_start": 119330,
+   "weights_stage": 14313,
+   "gpu": 84294,
+   "pred": 34294,
+   "ready": 33545,
+   "err": 749,
+   "guard_min": 33422,
+   "cache_gib": 0.0,
+   "pad_gib": 0.06,
+   "spare": 23.49,
+   "fixed": 3.79
+  }
+ ],
+ [
+  "max cache auto",
+  {
+   "run": "after-max-cacheauto",
+   "boot_start": 107786,
+   "weights_stage": 21088,
+   "gpu": 94872,
+   "pred": 11735,
+   "ready": 12243,
+   "err": -508,
+   "guard_min": 11928,
+   "cache_gib": 4.38,
+   "pad_gib": 6.7,
+   "spare": 5.84,
+   "fixed": 10.44
+  },
+  {
+   "run": "arena-max-cacheauto",
+   "boot_start": 119312,
+   "weights_stage": 14116,
+   "gpu": 106295,
+   "pred": 12288,
+   "ready": 11797,
+   "err": 491,
+   "guard_min": 11605,
+   "cache_gib": 21.49,
+   "pad_gib": 0.06,
+   "spare": 23.49,
+   "fixed": 3.79
+  }
+ ],
+ [
+  "bootstrap vision+cache",
+  {
+   "run": "after-bootstrap-vision-cache",
+   "boot_start": 108380,
+   "weights_stage": 20809,
+   "gpu": 49296,
+   "pred": 57324,
+   "ready": 57923,
+   "err": -599,
+   "guard_min": 57867,
+   "cache_gib": 8.59,
+   "pad_gib": 6.7,
+   "spare": 54.29,
+   "fixed": 9.29
+  },
+  {
+   "run": "arena-bootstrap-vision-cache",
+   "boot_start": 119114,
+   "weights_stage": 14058,
+   "gpu": 43206,
+   "pred": 75387,
+   "ready": 75380,
+   "err": 7,
+   "guard_min": 75259,
+   "cache_gib": 8.59,
+   "pad_gib": 0.06,
+   "spare": 71.93,
+   "fixed": 2.65
+  }
+ ]
+]

@@ -1,0 +1,11 @@
+# gb-cuda inkling2_moe_mixed::bench_prefill_layers (REXL3_MOE_BENCH=1), real Mini layers, 4,096 rows of random routing, L2 flushed, median of 9: ms per layer (BENCH_PF lines).
+# Each variant is a lab build of moe_prefill.cu / exl3_grouped.cuh / exl3_linear_decode.cuh with one part of the GEMMs' work removed (garbage output on purpose); the fnv hash of the output is not comparable between them.
+baseline (7da8c61):         layer 0 16.463  layer 12 17.067  layer 17 17.226  layer 22 17.185   (31.7 / 30.6 / 30.3 / 30.4 useful TFLOP/s)
+no mma (acc += a ^ b):      layer 0 15.426  layer 17 15.406
+no decode (b = words):      layer 0 15.972  layer 17 17.439
+no warp reduce:             layer 0 15.296  layer 17 16.279
+A fragments all one row:    layer 0 16.160  layer 17 17.213
+weight tiles all one tile:  layer 0 15.821  layer 17 17.258
+rows scaling, baseline kernels (layer 0 / layer 17, ms): 256 rows 3.109 / 3.725, 512 3.560 / 4.237, 1024 5.105 / 5.766, 2048 8.692 / 9.912, 4096 16.638 / 17.096
+nsys of the bench (layer 0, 7 calls, W-same variant): gateup 8.62 ms, down 3.89, rot_in 1.91, combine 1.56 ms a call
+2-tile blocks (committed, FEAT 1a36951): layer 0 15.434  layer 12 16.414  layer 17 17.462  layer 22 16.104 (outputs bit-identical to the baseline's: fnv 4657281d2f9d2325, a32c0e60bfad2325, 23c058e56b212325, b0c9184b17542325)

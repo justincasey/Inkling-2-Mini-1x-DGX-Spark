@@ -1,0 +1,15 @@
+# HELP rexl3_graph_cache_replays_total Windows that replayed a captured CUDA graph (hits).
+# TYPE rexl3_graph_cache_replays_total counter
+rexl3_graph_cache_replays_total 0
+# HELP rexl3_graph_cache_captures_total Windows captured into a CUDA graph (a miss on the second sighting).
+# TYPE rexl3_graph_cache_captures_total counter
+rexl3_graph_cache_captures_total 0
+# HELP rexl3_draft_graph_cache_replays_total Draft-head calls that replayed a captured graph.
+# TYPE rexl3_draft_graph_cache_replays_total counter
+rexl3_draft_graph_cache_replays_total 0
+# HELP rexl3_draft_graph_cache_captures_total Draft-head calls captured into a graph.
+# TYPE rexl3_draft_graph_cache_captures_total counter
+rexl3_draft_graph_cache_captures_total 0
+# HELP rexl3_draft_graph_cache_eager_total Draft-head calls that ran eagerly.
+# TYPE rexl3_draft_graph_cache_eager_total counter
+rexl3_draft_graph_cache_eager_total 0

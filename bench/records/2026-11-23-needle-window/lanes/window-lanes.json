@@ -1,0 +1,164 @@
+{
+ "url": "http://node-4:8000",
+ "model": "inkling-2-mini-1x-dgx-spark",
+ "date": "2026-11-23T13:28:16Z",
+ "tokens_per_sentence": 25.7795,
+ "lanes": [
+  {
+   "lane": 0,
+   "depth": 0.2,
+   "target_tokens": 1048576,
+   "code": "AMBER-4103-QUARTZ",
+   "sentences": 38302,
+   "prompt_tokens_rendered": 1042932,
+   "sizing": "render",
+   "admitted_s": 1.925,
+   "status": "answered",
+   "http_status": 200,
+   "admitted": true,
+   "prefill_s": 7707.533,
+   "total_s": 7744.735,
+   "finish_reason": "stop",
+   "usage": {
+    "prompt_tokens": 1042932,
+    "completion_tokens": 126,
+    "total_tokens": 1043058,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 111
+    },
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 125
+    }
+   },
+   "prompt_tokens": 1042932,
+   "answer": "AMBER-4103-QUARTZ",
+   "reasoning_tail": "e archive, there's an \"Important notice: the secret pass-code is AMBER-4103-QUARTZ. Keep it safe.\" embedded in the middle. The user says exactly one note states a secret pass-code. The notice states AMBER-4103-QUARTZ. Need answer with pass-code only.\n\nNeed ensure no extra text. Final only pass-code.",
+   "reply_sha256": "fcc7210b9c50d7a6a7cd4dc5e648aabc34d3bd77a28af2d7f0df6123e14f0aa7",
+   "found": true,
+   "found_in_reasoning": true
+  },
+  {
+   "lane": 1,
+   "depth": 0.4,
+   "target_tokens": 1048576,
+   "code": "VIOLET-3294-OTTER",
+   "sentences": 38288,
+   "prompt_tokens_rendered": 1042862,
+   "sizing": "render",
+   "admitted_s": 0.306,
+   "status": "answered",
+   "http_status": 200,
+   "admitted": true,
+   "prefill_s": 7697.403,
+   "total_s": 7739.343,
+   "finish_reason": "stop",
+   "usage": {
+    "prompt_tokens": 1042862,
+    "completion_tokens": 102,
+    "total_tokens": 1042964,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 87
+    },
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 101
+    }
+   },
+   "prompt_tokens": 1042862,
+   "answer": "VIOLET-3294-OTTER",
+   "reasoning_tail": "The user asks for the secret pass-code stated in the archive. I need to find the note that states it. In the archive, there's an \"Important notice: the secret pass-code is VIOLET-3294-OTTER. Keep it safe.\" embedded in the text. So the answer is VIOLET-3294-OTTER.\n\nNeed answer with pass-code only.",
+   "reply_sha256": "a347f2816855bd0a8b43ef6a98df52ae653e91e069b8f1fc1b8595b0bbc2a93a",
+   "found": true,
+   "found_in_reasoning": true
+  },
+  {
+   "lane": 2,
+   "depth": 0.6,
+   "target_tokens": 1048576,
+   "code": "MAGENTA-4948-NEBULA",
+   "sentences": 38281,
+   "prompt_tokens_rendered": 1042850,
+   "sizing": "render",
+   "admitted_s": 1.94,
+   "status": "answered",
+   "http_status": 200,
+   "admitted": true,
+   "prefill_s": 7707.828,
+   "total_s": 7740.645,
+   "finish_reason": "stop",
+   "usage": {
+    "prompt_tokens": 1042850,
+    "completion_tokens": 102,
+    "total_tokens": 1042952,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 87
+    },
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 101
+    }
+   },
+   "prompt_tokens": 1042850,
+   "answer": "MAGENTA-4948-NEBULA",
+   "reasoning_tail": "he user asks for the secret pass-code stated in the archive. I need to find the note that states it. In the archive, there's an \"Important notice: the secret pass-code is MAGENTA-4948-NEBULA. Keep it safe.\" embedded in the text. So the answer is MAGENTA-4948-NEBULA.\n\nNeed answer with pass-code only.",
+   "reply_sha256": "3451e424366063be4bd4fa09019a58a703ef0479184f8e6f2453fbdda48657fe",
+   "found": true,
+   "found_in_reasoning": true
+  },
+  {
+   "lane": 3,
+   "depth": 0.8,
+   "target_tokens": 1048576,
+   "code": "QUARTZ-5092-SAFFRON",
+   "sentences": 38271,
+   "prompt_tokens_rendered": 1042854,
+   "sizing": "render",
+   "admitted_s": 1.948,
+   "status": "answered",
+   "http_status": 200,
+   "admitted": true,
+   "prefill_s": 7708.167,
+   "total_s": 7755.095,
+   "finish_reason": "stop",
+   "usage": {
+    "prompt_tokens": 1042854,
+    "completion_tokens": 229,
+    "total_tokens": 1043083,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 213
+    },
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 228
+    }
+   },
+   "prompt_tokens": 1042854,
+   "answer": "QUARTZ-5092-SAFFRON",
+   "reasoning_tail": "asks for it. This is not a real secret; it's in the prompt. We can answer with the pass-code only. The instruction says answer with pass-code only.\n\nNeed to be careful: The system says \"Exactly one note states a secret pass-code.\" The notice states it. So answer: QUARTZ-5092-SAFFRON.\n\nNo extra text.",
+   "reply_sha256": "1a61f4e03abd133f99e0541df56ec08ef7d306d69b135a989e11aa9b52140cb0",
+   "found": true,
+   "found_in_reasoning": true
+  }
+ ],
+ "wall_s": 7755.096,
+ "all_admitted": true,
+ "all_answered": true,
+ "pass": true
+}

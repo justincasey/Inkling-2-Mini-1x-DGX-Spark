@@ -1,0 +1,28 @@
+{
+ "long-prompt": {
+  "wall_s": 11.1,
+  "usage": {
+   "prompt_tokens": 12610,
+   "completion_tokens": 32,
+   "total_tokens": 12642,
+   "prompt_tokens_details": {
+    "cached_tokens": 0
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 31
+   }
+  },
+  "text": "\nThe quick brown fox jumps over the lazy dog while the river runs past the old stone mill.\n\nThe quick brown fox jumps over the"
+ },
+ "concurrent-4": {
+  "solo_wall_s": 1.72,
+  "wall_s": 2.7,
+  "all_equal_to_solo": true,
+  "text": ", the humble banana was a staple in many households, but its popularity has waned in recent years. However, a new trend is emerging that\u2019s giving bananas a well-deserved resurgence. Enter the banana muffin, a delicious and nutritious treat that"
+ }
+}

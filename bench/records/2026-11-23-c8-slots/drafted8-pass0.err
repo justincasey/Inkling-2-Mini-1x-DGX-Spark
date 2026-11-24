@@ -1,0 +1,8 @@
+warm: done (discarded)
+decode prose: 512 tokens, ttft 0.1315 s, 44.422 tok/s, spec {'drafted': 759, 'accepted': 123, 'rounds': 388, 'acceptance': 0.1621, 'tokens_per_round': 1.3196}
+decode code: 512 tokens, ttft 0.1881 s, 120.44 tok/s, spec {'drafted': 601, 'accepted': 419, 'rounds': 92, 'acceptance': 0.6972, 'tokens_per_round': 5.5652}
+decode structured: 512 tokens, ttft 0.1715 s, 73.523 tok/s, spec {'drafted': 902, 'accepted': 358, 'rounds': 153, 'acceptance': 0.3969, 'tokens_per_round': 3.3464}
+decode json: 512 tokens, ttft 0.207 s, 87.892 tok/s, spec {'drafted': 787, 'accepted': 395, 'rounds': 116, 'acceptance': 0.5019, 'tokens_per_round': 4.4138}
+conc c=4: 2048 tokens in 20.32 s = 100.79 tok/s (span number)
+conc c=8: 4096 tokens in 27.76 s = 147.56 tok/s (8 requests on 4 slots: two waves, not an 8-stream batch)
+rolling c=4: 32 requests, 16384 tokens in 124.29 s = 131.82 tok/s; steady 132.061; short replies 0

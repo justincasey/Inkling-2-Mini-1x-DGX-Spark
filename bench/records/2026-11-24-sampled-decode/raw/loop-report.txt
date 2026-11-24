@@ -1,0 +1,5 @@
+boot-a-loop-sampled: mode=text prompts=34 loops=4 mean_distinct4=0.7857
+boot-b-loop-sampled: mode=text prompts=34 loops=4 mean_distinct4=0.7857
+
+34 prompts: identical replies 34; median first difference n/a; loops (distinct-4gram < 0.5): 3 -> 3; mean distinct-4gram 0.786 -> 0.786; mean tok/s 73.1 -> 53.1
+on the 31 prompts that loop in neither: mean tok/s 70.6 -> 53.1 (x0.752)

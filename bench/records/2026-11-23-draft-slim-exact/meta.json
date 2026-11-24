@@ -1,0 +1,195 @@
+{
+ "name": "draft-slim-exact",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "c0dfc3dcd5bb8fb64703c10beaf16b07e77324c1",
+  "dirty_files": [
+   "docs/DECODE-SPEED.md",
+   "bench/records/2026-11-23-draft-slim/"
+  ]
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "aa2f9ad0a2d9c32662fcec205e66dc67e4900f3a",
+  "sha256": "e055a98dfc716a642d11ad0d4fef8561a4c8b993f9e00b412df20830bdae2cab",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "aa2f9ad0a2d9c32662fcec205e66dc67e4900f3a",
+   "system_fingerprint": "fp_aa2f9ad0a2d9_f2c81e67_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "f2c81e67b7de2016",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2190 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "1",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "dspark",
+  "PREFIX_CACHE": "on",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-1",
+ "gate": "spec",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "attn",
+   "filter": "inkling2_attn mini:: small::",
+   "passed": 28,
+   "failed": 0
+  },
+  {
+   "bin": "dspark-mini",
+   "filter": "inkling2_dspark mini_ (with the DraftSlim tests; oracle fixtures, SLIM_STRIDE=1)",
+   "passed": 19,
+   "failed": 0
+  },
+  {
+   "bin": "graphs",
+   "filter": "inkling2_loop_graphs graph_replay_equals capture_refusal",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "moe-mixed",
+   "filter": "inkling2_moe_mixed graph",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "moe",
+   "filter": "inkling2_moe golden graph",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "ops",
+   "filter": "inkling2_ops split_topk sharded_argmax unembed_softcap golden",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "prefix",
+   "filter": "inkling2_loop_prefix (all)",
+   "passed": 7,
+   "failed": 0
+  },
+  {
+   "bin": "rank-graphs-off",
+   "filter": "same with REXL3_INKLING2_LOOP_GRAPHS=0",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "rank-graphs-on",
+   "filter": "inkling2_loop_rank forward_oracle_gate long_context_gate",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "spec",
+   "filter": "inkling2_loop_spec (all)",
+   "passed": 9,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2:: families::inkling2_loop:: window_graph:: (REXL3_NO_CUDA=1)",
+   "passed": 152,
+   "failed": 0
+  },
+  {
+   "bin": "gb-engine gb-spec gb-sched",
+   "filter": "all (REXL3_NO_CUDA=1)",
+   "passed": 378,
+   "failed": 0
+  },
+  {
+   "bin": "exactness.py",
+   "filter": "record + diff vs base (4 replies identical)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "exactness.py",
+   "filter": "concurrent",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench.py",
+   "filter": "--ref pinned replies (PASS pin)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "specedge.py",
+   "filter": "all (65 cases)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gates.py",
+   "filter": "spec",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gates.py",
+   "filter": "cache",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "specmix.py",
+   "filter": "drafting follows the traffic",
+   "passed": 1,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "forward_oracle_dump_sha256": "c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0",
+  "chunk_width_logits_sha256": "a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a",
+  "graph_equal_logits_sha256": "44294f72e147c7e0ccd317d3aa3d1dda2b27534b50189915abb2c065f6ad90e1",
+  "specedge_cases": 65,
+  "exactness_replies_identical": 4
+ },
+ "commands": [
+  "tools/mini_gates.sh OUT (NODE=node-1 LAB_SRC=<engine worktree>)",
+  "tools/session.sh confirm full",
+  "REXL3_NO_CUDA=1 cargo test -p gb-model --lib --locked -- families::inkling2:: families::inkling2_loop:: window_graph::"
+ ],
+ "notes": "see README.md"
+}

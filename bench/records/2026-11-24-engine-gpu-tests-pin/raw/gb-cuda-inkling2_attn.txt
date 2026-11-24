@@ -1,0 +1,42 @@
+GPU SM clock capped at 2200 MHz on node-3
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-pintests/target/release/deps/inkling2_attn-d8f03ee05338c873
+GPU SM clock capped at 2200 MHz on node-3
+== gb-cuda 
+running 30 tests
+test mini::bench ... ignored
+test mini::boundary_1020_to_1040_ring_and_page ... ok
+test mini::chunked_prefill_equals_whole_equals_serial_decode_with_neighbours ... ok
+test mini::global_attention_matches_f64_from_the_start_and_past_the_bias_extent ... Global from 0: worst max-rel error 6.141e-3, min cosine 0.99999478
+ok
+test mini::global_attention_matches_f64_past_the_floor ... Global from 8187: worst max-rel error 4.543e-3, min cosine 0.99999534
+ok
+test mini::golden_inkling2_attn_hashes ... ok
+test mini::graph_replay_equals_eager ... ok
+test mini::kv8_page_is_264192_bytes_at_the_mini ... ok
+test mini::local_attention_matches_f64_through_the_ring_wrap ... Local from 0: worst max-rel error 6.051e-3, min cosine 0.99999463
+ok
+test mini::partial_mode_equals_fold_mode_past_256_chunks ... ok
+test mini::per_visit_state_follows_the_loop_schedule ... ok
+test mini::prologue_log_scaling_past_the_floor_matches_the_cpu ... ok
+test mini::prologue_matches_the_cpu_transcription_bit_for_bit ... ok
+test mini::row_block_size_changes_no_bit ... ok
+test mini::verify_windows_with_rejected_rows_equal_serial_replay ... ok
+test small::bench ... ignored
+test small::boundary_1020_to_1040_ring_and_page ... ok
+test small::chunked_prefill_equals_whole_equals_serial_decode_with_neighbours ... ok
+test small::global_attention_matches_f64_from_the_start_and_past_the_bias_extent ... Global from 0: worst max-rel error 5.722e-3, min cosine 0.99999509
+ok
+test small::global_attention_matches_f64_past_the_floor ... Global from 127995: worst max-rel error 4.611e-3, min cosine 0.99999529
+ok
+test small::golden_inkling2_attn_hashes ... ok
+test small::graph_replay_equals_eager ... ok
+test small::kv8_page_is_264192_bytes_at_the_mini ... ok
+test small::local_attention_matches_f64_through_the_ring_wrap ... Local from 0: worst max-rel error 5.833e-3, min cosine 0.99999388
+ok
+test small::partial_mode_equals_fold_mode_past_256_chunks ... ok
+test small::per_visit_state_follows_the_loop_schedule ... ok
+test small::prologue_log_scaling_past_the_floor_matches_the_cpu ... ok
+test small::prologue_matches_the_cpu_transcription_bit_for_bit ... ok
+test small::row_block_size_changes_no_bit ... ok
+test small::verify_windows_with_rejected_rows_equal_serial_replay ... ok
+test result: ok. 28 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 42.55s

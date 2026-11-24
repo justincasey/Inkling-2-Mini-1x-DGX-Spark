@@ -1,0 +1,4 @@
+warm: done (discarded)
+prefill 32k: 32768 tokens in 27.3556 s = 1198 tok/s; then 128 tokens at 33.462 tok/s
+prefill 128k: 131072 tokens in 127.3325 s = 1029 tok/s; then 128 tokens at 26.963 tok/s
+prefill 224k: 229376 tokens in 254.4906 s = 901 tok/s; then 128 tokens at 22.184 tok/s

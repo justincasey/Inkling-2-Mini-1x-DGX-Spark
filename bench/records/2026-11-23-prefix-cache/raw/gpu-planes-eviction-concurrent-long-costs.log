@@ -1,0 +1,33 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-state/target/release/deps/inkling2_loop_prefix-1b9273b4b3b48c2f
+== gb-model prefix_logits_planes_equal
+test prefix_logits_planes_equal ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.1
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 1
+LOOP_PFX_planes cut 300 next_chunk_rows 40 hidden 5d9d57eccd544c10 (9031680 B) core_out 9b8494df88f32eac (368640 B) h_final 9ae3e6c14578b542 (184320 B) logits ef51dc3aa2e86462 (32009280 B) identical
+LOOP_PFX_planes cut 1024 next_chunk_rows 40 hidden 11ca5de1b788ca20 (9031680 B) core_out a968ad9e6d763d0f (368640 B) h_final 752e488700206495 (184320 B) logits 2a0fecfb8b329a39 (32009280 B) identical
+LOOP_PFX_planes cut 1500 next_chunk_rows 40 hidden 18767e45e37d8d40 (9031680 B) core_out eb05056e536156b9 (368640 B) h_final a9b25722577c5542 (184320 B) logits 1f0cf60859cafc44 (32009280 B) identical
+LOOP_PFX_planes cut 2048 next_chunk_rows 40 hidden d0afcec55e466f51 (9031680 B) core_out 8b08686b98dbe082 (368640 B) h_final 84065f37c1df36d2 (184320 B) logits 59c75809466828e9 (32009280 B) identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 18.54s
+== gb-model prefix_restore_after_eviction
+test prefix_restore_after_eviction ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.1
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 2
+LOOP_PFX_eviction cut 1092 restores 3 after_reuse after_eviction after_refill identical pages_returned 400
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 19.99s
+== gb-model prefix_restore_beside_decoding_streams
+test prefix_restore_beside_decoding_streams ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.1
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 2
+LOOP_PFX_concurrent streams 3 a_steps 17 b_steps 12 c_steps 12 a_sha f90a4f28b47411eb b_sha 9a3b8dcf544097e7 c_sha b1dc7ea5227b5049 identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 18.54s
+== gb-model prefix_long_prompt
+test prefix_long_prompt ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.3
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 1
+LOOP_PFX_long total 12300 cut 12000 last_row_sha edb2775fac2927bc state_sha 2a6a27ffce5dc457 decode_sha 4b0a7e44e41511ef identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 24.63s
+== gb-model prefix_snapshot_costs
+test prefix_snapshot_costs ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.2
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 1
+LOOP_PFX_clock see the record's meta (the GPU clock is locked by the controller)
+LOOP_PFX_cost len 300 snapshot_ms_median 2.132 restore_ms_median 2.242 runs 5 (one warm-up discarded) bytes 170835968
+LOOP_PFX_cost len 1500 snapshot_ms_median 2.134 restore_ms_median 2.237 runs 5 (one warm-up discarded) bytes 170835968
+LOOP_PFX_cost len 4096 snapshot_ms_median 2.151 restore_ms_median 2.149 runs 5 (one warm-up discarded) bytes 170835968
+LOOP_PFX_cost len 12000 snapshot_ms_median 2.142 restore_ms_median 2.235 runs 5 (one warm-up discarded) bytes 170835968
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 26.29s

@@ -1,0 +1,26 @@
+phase 1: chat x 12
+  chat 1/12: 2.0 tokens/round, drafted 378, accepted 127, 51.98 tok/s
+  chat 2/12: 1.925 tokens/round, drafted 379, accepted 122, 51.91 tok/s
+  chat 3/12: 1.896 tokens/round, drafted 376, accepted 120, 51.92 tok/s
+  chat 4/12: 1.855 tokens/round, drafted 350, accepted 117, 53.07 tok/s
+  chat 5/12: 1.829 tokens/round, drafted 341, accepted 115, 52.21 tok/s
+  chat 6/12: 1.829 tokens/round, drafted 337, accepted 115, 53.15 tok/s
+  chat 7/12: 1.829 tokens/round, drafted 337, accepted 115, 53.38 tok/s
+  chat 8/12: 1.842 tokens/round, drafted 335, accepted 116, 53.24 tok/s
+  chat 9/12: 1.842 tokens/round, drafted 334, accepted 116, 53.34 tok/s
+  chat 10/12: 1.842 tokens/round, drafted 333, accepted 116, 53.15 tok/s
+  chat 11/12: 1.842 tokens/round, drafted 332, accepted 116, 53.28 tok/s
+  chat 12/12: 1.842 tokens/round, drafted 330, accepted 116, 53.31 tok/s
+phase 2: code x 12
+  code 1/12: 5.02 tokens/round, drafted 297, accepted 204, 102.39 tok/s
+  code 2/12: 5.02 tokens/round, drafted 303, accepted 204, 103.02 tok/s
+  code 3/12: 5.02 tokens/round, drafted 306, accepted 204, 103.12 tok/s
+  code 4/12: 5.02 tokens/round, drafted 306, accepted 204, 102.78 tok/s
+  code 5/12: 5.02 tokens/round, drafted 309, accepted 204, 103.6 tok/s
+  code 6/12: 5.02 tokens/round, drafted 310, accepted 204, 102.91 tok/s
+  code 7/12: 5.02 tokens/round, drafted 311, accepted 204, 103.52 tok/s
+  code 8/12: 5.02 tokens/round, drafted 314, accepted 204, 102.55 tok/s
+  code 9/12: 5.12 tokens/round, drafted 310, accepted 205, 103.45 tok/s
+  code 10/12: 5.12 tokens/round, drafted 312, accepted 205, 104.23 tok/s
+  code 11/12: 5.12 tokens/round, drafted 320, accepted 205, 103.51 tok/s
+  code 12/12: 5.12 tokens/round, drafted 322, accepted 205, 103.13 tok/s

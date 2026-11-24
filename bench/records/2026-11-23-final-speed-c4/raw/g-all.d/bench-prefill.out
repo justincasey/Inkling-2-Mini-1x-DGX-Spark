@@ -1,0 +1,10 @@
+METRIC decode_ctx128k_tok_s=67.119
+METRIC decode_ctx224k_tok_s=63.156
+METRIC decode_ctx32k_tok_s=87.855
+METRIC prefill_128k_s=73.6559
+METRIC prefill_128k_tok_s=1779.5
+METRIC prefill_224k_s=158.8459
+METRIC prefill_224k_tok_s=1444.0
+METRIC prefill_32k_s=13.78
+METRIC prefill_32k_tok_s=2377.9
+PASS pin

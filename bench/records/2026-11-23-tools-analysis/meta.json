@@ -1,0 +1,96 @@
+{
+ "name": "tools-analysis",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "bc82856293a8856e80c2e3b702f7c1a762788101",
+  "dirty_files": [
+   "bench/records/2026-11-23-loop-probe/"
+  ]
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "918e6854bb9d4cfe2a9857d92f592722fdf826eb",
+  "sha256": "a9b77320979ee81b2728eb23ed4bed1dd02021ec9dc1771f6ef644e73609fbae",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "918e6854bb9d4cfe2a9857d92f592722fdf826eb",
+   "system_fingerprint": "fp_918e6854bb9d_0677d17b_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "0677d17bcd2acfa4",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "1",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "none",
+  "PREFIX_CACHE": "off",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec none --prefix-cache off --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-4",
+ "tests": [
+  {
+   "bin": "toolgate.py",
+   "filter": "greedy rerun: 25 of 28, 0 invalid, 0 destructive",
+   "passed": 25,
+   "failed": 3
+  },
+  {
+   "bin": "toolgate_lookup.py",
+   "filter": "two-turn replay greedy",
+   "passed": 2,
+   "failed": 1
+  }
+ ],
+ "metrics": {
+  "toolgate_pass_greedy": 25,
+  "toolgate_total": 28,
+  "toolgate_pass_t1": 25,
+  "invalid_calls": 0,
+  "unrequested_destructive": 0,
+  "lookup_replay_pass_greedy": 2,
+  "lookup_replay_pass_t1": 6,
+  "lookup_replay_total_t1": 9
+ },
+ "commands": [
+  "python3 bench/toolgate.py --url http://node-4:8000 --out toolgate-greedy.json",
+  "python3 bench/toolgate.py --url http://node-4:8000 --temperature 1.0 --out toolgate-t1.json",
+  "python3 bench/tools/toolgate_lookup.py --url http://node-4:8000 --out lookup-greedy.json",
+  "python3 bench/tools/toolgate_lookup.py --url http://node-4:8000 --temperature 1.0 --runs 3 --out lookup-t1.json"
+ ],
+ "notes": "Analysis record; the three misses are lookups, not wrong calls. Gate thresholds untouched.",
+ "gate": "tools-analysis",
+ "result": "pass"
+}

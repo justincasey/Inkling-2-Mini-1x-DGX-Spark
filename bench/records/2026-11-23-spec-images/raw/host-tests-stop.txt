@@ -1,0 +1,10 @@
+
+running 5 tests
+test streamed_chunks_concatenate_to_the_non_streaming_text_with_and_without_a_stop ... ok
+test a_stop_string_completed_by_the_second_token_of_a_round_ends_the_reply_at_that_token ... ok
+test a_stop_string_of_two_characters_ends_at_its_last_token_across_and_inside_rounds ... ok
+test without_a_stop_string_a_four_token_round_replies_exactly_as_one_token_rounds_do ... ok
+test a_stop_string_completed_by_the_last_token_of_a_round_is_unchanged ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.56s
+

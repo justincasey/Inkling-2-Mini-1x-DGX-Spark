@@ -1,0 +1,10 @@
+GPU SM clock capped at 2200 MHz on node-4
+GPU SM clock capped at 2200 MHz on node-4
+test bench_visit ... BENCH_VISIT rows 4096: shipped six launches 5.898 ms; pipelined, k and v on q's input 5.015 ms (-15.0%); pipelined, three inputs 4.942 ms (-16.2%); pipe on
+BENCH_VISIT q alone: shipped 1.417 ms, pipelined 1.205 ms (-14.9%)
+BENCH_VISIT gate alone: shipped 1.414 ms, pipelined 1.210 ms (-14.4%)
+BENCH_VISIT r alone: shipped 0.337 ms, pipelined 0.329 ms (-2.5%)
+BENCH_VISIT k alone: shipped 0.758 ms, pipelined 0.732 ms (-3.5%)
+BENCH_VISIT v alone: shipped 0.724 ms, pipelined 0.548 ms (-24.3%)
+BENCH_VISIT o alone: shipped 1.352 ms, pipelined 1.222 ms (-9.5%)
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 1.09s

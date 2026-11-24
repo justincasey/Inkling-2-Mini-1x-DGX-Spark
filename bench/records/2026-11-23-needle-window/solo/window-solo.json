@@ -1,0 +1,50 @@
+{
+ "url": "http://node-4:8000",
+ "model": "inkling-2-mini-1x-dgx-spark",
+ "date": "2026-11-23T11:16:32Z",
+ "tokens_per_sentence": 25.738,
+ "lanes": [
+  {
+   "lane": 0,
+   "depth": 0.5,
+   "target_tokens": 1048576,
+   "code": "AMBER-9411-OTTER",
+   "sentences": 38255,
+   "prompt_tokens_rendered": 1042547,
+   "sizing": "render",
+   "admitted_s": 0.152,
+   "status": "answered",
+   "http_status": 200,
+   "admitted": true,
+   "prefill_s": 1931.979,
+   "total_s": 1943.767,
+   "finish_reason": "stop",
+   "usage": {
+    "prompt_tokens": 1042547,
+    "completion_tokens": 123,
+    "total_tokens": 1042670,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 109
+    },
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 122
+    }
+   },
+   "prompt_tokens": 1042547,
+   "answer": "AMBER-9411-OTTER",
+   "reasoning_tail": "n the archive, there's an \"Important notice: the secret pass-code is AMBER-9411-OTTER. Keep it safe.\" embedded in the text. The user says exactly one note states a secret pass-code. The notice states AMBER-9411-OTTER. Need answer with pass-code only.\n\nNeed ensure no extra text. Final only pass-code.",
+   "reply_sha256": "4b8e53eeaa28d8674e45ae3ec005303859706f7f4543245d191625b5047ed671",
+   "found": true,
+   "found_in_reasoning": true
+  }
+ ],
+ "wall_s": 1943.768,
+ "all_admitted": true,
+ "all_answered": true,
+ "pass": true
+}

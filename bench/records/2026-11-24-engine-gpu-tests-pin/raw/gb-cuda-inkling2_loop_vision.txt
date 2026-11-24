@@ -1,0 +1,16 @@
+GPU SM clock capped at 2200 MHz on node-3
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-pintests/target/release/deps/inkling2_loop_vision-302f26353dca06c3
+GPU SM clock capped at 2200 MHz on node-3
+== gb-cuda 
+running 4 tests
+test mini_vision_batches_are_row_invariant_across_the_exl3_paths ... Exact: images alone == in any batch, over the decode (<= 128 rows) and large-row EXL3 paths
+Epilogue: images alone == in any batch, over the decode (<= 128 rows) and large-row EXL3 paths
+ok
+test mini_vision_epilogue_bias_differs_from_a_separate_add_by_two_ulps_of_the_operands ... epilogue bias vs separate fp32 add: 55688 of 262144 values differ, by at most 1.98 ulp of the larger operand
+ok
+test mini_vision_graph_replay_equals_eager ... graph replay == eager: decode path (25 rows)
+graph replay == eager: large-row path (145 rows)
+ok
+test mini_vision_qkv_post3_equals_the_fused_post ... qkv_post3 == qkv_post (bias given, bias folded, lda 1088); rows outside the range untouched
+ok
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.40s

@@ -1,0 +1,63 @@
+Inkling-2-Mini-1x-DGX-Spark
+Copyright 2026 Justin Casey
+
+This repository's own scripts, documentation and tests are licensed under the Apache License 2.0 (`LICENSE`), except where this file says otherwise.
+
+## The model
+
+Inkling-2-Mini is a model of Thinking Machines Lab (Apache-2.0, https://huggingface.co/thinkingmachines/Inkling-2-Mini). The pack served by this recipe,
+`vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw`, is vcruz305's. SAGE is our own mixed-precision quantization method for EXL3. The method is not published.
+No model weights are in this repository.
+
+## References read for the model's semantics (no source copied; the oracle re-expresses them)
+
+- Hugging Face `transformers`, `src/transformers/models/inkling2_loop/` (Apache-2.0), at the commits pinned in `oracle/README.md`.
+- vLLM, `vllm/models/inkling2/` (PR #67325; Apache-2.0), at the commits pinned in `oracle/README.md`.
+
+`oracle/inkling2_ref.py`, `oracle/dspark_ref.py` and the transcriptions under `oracle/tests/` are our own Python code written from those references; they cite the
+file and lines they follow. Apache-2.0 allows this; the attribution is the citation.
+
+## Code derived from other licensed code
+
+- `oracle/exl3.py` is a numpy port of the CPU reference `gb-exl3` (`crates/exl3/src/lib.rs`) of the REXL3 engine (https://github.com/REXL3/REXL3,
+  AGPL-3.0-only), which is itself a port of TensorFold's `cuda/exl3/format.py` (MIT) and of the EXL3 format of ExLlamaV3 (MIT). As a port of AGPL-3.0-only code,
+  that file is subject to the terms of its source; the rest of the repository does not include or link it, except `oracle/exl3dq`, a small Rust command-line
+  tool that depends on the `gb-exl3` crate of a separate REXL3 checkout (relative path in `oracle/exl3dq/Cargo.toml`; the crate is not part of this repository).
+- `inkling2mini.sh`, `scripts/memguard.sh` and parts of the harness were adapted from the author's own recipes (Apache-2.0).
+
+The MIT License text of the two MIT-licensed sources (as REXL3's `THIRD_PARTY_NOTICES.md` reproduces it):
+
+    MIT License
+    Copyright (c) 2026 TensorFold contributors (https://github.com/ashhart/TensorFold, `src/tensorfold/cuda/exl3/format.py`)
+    Copyright (c) 2025 Turboderp (https://github.com/turboderp-org/exllamav3)
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in
+    the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+    the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+    FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+## The engine
+
+The engine this recipe builds is REXL3 (AGPL-3.0-only): upstream https://github.com/REXL3/REXL3 at `02ef8cba920e1a86b911c6e20c248c43724ddd66` plus the series on
+https://github.com/justincasey/REXL3 (branch `inkling2-mini`, see `README.md`). It is not part of this repository.
+
+## Files withheld from this repository
+
+No model weights or anything derived from them are published. Withheld (the record READMEs say so):
+
+- `bench/records/2026-11-23-kernels-attn/real/attn_real.bin` (6,392,859 bytes; sha256 `23ee74d4cfb826acfc57b940839b4346e84a495bb7da943cc3f8987b30b677e5`): real weight tensors of the pack as stored (q/r scales, rel_proj, k/v conv) plus activations and the learned bias table computed from them.
+- `bench/records/2026-11-23-kernels-draft/oracle-planes/long_hd.npy` (295,040 bytes; sha256 `0785ab23deebbe8de5a5234f7731303bd4dbb35fe5bd4b81813841f38d97596d`): float activation plane computed on the pack's real tensors (oracle forward / drafter run).
+- `bench/records/2026-11-23-kernels-draft/oracle-planes/long_frnn.npy` (36,992 bytes; sha256 `b6646fb78dcccca73b64d4dae70a2e9b23161ad4f9b94ba346ce8149a33634b5`): float activation plane computed on the pack's real tensors (oracle forward / drafter run).
+- `bench/records/2026-11-23-kernels-draft/oracle-planes/long_state.npy` (28,800 bytes; sha256 `a621063e9e70cdb40765686dc4bc72182929e932c9af576d005e895d2acf68f3`): float activation plane computed on the pack's real tensors (oracle forward / drafter run).
+- `bench/records/2026-11-23-kernels-draft/oracle-planes/long_latent.npy` (28,800 bytes; sha256 `ce96d688d4e907c977a3a27142ad8e9a4715d819fb9420eefd121b6060c2190f`): float activation plane computed on the pack's real tensors (oracle forward / drafter run).
+- `bench/records/2026-11-23-kernels-draft/oracle-planes/real_chat-capital-effort0_feats.npy` (737,408 bytes; sha256 `bd0c1ed673071d0fd3da2d5ca79ec82fd2afbed940f81e416907f731a1c497df`): float activation plane computed on the pack's real tensors (oracle forward / drafter run).
+- `bench/records/2026-11-23-kernels-draft/oracle-planes/real_chat-capital-effort0_ctxkv.npy` (491,648 bytes; sha256 `ff20ba1a3be5ea0517f0592da957609aec8338ea7f651f5af8099ff4880f0901`): float activation plane computed on the pack's real tensors (oracle forward / drafter run).
+- `bench/records/2026-11-23-kernels-draft/oracle-planes/real_chat-capital-effort0_hd.npy` (331,904 bytes; sha256 `157efbfe0e1d00b547e3f9f0ad8036962ad9f41bb22d165fe771e06cd8680399`): float activation plane computed on the pack's real tensors (oracle forward / drafter run).
+- `bench/records/2026-11-23-kernels-draft/oracle-planes/real_chat-capital-effort0_frnn.npy` (41,600 bytes; sha256 `ed2f2c9eb7dac5963bc6fa3c6a0967ee1af38b11a78a5fae93cff911eeb97ca5`): float activation plane computed on the pack's real tensors (oracle forward / drafter run).
+- `bench/records/2026-11-23-kernels-draft/oracle-planes/real_chat-capital-effort0_state.npy` (32,384 bytes; sha256 `50f472bda12a219c25504c1e485d3687a0bfd11ac83df785d41f799eeb9155b8`): float activation plane computed on the pack's real tensors (oracle forward / drafter run).
+- `bench/records/2026-11-23-kernels-draft/oracle-planes/real_chat-capital-effort0_latent.npy` (32,384 bytes; sha256 `e821b9499a2a04c2a81647bc4d31130e36bcc8daf632a30d853e3dc5ac53250f`): float activation plane computed on the pack's real tensors (oracle forward / drafter run).

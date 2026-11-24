@@ -1,0 +1,374 @@
+{
+ "prose": {
+  "median_ms": {
+   "plan": 0.0,
+   "feed": 0.074,
+   "commit": 0.009,
+   "enqueue_proposal": 0.362,
+   "prepare": 0.011,
+   "launch": 0.495,
+   "wait": 38.306,
+   "sync_tail": 0.001,
+   "read": 0.182,
+   "accept": 0.001,
+   "tail": 0.0,
+   "gap": 0.01,
+   "in_round": 39.477,
+   "period": 39.487
+  },
+  "runs": [
+   {
+    "rounds": 325,
+    "rounds_full": 297,
+    "chained": true,
+    "ms": {
+     "plan": 0.0,
+     "feed": 0.074,
+     "commit": 0.009,
+     "enqueue_proposal": 0.362,
+     "prepare": 0.011,
+     "launch": 0.494,
+     "wait": 38.356,
+     "sync_tail": 0.001,
+     "read": 0.17,
+     "accept": 0.001,
+     "tail": 0.0,
+     "gap": 0.01,
+     "in_round": 39.477,
+     "period": 39.487
+    },
+    "completion_tokens": 512,
+    "wall_s": 12.4427,
+    "tok_s_wall": 41.15
+   },
+   {
+    "rounds": 363,
+    "rounds_full": 252,
+    "chained": true,
+    "ms": {
+     "plan": 0.0,
+     "feed": 0.075,
+     "commit": 0.009,
+     "enqueue_proposal": 0.365,
+     "prepare": 0.011,
+     "launch": 0.511,
+     "wait": 38.306,
+     "sync_tail": 0.001,
+     "read": 0.232,
+     "accept": 0.001,
+     "tail": 0.0,
+     "gap": 0.01,
+     "in_round": 39.511,
+     "period": 39.522
+    },
+    "completion_tokens": 512,
+    "wall_s": 12.2754,
+    "tok_s_wall": 41.71
+   },
+   {
+    "rounds": 353,
+    "rounds_full": 252,
+    "chained": true,
+    "ms": {
+     "plan": 0.0,
+     "feed": 0.074,
+     "commit": 0.009,
+     "enqueue_proposal": 0.362,
+     "prepare": 0.011,
+     "launch": 0.495,
+     "wait": 37.915,
+     "sync_tail": 0.001,
+     "read": 0.182,
+     "accept": 0.001,
+     "tail": 0.0,
+     "gap": 0.01,
+     "in_round": 39.05,
+     "period": 39.06
+    },
+    "completion_tokens": 512,
+    "wall_s": 11.9813,
+    "tok_s_wall": 42.73
+   }
+  ],
+  "tokens_per_round": 1.45
+ },
+ "code": {
+  "median_ms": {
+   "plan": 0.0,
+   "feed": 0.074,
+   "commit": 0.009,
+   "enqueue_proposal": 0.361,
+   "prepare": 0.011,
+   "launch": 0.467,
+   "wait": 45.805,
+   "sync_tail": 0.001,
+   "read": 0.174,
+   "accept": 0.001,
+   "tail": 0.0,
+   "gap": 0.009,
+   "in_round": 46.906,
+   "period": 46.915
+  },
+  "runs": [
+   {
+    "rounds": 89,
+    "rounds_full": 88,
+    "chained": true,
+    "ms": {
+     "plan": 0.0,
+     "feed": 0.074,
+     "commit": 0.009,
+     "enqueue_proposal": 0.361,
+     "prepare": 0.011,
+     "launch": 0.472,
+     "wait": 45.614,
+     "sync_tail": 0.001,
+     "read": 0.153,
+     "accept": 0.001,
+     "tail": 0.0,
+     "gap": 0.009,
+     "in_round": 46.696,
+     "period": 46.706
+    },
+    "completion_tokens": 512,
+    "wall_s": 4.3599,
+    "tok_s_wall": 117.43
+   },
+   {
+    "rounds": 89,
+    "rounds_full": 88,
+    "chained": true,
+    "ms": {
+     "plan": 0.0,
+     "feed": 0.074,
+     "commit": 0.009,
+     "enqueue_proposal": 0.362,
+     "prepare": 0.011,
+     "launch": 0.465,
+     "wait": 45.809,
+     "sync_tail": 0.001,
+     "read": 0.174,
+     "accept": 0.001,
+     "tail": 0.0,
+     "gap": 0.009,
+     "in_round": 46.906,
+     "period": 46.915
+    },
+    "completion_tokens": 512,
+    "wall_s": 4.3752,
+    "tok_s_wall": 117.02
+   },
+   {
+    "rounds": 89,
+    "rounds_full": 88,
+    "chained": true,
+    "ms": {
+     "plan": 0.0,
+     "feed": 0.074,
+     "commit": 0.009,
+     "enqueue_proposal": 0.36,
+     "prepare": 0.011,
+     "launch": 0.467,
+     "wait": 45.805,
+     "sync_tail": 0.001,
+     "read": 0.212,
+     "accept": 0.001,
+     "tail": 0.0,
+     "gap": 0.01,
+     "in_round": 46.94,
+     "period": 46.95
+    },
+    "completion_tokens": 512,
+    "wall_s": 4.3803,
+    "tok_s_wall": 116.89
+   }
+  ],
+  "tokens_per_round": 5.753
+ },
+ "structured": {
+  "median_ms": {
+   "plan": 0.0,
+   "feed": 0.074,
+   "commit": 0.009,
+   "enqueue_proposal": 0.361,
+   "prepare": 0.011,
+   "launch": 0.453,
+   "wait": 44.559,
+   "sync_tail": 0.001,
+   "read": 0.171,
+   "accept": 0.001,
+   "tail": 0.0,
+   "gap": 0.009,
+   "in_round": 45.658,
+   "period": 45.667
+  },
+  "runs": [
+   {
+    "rounds": 153,
+    "rounds_full": 152,
+    "chained": true,
+    "ms": {
+     "plan": 0.0,
+     "feed": 0.074,
+     "commit": 0.009,
+     "enqueue_proposal": 0.358,
+     "prepare": 0.011,
+     "launch": 0.453,
+     "wait": 44.623,
+     "sync_tail": 0.001,
+     "read": 0.165,
+     "accept": 0.001,
+     "tail": 0.0,
+     "gap": 0.009,
+     "in_round": 45.695,
+     "period": 45.704
+    },
+    "completion_tokens": 512,
+    "wall_s": 7.1727,
+    "tok_s_wall": 71.38
+   },
+   {
+    "rounds": 155,
+    "rounds_full": 154,
+    "chained": true,
+    "ms": {
+     "plan": 0.0,
+     "feed": 0.075,
+     "commit": 0.009,
+     "enqueue_proposal": 0.361,
+     "prepare": 0.011,
+     "launch": 0.463,
+     "wait": 44.52,
+     "sync_tail": 0.001,
+     "read": 0.171,
+     "accept": 0.001,
+     "tail": 0.0,
+     "gap": 0.009,
+     "in_round": 45.612,
+     "period": 45.621
+    },
+    "completion_tokens": 512,
+    "wall_s": 7.2469,
+    "tok_s_wall": 70.65
+   },
+   {
+    "rounds": 155,
+    "rounds_full": 154,
+    "chained": true,
+    "ms": {
+     "plan": 0.0,
+     "feed": 0.074,
+     "commit": 0.009,
+     "enqueue_proposal": 0.361,
+     "prepare": 0.011,
+     "launch": 0.452,
+     "wait": 44.559,
+     "sync_tail": 0.001,
+     "read": 0.19,
+     "accept": 0.001,
+     "tail": 0.0,
+     "gap": 0.009,
+     "in_round": 45.658,
+     "period": 45.667
+    },
+    "completion_tokens": 512,
+    "wall_s": 7.2571,
+    "tok_s_wall": 70.55
+   }
+  ],
+  "tokens_per_round": 3.303
+ },
+ "json": {
+  "median_ms": {
+   "plan": 0.0,
+   "feed": 0.074,
+   "commit": 0.009,
+   "enqueue_proposal": 0.363,
+   "prepare": 0.011,
+   "launch": 0.469,
+   "wait": 49.473,
+   "sync_tail": 0.001,
+   "read": 0.087,
+   "accept": 0.001,
+   "tail": 0.0,
+   "gap": 0.009,
+   "in_round": 50.475,
+   "period": 50.484
+  },
+  "runs": [
+   {
+    "rounds": 116,
+    "rounds_full": 115,
+    "chained": true,
+    "ms": {
+     "plan": 0.0,
+     "feed": 0.075,
+     "commit": 0.009,
+     "enqueue_proposal": 0.367,
+     "prepare": 0.011,
+     "launch": 0.48,
+     "wait": 49.357,
+     "sync_tail": 0.001,
+     "read": 0.163,
+     "accept": 0.001,
+     "tail": 0.0,
+     "gap": 0.01,
+     "in_round": 50.464,
+     "period": 50.473
+    },
+    "completion_tokens": 512,
+    "wall_s": 6.077,
+    "tok_s_wall": 84.25
+   },
+   {
+    "rounds": 115,
+    "rounds_full": 114,
+    "chained": true,
+    "ms": {
+     "plan": 0.0,
+     "feed": 0.073,
+     "commit": 0.009,
+     "enqueue_proposal": 0.359,
+     "prepare": 0.01,
+     "launch": 0.46,
+     "wait": 49.498,
+     "sync_tail": 0.001,
+     "read": 0.087,
+     "accept": 0.001,
+     "tail": 0.0,
+     "gap": 0.009,
+     "in_round": 50.498,
+     "period": 50.507
+    },
+    "completion_tokens": 512,
+    "wall_s": 6.0224,
+    "tok_s_wall": 85.02
+   },
+   {
+    "rounds": 115,
+    "rounds_full": 114,
+    "chained": true,
+    "ms": {
+     "plan": 0.0,
+     "feed": 0.074,
+     "commit": 0.009,
+     "enqueue_proposal": 0.363,
+     "prepare": 0.011,
+     "launch": 0.469,
+     "wait": 49.473,
+     "sync_tail": 0.001,
+     "read": 0.074,
+     "accept": 0.001,
+     "tail": 0.0,
+     "gap": 0.009,
+     "in_round": 50.475,
+     "period": 50.484
+    },
+    "completion_tokens": 512,
+    "wall_s": 6.0225,
+    "tok_s_wall": 85.01
+   }
+  ],
+  "tokens_per_round": 4.452
+ }
+}

@@ -1,0 +1,201 @@
+{
+ "name": "round-exact",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "d8de251b19cd78bf2871a60465a8cedc7285744b",
+  "dirty_files": [
+   "bench/tools/roundtrace.py",
+   "bench/records/2026-11-23-round-overhead/",
+   "bench/tools/homo_c4.py",
+   "bench/tools/roundcost.py"
+  ]
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "5cc464e7b0faaa267ad42f9ee9bf68b9e036b972",
+  "sha256": "a23fd5e94c2054ecba6c3f0de9d26106db0298df407b571c98c3843a9a871ad2",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "5cc464e7b0faaa267ad42f9ee9bf68b9e036b972",
+   "system_fingerprint": "fp_5cc464e7b0fa_5eedc329_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "5eedc329c09b3b74",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2184 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "dspark",
+  "PREFIX_CACHE": "on",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 nsys profile -t cuda\\,nvtx --cuda-graph-trace=node --delay 80 --duration 13 --kill none -f true -o /home/spark/inkling-2-mini-1x-dgx-spark/logs/nsys-round2 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-1",
+ "gate": "spec",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "bench/tools/gates.py spec",
+   "filter": "short, medium, long, xlong, 70k solo + 4 concurrent",
+   "passed": 9,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/gates.py cache",
+   "filter": "cached == uncached (5 prompts + 2 shared prefixes)",
+   "passed": 7,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/specedge.py",
+   "filter": "all cases",
+   "passed": 65,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/exactness.py",
+   "filter": "record diff vs graph-exact (replies sha f7975a6c...433d)",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/bench.py",
+   "filter": "--ref pinned replies of 51f2993 (PASS pin)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/exactness.py",
+   "filter": "concurrent == solo",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/specbench.py",
+   "filter": "drafted == serial, six kinds and c=4",
+   "passed": 7,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/homo_c4.py",
+   "filter": "drafted == serial, 4 x four kinds + mixed",
+   "passed": 5,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/specmix.py",
+   "filter": "prose, code, prose follows the traffic",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_rank",
+   "filter": "forward_oracle_gate long_context_gate",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_graphs",
+   "filter": "graph_replay_equals capture_refusal",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_prefix",
+   "filter": "_",
+   "passed": 7,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_spec",
+   "filter": "_",
+   "passed": 9,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2",
+   "passed": 146,
+   "failed": 0
+  },
+  {
+   "bin": "gb-engine chained_round",
+   "filter": "chained_round",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_dspark",
+   "filter": "_",
+   "passed": 28,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_ops",
+   "filter": "_",
+   "passed": 29,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_moe",
+   "filter": "_",
+   "passed": 8,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_moe_mixed",
+   "filter": "_",
+   "passed": 13,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_attn",
+   "filter": "_",
+   "passed": 28,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "specedge_cases": 65,
+  "replies_identical": 4,
+  "graph_windows": 37
+ },
+ "commands": [
+  "./inkling2mini.sh build 5cc464e7b0faaa267ad42f9ee9bf68b9e036b972",
+  "gates.py spec / cache, specedge.py, exactness.py record+diff+concurrent, bench.py --ref (see README)",
+  "ops_dev.sh test <bins> on node-1 (raw/gpu)"
+ ],
+ "notes": "Engine 5cc464e (inkling2-loop-round). replies sha256 f7975a6c1dae761ef24508177ce06da5e0607d94f1e81c1c7a5a72b9e105433d; 37-window logits sha256 44294f72... equal on 1d53344 and 5cc464e (same ids file)."
+}

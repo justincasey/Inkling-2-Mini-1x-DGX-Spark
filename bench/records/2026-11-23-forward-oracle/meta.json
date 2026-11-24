@@ -1,0 +1,48 @@
+{
+  "name": "forward-oracle",
+  "gate": "forward-oracle",
+  "date": "2026-11-23",
+  "result": "fail",
+  "node": "node-3",
+  "engine": {"commit": "aeaaa4f94944672578bac340379729ba87f85d8a", "dirty": false, "version": "0.1.1"},
+  "recipe": {"commit": "09b6cc723c3ae08ad78f779716cdf55c686514eb"},
+  "tests": [
+    {"bin": "inkling2_loop_rank", "filter": "forward_oracle_gate", "passed": 2, "failed": 0},
+    {"bin": "inkling2_loop_rank", "filter": "long_context_gate", "passed": 1, "failed": 0}
+  ],
+  "commands": [
+    "NODE=<node-3> LAB_SRC=<engine worktree> PKG=gb-model TEST_ENV='LOOP_TEST_OUT=<lab>/out_<p> LOOP_IDS_FILE=<lab>/out/ids_<p>.json' OPS_GREP='LOOP_|rexl3 event=inkling2_loop_load' scripts/ops_dev.sh test inkling2_loop_rank forward_oracle_gate   (p = sky, counting)",
+    "NODE=<node-3> LAB_SRC=<engine worktree> PKG=gb-model TEST_ENV='LOOP_LONG_IDS_FILE=<lab>/out/ids_long.json' OPS_GREP='LOOP_' scripts/ops_dev.sh test inkling2_loop_rank long_context_gate",
+    "nice -n 19 oracle/.venv/bin/python oracle/teacher_force.py --pack <pack> --engine <lab>/out[_counting]/a/prefill00000.safetensors --out report.json --workers 8 --threads 2",
+    "nice -n 19 oracle/.venv/bin/python teacher_force_exl3_fp16.py --pack <pack> --engine <same dump> --out report.json --no-moe --threads 4   (tools/: the same teacher_force.py with the engine's exl3_fp16 emulation on the oracle's dense EXL3 linears)"
+  ],
+  "metrics": {
+    "weight_gib_loaded": 13.553,
+    "load_seconds": 9.9,
+    "rank_buffer_bytes_slots2_pages16_prefill64_window8": 481099924,
+    "sky_tokens": 26,
+    "counting_tokens": 35,
+    "long_tokens": 1119,
+    "sky_stock_core_rel_med_max": 0.003809,
+    "sky_stock_core_passes_over_gate": 37,
+    "sky_stock_a_rel_med_max": 0.005435,
+    "sky_exl3_fp16_core_rel_med_max": 0.000931,
+    "sky_exl3_fp16_a_rel_med_max": 0.001869,
+    "counting_stock_core_rel_med_max": 0.004261,
+    "counting_stock_core_passes_over_gate": 26,
+    "counting_stock_a_rel_med_max": 0.006000,
+    "counting_exl3_fp16_core_rel_med_max": 0.000704,
+    "counting_exl3_fp16_a_rel_med_max": 0.001575,
+    "sky_mix_rel_max": 0.000642,
+    "counting_mix_rel_max": 0.000795,
+    "msg_rel_max": 1.8e-07,
+    "attn_in_rel_max": 0.000897,
+    "moe_rel_med_max": 0.00059,
+    "router_logit_err_rel_sumabs_max": 3.17e-07,
+    "router_flips": 0,
+    "restart_mismatch": 0,
+    "residual_mismatch_sky": 0,
+    "residual_mismatch_counting_elements": 2
+  },
+  "notes": "result fail = the stock teacher_force.py gate (the Small's limits, 'to be re-measured') fails on the attention core median only (37 of 48 passes on the 26-token prompt, 26 of 48 on the 35-token one; core rel_med 1.7e-3 to 4.3e-3 against 2e-3; attention output once 6.000e-3 against 6e-3). Everything else is inside the limits: router, MoE, mix, msg, attn_in, restart. The oracle's teacher_force has no exl3_fp16 emulation for the dense attention linears (NUMERICS lists it); with it (tools/teacher_force_exl3_fp16.py) every pass of both prompts passes the stock limits with the core median at most 9.3e-4. The gate's limits need re-measuring (or exl3_fp16 added to ATTN_VARIANTS): the lead decides. Invariance, determinism, decode == prefill and commit/rollback are bit-exact on node-3."
+}

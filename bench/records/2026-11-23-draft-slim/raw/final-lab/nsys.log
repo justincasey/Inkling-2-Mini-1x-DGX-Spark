@@ -1,0 +1,4 @@
+test mini_drafter::slim_proposal_timing ... SLIM_TIMING ctx 4096 b=1: DraftSlim off 6.502 ms, on 3.354 ms, saved 3.147 ms
+SLIM_TIMING ctx 4096 b=2: DraftSlim off 7.312 ms, on 3.845 ms, saved 3.467 ms
+SLIM_TIMING ctx 4096 b=4: DraftSlim off 9.005 ms, on 4.831 ms, saved 4.174 ms
+-rw-r--r-- 1 spark spark 2646016 Nov 23 14:40 /home/spark/inkling-2-mini-1x-dgx-spark/lab/slim-prof/final.sqlite

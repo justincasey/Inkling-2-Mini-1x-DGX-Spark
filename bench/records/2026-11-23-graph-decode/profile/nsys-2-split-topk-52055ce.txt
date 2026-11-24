@@ -1,0 +1,50 @@
+kernels total 80776 unembed launches 25
+kernels/step 2838.0
+span_ms/step 25.194 busy_ms/step 35.338
+idle gap ms/step 1.318 overlap ms/step 11.462
+name | launches/step | us/step | mean us | share
+void <unnamed>::moe_gemv_kernel<(int)8, (int)2, (int)4>(const __half *, const __half *, const unsigned lo  137.0    6264.3   45.72  17.7%
+void <unnamed>::linear_kernel<(int)12, (int)2, (int)4, (int)1, (int)1>(const __half *, const unsigned int  288.0    5298.3   18.40  15.0%
+void <unnamed>::down_combine_kernel<float, (bool)1>(const float *, const int *, const __half *, const T1   126.0    3229.5   25.63   9.1%
+void <unnamed>::moe_gemv_kernel<(int)10, (int)2, (int)4>(const __half *, const __half *, const unsigned l  115.0    2723.8   23.68   7.7%
+void <unnamed>::gateup_epilogue_kernel<(int)1>(const float *, const int *, const __half *, const __half *  126.0    2630.4   20.88   7.4%
+void <unnamed>::lin_narrow_kernel<(int)1>(const __nv_bfloat16 *, int, const __nv_bfloat16 *, int, int, <u  400.0    2477.6    6.19   7.0%
+void <unnamed>::attn_kernel<(int)8, (int)3, (bool)0, (int)16, (bool)0>(<unnamed>::Args)                     40.0    2335.0   58.38   6.6%
+void <unnamed>::linear_kernel<(int)12, (int)2, (int)8, (int)1, (int)1>(const __half *, const unsigned int    1.0    1500.5 1500.51   4.2%
+void <unnamed>::prologue_kernel<(int)8, (int)3, (bool)0>(<unnamed>::Args)                                   40.0    1293.6   32.34   3.7%
+void <unnamed>::merge_kernel<(int)8, (int)3, (bool)0>(<unnamed>::Args)                                      40.0    1167.7   29.19   3.3%
+void <unnamed>::attn_kernel<(int)8, (int)3, (bool)1, (int)16, (bool)0>(<unnamed>::Args)                      8.0     734.1   91.76   2.1%
+<unnamed>::own_remap_kernel(const int *, const int *, int *, float *, int, int)                            126.0     625.3    4.96   1.8%
+<unnamed>::select_kernel(const float *, const float *, int *, float *, float *, int, int, int, float)       48.0     601.1   12.52   1.7%
+<unnamed>::conv_kernel(<unnamed>::ConvArgs)                                                                 96.0     503.9    5.25   1.4%
+<unnamed>::rot_out_kernel(const float *, const __half *, const __half *, void *, int, int, int, int)       288.0     499.5    1.73   1.4%
+<unnamed>::rot_in_kernel(const void *, int, const __half *, __half *, int)                                 289.0     437.1    1.51   1.2%
+<unnamed>::blend_kernel(const float *, const float *, const float *, const float *, const __nv_bfloat16 *   96.0     393.3    4.10   1.1%
+<unnamed>::pair_kernel(const float *, const float *, __nv_bfloat16 *, int, float)                           96.0     333.3    3.47   0.9%
+void <unnamed>::prologue_kernel<(int)8, (int)3, (bool)1>(<unnamed>::Args)                                    8.0     297.5   37.18   0.8%
+<unnamed>::rot_in_kernel(const void *, int, const int *, const __half *, const __half *, __half *, __half  126.0     286.8    2.28   0.8%
+<unnamed>::group_kernel(const int *, int *, int *, int *, int *, int, int)                                 126.0     239.2    1.90   0.7%
+void <unnamed>::merge_kernel<(int)8, (int)3, (bool)1>(<unnamed>::Args)                                       8.0     222.8   27.86   0.6%
+void <unnamed>::mix_raw_kernel<(int)2, (int)4>(<unnamed>::MixRawArgs)                                       24.0     197.6    8.23   0.6%
+void <unnamed>::mix_raw_kernel<(int)3, (int)1>(<unnamed>::MixRawArgs)                                       22.0     136.0    6.18   0.4%
+<unnamed>::split_merge_kernel(const float *, int, int, float *, int *)                                       1.0     125.4  125.43   0.4%
+void <unnamed>::mix_raw_kernel<(int)4, (int)1>(<unnamed>::MixRawArgs)                                       20.0     119.6    5.98   0.3%
+void <unnamed>::ring_write_kernel<(int)8>(<unnamed>::Args)                                                  40.0      94.1    2.35   0.3%
+void <unnamed>::combine_f32_kernel<(bool)1>(const float *, const int *, const float *, const float *, flo   41.0      87.2    2.13   0.2%
+void <unnamed>::mix_kernel<(int)5, (int)1>(<unnamed>::MixArgs)                                              11.0      82.3    7.48   0.2%
+void <unnamed>::mix_kernel<(int)3, (int)1>(<unnamed>::MixArgs)                                              11.0      82.0    7.45   0.2%
+void <unnamed>::mix_kernel<(int)4, (int)1>(<unnamed>::MixArgs)                                              11.0      80.5    7.32   0.2%
+void <unnamed>::mix_kernel<(int)2, (int)1>(<unnamed>::MixArgs)                                              11.0      71.8    6.53   0.2%
+<unnamed>::split_local_kernel(const float *, int, int, int, float *)                                         1.0      54.7   54.68   0.2%
+void <unnamed>::mix_raw_kernel<(int)4, (int)3>(<unnamed>::MixRawArgs)                                        2.0      14.2    7.12   0.0%
+void <unnamed>::mix_raw_kernel<(int)3, (int)3>(<unnamed>::MixRawArgs)                                        2.0      13.6    6.79   0.0%
+void <unnamed>::mix_raw_kernel<(int)2, (int)1>(<unnamed>::MixRawArgs)                                        2.0      10.6    5.29   0.0%
+void <unnamed>::mix_kernel<(int)5, (int)3>(<unnamed>::MixArgs)                                               1.0       9.9    9.92   0.0%
+void <unnamed>::mix_kernel<(int)4, (int)3>(<unnamed>::MixArgs)                                               1.0       9.7    9.71   0.0%
+void <unnamed>::mix_kernel<(int)3, (int)3>(<unnamed>::MixArgs)                                               1.0       9.5    9.51   0.0%
+<unnamed>::commit_kernel(const void *, int, int, const int4 *, __nv_bfloat16 *, const <unnamed>::LayerPtr    1.0       9.0    9.00   0.0%
+void <unnamed>::mix_kernel<(int)2, (int)3>(<unnamed>::MixArgs)                                               1.0       8.6    8.59   0.0%
+<unnamed>::epilogue_kernel(float *, int, int, int, float, int, int)                                          1.0       7.9    7.94   0.0%
+void <unnamed>::conv_commit_kernel<(int)8>(<unnamed>::Args, const <unnamed>::KvLayer *)                      1.0       5.5    5.53   0.0%
+void <unnamed>::rmsnorm_k<(bool)0>(const unsigned short *, const unsigned short *, const float *, unsigne    2.0       5.3    2.64   0.0%
+<unnamed>::embed_vec_k(const unsigned short *, const int *, unsigned short *, int, int)                      1.0       4.7    4.75   0.0%

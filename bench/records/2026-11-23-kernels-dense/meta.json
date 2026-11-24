@@ -1,0 +1,51 @@
+{
+  "name": "kernels-dense",
+  "gate": "kernels-dense",
+  "date": "2026-11-23",
+  "result": "pass",
+  "node": "node-4",
+  "engine": {
+    "commit": "867486ea4c351e48b3f75c4f33e82f0a450e353d",
+    "dirty": false,
+    "version": "lab test build (cargo test --release), no server binary"
+  },
+  "recipe": {
+    "commit": "f54ed86f2d404b2220af11aa9b18f4046d20da06"
+  },
+  "tests": [
+    {"bin": "inkling2_ops", "filter": "mini_", "passed": 13, "failed": 0},
+    {"bin": "inkling2_ops", "filter": "", "passed": 28, "failed": 0},
+    {"bin": "inkling2_dspark", "filter": "", "passed": 11, "failed": 0}
+  ],
+  "commands": [
+    "NODE=node-4 LAB_SRC=<engine worktree inkling2-loop-dense> OPS_LINES=500 scripts/ops_dev.sh test inkling2_ops mini_",
+    "NODE=node-4 LAB_SRC=<engine worktree inkling2-loop-dense> OPS_LINES=500 scripts/ops_dev.sh run inkling2_ops ''",
+    "NODE=node-4 LAB_SRC=<engine worktree inkling2-loop-dense> OPS_LINES=500 scripts/ops_dev.sh test inkling2_dspark ''",
+    "oracle/.venv/bin/python testdata/inkling2_loop/gpu/gen_goldens.py --oracle oracle --out testdata/inkling2_loop/gpu   (engine worktree, the Mac, HTTP range reads of the pinned pack)",
+    "REXL3_NO_CUDA=1 CARGO_BUILD_JOBS=6 cargo check -p gb-cuda --tests --locked   (the Mac)",
+    "REXL3_NO_CUDA=1 cargo test -p gb-model --lib --locked families::inkling2::   (the Mac: 31 passed)"
+  ],
+  "metrics": {
+    "dense_fp32_vs_oracle_fp16_rotation_worst_of_rms": 1.14e-4,
+    "dense_fp32_vs_exact_oracle_worst_of_rms": 9.19e-4,
+    "dense_tensors_checked_on_real_weights": 12,
+    "dense_shapes_checked_row_invariant": 10,
+    "unembed_epilogue_equals_bf16_linear_mode3_bit_for_bit": true,
+    "message_mix_nq4_worst_error_vs_float64_of_unit_scale": 6.34e-7,
+    "message_mix_vs_oracle_real_queries_worst_of_unit_scale": 4.17e-7,
+    "controllers_checked_vs_oracle": 48,
+    "controllers_with_a_bf16_flip_vs_oracle": 4,
+    "controller_blend_vs_oracle_worst_of_rms": 1.05e-3,
+    "controller_blend_vs_oracle_median_case_of_rms": 3e-7,
+    "vision_bias_values_not_exact_in_fp16": 3,
+    "vision_bias_values_total": 211968,
+    "vision_bias_worst_fp16_error_abs": 2.98e-8,
+    "unembed_decode_us_1_row": 1466.1,
+    "unembed_decode_gbps_1_row": 237,
+    "wq_du_decode_us_1_row": 18.4,
+    "controller_5_launches_us_1_row": 22.9,
+    "message_mix_2src_4q_us_1_row": 6.1,
+    "logit_epilogue_us_1_row": 4.3
+  },
+  "notes": "Timings are of one call on random 6-bit weights (L2 is warm across calls; the small tensors fit L2, so their GB/s is not a DRAM figure). The inkling2_ops run with an empty filter includes the Small's own tests (15 of them besides the Mini's 13; the golden-hash test among them); the real-Small-weights test and the dspark tests that need REXL3_INKLING2_DIR report 'not run' on this node (the Small's pack is not staged here and is not touched)."
+}

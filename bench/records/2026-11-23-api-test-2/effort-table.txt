@@ -1,0 +1,9 @@
+reasoning_tokens/completion_tokens by reasoning_effort, greedy, max_tokens 3000, engine 0ed77ffe9dec, one request each (effort_probe.py)
+ L = cut by max_tokens
+effort	What is 17*23? Reply with the integer only.	A farmer has 17 sheep. All but 9 run away. ...	What is the capital of France? Answer in one word.	Write a haiku about rain.
+none	39/46	105/116	30/37	378/400
+minimal	39/46	96/107	35/42	449/473
+low	39/46	96/107	35/42	291/315
+medium	39/46	111/139	45/52	631/655
+high	39/46	188/242	45/52	405/428
+xhigh	39/46	249/309	45/52	723/751

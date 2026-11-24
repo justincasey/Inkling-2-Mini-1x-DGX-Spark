@@ -1,0 +1,8 @@
+16:07:02 GPU SM clock capped at 2200 MHz on node-1: GPU clocks set to "(gpuClkMin 2200, gpuClkMax 2200)" for GPU 0000000F:01:00.0
+engine 59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a
+ok   golden attn: test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 28 filtered out; finished in 0.82s
+ok   golden ops: test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 34 filtered out; finished in 0.63s
+ok   golden moe: test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.31s
+ok   golden vision: test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.36s
+ok   golden dspark: test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 30 filtered out; finished in 21.73s
+engine-test goldens: pass

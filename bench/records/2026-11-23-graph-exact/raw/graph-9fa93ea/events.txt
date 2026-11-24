@@ -1,0 +1,12 @@
+rexl3 event=inkling2_loop_graph_captured rows=2 blocks=2 chunks=1 count=28 nodes=2883 capture_ms=13.3
+rexl3 event=inkling2_loop_graph_captured rows=1 blocks=1 chunks=1 count=28 nodes=2883 capture_ms=12.4
+rexl3 event=inkling2_loop_graph_captured rows=1 blocks=1 chunks=128 count=28 nodes=2883 capture_ms=13.3
+rexl3 event=inkling2_loop_graph_captured rows=1 blocks=1 chunks=2 count=28 nodes=2883 capture_ms=13.7
+rexl3 event=inkling2_loop_graph_captured rows=4 blocks=4 chunks=2 count=28 nodes=2883 capture_ms=14.2
+rexl3 event=inkling2_loop_graph_captured rows=3 blocks=3 chunks=2 count=28 nodes=2883 capture_ms=12.8
+rexl3 event=inkling2_loop_graph_captured rows=2 blocks=2 chunks=2 count=28 nodes=2883 capture_ms=13.4
+rexl3 event=inkling2_loop_graph_captured rows=1 blocks=1 chunks=4 count=28 nodes=2883 capture_ms=12.9
+rexl3 event=inkling2_loop_graph_captured rows=1 blocks=1 chunks=8 count=28 nodes=2883 capture_ms=12.0
+rexl3 event=inkling2_loop_graph_captured rows=1 blocks=1 chunks=32 count=28 nodes=2883 capture_ms=12.2
+rexl3 event=inkling2_loop_graph_captured rows=3 blocks=3 chunks=4 count=28 nodes=2883 capture_ms=13.1
+rexl3 event=inkling2_loop_graph_captured rows=4 blocks=4 chunks=32 count=28 nodes=2883 capture_ms=13.2

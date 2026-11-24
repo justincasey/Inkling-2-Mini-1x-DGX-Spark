@@ -1,0 +1,81 @@
+{
+ "name": "graph-baseline",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "a162b4f09b7664f7b70b133e3df2365e5b6e6374"
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "51f2993c1549f927a632c2c502de3d20dc261ec3",
+  "sha256": "e28252f388a87fc21021eb601651e7fa20e06eafc041b5a8ae59810396bb31b3",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": "0.1.1",
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2184 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "none",
+  "PREFIX_CACHE": "off",
+  "VISION": "off",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "REXL3_ALLOW_UNGATED_COMPONENTS=1",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 REXL3_ALLOW_UNGATED_COMPONENTS=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec none --prefix-cache off --no-vision --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "gate": "speed-graph-baseline",
+ "result": "pass",
+ "node": "node-2",
+ "tests": [],
+ "commands": [
+  "REXL3_SRC=<engine worktree> NODES=node-2 ./inkling2mini.sh build 51f2993c1549f927a632c2c502de3d20dc261ec3",
+  "./inkling2mini.sh gpu-clocks lock; EXTRA_ENV='REXL3_ALLOW_UNGATED_COMPONENTS=1' ./inkling2mini.sh start",
+  "./inkling2mini.sh bench decode",
+  "python3 bench/rexl3/sweep_decode.py --url http://node-2:8000 --model inkling-2-mini-1x-dgx-spark --window 262144 --max-total 1048576 --phase both --ctxs 4096 --conc 1,2,4 --modes serial --depth-modes serial --reps 3 --depth-reps 3 --out sweep.json",
+  "./inkling2mini.sh bench prefill",
+  "./inkling2mini.sh stop"
+ ],
+ "metrics": {
+  "decode_c1_short_tok_s": 37.232,
+  "decode_c1_4k_tok_s": 36.158,
+  "decode_c2_short_tok_s": 56.246,
+  "decode_c4_short_tok_s": 80.351,
+  "bench_decode_c1_tok_s": 37.238,
+  "bench_decode_c4_tok_s": 80.407,
+  "bench_decode_c8_tok_s": 83.623,
+  "prefill_32k_tok_s": 1197.9,
+  "prefill_128k_tok_s": 1029.4,
+  "prefill_224k_tok_s": 901.3,
+  "decode_ctx32k_tok_s": 33.462,
+  "decode_ctx128k_tok_s": 26.963,
+  "decode_ctx224k_tok_s": 22.184,
+  "window_launches": 2830,
+  "host_enqueue_ms_eager": 16.1,
+  "host_wait_ms_eager": 11.5,
+  "window_ms_eager": 27.5,
+  "window_ms_graph_replay": 25.1
+ },
+ "notes": "GPU clock locked at 2200 MHz. Medians of 3 (sweep) after a discarded warm-up. The window timing and the nsys profile are of d8a6915 with graphs off or on (the eager path launches what 51f2993 launches). Not measured: c=2/c=4 with 4K prompts (streamed return_token_ids refused, HTTP 400)."
+}

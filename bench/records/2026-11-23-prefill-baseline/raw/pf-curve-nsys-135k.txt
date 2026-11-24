@@ -1,0 +1,36 @@
+# inkling2_loop_prefill_perf::prefill_curve, PF_TOKENS=135168 PF_CHUNK=4096, engine 7da8c61 (lab test build of the same tree), under `nsys profile -t cuda`
+# (the profile run: host time of each 4,096-row chunk in ms; chunk at position p has p tokens of context before it)
+first=0 ms=1671.73
+first=4096 ms=1731.43
+first=8192 ms=1760.57
+first=12288 ms=1824.61
+first=16384 ms=1865.12
+first=20480 ms=1902.59
+first=24576 ms=1955.38
+first=28672 ms=2001.25
+first=32768 ms=2013.29
+first=36864 ms=2057.35
+first=40960 ms=2114.86
+first=45056 ms=2153.05
+first=49152 ms=2220.06
+first=53248 ms=2287.42
+first=57344 ms=2334.68
+first=61440 ms=2392.51
+first=65536 ms=2430.12
+first=69632 ms=2464.64
+first=73728 ms=2522.22
+first=77824 ms=2528.48
+first=81920 ms=2573.75
+first=86016 ms=2647.84
+first=90112 ms=2702.48
+first=94208 ms=2769.76
+first=98304 ms=2808.60
+first=102400 ms=2843.63
+first=106496 ms=2912.19
+first=110592 ms=2914.46
+first=114688 ms=2955.27
+first=118784 ms=3009.17
+first=122880 ms=3088.68
+first=126976 ms=3140.40
+first=131072 ms=3210.21
+total s=79.814 tok_s=1693.5 digest=823553ce2d0494d0b2b72a11725c5a58bb952d5e866d800a1fba1470144f140d

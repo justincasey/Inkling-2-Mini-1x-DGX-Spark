@@ -1,0 +1,142 @@
+warning: gb-cuda@0.1.1: nvcc not found: building gb-cuda without GPU support
+warning: unused variable: `prefill`
+    --> crates/cuda/src/dsv4_attn.rs:2705:9
+     |
+2705 |         prefill: bool,
+     |         ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_prefill`
+     |
+     = note: `#[warn(unused_variables)]` on by default
+
+warning: unused variable: `codebook`
+   --> crates/cuda/src/exl3_linear.rs:844:9
+    |
+844 |         codebook: Codebook,
+    |         ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_codebook`
+
+warning: unused variable: `trellis`
+   --> crates/cuda/src/exl3_linear.rs:845:9
+    |
+845 |         trellis: &DevBuf,
+    |         ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_trellis`
+
+warning: unused variable: `suh`
+   --> crates/cuda/src/exl3_linear.rs:846:9
+    |
+846 |         suh: &DevBuf,
+    |         ^^^ help: if this is intentional, prefix it with an underscore: `_suh`
+
+warning: unused variable: `svh`
+   --> crates/cuda/src/exl3_linear.rs:847:9
+    |
+847 |         svh: &DevBuf,
+    |         ^^^ help: if this is intentional, prefix it with an underscore: `_svh`
+
+warning: unused variable: `bias`
+   --> crates/cuda/src/exl3_linear.rs:848:9
+    |
+848 |         bias: Option<&DevBuf>,
+    |         ^^^^ help: if this is intentional, prefix it with an underscore: `_bias`
+
+warning: `gb-cuda` (lib) generated 6 warnings
+warning: unnecessary parentheses around function argument
+   --> crates/model/src/families/bailing_moe_v3/device.rs:155:12
+    |
+155 |         Ok((b.ptr_at(x.dst.offset as usize) as u64))
+    |            ^                                      ^
+    |
+    = note: `#[warn(unused_parens)]` on by default
+help: remove these parentheses
+    |
+155 -         Ok((b.ptr_at(x.dst.offset as usize) as u64))
+155 +         Ok(b.ptr_at(x.dst.offset as usize) as u64)
+    |
+
+warning: unused import: `AtomicBool`
+  --> crates/model/src/families/qwen_flash_next/model.rs:49:25
+   |
+49 | use std::sync::atomic::{AtomicBool, AtomicU8, Ordering};
+   |                         ^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` on by default
+
+warning: unused variable: `tp`
+   --> crates/model/src/families/bailing_moe_v3/config.rs:145:13
+    |
+145 |         let tp = "";
+    |             ^^ help: if this is intentional, prefix it with an underscore: `_tp`
+    |
+    = note: `#[warn(unused_variables)]` on by default
+
+warning: unused variable: `ch`
+    --> crates/model/src/families/bailing_moe_v3/model.rs:1436:13
+     |
+1436 |         let ch = cfg.kda.channels();
+     |             ^^ help: if this is intentional, prefix it with an underscore: `_ch`
+
+warning: unused variable: `nrm`
+    --> crates/model/src/families/bailing_moe_v3/model.rs:4553:25
+     |
+4553 |                     let nrm = self.s.norm.subview(off(h * 2), t * h * 2);
+     |                         ^^^ help: if this is intentional, prefix it with an underscore: `_nrm`
+
+warning: variable does not need to be mutable
+   --> crates/model/src/families/bailing_moe_v3/plan.rs:123:13
+    |
+123 |         let mut bad: Vec<String> = Vec::new();
+    |             ----^^^
+    |             |
+    |             help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` on by default
+
+warning: unused variable: `model_dir`
+   --> crates/model/src/families/deepseek_v41/engine.rs:583:33
+    |
+583 | fn evict_safetensors_page_cache(model_dir: &std::path::Path, include_engram: bool) {
+    |                                 ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_model_dir`
+
+warning: unused variable: `include_engram`
+   --> crates/model/src/families/deepseek_v41/engine.rs:583:62
+    |
+583 | fn evict_safetensors_page_cache(model_dir: &std::path::Path, include_engram: bool) {
+    |                                                              ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_include_engram`
+
+warning: `gb-model` (lib test) generated 8 warnings (run `cargo fix --lib -p gb-model --tests` to apply 3 suggestions)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.06s
+     Running unittests src/lib.rs (target/debug/deps/gb_model-c2e27a1a89c58a84)
+
+running 31 tests
+test families::inkling2::backend::tests::a_slice_ends_on_the_grid_or_at_the_first_cut_it_would_pass ... ok
+test families::inkling2::config::tests::unknown_and_missing_keys_are_refused_by_name ... ok
+test families::inkling2::config::tests::tp_layouts_that_do_not_divide_are_refused_by_dimension ... ok
+test families::inkling2::config::tests::the_pack_config_parses_to_the_spec_shapes ... ok
+test families::inkling2::engine::tests::the_prefix_namespace_follows_the_pack_and_the_drafter ... ok
+test families::inkling2::config::tests::the_layer_recipe_is_48_attention_moe_layers_and_5_dense_draft_layers ... ok
+test families::inkling2::config::tests::the_known_key_lists_cover_the_pack_exactly ... ok
+test families::inkling2::config::tests::unsupported_switches_are_refused_by_name ... ok
+test families::inkling2::memory::tests::a_snapshot_is_a_slots_rings_conv_state_and_drafter_state ... ok
+test families::inkling2::memory::tests::layouts_that_do_not_split_are_refused ... ok
+test families::inkling2::memory::tests::kv_per_token_is_the_eight_global_layers_in_int8 ... ok
+test families::inkling2::memory::tests::the_drafter_is_priced_as_it_allocates ... ok
+test families::inkling2::memory::tests::a_full_lane_is_four_gib_of_int8_kv_a_rank_and_four_lanes_fit_the_pool ... ok
+test families::inkling2::memory::tests::the_plan_prices_exactly_the_listed_buffers ... ok
+test families::inkling2::memory::tests::window_records_are_the_attention_kv_inputs_of_every_row ... ok
+test families::inkling2::memory::tests::the_tower_is_priced_on_rank_zero_only ... ok
+test families::inkling2::inventory::tests::a_drafter_header_merges_as_plain_tensors_with_their_offsets ... ok
+test families::inkling2::tests::an_unsupported_switch_is_refused_by_name_through_the_registry ... ok
+test families::inkling2::tests::a_config_that_does_not_split_four_ways_is_refused_at_the_probe ... ok
+test families::inkling2::tests::a_non_exl3_pack_is_refused_at_the_probe ... ok
+test families::inkling2::vision::tests::a_follower_s_rows_are_checked_against_the_grid_and_a_span_against_its_features ... ok
+test families::inkling2::tests::the_registry_sends_an_inkling2_pack_here_and_the_plan_names_what_is_missing ... ok
+test families::inkling2::vision::tests::a_splice_clipped_to_chunks_covers_the_span_once_in_order ... ok
+test families::inkling2::tp::tests::every_family_call_round_trips_the_wire ... ok
+test families::inkling2::tp::tests::a_splice_comes_back_as_the_rows_rank_0_sent ... ok
+test families::inkling2::inventory::tests::the_committed_table_expands_to_the_real_packs_tensor_count ... ok
+test families::inkling2::bind::tests::a_rank_staged_folder_binds_only_with_exactly_its_own_experts ... ok
+test families::inkling2::bind::tests::layouts_that_do_not_split_are_refused ... ok
+test families::inkling2::bind::tests::per_rank_bytes_match_the_fit ... ok
+test families::inkling2::bind::tests::the_first_mismatch_is_named ... ok
+test families::inkling2::bind::tests::every_rank_binds_the_whole_pack_and_takes_its_share ... ok
+
+test result: ok. 31 passed; 0 failed; 0 ignored; 0 measured; 1442 filtered out; finished in 3.48s
+

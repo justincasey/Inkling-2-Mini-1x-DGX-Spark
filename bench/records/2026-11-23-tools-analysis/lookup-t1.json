@@ -1,0 +1,441 @@
+{
+ "temperature": 1.0,
+ "skus": {
+  "pen": "PEN-100",
+  "notebook": "NB-200",
+  "lamp": "LMP-300",
+  "cable": "CBL-400",
+  "bolt": "BLT-500"
+ },
+ "rows": [
+  {
+   "id": "order_nested",
+   "turn1": {
+    "calls": [
+     {
+      "name": "run_sql",
+      "raw": "{\"query\":\"select sku, name from products where name like '%pen%' or name like '%notebook%'\"}",
+      "arguments": {
+       "query": "select sku, name from products where name like '%pen%' or name like '%notebook%'"
+      },
+      "parse_error": null
+     }
+    ],
+    "content": "",
+    "finish": "tool_calls",
+    "error": null
+   },
+   "turn1_run_sql_readonly": false,
+   "turn1_query_names_products": true,
+   "turn2": {
+    "calls": [
+     {
+      "name": "create_order",
+      "raw": "{\"customer_id\":7,\"expedited\":true,\"items\":[{\"qty\":1,\"sku\":\"PEN-100\"},{\"qty\":3,\"sku\":\"NB-200\"}]}",
+      "arguments": {
+       "customer_id": 7,
+       "expedited": true,
+       "items": [
+        {
+         "qty": 1,
+         "sku": "PEN-100"
+        },
+        {
+         "qty": 3,
+         "sku": "NB-200"
+        }
+       ]
+      },
+      "parse_error": null
+     }
+    ],
+    "content": "",
+    "finish": "tool_calls",
+    "error": null
+   },
+   "ok": true,
+   "detail": "",
+   "run": 0
+  },
+  {
+   "id": "order_nested",
+   "turn1": {
+    "calls": [
+     {
+      "name": "run_sql",
+      "raw": "{\"query\":\"select sku, name from products where name like '%pen%' or name like '%notebook%'\"}",
+      "arguments": {
+       "query": "select sku, name from products where name like '%pen%' or name like '%notebook%'"
+      },
+      "parse_error": null
+     }
+    ],
+    "content": "",
+    "finish": "tool_calls",
+    "error": null
+   },
+   "turn1_run_sql_readonly": false,
+   "turn1_query_names_products": true,
+   "turn2": {
+    "calls": [
+     {
+      "name": "create_order",
+      "raw": "{\"customer_id\":7,\"expedited\":true,\"items\":[{\"qty\":1,\"sku\":\"PEN-100\"},{\"qty\":3,\"sku\":\"NB-200\"}]}",
+      "arguments": {
+       "customer_id": 7,
+       "expedited": true,
+       "items": [
+        {
+         "qty": 1,
+         "sku": "PEN-100"
+        },
+        {
+         "qty": 3,
+         "sku": "NB-200"
+        }
+       ]
+      },
+      "parse_error": null
+     }
+    ],
+    "content": "",
+    "finish": "tool_calls",
+    "error": null
+   },
+   "ok": true,
+   "detail": "",
+   "run": 1
+  },
+  {
+   "id": "order_nested",
+   "turn1": {
+    "calls": [
+     {
+      "name": "run_sql",
+      "raw": "{\"query\":\"select sku, name from products where name like '%pen%' or name like '%notebook%'\"}",
+      "arguments": {
+       "query": "select sku, name from products where name like '%pen%' or name like '%notebook%'"
+      },
+      "parse_error": null
+     }
+    ],
+    "content": "",
+    "finish": "tool_calls",
+    "error": null
+   },
+   "turn1_run_sql_readonly": false,
+   "turn1_query_names_products": true,
+   "turn2": {
+    "calls": [
+     {
+      "name": "create_order",
+      "raw": "{\"customer_id\":7,\"expedited\":true,\"items\":[{\"qty\":1,\"sku\":\"PEN-100\"},{\"qty\":3,\"sku\":\"NB-200\"}]}",
+      "arguments": {
+       "customer_id": 7,
+       "expedited": true,
+       "items": [
+        {
+         "qty": 1,
+         "sku": "PEN-100"
+        },
+        {
+         "qty": 3,
+         "sku": "NB-200"
+        }
+       ]
+      },
+      "parse_error": null
+     }
+    ],
+    "content": "",
+    "finish": "tool_calls",
+    "error": null
+   },
+   "ok": true,
+   "detail": "",
+   "run": 2
+  },
+  {
+   "id": "order_two_skus",
+   "turn1": {
+    "calls": [
+     {
+      "name": "run_sql",
+      "raw": "{\"query\":\"SELECT sku, name FROM products WHERE name LIKE '%lamp%' OR name LIKE '%cable%'\",\"readonly\":true}",
+      "arguments": {
+       "query": "SELECT sku, name FROM products WHERE name LIKE '%lamp%' OR name LIKE '%cable%'",
+       "readonly": true
+      },
+      "parse_error": null
+     }
+    ],
+    "content": "",
+    "finish": "tool_calls",
+    "error": null
+   },
+   "turn1_run_sql_readonly": true,
+   "turn1_query_names_products": true,
+   "turn2": {
+    "calls": [
+     {
+      "name": "create_order",
+      "raw": "{\"customer_id\":9,\"items\":[{\"qty\":1,\"sku\":\"LMP-300\"},{\"qty\":2,\"sku\":\"CBL-400\"}]}",
+      "arguments": {
+       "customer_id": 9,
+       "items": [
+        {
+         "qty": 1,
+         "sku": "LMP-300"
+        },
+        {
+         "qty": 2,
+         "sku": "CBL-400"
+        }
+       ]
+      },
+      "parse_error": null
+     }
+    ],
+    "content": "",
+    "finish": "tool_calls",
+    "error": null
+   },
+   "ok": true,
+   "detail": "",
+   "run": 0
+  },
+  {
+   "id": "order_two_skus",
+   "turn1": {
+    "calls": [
+     {
+      "name": "run_sql",
+      "raw": "{\"query\":\"SELECT sku, name FROM products WHERE name LIKE '%lamp%' OR name LIKE '%cable%'\",\"readonly\":true}",
+      "arguments": {
+       "query": "SELECT sku, name FROM products WHERE name LIKE '%lamp%' OR name LIKE '%cable%'",
+       "readonly": true
+      },
+      "parse_error": null
+     }
+    ],
+    "content": "",
+    "finish": "tool_calls",
+    "error": null
+   },
+   "turn1_run_sql_readonly": true,
+   "turn1_query_names_products": true,
+   "turn2": {
+    "calls": [
+     {
+      "name": "create_order",
+      "raw": "{\"customer_id\":9,\"items\":[{\"qty\":1,\"sku\":\"LMP-300\"},{\"qty\":2,\"sku\":\"CBL-400\"}]}",
+      "arguments": {
+       "customer_id": 9,
+       "items": [
+        {
+         "qty": 1,
+         "sku": "LMP-300"
+        },
+        {
+         "qty": 2,
+         "sku": "CBL-400"
+        }
+       ]
+      },
+      "parse_error": null
+     }
+    ],
+    "content": "",
+    "finish": "tool_calls",
+    "error": null
+   },
+   "ok": true,
+   "detail": "",
+   "run": 1
+  },
+  {
+   "id": "order_two_skus",
+   "turn1": {
+    "calls": [
+     {
+      "name": "run_sql",
+      "raw": "{\"query\":\"SELECT sku, name FROM products WHERE name LIKE '%lamp%' OR name LIKE '%cable%'\",\"readonly\":true}",
+      "arguments": {
+       "query": "SELECT sku, name FROM products WHERE name LIKE '%lamp%' OR name LIKE '%cable%'",
+       "readonly": true
+      },
+      "parse_error": null
+     }
+    ],
+    "content": "",
+    "finish": "tool_calls",
+    "error": null
+   },
+   "turn1_run_sql_readonly": true,
+   "turn1_query_names_products": true,
+   "turn2": {
+    "calls": [
+     {
+      "name": "create_order",
+      "raw": "{\"customer_id\":9,\"items\":[{\"qty\":1,\"sku\":\"LMP-300\"},{\"qty\":2,\"sku\":\"CBL-400\"}]}",
+      "arguments": {
+       "customer_id": 9,
+       "items": [
+        {
+         "qty": 1,
+         "sku": "LMP-300"
+        },
+        {
+         "qty": 2,
+         "sku": "CBL-400"
+        }
+       ]
+      },
+      "parse_error": null
+     }
+    ],
+    "content": "",
+    "finish": "tool_calls",
+    "error": null
+   },
+   "ok": true,
+   "detail": "",
+   "run": 2
+  },
+  {
+   "id": "order_standard",
+   "turn1": {
+    "calls": [
+     {
+      "name": "run_sql",
+      "raw": "{\"query\":\"SELECT * FROM products WHERE name LIKE '%bolt%' OR sku LIKE '%bolt%'\",\"readonly\":true}",
+      "arguments": {
+       "query": "SELECT * FROM products WHERE name LIKE '%bolt%' OR sku LIKE '%bolt%'",
+       "readonly": true
+      },
+      "parse_error": null
+     }
+    ],
+    "content": "",
+    "finish": "tool_calls",
+    "error": null
+   },
+   "turn1_run_sql_readonly": true,
+   "turn1_query_names_products": true,
+   "turn2": {
+    "calls": [
+     {
+      "name": "create_order",
+      "raw": "{\"customer_id\":3,\"items\":[{\"qty\":5,\"sku\":\"BLT-500\"}]}",
+      "arguments": {
+       "customer_id": 3,
+       "items": [
+        {
+         "qty": 5,
+         "sku": "BLT-500"
+        }
+       ]
+      },
+      "parse_error": null
+     }
+    ],
+    "content": "",
+    "finish": "tool_calls",
+    "error": null
+   },
+   "ok": false,
+   "detail": "expedited=None, want False",
+   "run": 0
+  },
+  {
+   "id": "order_standard",
+   "turn1": {
+    "calls": [
+     {
+      "name": "run_sql",
+      "raw": "{\"query\":\"SELECT * FROM products WHERE name LIKE '%bolt%' OR sku LIKE '%bolt%'\",\"readonly\":true}",
+      "arguments": {
+       "query": "SELECT * FROM products WHERE name LIKE '%bolt%' OR sku LIKE '%bolt%'",
+       "readonly": true
+      },
+      "parse_error": null
+     }
+    ],
+    "content": "",
+    "finish": "tool_calls",
+    "error": null
+   },
+   "turn1_run_sql_readonly": true,
+   "turn1_query_names_products": true,
+   "turn2": {
+    "calls": [
+     {
+      "name": "create_order",
+      "raw": "{\"customer_id\":3,\"items\":[{\"qty\":5,\"sku\":\"BLT-500\"}]}",
+      "arguments": {
+       "customer_id": 3,
+       "items": [
+        {
+         "qty": 5,
+         "sku": "BLT-500"
+        }
+       ]
+      },
+      "parse_error": null
+     }
+    ],
+    "content": "",
+    "finish": "tool_calls",
+    "error": null
+   },
+   "ok": false,
+   "detail": "expedited=None, want False",
+   "run": 1
+  },
+  {
+   "id": "order_standard",
+   "turn1": {
+    "calls": [
+     {
+      "name": "run_sql",
+      "raw": "{\"query\":\"SELECT * FROM products WHERE name LIKE '%bolt%' OR sku LIKE '%bolt%'\",\"readonly\":true}",
+      "arguments": {
+       "query": "SELECT * FROM products WHERE name LIKE '%bolt%' OR sku LIKE '%bolt%'",
+       "readonly": true
+      },
+      "parse_error": null
+     }
+    ],
+    "content": "",
+    "finish": "tool_calls",
+    "error": null
+   },
+   "turn1_run_sql_readonly": true,
+   "turn1_query_names_products": true,
+   "turn2": {
+    "calls": [
+     {
+      "name": "create_order",
+      "raw": "{\"customer_id\":3,\"items\":[{\"qty\":5,\"sku\":\"BLT-500\"}]}",
+      "arguments": {
+       "customer_id": 3,
+       "items": [
+        {
+         "qty": 5,
+         "sku": "BLT-500"
+        }
+       ]
+      },
+      "parse_error": null
+     }
+    ],
+    "content": "",
+    "finish": "tool_calls",
+    "error": null
+   },
+   "ok": false,
+   "detail": "expedited=None, want False",
+   "run": 2
+  }
+ ]
+}

@@ -1,0 +1,3 @@
+01:57:08 build a LAB engine 9fa93ea6e8f1 on node-2 (not REXL3_COMMIT: engine.lab_build=true in records)
+built 9fa93ea6e8f1671ec618ac1ee91ac42ee13749a6: rexl3-serve sha256 d1d64d3c86e46125ac792e6835e69eb16e3725fcd916e31fbacf74ed5ccf55ae
+01:59:01 build: engine 9fa93ea6e8f1 installed under /home/spark/inkling-2-mini-1x-dgx-spark/bin

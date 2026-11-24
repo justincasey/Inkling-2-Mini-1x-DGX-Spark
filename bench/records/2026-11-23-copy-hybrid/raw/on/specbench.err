@@ -1,0 +1,7 @@
+chat: 74 prompt / 512 generated tokens; serial 51.995 tok/s, drafted 53.028 tok/s, speedup 1.02, equal True, tokens/round 1.6972
+code: 225 prompt / 512 generated tokens; serial 52.097 tok/s, drafted 116.3 tok/s, speedup 2.232, equal True, tokens/round 5.3706
+json: 251 prompt / 512 generated tokens; serial 51.464 tok/s, drafted 86.493 tok/s, speedup 1.681, equal True, tokens/round 3.9588
+longctx: 6047 prompt / 512 generated tokens; serial 40.563 tok/s, drafted 65.144 tok/s, speedup 1.606, equal True, tokens/round 4.1967
+tool: 166 prompt / 369 generated tokens; serial 51.444 tok/s, drafted 127.034 tok/s, speedup 2.469, equal True, tokens/round 6.116
+reasoning: 150 prompt / 512 generated tokens; serial 51.476 tok/s, drafted 76.825 tok/s, speedup 1.492, equal True, tokens/round 3.0843
+concurrency 4: serial 100.151 tok/s, drafted 115.403 tok/s, speedup 1.152

@@ -1,0 +1,117 @@
+{
+ "name": "round-overhead",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "d8de251b19cd78bf2871a60465a8cedc7285744b",
+  "dirty_files": [
+   "bench/tools/roundtrace.py",
+   "bench/tools/homo_c4.py",
+   "bench/tools/roundcost.py"
+  ]
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "5cc464e7b0faaa267ad42f9ee9bf68b9e036b972",
+  "sha256": "a23fd5e94c2054ecba6c3f0de9d26106db0298df407b571c98c3843a9a871ad2",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "5cc464e7b0faaa267ad42f9ee9bf68b9e036b972",
+   "system_fingerprint": "fp_5cc464e7b0fa_5eedc329_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "5eedc329c09b3b74",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2184 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "dspark",
+  "PREFIX_CACHE": "on",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 nsys profile -t cuda\\,nvtx --cuda-graph-trace=node --delay 80 --duration 13 --kill none -f true -o /home/spark/inkling-2-mini-1x-dgx-spark/logs/nsys-round2 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-1",
+ "gate": "speed-decode",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "bench/tools/specbench.py",
+   "filter": "drafted == serial, six kinds and c=4",
+   "passed": 7,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/homo_c4.py",
+   "filter": "drafted == serial",
+   "passed": 5,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/specmix.py",
+   "filter": "prose, code, prose follows the traffic",
+   "passed": 1,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "decode_mean4_tok_s": 84.014,
+  "decode_prose_tok_s": 49.902,
+  "decode_code_tok_s": 118.878,
+  "decode_structured_tok_s": 79.029,
+  "decode_json_tok_s": 88.188,
+  "decode_c4_aggregate_tok_s": 108.97,
+  "decode_c8_aggregate_tok_s": 127.04,
+  "specbench_c4_aggregate_tok_s": 116.459,
+  "specbench_c4_serial_tok_s": 100.173,
+  "specbench_chat_tok_s": 53.595,
+  "specbench_code_tok_s": 112.947,
+  "specbench_json_tok_s": 86.192,
+  "specbench_longctx_tok_s": 65.808,
+  "specbench_tool_tok_s": 126.753,
+  "specbench_reasoning_tok_s": 75.755,
+  "specbench_chat_speedup": 1.028,
+  "specbench_code_speedup": 2.164,
+  "specbench_json_speedup": 1.671,
+  "specbench_longctx_speedup": 1.619,
+  "specbench_tool_speedup": 2.462,
+  "specbench_reasoning_speedup": 1.472,
+  "homo_4xcode_drafted_tok_s": 259.34,
+  "homo_4xprose_drafted_tok_s": 139.18,
+  "baseline_decode_mean4_tok_s": 81.632
+ },
+ "commands": [
+  "tools/run_final.sh (specmix, bench decode x3, specbench --concurrency 4, homo_c4)"
+ ],
+ "notes": "decode_mean4_tok_s is the median of the three run means of bench decode (84.014, 84.421, 83.957) on engine 5cc464e; baseline 81.632 on 1d53344 (round-baseline). The 100 tok/s target is not reached."
+}

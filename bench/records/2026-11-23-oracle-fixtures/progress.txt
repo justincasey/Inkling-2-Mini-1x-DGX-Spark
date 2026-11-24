@@ -1,0 +1,4 @@
+spec rc=0 seconds=4886 2026-11-23T08:25:04Z (gathered from two earlier runs: sum of manifest seconds incl. verification)
+engine rc=0 seconds=3322 2026-11-23T09:20:26Z
+dspark rc=0 seconds=45 2026-11-23T09:21:11Z
+done

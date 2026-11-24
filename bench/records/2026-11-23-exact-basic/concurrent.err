@@ -1,0 +1,8 @@
+gen      short  (16 tokens): equal
+gen      medium (521 tokens): equal
+gen      long   (2030 tokens): equal
+gen      xlong  (8334 tokens): equal
+logprobs short  (16 tokens): equal
+logprobs medium (521 tokens): equal
+logprobs long   (2030 tokens): equal
+logprobs xlong  (8334 tokens): equal

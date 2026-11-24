@@ -1,0 +1,317 @@
+### new gb-model inkling2_loop_rank forward_oracle_gate long_context_gate
+== gb-model forward_oracle_gate
+test forward_oracle_gate ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=114157 took_mib=0.0 mem_available_mib=117024
+LOOP_load_seconds 9.4 weight_gib 13.553
+LOOP_buffer_bytes 489257116
+LOOP_dump_a sha256 c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0 bytes 90056120
+LOOP_top1 200001 logit 26.821056
+LOOP_dump_b sha256 c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0 bytes 90056120
+LOOP_top1 200001 logit 26.821056
+LOOP_determinism identical 90056120 bytes
+LOOP_chunk_width 7 logits_identical 20806032 bytes sha256 a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a
+LOOP_chunk_width 11 logits_identical 20806032 bytes sha256 a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a
+LOOP_decode_row 22 identical
+LOOP_decode_row 23 identical
+LOOP_decode_row 24 identical
+LOOP_decode_row 25 identical
+LOOP_window_commit rollback identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 12.19s
+== gb-model long_context_gate
+test long_context_gate ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=115238 took_mib=0.0 mem_available_mib=118335
+LOOP_long_tokens 1119
+LOOP_long_top1 149897 logit 29.695383
+LOOP_long_chunk_width 129 candidates_identical
+LOOP_long_chunk_width 300 candidates_identical
+LOOP_long_decode_row 1118 candidates_identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 12.54s
+### new gb-model inkling2_loop_graphs graph_replay_equals_eager capture_refusal_runs_eager_and_counts
+== gb-model graph_replay_equals_eager
+test graph_replay_equals_eager ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=114158 took_mib=0.0 mem_available_mib=117513
+LOOP_GRAPH_equal windows 37 logits_sha256 8e214bd03306e8f0e3e1f203566b2d4d5057d7ce503b15fad57f741f2c50c2b7 captures 24 replays 189 eager 112 capture_failures 0 evictions 0
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 20.01s
+== gb-model capture_refusal_runs_eager_and_counts
+test capture_refusal_runs_eager_and_counts ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=115096 took_mib=0.0 mem_available_mib=118453
+rexl3 level=warn event=inkling2_loop_graph_capture_failed rows=1 blocks=1 chunks=2 count=64 a launch failed while capturing: CUDA error 900 (cudaErrorStreamCaptureUnsupported) (this window shape runs eagerly)
+LOOP_GRAPH_refusal captures 0 capture_failures 1 eager 5 replays 0 last_failure Some("a launch failed while capturing: CUDA error 900 (cudaErrorStreamCaptureUnsupported)")
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 10.04s
+### new gb-model inkling2_loop_prefix prefix_exact_at_cuts prefix_logits_planes_equal prefix_restore_after_eviction prefix_long_prompt
+== gb-model prefix_exact_at_cuts
+test prefix_exact_at_cuts ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=113142 took_mib=0.0 mem_available_mib=116758
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 2
+LOOP_PFX_cut 1 cold_chunk 2048 resumed_chunk 129 last_row_sha cdce5f343b13d39c state_sha b0a651cd9e50a585 decode_sha d194be2f61a6b1a0 identical
+LOOP_PFX_cut 255 cold_chunk 700 resumed_chunk 129 last_row_sha d879929334a0929b state_sha b85d818cf7e66ae4 decode_sha 3672326076fa0e6f identical
+LOOP_PFX_cut 256 cold_chunk 700 resumed_chunk 7 last_row_sha bffa2759f018dda3 state_sha 8550e8bbc3fd7a57 decode_sha e0bdf9d081bbb5f9 identical
+LOOP_PFX_cut 300 cold_chunk 2048 resumed_chunk 300 last_row_sha 0f7f6de8ab703e42 state_sha 72900afd094f8419 decode_sha c7074f1d78d67e11 identical
+LOOP_PFX_cut 512 cold_chunk 129 resumed_chunk 1 last_row_sha 58f723cc5c3db2aa state_sha c028b1eac09cd8f3 decode_sha e0074b6225adca9d identical
+LOOP_PFX_cut 1023 cold_chunk 700 resumed_chunk 129 last_row_sha d7eb5c89000822b3 state_sha ea72bf0edb2fa910 decode_sha e99ef3c21f5584f2 identical
+LOOP_PFX_cut 1024 cold_chunk 2048 resumed_chunk 300 last_row_sha cabcf89dc2d01a96 state_sha d756860f9f0c6db4 decode_sha 5de27757d23a14a0 identical
+LOOP_PFX_cut 1025 cold_chunk 300 resumed_chunk 7 last_row_sha 2e076611d5bb72e5 state_sha bba45c0479c9efda decode_sha 0ca6c3d2329bfe16 identical
+LOOP_PFX_cut 1030 cold_chunk 700 resumed_chunk 129 last_row_sha 7beb528c206e1e96 state_sha 5663bc3b40eceaa4 decode_sha ac849cb743d6d2dc identical
+LOOP_PFX_cut 1031 cold_chunk 700 resumed_chunk 129 last_row_sha 042701665506f8ab state_sha 13a0d41c1f183176 decode_sha 7fac5443a572a2c9 identical
+LOOP_PFX_cut 1032 cold_chunk 2048 resumed_chunk 1 last_row_sha 249e52b48ff9c655 state_sha 285a5e0501d9db44 decode_sha edaf5edaee5d4895 identical
+LOOP_PFX_cut 1100 cold_chunk 300 resumed_chunk 129 last_row_sha b439a55fd0863fec state_sha 76501d4c3f8b2903 decode_sha 22afd449db5d24e7 identical
+LOOP_PFX_cut 1500 cold_chunk 129 resumed_chunk 700 last_row_sha 920cf083880902b7 state_sha beefd772056e8ed8 decode_sha bf903d300f33153c identical
+LOOP_PFX_cut 2047 cold_chunk 2048 resumed_chunk 129 last_row_sha 5d8e85c1a136c52e state_sha af20e60d2425ea4f decode_sha e880b31871e6df24 identical
+LOOP_PFX_cut 2048 cold_chunk 700 resumed_chunk 300 last_row_sha e4cc70379c583b72 state_sha ade780c6340613cc decode_sha 6a6029cbd3ff9d1b identical
+LOOP_PFX_cut 2049 cold_chunk 300 resumed_chunk 129 last_row_sha 2cf093f80fbf9403 state_sha d7f72d51f3351596 decode_sha edf1cb54720e3627 identical
+LOOP_PFX_cut 2062 cold_chunk 2048 resumed_chunk 7 last_row_sha 4ec1f7d6e14d28a9 state_sha 5a16ac5bf8beb0a0 decode_sha 26d151b3c5bf3908 identical
+LOOP_PFX_cut 2063 cold_chunk 700 resumed_chunk 129 last_row_sha bd829e568ff2ff1a state_sha 5230f2056674da93 decode_sha 9dedb85bbe155e91 identical
+LOOP_PFX_cut 3000 cold_chunk 2048 resumed_chunk 300 last_row_sha cd9bea0615348eac state_sha 2fdbf18cfccf4c30 decode_sha aa8577c08a9aaf9e identical
+LOOP_PFX_cut 4096 cold_chunk 700 resumed_chunk 129 last_row_sha 6d5f3ff41ad61778 state_sha d56153549fb108d3 decode_sha f19731f673b4e115 identical
+LOOP_PFX_graphs captures 10 replays 140 eager_windows 10 capture_failures 0
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 78.47s
+== gb-model prefix_logits_planes_equal
+test prefix_logits_planes_equal ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=114953 took_mib=0.0 mem_available_mib=118570
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 1
+LOOP_PFX_planes cut 300 next_chunk_rows 40 hidden 5d9d57eccd544c10 (9031680 B) core_out 9b8494df88f32eac (368640 B) h_final 9ae3e6c14578b542 (184320 B) logits ef51dc3aa2e86462 (32009280 B) identical
+LOOP_PFX_planes cut 1024 next_chunk_rows 40 hidden 11ca5de1b788ca20 (9031680 B) core_out a968ad9e6d763d0f (368640 B) h_final 752e488700206495 (184320 B) logits 2a0fecfb8b329a39 (32009280 B) identical
+LOOP_PFX_planes cut 1500 next_chunk_rows 40 hidden 18767e45e37d8d40 (9031680 B) core_out eb05056e536156b9 (368640 B) h_final a9b25722577c5542 (184320 B) logits 1f0cf60859cafc44 (32009280 B) identical
+LOOP_PFX_planes cut 2048 next_chunk_rows 40 hidden d0afcec55e466f51 (9031680 B) core_out 8b08686b98dbe082 (368640 B) h_final 84065f37c1df36d2 (184320 B) logits 59c75809466828e9 (32009280 B) identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 14.86s
+== gb-model prefix_restore_after_eviction
+test prefix_restore_after_eviction ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=114885 took_mib=0.0 mem_available_mib=118502
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 2
+LOOP_PFX_eviction cut 1092 restores 3 after_reuse after_eviction after_refill identical pages_returned 400
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 16.36s
+== gb-model prefix_long_prompt
+test prefix_long_prompt ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=114889 took_mib=0.0 mem_available_mib=118506
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 1
+LOOP_PFX_long total 12300 cut 12000 last_row_sha edb2775fac2927bc state_sha 2a6a27ffce5dc457 decode_sha 4b0a7e44e41511ef identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 18.03s
+### new gb-cuda inkling2_moe partial_equals prefill_equals_decode mul1_prefill_equals prefill_with_tight four_rank_banks graph_replay_equals golden_inkling2
+== gb-cuda partial_equals
+test partial_equals_the_float64_reference ... rank None: cosine 0.9999980, max error 0.0171 of the row RMS
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.58s
+== gb-cuda prefill_equals_decode
+test mul1_prefill_equals_decode_at_k4_and_k5 ... ok
+test prefill_equals_decode_and_rows_are_invariant ... ok
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.61s
+== gb-cuda mul1_prefill_equals
+test mul1_prefill_equals_decode_at_k4_and_k5 ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.42s
+== gb-cuda prefill_with_tight
+test prefill_with_tight_class_grids_equals_decode ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.37s
+== gb-cuda four_rank_banks
+test four_rank_banks_sum_to_the_tp4_result ... TP4 sum: cosine 0.9999972, max error 0.0181 of the row RMS
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.47s
+== gb-cuda graph_replay_equals
+test graph_replay_equals_eager ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.31s
+== gb-cuda golden_inkling2
+test golden_inkling2_moe_hashes ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.32s
+### new gb-cuda inkling2_moe_mixed mul1_bands_decode_equals_prefill band_split_equals every_pair_row graph_replay_equals band_entries_on bands_entries_refuse real_mini_layers
+== gb-cuda mul1_bands_decode_equals_prefill
+test mul1_bands_decode_equals_prefill_mini_shape ... ok
+test mul1_bands_decode_equals_prefill_small ... ok
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 11 filtered out; finished in 4.32s
+== gb-cuda band_split_equals
+test band_split_equals_single_band_mini_shape ... rows=33 hot=false: pairs per class [150, 79, 35]
+test band_split_equals_single_band_small ... rows=40 hot=false: pairs per class [187, 82, 51]
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 11 filtered out; finished in 1.45s
+== gb-cuda every_pair_row
+test every_pair_row_is_written_once_mini_shape ... ok
+test every_pair_row_is_written_once_small ... ok
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 11 filtered out; finished in 1.11s
+== gb-cuda graph_replay_equals
+test graph_replay_equals_eager_over_bands ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 0.32s
+== gb-cuda band_entries_on
+test band_entries_on_a_uniform_layer_equal_the_single_band_functions ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 0.37s
+== gb-cuda bands_entries_refuse
+test bands_entries_refuse_what_they_do_not_run ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 0.26s
+== gb-cuda real_mini_layers
+test real_mini_layers_equal_the_oracle ... layer 12: bands (gate/up bits, down bits, experts) = [(4, 4, 107), (5, 5, 4), (4, 5, 17)]
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 4.46s
+### new gb-cuda inkling2_attn mini:: small::
+== gb-cuda mini::
+test mini::bench ... ignored
+test mini::boundary_1020_to_1040_ring_and_page ... ok
+test mini::chunked_prefill_equals_whole_equals_serial_decode_with_neighbours ... ok
+test mini::global_attention_matches_f64_from_the_start_and_past_the_bias_extent ... Global from 0: worst max-rel error 6.141e-3, min cosine 0.99999478
+test mini::global_attention_matches_f64_past_the_floor ... Global from 8187: worst max-rel error 4.543e-3, min cosine 0.99999534
+test mini::golden_inkling2_attn_hashes ... ok
+test mini::graph_replay_equals_eager ... ok
+test mini::kv8_page_is_264192_bytes_at_the_mini ... ok
+test mini::local_attention_matches_f64_through_the_ring_wrap ... Local from 0: worst max-rel error 6.051e-3, min cosine 0.99999463
+test mini::partial_mode_equals_fold_mode_past_256_chunks ... ok
+test mini::per_visit_state_follows_the_loop_schedule ... ok
+test mini::prologue_log_scaling_past_the_floor_matches_the_cpu ... ok
+test mini::prologue_matches_the_cpu_transcription_bit_for_bit ... ok
+test mini::row_block_size_changes_no_bit ... ok
+test mini::verify_windows_with_rejected_rows_equal_serial_replay ... ok
+test result: ok. 14 passed; 0 failed; 1 ignored; 0 measured; 15 filtered out; finished in 19.22s
+== gb-cuda small::
+test small::bench ... ignored
+test small::boundary_1020_to_1040_ring_and_page ... ok
+test small::chunked_prefill_equals_whole_equals_serial_decode_with_neighbours ... ok
+test small::global_attention_matches_f64_from_the_start_and_past_the_bias_extent ... Global from 0: worst max-rel error 5.722e-3, min cosine 0.99999509
+test small::global_attention_matches_f64_past_the_floor ... Global from 127995: worst max-rel error 4.611e-3, min cosine 0.99999529
+test small::golden_inkling2_attn_hashes ... ok
+test small::graph_replay_equals_eager ... ok
+test small::kv8_page_is_264192_bytes_at_the_mini ... ok
+test small::local_attention_matches_f64_through_the_ring_wrap ... Local from 0: worst max-rel error 5.833e-3, min cosine 0.99999388
+test small::partial_mode_equals_fold_mode_past_256_chunks ... ok
+test small::per_visit_state_follows_the_loop_schedule ... ok
+test small::prologue_log_scaling_past_the_floor_matches_the_cpu ... ok
+test small::prologue_matches_the_cpu_transcription_bit_for_bit ... ok
+test small::row_block_size_changes_no_bit ... ok
+test small::verify_windows_with_rejected_rows_equal_serial_replay ... ok
+test result: ok. 14 passed; 0 failed; 1 ignored; 0 measured; 15 filtered out; finished in 21.53s
+### new gb-cuda inkling2_ops split_topk sharded_argmax unembed_softcap golden
+== gb-cuda split_topk
+test split_topk_equals_the_local_scan_and_merge ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 34 filtered out; finished in 0.33s
+== gb-cuda sharded_argmax
+test sharded_argmax_takes_the_lowest_index_among_equal_maxima ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 34 filtered out; finished in 0.26s
+== gb-cuda unembed_softcap
+test unembed_softcap_masks_the_padding_and_the_sharded_topk_is_the_global_one ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 34 filtered out; finished in 0.31s
+== gb-cuda golden
+test golden_inkling2_ops_hashes ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 34 filtered out; finished in 0.66s
+### new gb-cuda exl3_big big_linear_equals_the_decode_path_on big_linear_equals_the_decode_path_for big_linear_rows the_big_plan
+== gb-cuda big_linear_equals_the_decode_path_on
+test big_linear_equals_the_decode_path_on_the_glm_shapes ... 8610 rows of 10 GLM shapes bit-identical to the decode path
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 1.71s
+== gb-cuda big_linear_equals_the_decode_path_for
+test big_linear_equals_the_decode_path_for_every_width_codebook_and_dtype ... 360 cases bit-identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.82s
+== gb-cuda big_linear_rows
+test big_linear_rows_do_not_depend_on_the_call ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.52s
+== gb-cuda the_big_plan
+test the_big_plan_is_the_decode_plan ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.08s
+### new gb-model inkling2_loop_prefill_perf prefill_curve
+== gb-model prefill_curve
+test prefill_curve ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=112050 took_mib=0.0 mem_available_mib=117447
+PF_CHUNK rep=0 first=0 rows=4096 ms=1580.43
+PF_CHUNK_DIGEST first=0 5b764ed4f264d9f86b66ee8fb881434fefc3e35335f3f1e151467509111496ab
+PF_CHUNK rep=0 first=4096 rows=4096 ms=1623.79
+PF_CHUNK_DIGEST first=4096 e851ce8cbccc829d5a82243696a1849b5024d1ac25d8406608543eb9d9fcaf29
+PF_CHUNK rep=0 first=8192 rows=4096 ms=1663.55
+PF_CHUNK_DIGEST first=8192 c9973724d2c3b274fce84ee5bde8dff5d9f08e597c7db2d2d9f62917b513ccc9
+PF_CHUNK rep=0 first=12288 rows=4096 ms=1708.92
+PF_CHUNK_DIGEST first=12288 d4677af95dc8d19cadda187a314cc4af9b05dc3aeb2e916272cbc5cde102d923
+PF_CHUNK rep=0 first=16384 rows=4096 ms=1756.17
+PF_CHUNK_DIGEST first=16384 76fdc25416851bcd0865a64430e4b657fe6dd8e0f3ce64adfeb94f0f68fe6c73
+PF_CHUNK rep=0 first=20480 rows=4096 ms=1800.50
+PF_CHUNK_DIGEST first=20480 f6d92f3db9818e3c01a1bfce43dc644a77820ea94e56664950ba86dac6e8b63c
+PF_CHUNK rep=0 first=24576 rows=4096 ms=1853.00
+PF_CHUNK_DIGEST first=24576 6f605992631608e61195a0254d5e53488a345b06e2e8cb6730c59458ec722c09
+PF_CHUNK rep=0 first=28672 rows=4096 ms=1893.74
+PF_CHUNK_DIGEST first=28672 6f45bcd72165335a47ca85ae6df86690574b3ce2c10b9a7085c1b2df39945163
+PF_CHUNK rep=0 first=32768 rows=4096 ms=1943.96
+PF_CHUNK_DIGEST first=32768 38622d6a6d584ae53ca7918f293bb3ba00755ae3913ac12e20331ce92b0414df
+PF_CHUNK rep=0 first=36864 rows=4096 ms=1995.66
+PF_CHUNK_DIGEST first=36864 5d72d9b5476034317802dc3114dae4bc3f101ecb3e0c8046465b5a918b52a47e
+PF_CHUNK rep=0 first=40960 rows=4096 ms=2037.78
+PF_CHUNK_DIGEST first=40960 7a26a3d56e869fea60965822cd1dbd2efaaad2cfc859e65fe1482ea465d70cfb
+PF_CHUNK rep=0 first=45056 rows=4096 ms=2093.03
+PF_CHUNK_DIGEST first=45056 9771dd44608089a97490e94ae3c27178620e85b2007b3746ef7616dacae4e506
+PF_CHUNK rep=0 first=49152 rows=4096 ms=2130.52
+PF_CHUNK_DIGEST first=49152 d8e8aff6765133e8aa7473999e7ed5f2cf3b27751390800be88df571d44b6d51
+PF_CHUNK rep=0 first=53248 rows=4096 ms=2184.21
+PF_CHUNK_DIGEST first=53248 4879ed99e5cb52c01c1fa382f70bb56f142ba38a3b3d3364088f26494f74608e
+PF_CHUNK rep=0 first=57344 rows=4096 ms=2225.82
+PF_CHUNK_DIGEST first=57344 39e173f7d193bd0698ad1a8ec27e790171331b6d8d6f815dfff54f9a5924da24
+PF_CHUNK rep=0 first=61440 rows=4096 ms=2273.79
+PF_CHUNK_DIGEST first=61440 272aaac5bd920cc623ab85a7812ec77b423cffaf0eb63d44087f71287c1c51f5
+PF_CHUNK rep=0 first=65536 rows=4096 ms=2319.04
+PF_CHUNK_DIGEST first=65536 8908a65b8d726598d5402acf2647d1b06188823b64ca77e2853ad7e9a6b4dc1c
+PF_CHUNK rep=0 first=69632 rows=4096 ms=2369.12
+PF_CHUNK_DIGEST first=69632 96f617ccb3b9bf0646be75577be338328a2f98f96d17ea8caea073ce5bf100cc
+PF_CHUNK rep=0 first=73728 rows=4096 ms=2410.06
+PF_CHUNK_DIGEST first=73728 8190dd4e8e10f2eaa8b717a2e775baf735d9ee68b3570d87bd465bc336259a0e
+PF_CHUNK rep=0 first=77824 rows=4096 ms=2469.33
+PF_CHUNK_DIGEST first=77824 c8d633a8547abc83666e1b2adce046584109c18359dd3fd40f087ff812d5c331
+PF_CHUNK rep=0 first=81920 rows=4096 ms=2509.23
+PF_CHUNK_DIGEST first=81920 33ba3c889c74d18e1036029c0132585246da72368a8c1a46ddc46c185f4980c3
+PF_CHUNK rep=0 first=86016 rows=4096 ms=2558.34
+PF_CHUNK_DIGEST first=86016 0d23b0035ea41d1951fef39ce821c2cd37c5177056b240ad4af4234f6de3b0b3
+PF_CHUNK rep=0 first=90112 rows=4096 ms=2600.59
+PF_CHUNK_DIGEST first=90112 055db6ac86ac75ddaaee0184bd67627283e8f275dff1f71b234169d0df76be49
+PF_CHUNK rep=0 first=94208 rows=4096 ms=2647.91
+PF_CHUNK_DIGEST first=94208 92583d1688490e2d024e88387194bbd0d1779362df1fa0c49bf2e5439ff07f0f
+PF_CHUNK rep=0 first=98304 rows=4096 ms=2703.62
+PF_CHUNK_DIGEST first=98304 ca0967e708b87ae671af1df913c97269c231c0daa3860b3e3cf77c705e5cca4a
+PF_CHUNK rep=0 first=102400 rows=4096 ms=2742.97
+PF_CHUNK_DIGEST first=102400 99bdcdef39acbd9fd330fbd87f34cfd94bc604c0d66b0ab3e0f86987a99c7488
+PF_CHUNK rep=0 first=106496 rows=4096 ms=2793.98
+PF_CHUNK_DIGEST first=106496 a46c5b2486f7f965f11ff70ec6ea2d41460e9974e7125ff7e4c3698e0c715d1e
+PF_CHUNK rep=0 first=110592 rows=4096 ms=2842.95
+PF_CHUNK_DIGEST first=110592 ae9b31e9f0de41be4983a9499cba661e274904ea79204327b79219827d96884f
+PF_CHUNK rep=0 first=114688 rows=4096 ms=2885.84
+PF_CHUNK_DIGEST first=114688 ee416ae8f8801d2f490b3006b763d0c4ad7aa3d6fdbd3ee03d93f3021dace716
+PF_CHUNK rep=0 first=118784 rows=4096 ms=2928.18
+PF_CHUNK_DIGEST first=118784 b5dd3737e5ba28455db6e46c02700839b47b46fb0bb0f744e8b568a0072d9165
+PF_CHUNK rep=0 first=122880 rows=4096 ms=2977.28
+PF_CHUNK_DIGEST first=122880 2cf3c4f08bc9f2a3168cc50050cc7c8a61e083bca7fb442285290cd5c4d4c912
+PF_CHUNK rep=0 first=126976 rows=4096 ms=3031.13
+PF_CHUNK_DIGEST first=126976 b689959ad5ce6570f236d436b6b26b11e794ac7562dedd931a864b607cd18a95
+PF_CHUNK rep=0 first=131072 rows=4096 ms=3071.27
+PF_CHUNK_DIGEST first=131072 57dbb9ac93d28585f04085b928ac06604e8728c10d3e5050fcb7bb9af5d8bc1e
+PF_TOTAL rep=0 tokens=135168 chunk=4096 s=76.627 tok_s=1764.0
+PF_DIGEST=f684af750c222810a48e72c536fc5385c0ff68f0f6316af66db127a3a709bcb3
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 85.99s
+### new gb-model inkling2_loop_prefill_perf prefill_curve
+== gb-model prefill_curve
+test prefill_curve ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=114624 took_mib=0.0 mem_available_mib=118549
+PF_CHUNK rep=0 first=0 rows=8192 ms=3153.42
+PF_CHUNK rep=0 first=8192 rows=8192 ms=3340.63
+PF_CHUNK rep=0 first=16384 rows=8192 ms=3525.21
+PF_CHUNK rep=0 first=24576 rows=8192 ms=3703.92
+PF_CHUNK rep=0 first=32768 rows=8192 ms=3883.74
+PF_CHUNK rep=0 first=40960 rows=8192 ms=4067.68
+PF_CHUNK rep=0 first=49152 rows=8192 ms=4246.57
+PF_CHUNK rep=0 first=57344 rows=8192 ms=4439.60
+PF_CHUNK rep=0 first=65536 rows=8192 ms=4615.66
+PF_CHUNK rep=0 first=73728 rows=8192 ms=4794.33
+PF_CHUNK rep=0 first=81920 rows=8192 ms=4992.54
+PF_CHUNK rep=0 first=90112 rows=8192 ms=5171.40
+PF_CHUNK rep=0 first=98304 rows=8192 ms=5354.22
+PF_CHUNK rep=0 first=106496 rows=8192 ms=5537.92
+PF_CHUNK rep=0 first=114688 rows=8192 ms=5712.08
+PF_CHUNK rep=0 first=122880 rows=8192 ms=5901.41
+PF_CHUNK rep=0 first=131072 rows=4096 ms=3074.45
+PF_TOTAL rep=0 tokens=135168 chunk=8192 s=75.516 tok_s=1789.9
+PF_DIGEST=823553ce2d0494d0b2b72a11725c5a58bb952d5e866d800a1fba1470144f140d
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 88.34s
+### new gb-cuda inkling2_dspark 
+== gb-cuda 
+test bench_propose ... ignored
+test golden_inkling2_dspark_hashes ... REXL3_INKLING2_DIR unset: not run
+test int8_plane_tracks_the_bf16_plane ... REXL3_INKLING2_DIR unset: not run
+test matches_the_oracle_at_tp4 ... REXL3_INKLING2_DIR unset: not run
+test matches_the_oracle_on_one_rank ... REXL3_INKLING2_DIR unset: not run
+test mini_drafter::mini_a_million_positions_use_257_partials ... a million positions committed in 4.9 s
+test mini_drafter::mini_contexts_past_one_group_and_a_full_launch_are_row_invariant ... Bf16: lengths [4095, 4096, 4097, 5000] in one launch: alone == reversed == repeated == batch; drafts [[220, 17, 87, 18, 13, 220, 44150], [220, 17, 25, 220, 19, 12, 69307], [220, 17, 13, 220, 44150, 11, 220], [4153, 11, 220, 19, 13, 20, 33]]
+test mini_drafter::mini_enqueue_proposal_refuses_a_batch_the_scratch_cannot_hold ... ok
+test mini_drafter::mini_golden_hashes ... golden hashes equal /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-prefill/src/crates/cuda/../../testdata/gpu/golden_inkling2_loop_dspark.txt
+test mini_drafter::mini_graph_replay_equals_eager ... Bf16, pdl mask 0: graph replay == eager (free and forced; drafts, hd, Markov state)
+test mini_drafter::mini_graph_replay_follows_restaged_positions ... Bf16: a graph captured at [40, 700, 1024, 1290] replays at [43, 703, 1027, 1293] as the eager proposal does
+test mini_drafter::mini_incremental_commit_equals_one_commit_and_rollback_equals_replay ... Bf16: drafts at 1103: [62, 1485, 62, 102940, 62, 102940, 62]; rollback, chunked and many-commit replays are bit-equal
+test mini_drafter::mini_int8_plane_tracks_the_bf16_plane ... int8 vs bf16 plane, lengths [5, 300, 700, 1100, 1300]: free drafts agree 35/35; layer-1 K/V max 5.80 steps, 9081 of 10240 differ, rel L2 1.05e-2; hd max 41.21 steps, 77890 of 92160 differ, rel L2 1.34e-2
+test mini_drafter::mini_markov_variant_c_agrees_with_a ... MARKOV_VARIANT_AGREE synthetic features, 7 anchors [5, 40, 300, 700, 1024, 1100, 1300]
+test mini_drafter::mini_markov_variant_c_is_deterministic_and_graph_safe ... MARKOV_VARIANT_GRAPH Bf16 pdl mask 0: variant c twice equal, graph replay == eager (free and forced)
+test mini_drafter::mini_markov_variant_c_timing ... MARKOV_VARIANT_TIMING b=1 at 1300 positions (int8 plane, median of 20 propose calls): a 7.827 ms, c 15.342 ms, c - a 7.514 ms per round
+test mini_drafter::mini_matches_the_oracle ... REXL3_INKLING2_LOOP_DIR / REXL3_INKLING2_LOOP_DSPARK_ORACLE unset: not run
+test mini_drafter::mini_norm_rows_equal_the_float64_reference ... norm rows at 2,304 (256 threads of 9 columns) vs the float64 reference: 0 of 5529600 bf16 outputs differ (worst relative 0.00e0)
+test mini_drafter::mini_propose_timing ... weights on the device 339917888 bytes (the fold's fold_w + fold_b 103359232 of them); state and scratch 28592224 bytes; upload with the fold 0.04 s
+test mini_drafter::mini_refuses_what_it_cannot_draft ... the drafter refuses an empty context, an anchor past the vocabulary, a repeated slot, a hole, a short stride, a wrong geometry
+test mini_drafter::mini_rows_are_invariant_across_windows ... Bf16: lengths [5, 700, 1023, 1024, 1025, 1031, 1032, 1033, 1100, 1300]: every request alone, in a reversed batch and repeated equals the batch (drafts and traces)
+test mini_drafter::mini_slot_snapshot_restores_the_bits ... a slot restored from its snapshot and plane pages proposes the same bits
+test refuses_what_it_cannot_draft ... REXL3_INKLING2_DIR unset: not run
+test rollback_and_restore_equal_replay ... REXL3_INKLING2_DIR unset: not run
+test rollback_and_restore_equal_replay_int8 ... REXL3_INKLING2_DIR unset: not run
+test rows_are_invariant_and_ranks_agree ... REXL3_INKLING2_DIR unset: not run
+test rows_are_invariant_and_ranks_agree_int8 ... REXL3_INKLING2_DIR unset: not run
+test slot_snapshot_restores_the_bits ... REXL3_INKLING2_DIR unset: not run
+test the_split_counts_agree ... ok
+test result: ok. 28 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 18.39s
+### done new

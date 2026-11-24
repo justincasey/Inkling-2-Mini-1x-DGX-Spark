@@ -1,0 +1,25 @@
+ok   chat (0.53s, finish length, usage {"prompt_tokens": 37, "completion_tokens": 32, "total_tokens": 69, "prompt_tokens_details": {"cached_tokens": 0}, "completion_tokens_details": {"reasoning_tokens": 30}, "spec": {"drafted": 35, "accepted": 19, "rounds": 12}}; spec drafted=35 accepted=19 rounds=12 acceptance=0.5429 tokens/round=2.6667)
+     content:   ''
+     reasoning: 'The user asks for the capital of France, answer in one word. Need answer only one word. Capital of France is Paris. Ensure final exactly one'
+     token_ids: [200001, 200008, 371, 150409, 171960, 149887, 149876, 151451, 149879, 151194, 11, 150893, 149881, 150011, 151290, 13, 170289, 150893, 150130, 150011, 151290, 13, 158558, 149879, 151194, 149884, 152717, 13, 174520, 150400, 152703, 150011]
+ok   completion (0.18s, finish length, usage {"prompt_tokens": 35, "completion_tokens": 16, "total_tokens": 51, "prompt_tokens_details": {"cached_tokens": 0}, "completion_tokens_details": {"reasoning_tokens": 0}, "spec": {"drafted": 12, "accepted": 12, "rounds": 3}}; spec drafted=12 accepted=12 rounds=3 acceptance=1.0 tokens/round=5.3333)
+     prompt:    '1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,'
+     text:      ' 13, 14, 15, 16, 17, '
+     token_ids: [220, 68079, 11, 220, 68084, 11, 220, 68063, 11, 220, 68080, 11, 220, 68107, 11, 220]
+ok   tool (0.80s, finish tool_calls, usage {"prompt_tokens": 128, "completion_tokens": 59, "total_tokens": 187, "prompt_tokens_details": {"cached_tokens": 0}, "completion_tokens_details": {"reasoning_tokens": 25}, "spec": {"drafted": 70, "accepted": 43, "rounds": 17}}; spec drafted=70 accepted=43 rounds=17 acceptance=0.6143 tokens/round=3.4706)
+     tool_calls: [{"id": "call_d173e5783c168f9d", "type": "function", "function": {"name": "get_weather", "arguments": "{\"city\":\"Paris\"}"}}]
+     content:    ''
+     reasoning:  'The user asks for current weather in Paris using get_weather tool. Need call function. Then answer based on result.'
+ok   think-on (3.09s, finish stop, usage {"prompt_tokens": 38, "completion_tokens": 242, "total_tokens": 280, "prompt_tokens_details": {"cached_tokens": 0}, "completion_tokens_details": {"reasoning_tokens": 188}, "spec": {"drafted": 333, "accepted": 160, "rounds": 83}}; spec drafted=333 accepted=160 rounds=83 acceptance=0.4805 tokens/round=2.9157)
+     reasoning_effort 'high': reasoning_tokens=188, reasoning 619 chars, content 146 chars
+     content:   '**9 sheep.**\n\n"All but 9 run away" means that 9 sheep stay behind — the other 8 (17 − 9) are the ones who ran off. So the farmer has 9 sheep left.'
+     reasoning: 'This is a classic riddle/trick question. Let me think carefully.\n\n"A farmer has 17 sheep. All but 9 run away. How many sheep does the farmer have left?"\n\nThe straightforward reading: All but 9 run away means 9 sheep remain (the ones that didn\'t run away). So the answer is 9.\n\nWait, let me parse: "Al'
+ok   think-off (1.32s, finish stop, usage {"prompt_tokens": 36, "completion_tokens": 116, "total_tokens": 152, "prompt_tokens_details": {"cached_tokens": 0}, "completion_tokens_details": {"reasoning_tokens": 105}, "spec": {"drafted": 142, "accepted": 83, "rounds": 33}}; spec drafted=142 accepted=83 rounds=33 acceptance=0.5845 tokens/round=3.5152)
+     reasoning_effort 'none': reasoning_tokens=105, reasoning 352 chars, content 17 chars
+     content:   '9 sheep are left.'
+     reasoning: 'The user asks a riddle: "A farmer has 17 sheep. All but 9 run away. How many sheep does the farmer have left?" Need answer. Interpret "All but 9 run away" means all except 9 run away, so 9 remain. Need be careful: farmer has 17 sheep, all but 9 run away = 17-9=8 run away, 9 left. Answer 9. Provide c'
+ok   image (0.73s, finish stop, usage {"prompt_tokens": 70, "completion_tokens": 49, "total_tokens": 119, "prompt_tokens_details": {"cached_tokens": 0}, "completion_tokens_details": {"reasoning_tokens": 40}, "spec": {"drafted": 65, "accepted": 32, "rounds": 17}}; spec drafted=65 accepted=32 rounds=17 acceptance=0.4923 tokens/round=2.8824)
+     image red-square (240x240 PNG, 970 bytes as a data URL), colour words ['red'] in: content
+     content:   'Red square.'
+     reasoning: 'The user wants a brief answer about the color and shape in the image. The image shows a red square/rectangle on a white background. It appears to be a red square. Answer briefly.'
+smoke: pass (chat ok, completion ok, tool ok, think-on ok, think-off ok, image ok)

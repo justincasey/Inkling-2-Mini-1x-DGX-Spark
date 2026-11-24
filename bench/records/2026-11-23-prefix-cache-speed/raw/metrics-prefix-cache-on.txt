@@ -1,0 +1,40 @@
+# HELP rexl3_prefix_cache_enabled 1 when the engine runs a prefix cache.
+rexl3_prefix_cache_enabled 1
+# HELP rexl3_prefix_cache_lookups_total Requests that looked the prefix cache up (above 128 prompt tokens, text, not opted out).
+rexl3_prefix_cache_lookups_total 121
+# HELP rexl3_prefix_cache_lookup_tokens_total Prompt tokens of the requests that looked the cache up.
+rexl3_prefix_cache_lookup_tokens_total 1289812
+# HELP rexl3_prefix_cache_hits_total Lookups that found a stored prefix and resumed from it.
+rexl3_prefix_cache_hits_total 67
+# HELP rexl3_prefix_cache_tokens_saved_total Prompt tokens a hit did not prefill.
+rexl3_prefix_cache_tokens_saved_total 827196
+# HELP rexl3_prefix_cache_inserts_total Snapshots stored.
+rexl3_prefix_cache_inserts_total 66
+# HELP rexl3_prefix_cache_duplicates_total Snapshots dropped because the prefix was stored already.
+rexl3_prefix_cache_duplicates_total 0
+# HELP rexl3_prefix_cache_no_room_total Snapshots dropped because they could not fit.
+rexl3_prefix_cache_no_room_total 0
+# HELP rexl3_prefix_cache_evictions_total Entries evicted (least recently used first, a prefix hit at least twice last).
+rexl3_prefix_cache_evictions_total 50
+# HELP rexl3_prefix_cache_evicted_for_pages_total Evictions made to fit a new entry's pages in the page budget.
+rexl3_prefix_cache_evicted_for_pages_total 0
+# HELP rexl3_prefix_cache_evicted_for_slots_total Evictions made to free a snapshot slot for a capture.
+rexl3_prefix_cache_evicted_for_slots_total 50
+# HELP rexl3_prefix_cache_restore_failures_total Restores that failed (the entry was dropped and the prompt prefilled cold).
+rexl3_prefix_cache_restore_failures_total 0
+# HELP rexl3_prefix_cache_captures_discarded_total Snapshots released unused because their sequence failed or was cancelled while prefilling.
+rexl3_prefix_cache_captures_discarded_total 0
+# HELP rexl3_prefix_cache_entries Entries stored.
+rexl3_prefix_cache_entries 16
+# HELP rexl3_prefix_cache_pages Distinct KV pages the entries hold.
+rexl3_prefix_cache_pages 964
+# HELP rexl3_prefix_cache_snapshot_slots Snapshot slots reserved for the cache.
+rexl3_prefix_cache_snapshot_slots 16
+# HELP rexl3_prefix_cache_page_blocks KV pages reserved for the cache.
+rexl3_prefix_cache_page_blocks 1536
+# HELP rexl3_prefix_cache_bytes Bytes the entries hold (snapshot slots plus distinct pages).
+rexl3_prefix_cache_bytes 6808272896
+# HELP rexl3_prefix_cache_budget_bytes Bytes reserved for the cache at boot.
+rexl3_prefix_cache_budget_bytes 9226158080
+# HELP rexl3_prefix_cache_hit_ratio Hits per lookup since boot.
+rexl3_prefix_cache_hit_ratio 0.553719

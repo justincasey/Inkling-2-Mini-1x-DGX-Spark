@@ -1,0 +1,5 @@
+# prefill_curve, PF_TOKENS=32768, engine 7da8c61 tree, no profiler, one run each (host time of the whole prompt, real token ids of the sweep's pass-0 prompt)
+PF_CHUNK=1024  s=16.047 tok_s=2042.1 digest 8aca0412ca6ff89777b9380b36596b82ab8309a03bf5f482da41c43c49a588c4
+PF_CHUNK=2048  s=14.766 tok_s=2219.2 digest 8aca0412ca6ff89777b9380b36596b82ab8309a03bf5f482da41c43c49a588c4
+PF_CHUNK=4096  s=14.414 tok_s=2273.3 digest 8aca0412ca6ff89777b9380b36596b82ab8309a03bf5f482da41c43c49a588c4
+PF_CHUNK=8192  refused by the engine: "a prefill chunk is at most 4,096 rows and a window at most 128 (asked 8192 and 8)"

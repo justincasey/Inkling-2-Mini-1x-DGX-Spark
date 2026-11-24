@@ -1,0 +1,44 @@
+GPU SM clock capped at 2200 MHz on node-3
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-pintests/target/release/deps/inkling2_dspark-2190377fb6671b23
+GPU SM clock capped at 2200 MHz on node-3
+== gb-cuda matches_the_oracle_on_one_rank
+running 1 test
+test matches_the_oracle_on_one_rank ... reference tp1 vs tp4 (rounding noise): hd max 27.68 steps, 214175 of 294912 differ, rel L2 7.32e-3; Markov max 12.22 steps, 12877 of 28672 differ, rel L2 5.66e-3; logits max |d| 0.5
+real_raw-counting_tp1 (1 rank(s), anchors [1, 13, 25, 35, 38, 41, 44, 50]):
+  ctx K/V max 1.90 steps, 178 of 512000 differ, rel L2 6.76e-5
+  f_rnn max 0.00 steps, 0 of 36864 differ, rel L2 0.00e0
+  hd max 12.41 steps, 205139 of 294912 differ, rel L2 7.13e-3
+  Markov state+latent max 27.39 steps, 12779 of 28672 differ, rel L2 5.61e-3
+  logits max |d| 0.5 mean 2.23e-2
+  drafts 56/56 equal (first divergence per anchor [7, 7, 7, 7, 7, 7, 7, 7]); teacher-forced picks 56/56 equal (0 near-tie flips)
+  reference drafts the target accepted (greedy prefix) [4, 7, 7, 7, 7, 7, 6, 0]
+ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 30 filtered out; finished in 11.92s
+== gb-cuda matches_the_oracle_at_tp4
+running 1 test
+test matches_the_oracle_at_tp4 ... real_raw-counting_tp4 (4 rank(s), anchors [1, 13, 25, 35, 38, 41, 44, 50]):
+  ctx K/V max 1.90 steps, 178 of 512000 differ, rel L2 6.76e-5
+  f_rnn max 0.00 steps, 0 of 36864 differ, rel L2 0.00e0
+  hd max 22.84 steps, 209531 of 294912 differ, rel L2 6.94e-3
+  Markov state+latent max 22.82 steps, 12648 of 28672 differ, rel L2 5.46e-3
+  logits max |d| 0.46875 mean 2.46e-2
+  drafts 56/56 equal (first divergence per anchor [7, 7, 7, 7, 7, 7, 7, 7]); teacher-forced picks 56/56 equal (0 near-tie flips)
+  reference drafts the target accepted (greedy prefix) [4, 7, 7, 7, 7, 7, 6, 0]
+real_chat-sky-effort0.9_tp4 (4 rank(s), anchors [1, 13, 25, 26, 30, 36, 42, 49]):
+  ctx K/V max 1.79 steps, 178 of 501760 differ, rel L2 5.53e-5
+  f_rnn max 0.00 steps, 0 of 36864 differ, rel L2 0.00e0
+  hd max 13.87 steps, 212168 of 294912 differ, rel L2 6.92e-3
+  Markov state+latent max 13.47 steps, 11461 of 28672 differ, rel L2 4.99e-3
+  logits max |d| 0.484375 mean 1.80e-2
+  drafts 56/56 equal (first divergence per anchor [7, 7, 7, 7, 7, 7, 7, 7]); teacher-forced picks 56/56 equal (0 near-tie flips)
+  reference drafts the target accepted (greedy prefix) [0, 0, 1, 0, 3, 7, 4, 0]
+long_tp4 (4 rank(s), anchors [1, 600, 1023, 1024, 1025, 1031, 1032, 1100]):
+  ctx K/V max 3.26 steps, 3591 of 10641408 differ, rel L2 6.08e-5
+  f_rnn max 0.00 steps, 0 of 36864 differ, rel L2 0.00e0
+  hd max 48.02 steps, 258765 of 294912 differ, rel L2 1.76e-2
+  Markov state+latent max 42.24 steps, 18017 of 28672 differ, rel L2 1.42e-2
+  logits max |d| 0.5625 mean 4.66e-2
+  drafts 50/56 equal (first divergence per anchor [7, 7, 1, 7, 7, 7, 7, 7]); teacher-forced picks 55/56 equal (1 near-tie flips)
+  reference drafts the target accepted (greedy prefix) [0, 0, 0, 0, 0, 0, 0, 0]
+ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 30 filtered out; finished in 24.56s

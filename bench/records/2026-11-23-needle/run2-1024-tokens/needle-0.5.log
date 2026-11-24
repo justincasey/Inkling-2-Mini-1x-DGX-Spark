@@ -1,0 +1,51 @@
+lane 0: 9581 sentences, 260019 prompt tokens, depth 0.50
+lane 0: answered found=True prompt_tokens=260019 prefill_s=299.067 total_s=312.232
+{
+ "url": "http://node-4:8000",
+ "model": "inkling-2-mini-1x-dgx-spark",
+ "date": "2026-11-23T06:15:03Z",
+ "tokens_per_sentence": 25.7745,
+ "lanes": [
+  {
+   "lane": 0,
+   "depth": 0.5,
+   "target_tokens": 262144,
+   "code": "OTTER-2624-OTTER",
+   "sentences": 9581,
+   "prompt_tokens_rendered": 260019,
+   "sizing": "render",
+   "admitted_s": 0.063,
+   "status": "answered",
+   "http_status": 200,
+   "admitted": true,
+   "prefill_s": 299.067,
+   "total_s": 312.232,
+   "finish_reason": "stop",
+   "usage": {
+    "prompt_tokens": 260019,
+    "completion_tokens": 282,
+    "total_tokens": 260301,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 268
+    },
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 281
+    }
+   },
+   "prompt_tokens": 260019,
+   "answer": "OTTER-2624-OTTER",
+   "reasoning_tail": "r-provided text. However, the phrase \"Keep it safe\" suggests confidentiality. But the user is the one who provided the archive and asks for it. In these tasks, the expected answer is the pass-code. We should answer with pass-code only. Need ensure exact: OTTER-2624-OTTER.\n\nNeed final only pass-code.",
+   "found": true,
+   "found_in_reasoning": true
+  }
+ ],
+ "wall_s": 312.233,
+ "all_admitted": true,
+ "all_answered": true,
+ "pass": true
+}

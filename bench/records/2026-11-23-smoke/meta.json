@@ -1,0 +1,124 @@
+{
+  "name": "smoke",
+  "date": "2026-11-23",
+  "recipe": {
+    "commit": "09b6cc723c3ae08ad78f779716cdf55c686514eb",
+    "dirty_files": []
+  },
+  "pack": {
+    "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+    "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+    "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+  },
+  "engine": {
+    "commit": "c0cf5a1ba9b0c05b85b16fe3b1d085081c06d470",
+    "sha256": "1b755aac95f91bfe27dcd7a448b446778bbac56ee806a6846248935282df49bf",
+    "pinned_commit": "",
+    "lab_build": true,
+    "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+    "version": {
+      "version": "0.1.1",
+      "commit": "c0cf5a1ba9b0c05b85b16fe3b1d085081c06d470",
+      "system_fingerprint": "fp_c0cf5a1ba9b0_ca3ba287_cb1311",
+      "nvcc": "13.0.88",
+      "cuda_arch": "sm_121",
+      "kernel_hash": "ca3ba287e1a5ac9e",
+      "cudart": "13.0",
+      "cuda_driver": "13.0",
+      "cublas": "13.1.1"
+    },
+    "dirty": false
+  },
+  "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+  "config": {
+    "PROFILE": "bootstrap",
+    "PROFILE_MEASURED": "0",
+    "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+    "PORT": "8000",
+    "MAX_MODEL_LEN": "262144",
+    "SLOTS": "4",
+    "KV_TOKENS": "1048576",
+    "PREFILL_CHUNK": "4096",
+    "SPEC": "none",
+    "PREFIX_CACHE": "off",
+    "VISION": "off",
+    "MEMORY_FLOOR_GIB": "",
+    "EXTRA_FLAGS": "",
+    "EXTRA_ENV": "REXL3_ALLOW_UNGATED_COMPONENTS=1",
+    "GPU_CLOCKS": "2200",
+    "GUARD_START_MIB": "2048",
+    "GUARD_MIB": "1024",
+    "GUARD_SWAP_MAX_MIB": "64",
+    "GUARD_SWAP_AVAIL_MIB": "8192",
+    "DROP_CACHES_EVERY_S": "20"
+  },
+  "serve": {
+    "ssh_user": "spark",
+    "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 REXL3_ALLOW_UNGATED_COMPONENTS=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec none --prefix-cache off --no-vision --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+  },
+  "results": [],
+  "gate": "smoke",
+  "result": "pass",
+  "node": "node-4",
+  "tests": [
+    {
+      "bin": "smoke_curl.py",
+      "filter": "chat_effort_none",
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "bin": "smoke_curl.py",
+      "filter": "chat_effort_high",
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "bin": "smoke_curl.py",
+      "filter": "raw_completion",
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "bin": "smoke_curl.py",
+      "filter": "tool_call_parses",
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "bin": "smoke_curl.py",
+      "filter": "decode_128_tokens",
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "bin": "extra.py",
+      "filter": "long_prompt_12610_tokens",
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "bin": "extra.py",
+      "filter": "concurrent4_equals_solo",
+      "passed": 1,
+      "failed": 0
+    }
+  ],
+  "commands": [
+    "./inkling2mini.sh start",
+    "python3 smoke_curl.py http://<node-4>:8000/v1 replies",
+    "python3 extra.py http://<node-4>:8000/v1 replies",
+    "./inkling2mini.sh stop"
+  ],
+  "metrics": {
+    "decode_128_wall_s": 3.423,
+    "decode_tok_s_wall": 37.4,
+    "long_prompt_tokens": 12610,
+    "long_prompt_wall_s": 11.1,
+    "long_prompt_tok_s": 1136.0,
+    "concurrent4_wall_s": 2.7,
+    "solo64_wall_s": 1.72,
+    "concurrent4_equal_to_solo": 1
+  },
+  "notes": "Same boot as first-boot (bootstrap profile, spec none, no prefix cache, no vision). Requests are curl-equivalent (python urllib); bench/tools/smoke.py is the BenchTools lane's and merges later. Greedy (temperature 0). decode_tok_s_wall is 128 tokens over the whole request wall time (prompt of 4 tokens, serial, no graphs). Reply quality is judged by eye, not against the oracle."
+}

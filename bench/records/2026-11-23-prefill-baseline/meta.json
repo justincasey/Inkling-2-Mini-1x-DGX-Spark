@@ -1,0 +1,87 @@
+{
+ "name": "prefill-baseline",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "63ab69556c2ed5f3d0821fd96b00a6db9387bf9c"
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "7da8c61344842f4a2605591d22e97f5ad28d1a7e",
+  "sha256": "112c59c998cf5c9a93ad704b8593f232dbfe82981baa08c325d7fcc0d5f65544",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "commit": "7da8c61344842f4a2605591d22e97f5ad28d1a7e",
+   "note": "binary of the controller build printed at boot; --version fields not re-read (the installed engine was replaced by later builds)"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "none",
+  "PREFIX_CACHE": "off",
+  "VISION": "off",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec none --prefix-cache off --no-vision --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-3",
+ "gate": "speed-prefill-baseline",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "inkling2mini.sh bench prefill-sweep",
+   "filter": "PASS prefill-sweep on 7da8c61 (twice) and on 3df40c1 (8K, 32K)",
+   "passed": 3,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "prefill_8k_tok_s": 2436.7,
+  "prefill_32k_tok_s": 2254.8,
+  "prefill_128k_tok_s": 1725.5,
+  "prefill_224k_tok_s": 1394.9,
+  "prefill_8k_ttft_s": 3.3619,
+  "prefill_32k_ttft_s": 14.5325,
+  "prefill_128k_ttft_s": 75.9602,
+  "prefill_224k_ttft_s": 164.4348,
+  "decode_after_8k_tok_s": 50.541,
+  "decode_after_32k_tok_s": 46.263,
+  "decode_after_128k_tok_s": 34.36,
+  "decode_after_224k_tok_s": 27.603,
+  "isolation_3df40c1_prefill_32k_tok_s": 1200.4,
+  "isolation_3df40c1_prefill_32k_ttft_s": 27.2986,
+  "isolation_3df40c1_prefill_8k_tok_s": 1249.5,
+  "chunk_depth0_span_ms": 1671.74,
+  "chunk_depth0_idle_gaps_ms": 6.29,
+  "chunk_128k_span_ms": 3210.06
+ },
+ "commands": [
+  "see README.md"
+ ],
+ "notes": "Cold prefill medians of three kept passes (warm-up discarded, a unique prompt each pass), node-3 alone, SM clock locked at 2,200 MHz, SPEC none, PREFIX_CACHE off, VISION off, graphs on, chunk 4,096. The 3df40c1 isolation boot used REXL3_ALLOW_UNGATED_COMPONENTS=1. Profile: nsys -t cuda of the prefill_curve lab test on the same tree, not the server."
+}

@@ -1,0 +1,68 @@
+{
+ "name": "fp8-numerics",
+ "gate": "fp8-numerics",
+ "date": "2026-11-23",
+ "result": "fail",
+ "node": "node-4",
+ "engine": {
+  "commit": null,
+  "dirty": false,
+  "version": "none: CPU oracle emulation (oracle/fp8_emu.py), no engine involved"
+ },
+ "recipe": {
+  "commit": "76d2c5f950928f6d19dcf2063e1bd2471062fab3"
+ },
+ "tests": [
+  {
+   "bin": "fp8_emu.py forward --variant A",
+   "filter": "A lane through the fp8 harness equals the engine fixture bitwise (3 prompts)",
+   "passed": 3,
+   "failed": 0
+  },
+  {
+   "bin": "fp8_emu.py layers",
+   "filter": "raw-long-window (1,119 rows) and chat-capital-effort0, real inputs, 7 variants, all dense calls + 5 MoE visits",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "fp8_summary.py",
+   "filter": "gate (b): fp8 added deviation <= A-lane floor at every visit (f8_row, 3 prompts)",
+   "passed": 0,
+   "failed": 3
+  }
+ ],
+ "commands": [
+  "nice -n 19 python oracle/fp8_emu.py layers --pack PACK --fixture <tokens of raw-long-window> --out layers-long.json --workers 5 --threads 2 --weight-cache-gib 12",
+  "nice -n 19 python oracle/fp8_emu.py layers --pack PACK --fixture <chat-capital-effort0> --out layers-chat-capital.json --workers 3 --threads 1 --weight-cache-gib 6",
+  "nice -n 19 python oracle/fp8_emu.py forward --pack PACK --fixture <prompt> --variant <v> --out fwd/<v>-<prompt>.safetensors --workers 4 --threads 2 (v in A f8_row f8_blk128 f8_row_tile f8_wt f8_act_row; prompts chat-capital-effort0 chat-sky-effort0.9 raw-counting)",
+  "python oracle/fp8_summary.py --spec fixtures/spec --engine fixtures/engine --runs fwd --prompts chat-capital-effort0 chat-sky-effort0.9 raw-counting --out summary.json"
+ ],
+ "metrics": {
+  "op_rel_l2_A_moe_layer_long": 0.0008006,
+  "op_rel_l2_f8_row_moe_layer_long": 0.0479,
+  "op_ratio_f8_row_over_A_moe_layer_long": 59.8,
+  "op_rel_l2_A_attn_q_long": 0.0001779,
+  "op_rel_l2_f8_row_attn_q_long": 0.03207,
+  "op_ratio_f8_row_over_A_dense_min": 179,
+  "op_ratio_f8_row_over_A_dense_max": 181,
+  "op_rel_l2_f8_row_tile_moe_layer_long": 0.04789,
+  "op_rel_l2_f8_blk128_moe_layer_long": 0.04734,
+  "hidden_floor_mean_chat_capital": 0.0405,
+  "hidden_added_mean_f8_row_chat_capital": 0.0841,
+  "hidden_floor_mean_chat_sky": 0.0254,
+  "hidden_added_mean_f8_row_chat_sky": 0.0653,
+  "hidden_floor_mean_raw_counting": 0.0663,
+  "hidden_added_mean_f8_row_raw_counting": 0.1017,
+  "visits_added_le_floor_f8_row_of_144": 0,
+  "kl_A_chat_capital": 0.0028,
+  "kl_f8_row_chat_capital": 0.026,
+  "kl_A_chat_sky": 0.0025,
+  "kl_f8_row_chat_sky": 0.0264,
+  "kl_A_raw_counting": 0.00017,
+  "kl_f8_row_raw_counting": 0.0007,
+  "argmax_flips_vs_exact_f8_row_of_139_rows": 7,
+  "argmax_flips_vs_exact_A_of_139_rows": 0
+ },
+ "notes": "fail = the decision gate's condition (b) does not hold; the measurements are complete. CPU only on node-4 (torch float8_e4m3fn emulation, float64 standing for fp32 accumulation, as the oracle's own fp16 emulations). The 1,119-token prompt was probed at the op level only (all dense calls, MoE of visits 1, 8, 28, 40, 46); the whole-forward propagation used the three short prompts (40, 49, 50 teacher-forced rows). lab dir: lab/inkling2-mini-k-fp8 on node-4."
+}

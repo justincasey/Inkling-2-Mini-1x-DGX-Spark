@@ -1,0 +1,108 @@
+{
+ "name": "copy-hybrid",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "5af5fccabbab1733cb2423065d459e9d5926665f",
+  "dirty_files": [
+   "bench/records/2026-11-23-copy-hybrid/tools/run_speed.sh",
+   "bench/records/2026-11-23-copy-hybrid-exact/raw/"
+  ]
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "efcb6ed25153766f1d35b664cdbec662f06eb6ee",
+  "sha256": "3b9d83d652f757f4878d9fd14618ca23e25bbb1c4e2e79b332a0d4c222be5505",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "efcb6ed25153766f1d35b664cdbec662f06eb6ee",
+   "system_fingerprint": "fp_efcb6ed25153_5eedc329_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "5eedc329c09b3b74",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "1",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "dspark",
+  "PREFIX_CACHE": "on",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-4",
+ "gate": "speed-decode",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "bench/tools/specbench.py",
+   "filter": "drafted == serial, six kinds and c=4, copy hybrid on and off",
+   "passed": 14,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/specmix.py",
+   "filter": "drafting follows the traffic (chat,code,reasoning,json,chat), copy hybrid on and off",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/bench.py rolling",
+   "filter": "each rolling reply equal to its solo reply, 3 runs x 2 configurations",
+   "passed": 6,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "decode_mean4_tok_s": 85.41,
+  "decode_mean4_off_tok_s": 83.92,
+  "decode_mean4_gain_tok_s": 1.49,
+  "decode_prose_tok_s": 49.65,
+  "decode_code_tok_s": 119.83,
+  "decode_structured_tok_s": 82.42,
+  "decode_json_tok_s": 90.6,
+  "decode_c4_tok_s": 108.88,
+  "decode_c4_rolling_tok_s": 134.76,
+  "decode_c4_rolling_off_tok_s": 134.42,
+  "decode_c4_steady_tok_s": 136.31,
+  "specbench_c4_drafted_tok_s": 115.403,
+  "specmix_json_tok_s": 86.24,
+  "specmix_json_off_tok_s": 84.19
+ },
+ "commands": [
+  "NODES=<node-4> REXL3_SRC=<engine worktree> ./inkling2mini.sh build efcb6ed25153766f1d35b664cdbec662f06eb6ee",
+  "bash tools/run_speed.sh on raw/on",
+  "bash tools/run_speed.sh off raw/off"
+ ],
+ "notes": "decode_mean4_tok_s is the median of the three run means of bench decode (85.4, 85.7, 85.4) with the copy hybrid at the engine default; the same binary with REXL3_INKLING2_LOOP_SPEC_COPY=off gave 83.92 (83.9, 83.8, 85.0) the same afternoon. The 100 tok/s target is not reached. Earlier policy (min match 8): raw/on-v1-min8, 85.91 but code -2.7 %: not shipped. Exactness: 2026-11-23-copy-hybrid-exact, same engine commit."
+}

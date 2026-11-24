@@ -1,0 +1,32 @@
+### unfixed: graphs tests
+== gb-model a_capture_refused
+thread 'a_capture_refused_inside_the_two_launch_wrappers_runs_eager' panicked at crates/model/tests/inkling2_loop_graphs.rs:321:74:
+Prologue run 1: a refused capture failed the window: CUDA error 719 (cudaErrorLaunchFailure)
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 8 filtered out; finished in 7.69s
+ops_dev: 'a_capture_refused' did not pass
+== gb-model changing_the_overlap
+thread 'changing_the_overlap_forgets_the_captured_graphs' panicked at crates/model/tests/inkling2_loop_graphs.rs:406:5:
+assertion `left == right` failed: a graph captured with the lanes replayed after the lanes were switched off
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 8 filtered out; finished in 10.12s
+ops_dev: 'changing_the_overlap' did not pass
+== gb-model a_graph_captured_early
+thread 'a_graph_captured_early_replays_late_at_a_small_context' panicked at crates/model/tests/inkling2_loop_graphs.rs:437:17:
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 8 filtered out; finished in 15.08s
+ops_dev: 'a_graph_captured_early' did not pass
+== gb-model commits_that_cannot
+test commits_that_cannot_be_applied_are_a_fatal_error ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=111949 took_mib=0.0 mem_available_mib=118305
+thread 'commits_that_cannot_be_applied_are_a_fatal_error' panicked at crates/model/tests/inkling2_loop_graphs.rs:461:5:
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 8 filtered out; finished in 10.04s
+ops_dev: 'commits_that_cannot' did not pass
+### unfixed: spec flush
+== gb-model flush_releases
+thread 'flush_releases_the_drafters_staging_when_nothing_proposes' panicked at crates/model/tests/inkling2_loop_spec.rs:601:5:
+assertion `left == right` failed: the drafter's staging was not released by flush
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 8 filtered out; finished in 11.52s
+ops_dev: 'flush_releases' did not pass
+### unfixed: mix narrow
+== gb-cuda mix_equals_the
+test mini_message_mix_equals_the_oracle_on_the_real_queries ... message mix, 12 core layers, real queries: worst error 4.17e-7 of unit scale against the oracle
+thread 'mix_equals_the_float64_reference_and_rows_are_invariant' panicked at crates/cuda/tests/inkling2_ops.rs:477:13:
+test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 33 filtered out; finished in 2.48s
+ops_dev: 'mix_equals_the' did not pass

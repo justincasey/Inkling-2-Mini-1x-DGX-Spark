@@ -1,0 +1,4 @@
+lab: 1.1G /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-moe
+MemAvailable: 117.0 GiB
+GPU lock: free
+0 %, 2184 MHz, [N/A]

@@ -1,0 +1,6 @@
+METRIC quality_correct=60
+METRIC quality_total=60
+METRIC quality_accuracy=1.0000
+METRIC quality_length_cut=0
+METRIC quality_reasoning_tokens_mean=77.8
+PASS quality: 60/60 correct; no baseline given (this run can be the baseline)

@@ -1,0 +1,133 @@
+generator: oracle/.venv/bin/python bench/records/2026-11-22-kernels-moe/gen_moe_golden.py
+pack: vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw @ 44c78c9d229b43dd45e41506071b9f5f939bed44
+=== layer 12: K classes (gate, up, down) -> experts: (4, 4, 4): 107, (4, 4, 5): 17, (5, 5, 5): 4
+check (c) real-router rows 0..11: pick == brute-force top-8 of sigmoid+bias (set and order): True; min margin 1.538e-03
+forced row 12: experts [4, 12, 37, 54, 83, 48, 20, 95] classes [(5, 5, 5), (5, 5, 5), (5, 5, 5), (5, 5, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+forced row 13: experts [4, 12, 65, 9, 20, 105, 14, 77] classes [(5, 5, 5), (5, 5, 5), (4, 4, 5), (4, 4, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+forced row 14: experts [37, 54, 63, 31, 73, 51, 42, 114] classes [(5, 5, 5), (5, 5, 5), (4, 4, 5), (4, 4, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+forced row 15: experts [12, 4, 49, 9, 7, 38, 88, 16] classes [(5, 5, 5), (5, 5, 5), (4, 4, 5), (4, 4, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+coverage class (5, 5, 5): 6 rows, 4/4 experts touched (4 distinct)
+coverage class (4, 4, 5): 8 rows, 12/17 experts touched (12 distinct)
+coverage class (4, 4, 4): 16 rows, 61/107 experts touched (61 distinct)
+distinct experts touched: 77
+fetched/cached 77 experts; 931 range requests, 321.4 MB in this run
+check (a) layer 12 expert 1 gate_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 12 expert 1 up_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 12 expert 1 down_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 12 expert 58 gate_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 12 expert 58 up_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 12 expert 58 down_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 12 expert 122 gate_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 12 expert 122 up_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 12 expert 122 down_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 12: all 9 groups of experts [1, 58, 122] bit-identical to the Rust CPU decoder (exl3dq)
+layer 12: out_exact rounding = Inkling2LoopRef.combine (fp64 accumulation of w*y in ascending-expert order, one bf16 rounding via fp32); elements differing from slot-order accumulation: 0
+check (b) layer 12: out_exact vs out_fp16in cosine min 0.99999784 (mean 0.99999819); max|diff|/row-RMS max 1.3741e-02 (mean 1.2176e-02); max|diff| 1.5625e-02; row RMS min 1.1371e+00 max 1.4216e+00
+wrote moe_layer12.safetensors (593788 bytes) in 291.9s
+=== layer 23: K classes (gate, up, down) -> experts: (4, 4, 4): 127, (4, 4, 5): 1
+check (c) real-router rows 0..11: pick == brute-force top-8 of sigmoid+bias (set and order): True; min margin 8.081e-04
+forced row 12: experts [0, 27, 32, 2, 123, 3, 110, 5] classes [(4, 4, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+forced row 13: experts [0, 93, 126, 24, 42, 43, 124, 121] classes [(4, 4, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+forced row 14: experts [0, 34, 78, 122, 13, 14, 3, 112] classes [(4, 4, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+forced row 15: experts [0, 125, 110, 50, 1, 75, 40, 67] classes [(4, 4, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+coverage class (4, 4, 5): 5 rows, 1/1 experts touched (1 distinct)
+coverage class (4, 4, 4): 16 rows, 78/127 experts touched (78 distinct)
+distinct experts touched: 79
+fetched/cached 79 experts; 1882 range requests, 638.5 MB in this run
+check (a) layer 23 expert 0 gate_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 23 expert 0 up_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 23 expert 0 down_proj K=5: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 23 expert 60 gate_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 23 expert 60 up_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 23 expert 60 down_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 23 expert 127 gate_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 23 expert 127 up_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 23 expert 127 down_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 23: all 9 groups of experts [0, 60, 127] bit-identical to the Rust CPU decoder (exl3dq)
+layer 23: out_exact rounding = Inkling2LoopRef.combine (fp64 accumulation of w*y in ascending-expert order, one bf16 rounding via fp32); elements differing from slot-order accumulation: 0
+check (b) layer 23: out_exact vs out_fp16in cosine min 0.99999729 (mean 0.99999804); max|diff|/row-RMS max 1.7089e-02 (mean 1.5087e-02); max|diff| 1.5625e-02; row RMS min 9.1434e-01 max 1.1759e+00
+wrote moe_layer23.safetensors (593788 bytes) in 92.0s
+--- files
+moe_layer12.safetensors 593788 bytes sha256 c710668e402527b0c6129a115c9d5c28d882f9de3352b85d6b5861ef86c61504
+moe_layer23.safetensors 593788 bytes sha256 99839d8d68b7ca6d6be225cd9c7cb701342a12fb8c27529a3aab86fe8c371951
+wall seconds: 396.7
+
+##### rerun with layer 22 added (layers 12 and 23 reproduced byte for byte) #####
+generator: oracle/.venv/bin/python bench/records/2026-11-22-kernels-moe/gen_moe_golden.py
+pack: vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw @ 44c78c9d229b43dd45e41506071b9f5f939bed44
+=== layer 12: K classes (gate, up, down) -> experts: (4, 4, 4): 107, (4, 4, 5): 17, (5, 5, 5): 4
+check (c) real-router rows 0..11: pick == brute-force top-8 of sigmoid+bias (set and order): True; min margin 1.538e-03
+forced row 12: experts [4, 12, 37, 54, 83, 48, 20, 95] classes [(5, 5, 5), (5, 5, 5), (5, 5, 5), (5, 5, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+forced row 13: experts [4, 12, 65, 9, 20, 105, 14, 77] classes [(5, 5, 5), (5, 5, 5), (4, 4, 5), (4, 4, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+forced row 14: experts [37, 54, 63, 31, 73, 51, 42, 114] classes [(5, 5, 5), (5, 5, 5), (4, 4, 5), (4, 4, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+forced row 15: experts [12, 4, 49, 9, 7, 38, 88, 16] classes [(5, 5, 5), (5, 5, 5), (4, 4, 5), (4, 4, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+coverage class (5, 5, 5): 6 rows, 4/4 experts touched (4 distinct)
+coverage class (4, 4, 5): 8 rows, 12/17 experts touched (12 distinct)
+coverage class (4, 4, 4): 16 rows, 61/107 experts touched (61 distinct)
+distinct experts touched: 77
+fetched/cached 77 experts; 4 range requests, 4.7 MB in this run
+check (a) layer 12 expert 1 gate_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 12 expert 1 up_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 12 expert 1 down_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 12 expert 58 gate_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 12 expert 58 up_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 12 expert 58 down_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 12 expert 122 gate_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 12 expert 122 up_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 12 expert 122 down_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 12: all 9 groups of experts [1, 58, 122] bit-identical to the Rust CPU decoder (exl3dq)
+layer 12: out_exact rounding = Inkling2LoopRef.combine (fp64 accumulation of w*y in ascending-expert order, one bf16 rounding via fp32); elements differing from slot-order accumulation: 0
+check (b) layer 12: out_exact vs out_fp16in cosine min 0.99999784 (mean 0.99999819); max|diff|/row-RMS max 1.3741e-02 (mean 1.2176e-02); max|diff| 1.5625e-02; row RMS min 1.1371e+00 max 1.4216e+00
+wrote moe_layer12.safetensors (593788 bytes) in 9.3s
+=== layer 22: K classes (gate, up, down) -> experts: (4, 4, 4): 125, (4, 4, 5): 2, (5, 5, 5): 1
+check (c) real-router rows 0..11: pick == brute-force top-8 of sigmoid+bias (set and order): True; min margin 6.091e-04
+forced row 12: experts [89, 96, 48, 85, 77, 1, 102, 78] classes [(5, 5, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+forced row 13: experts [89, 123, 36, 114, 41, 58, 50, 4] classes [(5, 5, 5), (4, 4, 5), (4, 4, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+forced row 14: experts [89, 123, 36, 33, 101, 126, 70, 118] classes [(5, 5, 5), (4, 4, 5), (4, 4, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+forced row 15: experts [89, 123, 36, 47, 121, 27, 122, 98] classes [(5, 5, 5), (4, 4, 5), (4, 4, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+coverage class (5, 5, 5): 4 rows, 1/1 experts touched (1 distinct)
+coverage class (4, 4, 5): 3 rows, 2/2 experts touched (2 distinct)
+coverage class (4, 4, 4): 16 rows, 74/125 experts touched (74 distinct)
+distinct experts touched: 77
+fetched/cached 77 experts; 931 range requests, 315.1 MB in this run
+check (a) layer 22 expert 0 gate_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 22 expert 0 up_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 22 expert 0 down_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 22 expert 68 gate_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 22 expert 68 up_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 22 expert 68 down_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 22 expert 126 gate_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 22 expert 126 up_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 22 expert 126 down_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 22: all 9 groups of experts [0, 68, 126] bit-identical to the Rust CPU decoder (exl3dq)
+layer 22: out_exact rounding = Inkling2LoopRef.combine (fp64 accumulation of w*y in ascending-expert order, one bf16 rounding via fp32); elements differing from slot-order accumulation: 0
+check (b) layer 22: out_exact vs out_fp16in cosine min 0.99999755 (mean 0.99999797); max|diff|/row-RMS max 1.6411e-02 (mean 1.5452e-02); max|diff| 1.5625e-02; row RMS min 9.5210e-01 max 1.1048e+00
+wrote moe_layer22.safetensors (593788 bytes) in 83.3s
+=== layer 23: K classes (gate, up, down) -> experts: (4, 4, 4): 127, (4, 4, 5): 1
+check (c) real-router rows 0..11: pick == brute-force top-8 of sigmoid+bias (set and order): True; min margin 8.081e-04
+forced row 12: experts [0, 27, 32, 2, 123, 3, 110, 5] classes [(4, 4, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+forced row 13: experts [0, 93, 126, 24, 42, 43, 124, 121] classes [(4, 4, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+forced row 14: experts [0, 34, 78, 122, 13, 14, 3, 112] classes [(4, 4, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+forced row 15: experts [0, 125, 110, 50, 1, 75, 40, 67] classes [(4, 4, 5), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4), (4, 4, 4)] wsum 8.000000
+coverage class (4, 4, 5): 5 rows, 1/1 experts touched (1 distinct)
+coverage class (4, 4, 4): 16 rows, 78/127 experts touched (78 distinct)
+distinct experts touched: 79
+fetched/cached 79 experts; 931 range requests, 315.1 MB in this run
+check (a) layer 23 expert 0 gate_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 23 expert 0 up_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 23 expert 0 down_proj K=5: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 23 expert 60 gate_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 23 expert 60 up_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 23 expert 60 down_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 23 expert 127 gate_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 23 expert 127 up_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 23 expert 127 down_proj K=4: oracle dense == exl3dq dense bitwise True; wq == exl3dq wq True
+check (a) layer 23: all 9 groups of experts [0, 60, 127] bit-identical to the Rust CPU decoder (exl3dq)
+layer 23: out_exact rounding = Inkling2LoopRef.combine (fp64 accumulation of w*y in ascending-expert order, one bf16 rounding via fp32); elements differing from slot-order accumulation: 0
+check (b) layer 23: out_exact vs out_fp16in cosine min 0.99999729 (mean 0.99999804); max|diff|/row-RMS max 1.7089e-02 (mean 1.5087e-02); max|diff| 1.5625e-02; row RMS min 9.1434e-01 max 1.1759e+00
+wrote moe_layer23.safetensors (593788 bytes) in 9.5s
+--- files
+moe_layer12.safetensors 593788 bytes sha256 c710668e402527b0c6129a115c9d5c28d882f9de3352b85d6b5861ef86c61504
+moe_layer22.safetensors 593788 bytes sha256 4b728f2c0592855ae449df9604ae7b1c33c43bf463151b2c596fa81665c0dce0
+moe_layer23.safetensors 593788 bytes sha256 99839d8d68b7ca6d6be225cd9c7cb701342a12fb8c27529a3aab86fe8c371951
+wall seconds: 104.3

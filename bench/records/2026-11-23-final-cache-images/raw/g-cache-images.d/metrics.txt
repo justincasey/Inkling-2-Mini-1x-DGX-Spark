@@ -1,0 +1,5 @@
+METRIC cache_images_lookups_total=14.0
+METRIC cache_images_hits_total=11.0
+METRIC cache_images_tokens_saved_total=40689.0
+METRIC cache_images_inserts_total=4.0
+METRIC cache_images_evictions_total=0.0

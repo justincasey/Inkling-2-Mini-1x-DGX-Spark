@@ -1,0 +1,14 @@
+proposals 69
+start-to-start median us 8932.928
+markov_logits_kernel                         786x1x1 x256     n=  7.0 med=   567.8 us/prop=  3997.3
+attn_part_kernel<3>                          3x8x4 x256       n=  3.0 med=   373.7 us/prop=  2125.3
+attn_merge_kernel<3>                         32x24x1 x128     n=  3.0 med=   369.9 us/prop=  2115.0
+linear_kernel<12, 2, 8, 2, 1>                1571x1x1 x256    n=  1.0 med=  1589.9 us/prop=  1612.0
+local_kernel                                 4x1x1 x1024      n=  7.0 med=   111.3 us/prop=   779.4
+merge_kernel                                 1x1x1 x128       n=  7.0 med=    75.0 us/prop=   531.6
+linear_kernel<8, 2, 8, 2, 1>                 72x1x1 x256      n=  6.0 med=    61.1 us/prop=   375.5
+block_prep_kernel                            32x40x1 x128     n=  3.0 med=   124.9 us/prop=   374.7
+linear_kernel<8, 2, 4, 2, 1>                 18x16x1 x128     n=  3.0 med=    54.8 us/prop=   167.7
+silu_mul_kernel                              36x32x1 x256     n=  3.0 med=    54.1 us/prop=   164.4
+linear_kernel<8, 2, 4, 1, 1>                 6x8x1 x128       n=  7.0 med=    10.8 us/prop=    76.4
+linear_kernel<8, 2, 4, 2, 1>                 18x4x1 x128      n=  3.0 med=    22.9 us/prop=    69.2

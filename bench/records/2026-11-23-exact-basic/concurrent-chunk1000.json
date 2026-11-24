@@ -1,0 +1,63 @@
+{
+ "url": "http://node-4:8000",
+ "model": "inkling-2-mini-1x-dgx-spark",
+ "prompt_tokens": {
+  "short": 16,
+  "medium": 521,
+  "long": 2030,
+  "xlong": 8334
+ },
+ "k": 5,
+ "max_tokens": 128,
+ "checks": {
+  "gen/short": {
+   "equal": true,
+   "difference": null,
+   "solo_s": 3.469,
+   "concurrent_s": 15.438
+  },
+  "gen/medium": {
+   "equal": true,
+   "difference": null,
+   "solo_s": 3.957,
+   "concurrent_s": 15.478
+  },
+  "gen/long": {
+   "equal": true,
+   "difference": null,
+   "solo_s": 5.301,
+   "concurrent_s": 15.661
+  },
+  "gen/xlong": {
+   "equal": true,
+   "difference": null,
+   "solo_s": 10.726,
+   "concurrent_s": 15.865
+  },
+  "logprobs/short": {
+   "equal": true,
+   "difference": null,
+   "solo_s": 0.0,
+   "concurrent_s": 0.0
+  },
+  "logprobs/medium": {
+   "equal": true,
+   "difference": null,
+   "solo_s": 0.0,
+   "concurrent_s": 0.0
+  },
+  "logprobs/long": {
+   "equal": true,
+   "difference": null,
+   "solo_s": 0.0,
+   "concurrent_s": 0.0
+  },
+  "logprobs/xlong": {
+   "equal": true,
+   "difference": null,
+   "solo_s": 0.0,
+   "concurrent_s": 0.0
+  }
+ },
+ "pass": true
+}

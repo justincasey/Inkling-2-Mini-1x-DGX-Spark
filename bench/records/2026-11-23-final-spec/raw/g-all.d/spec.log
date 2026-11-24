@@ -1,0 +1,10 @@
+short   (16 tokens): equal; drafted 197 accepted 63 rounds 64 acceptance 0.3198 tokens/round 2.0
+medium  (521 tokens): equal; drafted 156 accepted 88 rounds 39 acceptance 0.5641 tokens/round 3.2821
+long    (2030 tokens): equal; drafted 184 accepted 84 rounds 43 acceptance 0.4565 tokens/round 2.9767
+xlong   (8334 tokens): equal; drafted 197 accepted 83 rounds 44 acceptance 0.4213 tokens/round 2.9091
+70k     (73154 tokens): equal; drafted 155 accepted 96 rounds 31 acceptance 0.6194 tokens/round 4.129
+concurrent short  : equal
+concurrent medium : equal
+concurrent long   : equal
+concurrent xlong  : equal
+spec: pass; drafted 1492 accepted 711 rounds 432 acceptance 0.4765 tokens/round 2.6667 -> ~/projects/inkling2-mini-k-real/bench/runs/20261123T221553Z-all/spec.json

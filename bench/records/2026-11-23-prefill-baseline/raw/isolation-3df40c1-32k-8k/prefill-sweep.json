@@ -1,0 +1,238 @@
+{
+ "sizes": {
+  "8192": {
+   "passes": [
+    {
+     "pass": 0,
+     "prompt_tokens": 8192,
+     "prompt_sha256": "b52cdff20a0c34d63b85c5598a5662f5118b476b539af8284578d39c1521d3be",
+     "ttft_s": 6.6793,
+     "tok_s": 1226.5,
+     "completion_tokens": 16,
+     "decode_tok_s": 44.269,
+     "generated_ids": [
+      149917,
+      220,
+      36598,
+      154487,
+      11,
+      149917,
+      153663,
+      264,
+      11,
+      149917,
+      175611,
+      357,
+      198,
+      371,
+      220,
+      36598
+     ]
+    },
+    {
+     "pass": 1,
+     "prompt_tokens": 8192,
+     "prompt_sha256": "beacc082f64fcfdad862fc306c58cf03e11cca5ba7f732f0544d4835150a9a4a",
+     "ttft_s": 6.5564,
+     "tok_s": 1249.5,
+     "completion_tokens": 16,
+     "decode_tok_s": 47.587,
+     "generated_ids": [
+      149917,
+      220,
+      36598,
+      154487,
+      11,
+      149917,
+      175611,
+      357,
+      11,
+      149917,
+      220,
+      140141,
+      198,
+      90,
+      1,
+      313
+     ]
+    },
+    {
+     "pass": 2,
+     "prompt_tokens": 8192,
+     "prompt_sha256": "8ed6fe191be2db4dda285d28768c9ec6b9714408d3a5fee8d5e5f7dc3d4dce8a",
+     "ttft_s": 6.5558,
+     "tok_s": 1249.6,
+     "completion_tokens": 16,
+     "decode_tok_s": 47.266,
+     "generated_ids": [
+      220,
+      36598,
+      154487,
+      11,
+      187571,
+      1603,
+      257,
+      11,
+      175611,
+      357,
+      198,
+      371,
+      220,
+      36598,
+      154487,
+      156090
+     ]
+    },
+    {
+     "pass": 3,
+     "prompt_tokens": 8192,
+     "prompt_sha256": "e4d90812f61dd8aba0455828f363093fe6fa9f7a061254cf5482392991e0abdb",
+     "ttft_s": 6.559,
+     "tok_s": 1249.0,
+     "completion_tokens": 16,
+     "decode_tok_s": 47.397,
+     "generated_ids": [
+      149917,
+      220,
+      36598,
+      154487,
+      11,
+      149917,
+      153663,
+      264,
+      11,
+      149917,
+      175611,
+      357,
+      198,
+      371,
+      220,
+      36598
+     ]
+    }
+   ],
+   "median_tok_s": 1249.5,
+   "median_ttft_s": 6.5564
+  },
+  "32768": {
+   "passes": [
+    {
+     "pass": 0,
+     "prompt_tokens": 32768,
+     "prompt_sha256": "2f1488ad35f43778b5211a91cce3694b06eb96dae472be9469a498a041bbe84c",
+     "ttft_s": 27.2464,
+     "tok_s": 1202.7,
+     "completion_tokens": 16,
+     "decode_tok_s": 41.394,
+     "generated_ids": [
+      220,
+      43371,
+      11,
+      187571,
+      1603,
+      257,
+      11,
+      193468,
+      357,
+      68014,
+      90,
+      1,
+      313,
+      1,
+      25,
+      196980
+     ]
+    },
+    {
+     "pass": 1,
+     "prompt_tokens": 32768,
+     "prompt_sha256": "1dc4d1c1a13f928e3dffbde8f5b4eb5568edfb4b12d473233570a6d54e4ec3c0",
+     "ttft_s": 27.2747,
+     "tok_s": 1201.4,
+     "completion_tokens": 16,
+     "decode_tok_s": 43.735,
+     "generated_ids": [
+      149917,
+      220,
+      140141,
+      11,
+      149917,
+      175611,
+      357,
+      11,
+      149917,
+      166359,
+      35031,
+      68014,
+      90,
+      1,
+      1119,
+      1
+     ]
+    },
+    {
+     "pass": 2,
+     "prompt_tokens": 32768,
+     "prompt_sha256": "9c0784f98314b57e2f057ff9b340cfbfda38425fbb0bfc7f6e07a8bd22b9cde9",
+     "ttft_s": 27.3031,
+     "tok_s": 1200.2,
+     "completion_tokens": 16,
+     "decode_tok_s": 43.511,
+     "generated_ids": [
+      149917,
+      220,
+      36598,
+      154487,
+      11,
+      149917,
+      175611,
+      357,
+      11,
+      149917,
+      166359,
+      35031,
+      68014,
+      371,
+      220,
+      36598
+     ]
+    },
+    {
+     "pass": 3,
+     "prompt_tokens": 32768,
+     "prompt_sha256": "69b1ec5c8c1acd3022f189c18688a96ec9a072d32816c2e15fe3b39578bfb5be",
+     "ttft_s": 27.2986,
+     "tok_s": 1200.4,
+     "completion_tokens": 16,
+     "decode_tok_s": 43.501,
+     "generated_ids": [
+      149917,
+      220,
+      36598,
+      154487,
+      11,
+      149917,
+      153663,
+      264,
+      11,
+      149917,
+      175611,
+      357,
+      68014,
+      90,
+      1,
+      313
+     ]
+    }
+   ],
+   "median_tok_s": 1200.4,
+   "median_ttft_s": 27.2986
+  }
+ },
+ "metrics": {
+  "prefill_8k_tok_s": 1249.5,
+  "prefill_8k_ttft_s": 6.5564,
+  "prefill_32k_tok_s": 1200.4,
+  "prefill_32k_ttft_s": 27.2986
+ }
+}

@@ -1,0 +1,9 @@
+warm: done (discarded)
+decode prose: 512 tokens, ttft 0.1713 s, 37.102 tok/s, spec {'drafted': 0, 'accepted': 0, 'rounds': 511, 'acceptance': None, 'tokens_per_round': 1.002}
+decode code: 512 tokens, ttft 0.2806 s, 37.567 tok/s, spec {'drafted': 0, 'accepted': 0, 'rounds': 511, 'acceptance': None, 'tokens_per_round': 1.002}
+decode structured: 512 tokens, ttft 0.2361 s, 37.3 tok/s, spec {'drafted': 0, 'accepted': 0, 'rounds': 511, 'acceptance': None, 'tokens_per_round': 1.002}
+decode json: 512 tokens, ttft 0.3086 s, 37.022 tok/s, spec {'drafted': 0, 'accepted': 0, 'rounds': 511, 'acceptance': None, 'tokens_per_round': 1.002}
+conc c=4: 2048 tokens in 25.50 s = 80.30 tok/s
+conc c=8: 4096 tokens in 49.01 s = 83.58 tok/s
+prefill 32k: 32768 tokens in 27.2494 s = 1203 tok/s; then 128 tokens at 33.499 tok/s
+/tmp/gl/ref.json: 5 replies pinned, added ['decode/code', 'decode/json', 'decode/prose', 'decode/structured', 'prefill/32k']; 0 already pinned ones reproduced

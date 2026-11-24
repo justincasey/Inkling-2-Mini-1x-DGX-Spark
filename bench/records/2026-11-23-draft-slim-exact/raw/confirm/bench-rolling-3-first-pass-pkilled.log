@@ -1,0 +1,6 @@
+15:07:19 bench rolling against http://node-1:8000 (inkling-2-mini-1x-dgx-spark, window 262144); results in bench/runs/20261123T210719Z-rolling
+15:07:19 no bench/reference.json: replies are measured, not compared (bench pin writes it on the pinned engine)
+15:07:19 bench.py warm,decode,rolling
+warm: done (discarded)
+the server's request histograms moved by 4.0 / 7.0 requests around a solo request: it is not otherwise idle
+bench rolling: pass run=bench/runs/20261123T210719Z-rolling

@@ -1,0 +1,12 @@
+after-text: 3475 prompt tokens; cold cached 0, warm cached 3411; equal True
+other-image: cached 3411 of 3475; own reply equal True; differs from image red-square's: True
+text-first: the image prompt after a cached text-only prefix: cached 3375 of 3478; equal True
+image-first: cold 0 warm 3399 other question 3399 cached; equal True
+two-images: cold 3411 warm 5043; second image changed: cached 5043; equal True
+concurrent: two image prompts at once, cached [3411, 3411]; equal [True, True]
+METRIC cache_images_lookups_total=14.0
+METRIC cache_images_hits_total=11.0
+METRIC cache_images_tokens_saved_total=40689.0
+METRIC cache_images_inserts_total=4.0
+METRIC cache_images_evictions_total=0
+cache_images: pass -> /tmp/dw2/A-cache-images.json

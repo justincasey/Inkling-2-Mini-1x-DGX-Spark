@@ -1,0 +1,186 @@
+{
+ "name": "memory-plan",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "b7e8f58b35faa3623cd676b4ec1fc7b570c32d60",
+  "dirty_files": []
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "abc681365c70e40050b3d10345f51a3e284d202a",
+  "sha256": "c6f5d5a4ad69866ff8b40543f3f57bf0be02c0edc9776b55d898e2ab0b0018b0",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "abc681365c70e40050b3d10345f51a3e284d202a",
+   "system_fingerprint": "fp_abc681365c70_0677d17b_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "0677d17bcd2acfa4",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2184 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "none",
+  "PREFIX_CACHE": "off",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec none --prefix-cache off --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "tests": [
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "bootstrap: predicted MemAvailable at ready within 1 GiB of measured",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "bootstrap: guard minimum after the first requests at or above floor 8 GiB + 2 GiB margin",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "long: predicted MemAvailable at ready within 1 GiB of measured",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "long: guard minimum after the first requests at or above floor 8 GiB + 2 GiB margin",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "max-cache-off: predicted MemAvailable at ready within 1 GiB of measured",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "max-cache-off: guard minimum after the first requests at or above floor 8 GiB + 2 GiB margin",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "max-cache-auto: predicted MemAvailable at ready within 1 GiB of measured",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "max-cache-auto: guard minimum after the first requests at or above floor 8 GiB + 2 GiB margin",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "bootstrap-vision-cache: predicted MemAvailable at ready within 1 GiB of measured",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "bootstrap-vision-cache: guard minimum after the first requests at or above floor 8 GiB + 2 GiB margin",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2",
+   "passed": 119,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib (node-1, REXL3_INKLING2_LOOP_DIR)",
+   "filter": "the_real_packs_headers_price_to_the_loaders_total",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-server (rexl3_serve)",
+   "filter": "unit tests",
+   "passed": 11,
+   "failed": 0
+  }
+ ],
+ "gate": "memory-plan",
+ "result": "pass",
+ "node": "node-1",
+ "metrics": {
+  "before-bootstrap2_predicted_mib": 74276,
+  "before-bootstrap2_ready_mib": 65072,
+  "before-bootstrap2_guard_min_mib": 65001,
+  "before-bootstrap2_gpu_process_mib": 39680,
+  "before-bootstrap2_prediction_error_mib": 9204,
+  "before-long_predicted_mib": 57073,
+  "before-long_ready_mib": 47309,
+  "before-long_guard_min_mib": 47204,
+  "before-long_gpu_process_mib": 57031,
+  "before-long_prediction_error_mib": 9764,
+  "before-max-cacheoff_predicted_mib": 24735,
+  "before-max-cacheoff_ready_mib": 15997,
+  "before-max-cacheoff_guard_min_mib": 14418,
+  "before-max-cacheoff_gpu_process_mib": 90386,
+  "before-max-cacheoff_prediction_error_mib": 8738,
+  "after-bootstrap_predicted_mib": 65905,
+  "after-bootstrap_ready_mib": 66247,
+  "after-bootstrap_guard_min_mib": 66097,
+  "after-bootstrap_gpu_process_mib": 39680,
+  "after-bootstrap_prediction_error_mib": -342,
+  "after-long_predicted_mib": 48568,
+  "after-long_ready_mib": 48406,
+  "after-long_guard_min_mib": 48339,
+  "after-long_gpu_process_mib": 57031,
+  "after-long_prediction_error_mib": 162,
+  "after-max-cacheoff_predicted_mib": 15196,
+  "after-max-cacheoff_ready_mib": 15722,
+  "after-max-cacheoff_guard_min_mib": 15612,
+  "after-max-cacheoff_gpu_process_mib": 90386,
+  "after-max-cacheoff_prediction_error_mib": -526,
+  "after-max-cacheauto_predicted_mib": 11735,
+  "after-max-cacheauto_ready_mib": 12243,
+  "after-max-cacheauto_guard_min_mib": 11928,
+  "after-max-cacheauto_gpu_process_mib": 94872,
+  "after-max-cacheauto_prediction_error_mib": -508
+ },
+ "commands": [
+  "NODES=node-1 REXL3_SRC=<engine worktree> ./inkling2mini.sh build <40-hex>  (91c05af and 04d4d60: instrumented, old plan; abc6813: new plan)",
+  "run_profile.sh LABEL PROFILE=... VISION=... PREFIX_CACHE=...  (start; four chat requests and a completion; status; memwatch report; stop)",
+  "scripts/ops_dev.sh test --lib the_real_packs_headers_price"
+ ],
+ "notes": "Before = the old plan (5 GiB blanket reserve) on the instrumented engine (mem_stage lines only added); its prediction is floor + (5 - 1.125 priced buffers) + spare - cache, the memory the old plan left unspent. After = engine abc681365c70 (the new plan; the capacity line's predicted_ready_available_gib). Measured = MemAvailable the controller read at ready (status-ready.txt); guard-min = status-after-traffic.txt's minimum. Node-1 carried LoopRank's CPU-heavy oracle job: swap grew from 311 to 2022 MiB across these boots (see README)."
+}

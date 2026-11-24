@@ -1,0 +1,77 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-fuse/target/release/deps/inkling2_loop_spec_timing-bdb33336b114696d
+== gb-model round_cost_table
+test round_cost_table ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=115912 took_mib=0.0 mem_available_mib=118529
+LOOP_TIMING window ctx=4096 streams=1 rows=1 drafter=0 ms=19.276
+LOOP_TIMING window ctx=4096 streams=1 rows=2 drafter=0 ms=24.290
+LOOP_TIMING window ctx=4096 streams=1 rows=3 drafter=0 ms=28.748
+LOOP_TIMING window ctx=4096 streams=1 rows=4 drafter=0 ms=31.992
+LOOP_TIMING window ctx=4096 streams=1 rows=5 drafter=0 ms=33.331
+LOOP_TIMING window ctx=4096 streams=1 rows=6 drafter=0 ms=37.659
+LOOP_TIMING window ctx=4096 streams=1 rows=7 drafter=0 ms=40.964
+LOOP_TIMING window ctx=4096 streams=1 rows=8 drafter=0 ms=41.928
+LOOP_TIMING window ctx=4096 streams=2 rows=1 drafter=0 ms=26.743
+LOOP_TIMING window ctx=4096 streams=2 rows=2 drafter=0 ms=35.766
+LOOP_TIMING window ctx=4096 streams=2 rows=3 drafter=0 ms=43.431
+LOOP_TIMING window ctx=4096 streams=2 rows=4 drafter=0 ms=50.858
+LOOP_TIMING window ctx=4096 streams=2 rows=5 drafter=0 ms=56.013
+LOOP_TIMING window ctx=4096 streams=2 rows=6 drafter=0 ms=60.175
+LOOP_TIMING window ctx=4096 streams=2 rows=7 drafter=0 ms=63.831
+LOOP_TIMING window ctx=4096 streams=2 rows=8 drafter=0 ms=68.389
+LOOP_TIMING window ctx=4096 streams=4 rows=1 drafter=0 ms=39.645
+LOOP_TIMING window ctx=4096 streams=4 rows=2 drafter=0 ms=54.615
+LOOP_TIMING window ctx=4096 streams=4 rows=3 drafter=0 ms=64.272
+LOOP_TIMING window ctx=4096 streams=4 rows=4 drafter=0 ms=73.373
+LOOP_TIMING window ctx=4096 streams=4 rows=5 drafter=0 ms=82.066
+LOOP_TIMING window ctx=4096 streams=4 rows=6 drafter=0 ms=86.872
+LOOP_TIMING window ctx=4096 streams=4 rows=7 drafter=0 ms=91.708
+LOOP_TIMING window ctx=4096 streams=4 rows=8 drafter=0 ms=96.147
+LOOP_TIMING window ctx=32768 streams=1 rows=1 drafter=0 ms=21.478
+LOOP_TIMING window ctx=32768 streams=1 rows=2 drafter=0 ms=26.949
+LOOP_TIMING window ctx=32768 streams=1 rows=3 drafter=0 ms=30.467
+LOOP_TIMING window ctx=32768 streams=1 rows=4 drafter=0 ms=34.057
+LOOP_TIMING window ctx=32768 streams=1 rows=5 drafter=0 ms=37.462
+LOOP_TIMING window ctx=32768 streams=1 rows=6 drafter=0 ms=41.536
+LOOP_TIMING window ctx=32768 streams=1 rows=7 drafter=0 ms=42.653
+LOOP_TIMING window ctx=32768 streams=1 rows=8 drafter=0 ms=46.758
+LOOP_TIMING window ctx=32768 streams=2 rows=1 drafter=0 ms=30.885
+LOOP_TIMING window ctx=32768 streams=2 rows=2 drafter=0 ms=39.994
+LOOP_TIMING window ctx=32768 streams=2 rows=3 drafter=0 ms=47.922
+LOOP_TIMING window ctx=32768 streams=2 rows=4 drafter=0 ms=53.006
+LOOP_TIMING window ctx=32768 streams=2 rows=5 drafter=0 ms=59.484
+LOOP_TIMING window ctx=32768 streams=2 rows=6 drafter=0 ms=65.326
+LOOP_TIMING window ctx=32768 streams=2 rows=7 drafter=0 ms=69.143
+LOOP_TIMING window ctx=32768 streams=2 rows=8 drafter=0 ms=71.695
+LOOP_TIMING window ctx=32768 streams=4 rows=1 drafter=0 ms=47.256
+LOOP_TIMING window ctx=32768 streams=4 rows=2 drafter=0 ms=61.392
+LOOP_TIMING window ctx=32768 streams=4 rows=3 drafter=0 ms=69.563
+LOOP_TIMING window ctx=32768 streams=4 rows=4 drafter=0 ms=79.586
+LOOP_TIMING window ctx=32768 streams=4 rows=5 drafter=0 ms=88.098
+LOOP_TIMING window ctx=32768 streams=4 rows=6 drafter=0 ms=95.632
+LOOP_TIMING window ctx=32768 streams=4 rows=7 drafter=0 ms=100.930
+LOOP_TIMING window ctx=32768 streams=4 rows=8 drafter=0 ms=102.654
+LOOP_TIMING drafter attached weights_bytes=339917888 state_and_taps_bytes=455976352
+LOOP_TIMING propose ctx=4096 requests=1 ms=6.900
+LOOP_TIMING propose ctx=4096 requests=2 ms=7.538
+LOOP_TIMING propose ctx=4096 requests=4 ms=8.931
+LOOP_TIMING window ctx=4096 streams=1 rows=1 drafter=1 ms=19.510
+LOOP_TIMING window ctx=4096 streams=1 rows=3 drafter=1 ms=28.543
+LOOP_TIMING window ctx=4096 streams=1 rows=8 drafter=1 ms=44.050
+LOOP_TIMING window ctx=4096 streams=2 rows=1 drafter=1 ms=27.002
+LOOP_TIMING window ctx=4096 streams=2 rows=3 drafter=1 ms=42.855
+LOOP_TIMING window ctx=4096 streams=2 rows=8 drafter=1 ms=69.019
+LOOP_TIMING window ctx=4096 streams=4 rows=1 drafter=1 ms=39.608
+LOOP_TIMING window ctx=4096 streams=4 rows=3 drafter=1 ms=65.689
+LOOP_TIMING window ctx=4096 streams=4 rows=8 drafter=1 ms=97.239
+LOOP_TIMING propose ctx=32768 requests=1 ms=7.524
+LOOP_TIMING propose ctx=32768 requests=2 ms=8.807
+LOOP_TIMING propose ctx=32768 requests=4 ms=12.017
+LOOP_TIMING window ctx=32768 streams=1 rows=1 drafter=1 ms=21.653
+LOOP_TIMING window ctx=32768 streams=1 rows=3 drafter=1 ms=31.246
+LOOP_TIMING window ctx=32768 streams=1 rows=8 drafter=1 ms=44.992
+LOOP_TIMING window ctx=32768 streams=2 rows=1 drafter=1 ms=30.950
+LOOP_TIMING window ctx=32768 streams=2 rows=3 drafter=1 ms=47.672
+LOOP_TIMING window ctx=32768 streams=2 rows=8 drafter=1 ms=73.665
+LOOP_TIMING window ctx=32768 streams=4 rows=1 drafter=1 ms=47.429
+LOOP_TIMING window ctx=32768 streams=4 rows=3 drafter=1 ms=72.501
+LOOP_TIMING window ctx=32768 streams=4 rows=8 drafter=1 ms=103.859
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 210.18s

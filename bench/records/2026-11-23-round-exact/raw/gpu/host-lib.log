@@ -1,0 +1,18 @@
+ops_dev: the build of gb-model --lib failed (exit 101; 124 = timeout)
+error: couldn't read `crates/model/src/families/nemotron_h_omni/../../../../../testdata/nemotron_omni/moe/layer1_fixture.safetensors`: No such file or directory (os error 2)
+    --> crates/model/src/families/nemotron_h_omni/bridge.rs:1620:35
+     |
+1620 |     const LAYER1_FIXTURE: &[u8] = include_bytes!("../../../../../testdata/nemotron_omni/moe/layer1_fixture.safetensors");
+     |                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: couldn't read `crates/model/src/families/nemotron_h_omni/../../../../../testdata/nemotron_omni/moe/layer1_fixture_repaired.safetensors`: No such file or directory (os error 2)
+    --> crates/model/src/families/nemotron_h_omni/bridge.rs:1625:9
+     |
+1625 |         include_bytes!("../../../../../testdata/nemotron_omni/moe/layer1_fixture_repaired.safetensors");
+     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unnecessary parentheses around function argument
+   --> crates/model/src/families/bailing_moe_v3/device.rs:155:12
+    |
+--
+error: could not compile `gb-model` (lib test) due to 2 previous errors; 6 warnings emitted

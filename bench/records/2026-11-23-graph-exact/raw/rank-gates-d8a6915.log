@@ -1,0 +1,61 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-graph/target/release/deps/inkling2_loop_graphs-76816e451b7b124b
+== gb-model capture_refusal
+test capture_refusal_runs_eager_and_counts ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.1
+rexl3 level=warn event=inkling2_loop_graph_capture_failed rows=1 blocks=1 chunks=2 count=64 a launch failed while capturing: CUDA error 900 (cudaErrorStreamCaptureUnsupported) (this window shape runs eagerly)
+LOOP_GRAPH_refusal captures 0 capture_failures 1 eager 5 replays 0 last_failure Some("a launch failed while capturing: CUDA error 900 (cudaErrorStreamCaptureUnsupported)")
+rexl3 event=inkling2_loop_graph_captured rows=3 blocks=1 chunks=2 count=64 nodes=2835 capture_ms=10.2
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 11.56s
+=== graphs=on
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-graph/target/release/deps/inkling2_loop_rank-92f335230f3b1d49
+== gb-model forward_oracle_gate
+test forward_oracle_gate ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.2
+LOOP_load_seconds 10.4 weight_gib 13.553
+LOOP_buffer_bytes 481099924
+LOOP_dump_a sha256 c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0 bytes 90056120
+LOOP_top1 200001 logit 26.821056
+LOOP_dump_b sha256 c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0 bytes 90056120
+LOOP_top1 200001 logit 26.821056
+LOOP_determinism identical 90056120 bytes
+LOOP_chunk_width 7 logits_identical 20806032 bytes sha256 a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a
+LOOP_chunk_width 11 logits_identical 20806032 bytes sha256 a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a
+LOOP_decode_row 22 identical
+LOOP_decode_row 23 identical
+LOOP_decode_row 24 identical
+LOOP_decode_row 25 identical
+LOOP_window_commit rollback identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 13.36s
+== gb-model long_context_gate
+test long_context_gate ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.2
+LOOP_long_tokens 1119
+LOOP_long_top1 157 logit 23.62496
+LOOP_long_chunk_width 129 candidates_identical
+LOOP_long_chunk_width 300 candidates_identical
+LOOP_long_decode_row 1118 candidates_identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 15.57s
+=== graphs=0
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-graph/target/release/deps/inkling2_loop_rank-92f335230f3b1d49
+== gb-model forward_oracle_gate
+test forward_oracle_gate ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.2
+LOOP_load_seconds 10.2 weight_gib 13.553
+LOOP_buffer_bytes 481099924
+LOOP_dump_a sha256 c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0 bytes 90056120
+LOOP_top1 200001 logit 26.821056
+LOOP_dump_b sha256 c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0 bytes 90056120
+LOOP_top1 200001 logit 26.821056
+LOOP_determinism identical 90056120 bytes
+LOOP_chunk_width 7 logits_identical 20806032 bytes sha256 a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a
+LOOP_chunk_width 11 logits_identical 20806032 bytes sha256 a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a
+LOOP_decode_row 22 identical
+LOOP_decode_row 23 identical
+LOOP_decode_row 24 identical
+LOOP_decode_row 25 identical
+LOOP_window_commit rollback identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 13.34s
+== gb-model long_context_gate
+test long_context_gate ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.0
+LOOP_long_tokens 1119
+LOOP_long_top1 157 logit 23.62496
+LOOP_long_chunk_width 129 candidates_identical
+LOOP_long_chunk_width 300 candidates_identical
+LOOP_long_decode_row 1118 candidates_identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 15.40s

@@ -1,0 +1,219 @@
+{
+ "name": "spec-images",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "6df51770f96110f7020ba727d0b134a8a84da2af",
+  "dirty_files": [
+   "docs/DECISIONS.md",
+   "docs/FIT.md",
+   "docs/exec-plans/active/inkling2-mini-rexl3.md",
+   "inkling2mini.sh",
+   "tests/test_recipe.sh"
+  ]
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "e9eeea9683ed9c897ece83e5eac103bad6e40ee4",
+  "sha256": "3456e484994ae95423c9bd085d42bb56ab1d4dc041ebfc263e6cd34f56a8ee61",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "e9eeea9683ed9c897ece83e5eac103bad6e40ee4",
+   "system_fingerprint": "fp_e9eeea9683ed_d77a44ac_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "d77a44ac64b94d0d",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2190 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "dspark",
+  "PREFIX_CACHE": "on",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-2",
+ "gate": "spec-images",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "gates.py spec",
+   "filter": "SPEC=dspark PREFIX_CACHE=on VISION=on: 5 prompts + 4 concurrent",
+   "passed": 9,
+   "failed": 0
+  },
+  {
+   "bin": "gates.py spec-diff",
+   "filter": "drafted boot vs SPEC=none boot",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gates.py vision + diff",
+   "filter": "3 images + 4 texts, drafted+cache vs serial",
+   "passed": 7,
+   "failed": 0
+  },
+  {
+   "bin": "gates.py vision + diff",
+   "filter": "3 images + 4 texts, drafted no cache vs serial",
+   "passed": 7,
+   "failed": 0
+  },
+  {
+   "bin": "cache_images.py",
+   "filter": "after-text, other-image, text-first, image-first, two-images, concurrent (cache on)",
+   "passed": 6,
+   "failed": 0
+  },
+  {
+   "bin": "cache_compare.py --images",
+   "filter": "A vs serial reference: 28 replies",
+   "passed": 28,
+   "failed": 0
+  },
+  {
+   "bin": "cache_compare.py --images",
+   "filter": "C vs serial reference: 28 replies",
+   "passed": 28,
+   "failed": 0
+  },
+  {
+   "bin": "gates.py cache",
+   "filter": "SPEC=dspark PREFIX_CACHE=on VISION=on: 5 prompts + 2 shared prefixes",
+   "passed": 7,
+   "failed": 0
+  },
+  {
+   "bin": "specedge.py",
+   "filter": "all 65 cases",
+   "passed": 65,
+   "failed": 0
+  },
+  {
+   "bin": "exactness.py",
+   "filter": "record drafted vs serial + diff + concurrent",
+   "passed": 3,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_spec",
+   "filter": "taps_equal, no_drafter, graph_replay, the_drafter_follows, draft_equals, a_snapshot_restores, a_cached_decode_equals",
+   "passed": 7,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_rank",
+   "filter": "forward_oracle_gate, long_context_gate",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_graphs",
+   "filter": "graph_replay_equals_eager, capture_refusal",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2_loop::",
+   "passed": 100,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2::",
+   "passed": 31,
+   "failed": 0
+  },
+  {
+   "bin": "gb-server --bin rexl3-serve",
+   "filter": "unit tests",
+   "passed": 11,
+   "failed": 0
+  },
+  {
+   "bin": "gb-server stop_in_batch",
+   "filter": "all",
+   "passed": 5,
+   "failed": 0
+  },
+  {
+   "bin": "tests/test_recipe.sh",
+   "filter": "all",
+   "passed": 154,
+   "failed": 0
+  },
+  {
+   "bin": "tests/test_bench.py",
+   "filter": "all",
+   "passed": 27,
+   "failed": 0
+  },
+  {
+   "bin": "tests/test_gates.py",
+   "filter": "all",
+   "passed": 69,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "gates_spec_pairs_equal": 9,
+  "specedge_cases": 65,
+  "specedge_failures": 0,
+  "cache_images_replies_compared": 28,
+  "cache_images_hits": 11,
+  "cache_images_tokens_saved": 40689,
+  "exactness_replies_sha256": "f7975a6c1dae761ef24508177ce06da5e0607d94f1e81c1c7a5a72b9e105433d",
+  "predicted_ready_available_gib": 62.61,
+  "ready_available_mib": 65095,
+  "ready_available_gib": 63.57,
+  "guard_min_mib": 63000,
+  "prediction_error_gib": 0.96,
+  "predicted_ready_available_gib_no_cache": 73.08,
+  "ready_available_mib_no_cache": 75214,
+  "forward_oracle_dump_sha256": "c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0",
+  "chunk_width_logits_sha256": "a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a",
+  "graph_equal_logits_sha256_37_windows": "6d0a555b92e02953c9e26efecdd9dece0ab211030ba8947cbe03b8407846c06b"
+ },
+ "commands": [
+  "REXL3_SRC=<engine worktree> ./inkling2mini.sh build <40-hex>   # engine e9eeea9683ed9c897ece83e5eac103bad6e40ee4 (the merge of the integration head e2b8414 and the drafter lane)",
+  "SPEC=dspark PREFIX_CACHE=on VISION=on ./inkling2mini.sh start   # EXTRA_ENV empty",
+  "python3 bench/tools/gates.py spec A-spec.json --max-tokens 128; gates.py vision A-vision.json --max-tokens 64; cache_images.py --out A-cache-images.json; gates.py cache A-cache.json --max-tokens 128",
+  "python3 bench/tools/specedge.py --out A-specedge.json; exactness.py record A-exactness.json --max-tokens 128; exactness.py concurrent --max-tokens 64",
+  "SPEC=none PREFIX_CACHE=off VISION=on ... start; gates.py spec B-spec.json --serial-boot; gates.py spec-diff; gates.py vision B-vision.json; gates.py diff; cache_images.py --reference-only; cache_compare.py --images A B; exactness.py diff",
+  "SPEC=dspark PREFIX_CACHE=off VISION=on ... start; gates.py vision C-vision.json; gates.py diff C B; cache_images.py --reference-only; cache_compare.py --images C B"
+ ],
+ "notes": "Engine e9eeea9 for every server run; the GPU tests ran on the lab tree of the same content (85fb069 adds a changelog fragment only)."
+}

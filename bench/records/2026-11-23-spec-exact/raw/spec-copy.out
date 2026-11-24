@@ -1,0 +1,10 @@
+short   (16 tokens): equal; drafted 6 accepted 2 rounds 125 acceptance 0.3333 tokens/round 1.024
+medium  (521 tokens): equal; drafted 66 accepted 56 rounds 71 acceptance 0.8485 tokens/round 1.8028
+long    (2030 tokens): equal; drafted 49 accepted 39 rounds 88 acceptance 0.7959 tokens/round 1.4545
+xlong   (8334 tokens): equal; drafted 6 accepted 0 rounds 127 acceptance 0.0 tokens/round 1.0079
+70k     (73154 tokens): equal; drafted 58 accepted 47 rounds 80 acceptance 0.8103 tokens/round 1.6
+concurrent short  : equal
+concurrent medium : equal
+concurrent long   : equal
+concurrent xlong  : equal
+spec: pass; drafted 335 accepted 250 rounds 893 acceptance 0.7463 tokens/round 1.29 -> /tmp/draftwire-final/spec-copy.json

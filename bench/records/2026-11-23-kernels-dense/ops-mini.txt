@@ -1,0 +1,155 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-dense/target/release/deps/inkling2_ops-9fbf0538714d3e0a
+== gb-cuda mini_
+running 13 tests
+test mini_dense_exl3_real_tensors_equal_the_oracle ... attn_wq_du 2304x3072: fp32 vs oracle(fp16 rotation) 7.38e-5 of rms, vs exact oracle 7.93e-4; bf16 vs oracle 0.9698107287977915 steps beyond the floor, 0.407% differ
+attn_wq_du: windows 1..8, 4,096 rows and lone rows are bit-identical on the real tensor
+attn_wk_dv 2304x1024: fp32 vs oracle(fp16 rotation) 3.65e-5 of rms, vs exact oracle 7.92e-4; bf16 vs oracle 0.8825478008286575 steps beyond the floor, 0.146% differ
+attn_wk_dv: windows 1..8, 4,096 rows and lone rows are bit-identical on the real tensor
+attn_wv_dv 2304x1024: fp32 vs oracle(fp16 rotation) 9.33e-6 of rms, vs exact oracle 9.00e-4; bf16 vs oracle 0.8804301562818468 steps beyond the floor, 0.146% differ
+attn_wv_dv: windows 1..8, 4,096 rows and lone rows are bit-identical on the real tensor
+attn_wo_ud 3072x2304: fp32 vs oracle(fp16 rotation) 3.30e-5 of rms, vs exact oracle 8.31e-4; bf16 vs oracle 0.8838044346071958 steps beyond the floor, 0.098% differ
+attn_wo_ud: windows 1..8, 4,096 rows and lone rows are bit-identical on the real tensor
+attn_gate_attn 2304x3072: fp32 vs oracle(fp16 rotation) 2.14e-5 of rms, vs exact oracle 9.08e-4; bf16 vs oracle 0.502486560808519 steps beyond the floor, 0.049% differ
+attn_gate_attn: windows 1..8, 4,096 rows and lone rows are bit-identical on the real tensor
+attn_wr_du 2304x384: fp32 vs oracle(fp16 rotation) 1.30e-6 of rms, vs exact oracle 8.08e-4; bf16 vs oracle 0 steps beyond the floor, 0.000% differ
+attn_wr_du: windows 1..8, 4,096 rows and lone rows are bit-identical on the real tensor
+unembed 2304x201088: fp32 vs oracle(fp16 rotation) 1.70e-5 of rms, vs exact oracle 9.19e-4; bf16 vs oracle 0.9709530821419964 steps beyond the floor, 0.098% differ
+unembed: windows 1..8, 4,096 rows and lone rows are bit-identical on the real tensor
+vis_q_proj: bias of 1024 values, 0 not exact in fp16
+vis_q_proj 1024x1024: fp32 vs oracle(fp16 rotation) 1.84e-5 of rms, vs exact oracle 5.63e-4; bf16 vs oracle 0.8248944475066159 steps beyond the floor, 0.114% differ
+vis_q_proj: windows 1..8, 4,096 rows and lone rows are bit-identical on the real tensor
+vis_c_fc: bias of 4096 values, 0 not exact in fp16
+vis_c_fc 1024x4096: fp32 vs oracle(fp16 rotation) 1.14e-4 of rms, vs exact oracle 6.94e-4; bf16 vs oracle 0.9832148190769338 steps beyond the floor, 0.293% differ
+vis_c_fc: windows 1..8, 4,096 rows and lone rows are bit-identical on the real tensor
+vis_c_proj: bias of 1024 values, 0 not exact in fp16
+vis_c_proj 4096x1024: fp32 vs oracle(fp16 rotation) 4.92e-5 of rms, vs exact oracle 8.39e-4; bf16 vs oracle 0.9365822685577204 steps beyond the floor, 0.342% differ
+vis_c_proj: windows 1..8, 4,096 rows and lone rows are bit-identical on the real tensor
+vis_proj_in 4096x4096: fp32 vs oracle(fp16 rotation) 3.38e-5 of rms, vs exact oracle 7.82e-4; bf16 vs oracle 0.9696201524181635 steps beyond the floor, 0.146% differ
+vis_proj_in: windows 1..8, 4,096 rows and lone rows are bit-identical on the real tensor
+vis_proj_out 4096x2304: fp32 vs oracle(fp16 rotation) 3.22e-5 of rms, vs exact oracle 8.57e-4; bf16 vs oracle 0.9688134769773545 steps beyond the floor, 0.146% differ
+vis_proj_out: windows 1..8, 4,096 rows and lone rows are bit-identical on the real tensor
+test mini_dense_exl3_rows_are_invariant_at_every_shape ... q_gate 2304x3072: windows 1..8, 4,096 rows and lone rows are bit-identical
+k_v 2304x1024: windows 1..8, 4,096 rows and lone rows are bit-identical
+r 2304x384: windows 1..8, 4,096 rows and lone rows are bit-identical
+o 3072x2304: windows 1..8, 4,096 rows and lone rows are bit-identical
+unembed 2304x201088: windows 1..8, 4,096 rows and lone rows are bit-identical
+vis_1024x1024 1024x1024: windows 1..8, 4,096 rows and lone rows are bit-identical
+vis_1024x4096 1024x4096: windows 1..8, 4,096 rows and lone rows are bit-identical
+vis_4096x1024 4096x1024: windows 1..8, 4,096 rows and lone rows are bit-identical
+vis_4096x4096 4096x4096: windows 1..8, 4,096 rows and lone rows are bit-identical
+vis_4096x2304 4096x2304: windows 1..8, 4,096 rows and lone rows are bit-identical
+test mini_dense_ops_graph_replay_equals_eager ... pdl mask 0: graph replay == eager for the projection, the message mix, the controller and the unembed
+pdl mask 15: graph replay == eager for the projection, the message mix, the controller and the unembed
+test mini_dense_ops_timings ... timing q_gate 2304x3072 rows 1: 18.4 us, 289 GB/s of weights
+timing q_gate 2304x3072 rows 8: 20.4 us, 261 GB/s of weights
+timing q_gate 2304x3072 rows 128: 55.6 us, 96 GB/s of weights
+timing q_gate 2304x3072 rows 4096: 1371.5 us, 4 GB/s of weights
+timing k_v 2304x1024 rows 1: 17.5 us, 102 GB/s of weights
+timing k_v 2304x1024 rows 8: 21.3 us, 83 GB/s of weights
+timing k_v 2304x1024 rows 128: 41.0 us, 43 GB/s of weights
+timing k_v 2304x1024 rows 4096: 607.4 us, 3 GB/s of weights
+timing r 2304x384 rows 1: 22.3 us, 30 GB/s of weights
+timing r 2304x384 rows 8: 16.6 us, 40 GB/s of weights
+timing r 2304x384 rows 128: 41.5 us, 16 GB/s of weights
+timing r 2304x384 rows 4096: 324.5 us, 2 GB/s of weights
+timing o 3072x2304 rows 1: 20.5 us, 260 GB/s of weights
+timing o 3072x2304 rows 8: 22.4 us, 237 GB/s of weights
+timing o 3072x2304 rows 128: 59.7 us, 89 GB/s of weights
+timing o 3072x2304 rows 4096: 1426.8 us, 4 GB/s of weights
+timing unembed 2304x201088 rows 1: 1466.1 us, 237 GB/s of weights
+timing unembed 2304x201088 rows 8: 1487.0 us, 234 GB/s of weights
+timing unembed 2304x201088 rows 128: 3340.7 us, 104 GB/s of weights
+timing vis_1024x1024 1024x1024 rows 1: 16.3 us, 49 GB/s of weights
+timing vis_1024x1024 1024x1024 rows 8: 16.3 us, 49 GB/s of weights
+timing vis_1024x1024 1024x1024 rows 128: 42.8 us, 18 GB/s of weights
+timing vis_1024x1024 1024x1024 rows 4096: 270.9 us, 3 GB/s of weights
+timing vis_1024x4096 1024x4096 rows 1: 18.4 us, 172 GB/s of weights
+timing vis_1024x4096 1024x4096 rows 8: 18.3 us, 172 GB/s of weights
+timing vis_1024x4096 1024x4096 rows 128: 49.1 us, 64 GB/s of weights
+timing vis_1024x4096 1024x4096 rows 4096: 970.3 us, 3 GB/s of weights
+timing vis_4096x1024 4096x1024 rows 1: 18.4 us, 171 GB/s of weights
+timing vis_4096x1024 4096x1024 rows 8: 18.4 us, 171 GB/s of weights
+timing vis_4096x1024 4096x1024 rows 128: 51.2 us, 62 GB/s of weights
+timing vis_4096x1024 4096x1024 rows 4096: 1385.0 us, 2 GB/s of weights
+timing vis_4096x4096 4096x4096 rows 1: 30.8 us, 409 GB/s of weights
+timing vis_4096x4096 4096x4096 rows 8: 33.0 us, 382 GB/s of weights
+timing vis_4096x4096 4096x4096 rows 128: 204.5 us, 62 GB/s of weights
+timing vis_4096x4096 4096x4096 rows 4096: 4509.9 us, 3 GB/s of weights
+timing vis_4096x2304 4096x2304 rows 1: 24.8 us, 286 GB/s of weights
+timing vis_4096x2304 4096x2304 rows 8: 25.5 us, 279 GB/s of weights
+timing vis_4096x2304 4096x2304 rows 128: 95.5 us, 74 GB/s of weights
+timing vis_4096x2304 4096x2304 rows 4096: 2241.6 us, 3 GB/s of weights
+timing logit epilogue rows 1: 4.3 us
+timing controller (5 launches) rows 1: 22.9 us, 51 GB/s of weights
+timing message mix (2 sources, 4 queries) rows 1: 6.1 us
+timing logit epilogue rows 8: 18.5 us
+timing controller (5 launches) rows 8: 31.7 us, 37 GB/s of weights
+timing message mix (2 sources, 4 queries) rows 8: 6.2 us
+test mini_exl3_unembed_masks_caps_and_feeds_the_argmax ... argmax over the EXL3 logits [140651, 102058, 105544]: first maximum of the 200,058 unpadded columns
+test mini_loop_controller_stages_equal_the_float64_reference_and_rows_are_invariant ... ok
+test mini_loop_controllers_equal_the_oracle_on_the_real_weights ... l6_attn: blend vs oracle 3.90e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l6_k: blend vs oracle 4.04e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l6_v: blend vs oracle 4.59e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l6_mlp: blend vs oracle 2.65e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l7_attn: blend vs oracle 2.43e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l7_k: blend vs oracle 5.95e-4 of rms, normed output 0.35487873634188616 bf16 steps beyond the floor, 1.888% differ
+l7_v: blend vs oracle 2.23e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l7_mlp: blend vs oracle 4.02e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l8_attn: blend vs oracle 2.20e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l8_k: blend vs oracle 2.37e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l8_v: blend vs oracle 4.44e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l8_mlp: blend vs oracle 3.00e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.022% differ
+l9_attn: blend vs oracle 2.13e-5 of rms, normed output 0 bf16 steps beyond the floor, 0.043% differ
+l9_k: blend vs oracle 2.06e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l9_v: blend vs oracle 4.75e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l9_mlp: blend vs oracle 1.95e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l10_attn: blend vs oracle 4.16e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.022% differ
+l10_k: blend vs oracle 2.72e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l10_v: blend vs oracle 1.86e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l10_mlp: blend vs oracle 2.55e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l11_attn: blend vs oracle 5.98e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l11_k: blend vs oracle 1.05e-3 of rms, normed output 0.6736889491453928 bf16 steps beyond the floor, 1.736% differ
+l11_v: blend vs oracle 5.08e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l11_mlp: blend vs oracle 2.25e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l12_attn: blend vs oracle 2.41e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l12_k: blend vs oracle 2.21e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l12_v: blend vs oracle 3.67e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l12_mlp: blend vs oracle 4.50e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l13_attn: blend vs oracle 2.67e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l13_k: blend vs oracle 2.70e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l13_v: blend vs oracle 1.87e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l13_mlp: blend vs oracle 3.08e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l14_attn: blend vs oracle 3.70e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l14_k: blend vs oracle 2.51e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l14_v: blend vs oracle 8.00e-4 of rms, normed output 0.35135416911799455 bf16 steps beyond the floor, 0.955% differ
+l14_mlp: blend vs oracle 3.40e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l15_attn: blend vs oracle 2.57e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l15_k: blend vs oracle 2.79e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l15_v: blend vs oracle 2.16e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l15_mlp: blend vs oracle 2.30e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.022% differ
+l16_attn: blend vs oracle 2.91e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l16_k: blend vs oracle 3.37e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.022% differ
+l16_v: blend vs oracle 3.58e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.022% differ
+l16_mlp: blend vs oracle 3.56e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l17_attn: blend vs oracle 4.52e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l17_k: blend vs oracle 3.11e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l17_v: blend vs oracle 2.83e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+l17_mlp: blend vs oracle 2.31e-7 of rms, normed output 0 bf16 steps beyond the floor, 0.000% differ
+48 controllers (layers 6-17 x q, k, v, mlp): 4 with a bf16 flip against the oracle; blend vs oracle worst 1.05e-3 of rms; normed output worst 0.6736889491453928 bf16 steps beyond the floor, 1.888% of elements differ at most
+test mini_message_mix_at_four_queries_equals_the_float64_reference_and_rows_are_invariant ... n=1 nq=1 addend=false: worst error 1.19e-7 of unit scale
+n=2 nq=4 addend=false: worst error 4.55e-7 of unit scale
+n=2 nq=4 addend=true: worst error 6.26e-7 of unit scale
+n=3 nq=2 addend=true: worst error 6.34e-7 of unit scale
+n=5 nq=4 addend=true: worst error 5.41e-7 of unit scale
+n=5 nq=3 addend=false: worst error 4.89e-7 of unit scale
+test mini_message_mix_equals_the_oracle_on_the_real_queries ... message mix, 12 core layers, real queries: worst error 4.17e-7 of unit scale against the oracle
+test mini_pack_biases_are_within_half_a_subnormal_step_in_fp16 ... bias not exact in fp16: model.visual.backbone.layers.18.mlp.c_proj.bias[22] = -6.3478946685791016e-6 uploads as -6.318092346191406e-6
+bias not exact in fp16: model.visual.backbone.layers.2.self_attn.k_proj.bias[915] = 4.976987838745117e-6 uploads as 5.0067901611328125e-6
+bias not exact in fp16: model.visual.backbone.layers.3.self_attn.v_proj.bias[676] = -1.6391277313232422e-6 uploads as -1.6689300537109375e-6
+biases: 138 groups, 211968 values (0 zero), |v| in [1.6391277313232422e-6, 1.25e1], 3 not exact in fp16, worst error 2.9802322387695313e-8
+test mini_router_equals_the_reference_ties_to_the_lower_index_and_rows_are_invariant ... 150 rows at E = 128, k = 8: 0 near-ties skipped
+test mini_softcap_constants_are_the_configs ... ok
+test mini_unembed_epilogue_equals_the_bf16_linear_softcap_mode ... col_base 0 valid 200058: epilogue == mode 3 bit for bit; 5150 masked columns, 36290 saturated logits
+col_base 1000 valid 200058: epilogue == mode 3 bit for bit; 10150 masked columns, 36104 saturated logits
+col_base 0 valid 201088: epilogue == mode 3 bit for bit; 0 masked columns, 36475 saturated logits
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 21 filtered out; finished in 4.42s

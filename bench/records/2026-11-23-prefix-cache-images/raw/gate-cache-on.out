@@ -1,0 +1,4 @@
+02:34:06 bench cache against http://node-3:8000 (inkling-2-mini-1x-dgx-spark, window 262144); results in bench/runs/20261123T083406Z-cache
+02:34:06 gate cache: python3 ~/projects/inkling2-mini-k-state/bench/tools/gates.py cache ~/projects/inkling2-mini-k-state/bench/runs/20261123T083406Z-cache/cache.json --url http://node-3:8000 --model inkling-2-mini-1x-dgx-spark
+PASS cache
+bench cache: pass run=bench/runs/20261123T083406Z-cache

@@ -1,0 +1,64 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-state/target/release/deps/inkling2_loop_prefix-1b9273b4b3b48c2f
+== gb-model prefix_images_exact
+test prefix_images_exact ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.1
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 2
+LOOP_PFX_image_cut 250 images 2 cold_chunk 700 resumed_chunk 129 last_row_sha 2680fdf08f6b07ed state_sha 9111fada329906d6 decode_sha a938a63f4df7acbf identical
+LOOP_PFX_image_cut 364 images 2 cold_chunk 129 resumed_chunk 300 last_row_sha 2680fdf08f6b07ed state_sha 9111fada329906d6 decode_sha a938a63f4df7acbf identical
+LOOP_PFX_image_cut 700 images 2 cold_chunk 2048 resumed_chunk 129 last_row_sha 2680fdf08f6b07ed state_sha 9111fada329906d6 decode_sha a938a63f4df7acbf identical
+LOOP_PFX_image_cut 1200 images 2 cold_chunk 300 resumed_chunk 700 last_row_sha 2680fdf08f6b07ed state_sha 9111fada329906d6 decode_sha a938a63f4df7acbf identical
+LOOP_PFX_image_cut 1300 images 2 cold_chunk 700 resumed_chunk 7 last_row_sha 2680fdf08f6b07ed state_sha 9111fada329906d6 decode_sha a938a63f4df7acbf identical
+LOOP_PFX_graphs captures 2 replays 36 eager_windows 2 capture_failures 0
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 33.10s
+== gb-model prefix_images_another_image
+test prefix_images_another_image_changes_the_reply ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.2
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 2
+LOOP_PFX_image_negative cut 700 a_sha c3ca803ef0fbf925 b_sha 1539e10cec33681b restored_equals_a identical_not_b
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 14.03s
+== gb-model prefix_exact_at_cuts
+test prefix_exact_at_cuts ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.1
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 2
+LOOP_PFX_cut 1 cold_chunk 2048 resumed_chunk 129 last_row_sha cdce5f343b13d39c state_sha b0a651cd9e50a585 decode_sha d194be2f61a6b1a0 identical
+LOOP_PFX_cut 255 cold_chunk 700 resumed_chunk 129 last_row_sha d879929334a0929b state_sha b85d818cf7e66ae4 decode_sha 3672326076fa0e6f identical
+LOOP_PFX_cut 256 cold_chunk 700 resumed_chunk 7 last_row_sha bffa2759f018dda3 state_sha 8550e8bbc3fd7a57 decode_sha e0bdf9d081bbb5f9 identical
+LOOP_PFX_cut 300 cold_chunk 2048 resumed_chunk 300 last_row_sha 0f7f6de8ab703e42 state_sha 72900afd094f8419 decode_sha c7074f1d78d67e11 identical
+LOOP_PFX_cut 512 cold_chunk 129 resumed_chunk 1 last_row_sha 58f723cc5c3db2aa state_sha c028b1eac09cd8f3 decode_sha e0074b6225adca9d identical
+LOOP_PFX_cut 1023 cold_chunk 700 resumed_chunk 129 last_row_sha d7eb5c89000822b3 state_sha ea72bf0edb2fa910 decode_sha e99ef3c21f5584f2 identical
+LOOP_PFX_cut 1024 cold_chunk 2048 resumed_chunk 300 last_row_sha cabcf89dc2d01a96 state_sha d756860f9f0c6db4 decode_sha 5de27757d23a14a0 identical
+LOOP_PFX_cut 1025 cold_chunk 300 resumed_chunk 7 last_row_sha 2e076611d5bb72e5 state_sha bba45c0479c9efda decode_sha 0ca6c3d2329bfe16 identical
+LOOP_PFX_cut 1030 cold_chunk 700 resumed_chunk 129 last_row_sha 7beb528c206e1e96 state_sha 5663bc3b40eceaa4 decode_sha ac849cb743d6d2dc identical
+LOOP_PFX_cut 1031 cold_chunk 700 resumed_chunk 129 last_row_sha 042701665506f8ab state_sha 13a0d41c1f183176 decode_sha 7fac5443a572a2c9 identical
+LOOP_PFX_cut 1032 cold_chunk 2048 resumed_chunk 1 last_row_sha 249e52b48ff9c655 state_sha 285a5e0501d9db44 decode_sha edaf5edaee5d4895 identical
+LOOP_PFX_cut 1100 cold_chunk 300 resumed_chunk 129 last_row_sha b439a55fd0863fec state_sha 76501d4c3f8b2903 decode_sha 22afd449db5d24e7 identical
+LOOP_PFX_cut 1500 cold_chunk 129 resumed_chunk 700 last_row_sha 920cf083880902b7 state_sha beefd772056e8ed8 decode_sha bf903d300f33153c identical
+LOOP_PFX_cut 2047 cold_chunk 2048 resumed_chunk 129 last_row_sha 5d8e85c1a136c52e state_sha af20e60d2425ea4f decode_sha e880b31871e6df24 identical
+LOOP_PFX_cut 2048 cold_chunk 700 resumed_chunk 300 last_row_sha e4cc70379c583b72 state_sha ade780c6340613cc decode_sha 6a6029cbd3ff9d1b identical
+LOOP_PFX_cut 2049 cold_chunk 300 resumed_chunk 129 last_row_sha 2cf093f80fbf9403 state_sha d7f72d51f3351596 decode_sha edf1cb54720e3627 identical
+LOOP_PFX_cut 2062 cold_chunk 2048 resumed_chunk 7 last_row_sha 4ec1f7d6e14d28a9 state_sha 5a16ac5bf8beb0a0 decode_sha 26d151b3c5bf3908 identical
+LOOP_PFX_cut 2063 cold_chunk 700 resumed_chunk 129 last_row_sha bd829e568ff2ff1a state_sha 5230f2056674da93 decode_sha 9dedb85bbe155e91 identical
+LOOP_PFX_cut 3000 cold_chunk 2048 resumed_chunk 300 last_row_sha cd9bea0615348eac state_sha 2fdbf18cfccf4c30 decode_sha aa8577c08a9aaf9e identical
+LOOP_PFX_cut 4096 cold_chunk 700 resumed_chunk 129 last_row_sha 6d5f3ff41ad61778 state_sha d56153549fb108d3 decode_sha f19731f673b4e115 identical
+LOOP_PFX_graphs captures 10 replays 140 eager_windows 10 capture_failures 0
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 81.69s
+== gb-model prefix_logits_planes_equal
+test prefix_logits_planes_equal ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.1
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 1
+LOOP_PFX_planes cut 300 next_chunk_rows 40 hidden 5d9d57eccd544c10 (9031680 B) core_out 9b8494df88f32eac (368640 B) h_final 9ae3e6c14578b542 (184320 B) logits ef51dc3aa2e86462 (32009280 B) identical
+LOOP_PFX_planes cut 1024 next_chunk_rows 40 hidden 11ca5de1b788ca20 (9031680 B) core_out a968ad9e6d763d0f (368640 B) h_final 752e488700206495 (184320 B) logits 2a0fecfb8b329a39 (32009280 B) identical
+LOOP_PFX_planes cut 1500 next_chunk_rows 40 hidden 18767e45e37d8d40 (9031680 B) core_out eb05056e536156b9 (368640 B) h_final a9b25722577c5542 (184320 B) logits 1f0cf60859cafc44 (32009280 B) identical
+LOOP_PFX_planes cut 2048 next_chunk_rows 40 hidden d0afcec55e466f51 (9031680 B) core_out 8b08686b98dbe082 (368640 B) h_final 84065f37c1df36d2 (184320 B) logits 59c75809466828e9 (32009280 B) identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 16.06s
+== gb-model prefix_restore_after_eviction
+test prefix_restore_after_eviction ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.1
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 2
+LOOP_PFX_eviction cut 1092 restores 3 after_reuse after_eviction after_refill identical pages_returned 400
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 17.85s
+== gb-model prefix_restore_beside_decoding_streams
+test prefix_restore_beside_decoding_streams ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.1
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 2
+LOOP_PFX_concurrent streams 3 a_steps 17 b_steps 12 c_steps 12 a_sha f90a4f28b47411eb b_sha 9a3b8dcf544097e7 c_sha b1dc7ea5227b5049 identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 15.37s
+== gb-model prefix_long_prompt
+test prefix_long_prompt ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.0
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 1
+LOOP_PFX_long total 12300 cut 12000 last_row_sha edb2775fac2927bc state_sha 2a6a27ffce5dc457 decode_sha 4b0a7e44e41511ef identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 19.08s

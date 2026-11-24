@@ -1,0 +1,24 @@
+PASS health: {'status': 'ok'}
+PASS models: ['inkling-2-mini-1x-dgx-spark'] max_model_len=262144 configured=262144 kv_pool_tokens=1048576 prefix_cache_reach_tokens=393216
+PASS window: max_model_len 262144 >= 262144
+PASS tokenize: 'hello world' = 2 tokens [32205, 150770]
+PASS chat: 17*23 -> 391 (0.65s, reasoning_tokens=39)
+PASS usage: {"prompt_tokens": 26, "completion_tokens": 46, "total_tokens": 72, "prompt_tokens_details": {"cached_tokens": 0}, "completion_tokens_details": {"reasoning_tokens": 39}, "spec": {"drafted": 64, "accepted": 31, "rounds": 16}}
+PASS reasoning: 619 chars, reasoning_tokens=188, content '**9 sheep.**\n\n"All but 9 run away" means that 9 sheep stay b'
+PASS levels: 7 levels, none renders 0 and still reasons (reasoning_tokens 39 at none)
+PASS effort system level 0: accepted, completion_tokens=42
+PASS effort effort none: accepted, completion_tokens=43
+PASS effort effort high: accepted, completion_tokens=75
+PASS tools: get_weather({'city': 'Paris'})
+PASS metrics: 624 samples; cache enabled=1.0
+PASS spec: drafter on: drafted=368 accepted=181 rounds=74 acceptance=0.4918 tokens/round=3.4595
+PASS spec serial: draft:false drafted 0 tokens
+PASS prefix-cache: repeat of a 2416-token prompt: cached_tokens=2352
+PASS vision: reply 'Red square.'
+probe: OK
+METRIC probe_cached_tokens_repeat=2352
+METRIC probe_max_model_len=262144
+METRIC probe_reasoning_tokens_high=188
+METRIC probe_reasoning_tokens_none=39
+METRIC probe_spec_acceptance=0.4918
+METRIC probe_spec_drafted=368

@@ -1,0 +1,27 @@
+== SLOTS=4 KV_TOKENS=262144 PREFILL_CHUNK=4096
+rexl3 event=inkling2_loop_plan slots=4 max_context=262144 kv_pages=1028 kv_tokens=262144 kv_gib=4.05 lanes_at_max_context=1 weights_gib=13.55 free_after_gib=102.45 floor_gib=8.00 reserve_gib=5.00 state_mib_per_slot=166.3 kv_bytes_per_token=16512 kv_dtype=int8 drafter=none prefix_cache=off prefix_entries=0 prefix_pages=0 prefix_g
+02:32:30 start: ready at http://node-4:8000/v1 (inkling-2-mini-1x-dgx-spark)
+gpu_mib=27296 avail_mib=91243
+02:32:36 stop: the server and its guard are gone
+== SLOTS=1 KV_TOKENS=262144 PREFILL_CHUNK=4096
+rexl3 event=inkling2_loop_plan slots=1 max_context=262144 kv_pages=1025 kv_tokens=262144 kv_gib=4.04 lanes_at_max_context=1 weights_gib=13.55 free_after_gib=102.45 floor_gib=8.00 reserve_gib=5.00 state_mib_per_slot=166.3 kv_bytes_per_token=16512 kv_dtype=int8 drafter=none prefix_cache=off prefix_entries=0 prefix_pages=0 prefix_g
+02:32:52 start: ready at http://node-4:8000/v1 (inkling-2-mini-1x-dgx-spark)
+gpu_mib=26801 avail_mib=91747
+02:32:58 stop: the server and its guard are gone
+== SLOTS=4 KV_TOKENS=1048576 PREFILL_CHUNK=1024
+rexl3 event=inkling2_loop_plan slots=4 max_context=262144 kv_pages=4100 kv_tokens=1048576 kv_gib=16.14 lanes_at_max_context=4 weights_gib=13.55 free_after_gib=102.45 floor_gib=8.00 reserve_gib=5.00 state_mib_per_slot=166.3 kv_bytes_per_token=16512 kv_dtype=int8 drafter=none prefix_cache=off prefix_entries=0 prefix_pages=0 prefix
+02:33:15 start: ready at http://node-4:8000/v1 (inkling-2-mini-1x-dgx-spark)
+gpu_mib=38417 avail_mib=80114
+02:33:21 stop: the server and its guard are gone
+== SLOTS=4 KV_TOKENS=1048576 PREFILL_CHUNK=8192
+FATAL rexl3 level=fatal event=engine_failed panicked=true reason="the engine thread panicked: cannot start the engine: configuration: --prefill-chunk must be between 1 and 4096, got 8192"
+error: cannot start the engine: configuration: --prefill-chunk must be between 1 and 4096, got 8192
+rexl3 level=fatal event=engine_failed panicked=true reason="the engine thread panicked: cannot start the engine: configuration: --prefill-chunk must be between 1 and 4096, got 8192"
+rexl3 level=fatal event=exit code=101 reason="the engine thread panicked: cannot start the engine: configuration: --prefill-chunk must be between 1 and 4096, got 8192"
+gpu_mib=0 avail_mib=119725
+02:33:31 stop: the server and its guard are gone
+== SLOTS=1 KV_TOKENS=1048576 PREFILL_CHUNK=4096
+rexl3 event=inkling2_loop_plan slots=1 max_context=262144 kv_pages=4097 kv_tokens=1048576 kv_gib=16.13 lanes_at_max_context=4 weights_gib=13.55 free_after_gib=102.45 floor_gib=8.00 reserve_gib=5.00 state_mib_per_slot=166.3 kv_bytes_per_token=16512 kv_dtype=int8 drafter=none prefix_cache=off prefix_entries=0 prefix_pages=0 prefix
+02:33:47 start: ready at http://node-4:8000/v1 (inkling-2-mini-1x-dgx-spark)
+gpu_mib=39185 avail_mib=79201
+02:33:53 stop: the server and its guard are gone

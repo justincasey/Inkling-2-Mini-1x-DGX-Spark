@@ -1,0 +1,7 @@
+block passes [0, 30, 36, 42]
+fp64 z single / batch: -1.4911530613899253 -1.4911530613899207 diff -4.6629367034256575e-15
+single(cached) f32(z) = -1.4911531209945679  logit = -1.4899263381958008
+batch(full) f32(z) = -1.4911530017852783  logit = -1.4899262189865112
+saved cached logit -1.4899263381958008 saved full logit -1.4899262189865112
+long double z = -1.4911530613899189 (longdouble eps 1.93e-34)
+f32 neighbours of z: spacing -1.19e-07

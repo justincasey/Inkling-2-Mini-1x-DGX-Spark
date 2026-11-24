@@ -1,0 +1,62 @@
+{
+ "name": "fuse-decode",
+ "gate": "speed-decode",
+ "date": "2026-11-23",
+ "result": "pass",
+ "node": "node-2",
+ "engine": {
+  "commit": "24a04afe9fda1f304865ed2af0f0c2e13bae7f08",
+  "dirty": false,
+  "version": "0.1.1"
+ },
+ "recipe": {
+  "commit": "76d2c5f950928f6d19dcf2063e1bd2471062fab3"
+ },
+ "tests": [
+  {
+   "bin": "inkling2_loop_spec_timing",
+   "filter": "round_cost_table (synthetic ids)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_spec_timing",
+   "filter": "round_cost_table (LOOP_REAL_IDS_FILE)",
+   "passed": 1,
+   "failed": 0
+  }
+ ],
+ "commands": [
+  "NODE=node-2 REXL3_SRC=<engine worktree> ./inkling2mini.sh build 24a04afe9fda1f304865ed2af0f0c2e13bae7f08",
+  "tools/session2.sh fin (shipping defaults: start, exactness record + diff, bench decode x4, specbench --concurrency 4, specedge, bench.py --ref, stop)",
+  "tools/session3.sh (gates spec/cache, then SPEC=none sweep_decode)",
+  "LOOP_TIMING=1 LOOP_TIMING_CTX=4096,32768 [LOOP_REAL_IDS_FILE=raw/real_ids.json] ops_dev.sh test inkling2_loop_spec_timing round_cost_table"
+ ],
+ "metrics": {
+  "decode_mean4_tok_s": 83.355,
+  "decode_prose_tok_s": 42.695,
+  "decode_code_tok_s": 125.558,
+  "decode_structured_tok_s": 75.001,
+  "decode_json_tok_s": 90.037,
+  "baseline_decode_mean4_tok_s": 81.653,
+  "decode_c1_short_tok_s": 53.51,
+  "decode_c1_4k_tok_s": 51.56,
+  "decode_c4_short_tok_s": 100.829,
+  "window8_ms_4k": 29.508,
+  "window8_ms_4k_real_texts": 41.928,
+  "window_4x8_ms_4k_real_texts": 96.147,
+  "propose_ms": 6.69,
+  "propose_ms_real_texts": 6.9,
+  "propose_ms_32k": 7.33,
+  "baseline_propose_ms": 8.45,
+  "baseline_window8_ms_4k": 29.248,
+  "speedup_chat": 0.917,
+  "speedup_code": 2.296,
+  "speedup_json": 1.691,
+  "speedup_longctx": 1.617,
+  "speedup_tool": 2.413,
+  "speedup_reasoning": 1.439,
+  "speedup_c4_aggregate": 1.132
+ },
+ "notes": "decode_mean4_tok_s is the mean of the four per-kind rates `./inkling2mini.sh bench decode` prints as decode_c1_tok_s; the metric is below the owner's 100 tok/s bar (result pass = measured and byte-exact, bar not met). Windows by rows and bytes: docs/DECODE-SPEED.md."
+}

@@ -1,0 +1,12 @@
+prefill 8k pass 0 (warm-up, discarded): 8192 tokens in 6.6793 s = 1226.5 tok/s; decode 44.269 tok/s (16 tokens)
+prefill 8k pass 1: 8192 tokens in 6.5564 s = 1249.5 tok/s; decode 47.587 tok/s (16 tokens)
+prefill 8k pass 2: 8192 tokens in 6.5558 s = 1249.6 tok/s; decode 47.266 tok/s (16 tokens)
+prefill 8k pass 3: 8192 tokens in 6.559 s = 1249.0 tok/s; decode 47.397 tok/s (16 tokens)
+METRIC prefill_8k_tok_s=1249.5
+METRIC prefill_8k_ttft_s=6.5564
+prefill 32k pass 0 (warm-up, discarded): 32768 tokens in 27.2464 s = 1202.7 tok/s; decode 41.394 tok/s (16 tokens)
+prefill 32k pass 1: 32768 tokens in 27.2747 s = 1201.4 tok/s; decode 43.735 tok/s (16 tokens)
+prefill 32k pass 2: 32768 tokens in 27.3031 s = 1200.2 tok/s; decode 43.511 tok/s (16 tokens)
+prefill 32k pass 3: 32768 tokens in 27.2986 s = 1200.4 tok/s; decode 43.501 tok/s (16 tokens)
+METRIC prefill_32k_tok_s=1200.4
+METRIC prefill_32k_ttft_s=27.2986

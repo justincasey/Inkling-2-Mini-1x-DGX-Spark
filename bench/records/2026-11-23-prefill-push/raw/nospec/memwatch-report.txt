@@ -1,0 +1,1 @@
+memwatch guard=running window=20261123T165305Z-27522 window_min_mib=84909 window_min_at=2026-11-23T17:09:50Z loading_min_mib=85223 ready_min_mib=84909 min_mib=84909 min_at=2026-11-23T17:09:50Z now_mib=85105 updated=2026-11-23T17:10:39Z

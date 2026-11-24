@@ -1,0 +1,3 @@
+00:27:59 build a LAB engine 51f2993c1549 on node-2 (not REXL3_COMMIT: engine.lab_build=true in records)
+built 51f2993c1549f927a632c2c502de3d20dc261ec3: rexl3-serve sha256 e28252f388a87fc21021eb601651e7fa20e06eafc041b5a8ae59810396bb31b3
+00:29:52 build: engine 51f2993c1549 installed under /home/spark/inkling-2-mini-1x-dgx-spark/bin

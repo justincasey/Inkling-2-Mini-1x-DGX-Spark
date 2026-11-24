@@ -1,0 +1,127 @@
+{
+ "name": "final-cache-images",
+ "date": "2026-11-23T22:36:43Z",
+ "recipe": {
+  "commit": "9adf2f0f7c0d40c7b0feb766cb12b3b62c3f4f7e",
+  "dirty_files": []
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a",
+  "sha256": "637d50b40f75378de92407eda48265d9f4dc912076a308c7c28dd1db37c7f7d2",
+  "pinned_commit": "59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a",
+  "lab_build": false,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a",
+   "system_fingerprint": "fp_59d08a9c5e9f_f2c81e67_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "f2c81e67b7de2016",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "1",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "dspark",
+  "PREFIX_CACHE": "on",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-1",
+ "gate": "cache-images",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "bench/tools/cache_images.py",
+   "filter": "after-text: filler, image, question: cold, warm (text before the image served); every cached reply equals its uncached reference",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/cache_images.py",
+   "filter": "other-image: another image: its own reply, the image not served; every cached reply equals its uncached reference",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/cache_images.py",
+   "filter": "text-first: text cached first, then the same text with an image; every cached reply equals its uncached reference",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/cache_images.py",
+   "filter": "image-first: image first: cold, warm, another question; every cached reply equals its uncached reference",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/cache_images.py",
+   "filter": "two-images: two images: cold, warm, only the second changed; every cached reply equals its uncached reference",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/cache_images.py",
+   "filter": "concurrent: two image prompts at once; every cached reply equals its uncached reference",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/cache_images.py",
+   "filter": "the cache served 11 of 14 lookups and saved 40689 tokens",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/cache_images.py",
+   "filter": "no request error",
+   "passed": 1,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "cache_images_scenarios": 6,
+  "cache_images_hits": 11,
+  "cache_images_lookups": 14,
+  "cache_images_tokens_saved": 40689,
+  "cache_images_evictions": 0,
+  "cache_images_after_text_warm_cached": 3411,
+  "cache_images_image_first_warm_cached": 3399,
+  "cache_images_two_images_warm_cached": 5043
+ },
+ "commands": [
+  "./inkling2mini.sh bench cache-images   (bench/tools/cache_images.py: cached == uncached for prompts that carry images; prefix cache, vision and drafter on)"
+ ],
+ "notes": "Boot g, shipping defaults (SPEC=dspark PREFIX_CACHE=on VISION=on): the drafter serves the image prompts and its state rides in the cache snapshots. Every cached reply equal to its uncached reference, id for id (48 greedy tokens)."
+}

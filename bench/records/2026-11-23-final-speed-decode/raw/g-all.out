@@ -1,0 +1,65 @@
+16:15:53 bench all against http://node-1:8000 (inkling-2-mini-1x-dgx-spark, window 262144); results in bench/runs/20261123T221553Z-all
+16:15:53 gate capacity: bench_capacity
+PASS capacity
+16:15:53 gate smoke: cmd_smoke
+PASS smoke
+16:16:00 bench.py warm,decode,conc,rolling
+PASS pin
+warm: done (discarded)
+decode prose: 512 tokens, ttft 0.1298 s, 53.226 tok/s, spec {'drafted': 394, 'accepted': 115, 'rounds': 396, 'acceptance': 0.2919, 'tokens_per_round': 1.2929}
+decode code: 512 tokens, ttft 0.1837 s, 128.946 tok/s, spec {'drafted': 560, 'accepted': 411, 'rounds': 100, 'acceptance': 0.7339, 'tokens_per_round': 5.12}
+decode structured: 512 tokens, ttft 0.1742 s, 90.091 tok/s, spec {'drafted': 644, 'accepted': 352, 'rounds': 159, 'acceptance': 0.5466, 'tokens_per_round': 3.2201}
+decode json: 512 tokens, ttft 0.2017 s, 96.862 tok/s, spec {'drafted': 699, 'accepted': 380, 'rounds': 131, 'acceptance': 0.5436, 'tokens_per_round': 3.9084}
+conc c=4: 2048 tokens in 18.10 s = 113.18 tok/s (span number)
+conc c=8: 4096 tokens in 31.88 s = 128.49 tok/s (8 requests on 4 slots: two waves, not an 8-stream batch)
+rolling c=4: 32 requests, 16384 tokens in 115.08 s = 142.37 tok/s; steady 143.553; short replies 0
+16:19:30 bench.py prefill
+PASS pin
+prefill 32k: 32768 tokens in 13.78 s = 2378 tok/s; then 128 tokens at 87.855 tok/s
+prefill 128k: 131072 tokens in 73.6559 s = 1780 tok/s; then 128 tokens at 67.119 tok/s
+prefill 224k: 229376 tokens in 158.8459 s = 1444 tok/s; then 128 tokens at 63.156 tok/s
+16:23:43 gate vision-record: bench_vision_record
+PASS vision-record
+16:23:50 gate vision: bench_vision_diff
+PASS vision
+16:23:50 gate spec: python3 ~/projects/inkling2-mini-k-real/bench/tools/gates.py spec ~/projects/inkling2-mini-k-real/bench/runs/20261123T221553Z-all/spec.json --url http://node-1:8000 --model inkling-2-mini-1x-dgx-spark
+PASS spec
+16:25:40 gate cache: python3 ~/projects/inkling2-mini-k-real/bench/tools/gates.py cache ~/projects/inkling2-mini-k-real/bench/runs/20261123T221553Z-all/cache.json --url http://node-1:8000 --model inkling-2-mini-1x-dgx-spark
+PASS cache
+16:29:18 gate needle: bench_needle
+PASS needle
+16:36:00 gate memory: bench_memory
+PASS memory
+METRIC lanes_at_max_context=4
+METRIC kv_tokens=1048576
+METRIC kv_gib=18.16
+METRIC free_after_gib=101.27
+METRIC prefix_gib=9.47
+METRIC decode_acceptance=0.5477
+METRIC decode_c1_tok_s=92.281
+METRIC decode_c4_rolling_requests=32
+METRIC decode_c4_rolling_short_replies=0
+METRIC decode_c4_rolling_span_s=115.084
+METRIC decode_c4_rolling_tok_s=142.365
+METRIC decode_c4_steady_tok_s=143.553
+METRIC decode_c4_tok_s=113.175
+METRIC decode_c8_tok_s=128.489
+METRIC decode_code_tok_s=128.946
+METRIC decode_json_tok_s=96.862
+METRIC decode_prose_tok_s=53.226
+METRIC decode_structured_tok_s=90.091
+METRIC decode_tokens=2048
+METRIC decode_tokens_per_round=2.6056
+METRIC decode_ctx128k_tok_s=67.119
+METRIC decode_ctx224k_tok_s=63.156
+METRIC decode_ctx32k_tok_s=87.855
+METRIC prefill_128k_s=73.6559
+METRIC prefill_128k_tok_s=1779.5
+METRIC prefill_224k_s=158.8459
+METRIC prefill_224k_tok_s=1444.0
+METRIC prefill_32k_s=13.78
+METRIC prefill_32k_tok_s=2377.9
+METRIC mem_min_gib=67.6
+METRIC mem_loading_min_gib=69.9
+METRIC mem_ready_min_gib=67.6
+bench all: pass run=bench/runs/20261123T221553Z-all

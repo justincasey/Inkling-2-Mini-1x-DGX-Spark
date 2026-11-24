@@ -1,0 +1,31 @@
+{
+ "name": "row-probe",
+ "gate": "row-probe",
+ "date": "2026-11-23",
+ "result": "pass",
+ "node": "node-1",
+ "recipe": {"commit": "aa5d3d3a5e0b5b95c3d20c59ab42e958d97cf7f3"},
+ "tests": [
+  {"bin": "teacher_force.py --per-row", "filter": "chat-capital-effort0, 40 rows, 48 passes, every op per row", "passed": 48, "failed": 0},
+  {"bin": "teacher_force.py --per-row", "filter": "chat-sky-effort0.9, 49 rows, 48 passes, every op per row", "passed": 48, "failed": 0},
+  {"bin": "unembed_probe.py", "filter": "last op alone, fp16 and exact unembed, chat-capital-effort0 + chat-sky-effort0.9 (89 rows)", "passed": 2, "failed": 0},
+  {"bin": "unembed_probe.py", "filter": "last op alone, raw-counting + raw-long-window (1,176 rows)", "passed": 2, "failed": 0},
+  {"bin": "row_gap.py", "filter": "gap error at the oracle's top-2 against the engine fixture and the floor, 4 prompts, 1,265 rows", "passed": 4, "failed": 0}
+ ],
+ "commands": [
+  "nice -n 19 teacher_force.py --pack <pack> --engine <fixgate dump>/prefill0000{0,2}.safetensors --out report.json --per-row --workers 8 --threads 2   (node-1, two runs in parallel, 54 and 56 minutes wall)",
+  "python row_table.py report.json --top 8",
+  "nice -n 19 unembed_probe.py --pack <pack> --dump <fixgate dump>/prefill0000{0,2,4,6}.safetensors --out unembed_probe.json",
+  "python row_gap.py --name N --dump <dump> --engine-fixture <fixtures>/engine/N.safetensors --spec-fixture <fixtures>/spec/N.safetensors --json gap_N.json"],
+ "metrics": {
+  "rows_chat_capital": 40, "rows_chat_sky": 49, "rows_total_fixtures": 1265, "passes": 48,
+  "unembed_fp16_rel_max_all_rows": 3.64e-05, "unembed_fp16_argmax_differs_rows": 0,
+  "unembed_exact_rel_max_all_rows": 2.0e-04, "unembed_exact_gap_error_max_chat_prompts": 0.0017,
+  "row5_engine_gap_error": -0.300, "row5_oracle_margin": 0.167,
+  "sky_row23_engine_gap_error": -0.260, "sky_row23_oracle_margin": 0.220,
+  "chat_gap_error_abs_median_capital": 0.135, "chat_gap_error_abs_p90_capital": 0.481,
+  "chat_gap_error_abs_median_sky": 0.086, "chat_gap_error_abs_p90_sky": 0.332,
+  "worst_op_row_ratio_at_rows_5_23": 5.87, "worst_op_row_ratio_any_row_attn_core": 17.85,
+  "restart_mismatch": 0},
+ "notes": "The three argmax differences (row 5 of both chat prompts, which is one position with one prefix, and row 23 of the sky prompt) are not an op and not the unembed: the unembed matches the engine's own logits to 1e-6 relative and moves the gap at the oracle's top-2 by at most 0.002; every op at those rows is inside the spread of the other rows (worst ratio to the median of the other rows 5.9 at rows 5 and 23 (attn_in, 5.8 attention core), against 17.9 for the worst row anywhere); the engine's gap error at them (-0.30, -0.26) lies at the 78th to 85th percentile of the chat prompts (rows with oracle margin below 3)' |gap error| and exceeds the oracle margins (0.167, 0.22). Teacher forcing hides accumulation over 48 passes, so the end-to-end divergence at a row is not decomposed per op here."
+}

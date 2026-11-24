@@ -1,0 +1,2 @@
+lane 0: 9563 sentences, 259915 prompt tokens, depth 0.50
+lane 0: answered found=True prompt_tokens=259915 prefill_s=197.329 total_s=207.751

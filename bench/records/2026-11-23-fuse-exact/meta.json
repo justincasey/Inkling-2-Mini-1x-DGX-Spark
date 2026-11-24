@@ -1,0 +1,154 @@
+{
+ "name": "fuse-exact",
+ "gate": "exact-fuse",
+ "date": "2026-11-23",
+ "result": "pass",
+ "node": "node-2",
+ "engine": {
+  "commit": "24a04afe9fda1f304865ed2af0f0c2e13bae7f08",
+  "dirty": false,
+  "version": "0.1.1"
+ },
+ "recipe": {
+  "commit": "76d2c5f950928f6d19dcf2063e1bd2471062fab3"
+ },
+ "tests": [
+  {
+   "bin": "rank-graphs-on",
+   "filter": "inkling2_loop_rank forward_oracle_gate long_context_gate",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "rank-graphs-off",
+   "filter": "same with REXL3_INKLING2_LOOP_GRAPHS=0",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "graphs",
+   "filter": "inkling2_loop_graphs graph_replay_equals capture_refusal",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "spec",
+   "filter": "inkling2_loop_spec (all)",
+   "passed": 9,
+   "failed": 0
+  },
+  {
+   "bin": "prefix",
+   "filter": "inkling2_loop_prefix (all)",
+   "passed": 7,
+   "failed": 0
+  },
+  {
+   "bin": "dspark-mini",
+   "filter": "inkling2_dspark mini_",
+   "passed": 17,
+   "failed": 0
+  },
+  {
+   "bin": "attn",
+   "filter": "inkling2_attn mini:: small::",
+   "passed": 28,
+   "failed": 0
+  },
+  {
+   "bin": "ops",
+   "filter": "inkling2_ops split_topk sharded_argmax unembed_softcap golden",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "moe",
+   "filter": "inkling2_moe golden graph",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "moe-mixed",
+   "filter": "inkling2_moe_mixed graph",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2::",
+   "passed": 31,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2_loop::",
+   "passed": 115,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "window_graph::",
+   "passed": 6,
+   "failed": 0
+  },
+  {
+   "bin": "exactness.py",
+   "filter": "record + diff vs 1d53344",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "exactness.py",
+   "filter": "concurrent",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench.py",
+   "filter": "--ref pinned replies (PASS pin)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "specedge.py",
+   "filter": "all",
+   "passed": 65,
+   "failed": 0
+  },
+  {
+   "bin": "gates.py",
+   "filter": "spec",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gates.py",
+   "filter": "cache",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "specbench.py",
+   "filter": "drafted == serial",
+   "passed": 7,
+   "failed": 0
+  }
+ ],
+ "commands": [
+  "tools/mini_gates.sh <out> (NODE=node-2 LAB_SRC=<engine worktree>)",
+  "python3 bench/tools/exactness.py record OUT.json --max-tokens 128 --label L; exactness.py diff base.json OUT.json; exactness.py concurrent --max-tokens 64",
+  "python3 bench/tools/bench.py --max-model-len 262144 --phases warm,decode,conc,prefill-32k --ref bench/records/2026-11-23-graph-exact/raw/pinned-replies-engine-51f2993.json",
+  "python3 bench/tools/specedge.py --out O --label L; gates.py spec O; gates.py cache O",
+  "REXL3_NO_CUDA=1 cargo test -p gb-model --lib --locked -- families::inkling2:: families::inkling2_loop:: window_graph::"
+ ],
+ "metrics": {
+  "exactness_replies_sha256": "f7975a6c1dae761ef24508177ce06da5e0607d94f1e81c1c7a5a72b9e105433d",
+  "exactness_records_identical": 4,
+  "forward_oracle_dump_sha256": "c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0",
+  "chunk_width_logits_sha256": "a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a",
+  "graph_equal_logits_sha256_37_windows": "6d0a555b92e02953c9e26efecdd9dece0ab211030ba8947cbe03b8407846c06b",
+  "specedge_cases": 65,
+  "specedge_failures": 0
+ },
+ "notes": "Gates ran on the tree of 5f39463 (24a04af adds a changelog fragment only). The tests list gives one entry a proof; the three live tools print pass lines, counted as 1 passed."
+}

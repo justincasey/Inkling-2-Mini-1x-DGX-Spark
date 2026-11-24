@@ -1,0 +1,11 @@
+warm: done (discarded)
+decode prose: 512 tokens, ttft 0.1293 s, 52.985 tok/s, spec {'drafted': 358, 'accepted': 99, 'rounds': 412, 'acceptance': 0.2765, 'tokens_per_round': 1.2427}
+decode code: 512 tokens, ttft 0.1819 s, 128.21 tok/s, spec {'drafted': 580, 'accepted': 411, 'rounds': 100, 'acceptance': 0.7086, 'tokens_per_round': 5.12}
+decode structured: 512 tokens, ttft 0.1707 s, 88.37 tok/s, spec {'drafted': 678, 'accepted': 351, 'rounds': 160, 'acceptance': 0.5177, 'tokens_per_round': 3.2}
+decode json: 512 tokens, ttft 0.2074 s, 97.477 tok/s, spec {'drafted': 710, 'accepted': 383, 'rounds': 128, 'acceptance': 0.5394, 'tokens_per_round': 4.0}
+conc c=4: 2048 tokens in 18.16 s = 112.78 tok/s (span number)
+conc c=8: 4096 tokens in 29.95 s = 136.76 tok/s (8 requests on 4 slots: two waves, not an 8-stream batch)
+prefill 32k: 32768 tokens in 13.755 s = 2382 tok/s; then 128 tokens at 89.487 tok/s
+prefill 128k: 131072 tokens in 72.8323 s = 1800 tok/s; then 128 tokens at 68.227 tok/s
+prefill 224k: 229376 tokens in 158.7361 s = 1445 tok/s; then 128 tokens at 63.289 tok/s
+~/projects/inkling2-mini-k-real/bench/reference.json: 7 replies pinned, added ['decode/code', 'decode/json', 'decode/prose', 'decode/structured', 'prefill/128k', 'prefill/224k', 'prefill/32k']; 0 already pinned ones reproduced

@@ -1,0 +1,155 @@
+{
+ "name": "vision-smoke",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "2b4939b7b918b4f99593e83bb701cd518624a6f9",
+  "dirty_files": []
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "bfe68ae1a087cd3b6976db711675151c410d14a8",
+  "sha256": "9763cfd88c837c6d88b0e05f61b7059ce24131b87dd11fb1ac07318abcaefbe4",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "bfe68ae1a087cd3b6976db711675151c410d14a8",
+   "system_fingerprint": "fp_bfe68ae1a087_88b4219e_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "88b4219e6b153597",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2190 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "none",
+  "PREFIX_CACHE": "off",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "REXL3_ALLOW_UNGATED_COMPONENTS=1",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 REXL3_ALLOW_UNGATED_COMPONENTS=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec none --prefix-cache off --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "gate": "vision-smoke",
+ "result": "pass",
+ "node": "node-2",
+ "tests": [
+  {
+   "bin": "vision_smoke.py",
+   "filter": "describe_red_square",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "vision_smoke.py",
+   "filter": "describe_blue_circle",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "vision_smoke.py",
+   "filter": "describe_green_yellow",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "vision_smoke.py",
+   "filter": "repeat_equals_first_token_ids",
+   "passed": 3,
+   "failed": 0
+  },
+  {
+   "bin": "vision_smoke.py",
+   "filter": "three_images_one_request",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "vision_smoke.py",
+   "filter": "concurrent_two_images_and_text_equal_solo",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "vision_smoke.py",
+   "filter": "cap_image_4096_tokens_crosses_a_prefill_chunk",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "vision_smoke.py",
+   "filter": "over_cap_refused_by_name",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "smoke_curl.py (VISION=off boot)",
+   "filter": "chat_effort_none_high_completion_tool_call",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2",
+   "passed": 84,
+   "failed": 0
+  },
+  {
+   "bin": "gb-server (rexl3_serve)",
+   "filter": "inkling2_loop_bare",
+   "passed": 1,
+   "failed": 0
+  }
+ ],
+ "commands": [
+  "NODES=node-2 REXL3_SRC=<engine worktree> ./inkling2mini.sh build bfe68ae1a087cd3b6976db711675151c410d14a8",
+  "./inkling2mini.sh start (VISION=on, SPEC=none, PREFIX_CACHE=off, EXTRA_ENV=REXL3_ALLOW_UNGATED_COMPONENTS=1)",
+  "TOOLS=bench/tools python3 vision_smoke.py http://node-2:8000/v1 replies",
+  "./inkling2mini.sh status; ./inkling2mini.sh memwatch report",
+  "./inkling2mini.sh stop",
+  "VISION=off ./inkling2mini.sh start; python3 smoke_curl.py http://node-2:8000/v1 no-vision; ./inkling2mini.sh stop"
+ ],
+ "metrics": {
+  "boot_s": 22,
+  "tower_scratch_bytes_at_4096_tokens": 596142492,
+  "tower_scratch_mib_at_4096_tokens": 568.5,
+  "planned_tower_gib": 0.791,
+  "planned_vision_reserve_gib": 0.28,
+  "gpu_process_mib_vision_on": 40443,
+  "mem_available_loading_min_mib": 66703,
+  "mem_available_ready_min_mib": 67122,
+  "cap_image_prompt_tokens": 4121,
+  "cap_image_wall_s": 8.3,
+  "three_images_prompt_tokens": 145,
+  "single_image_prompt_tokens": 70,
+  "single_image_wall_s": 1.7
+ },
+ "notes": "Lab build bfe68ae of the committed engine head, REXL3_ALLOW_UNGATED_COMPONENTS=1 (short_conv and forward ungated as in the first boot). node-2 carries a CPU-heavy fixtures job and a lower MemAvailable baseline than node-4 (plan free_after 90.7 GiB against 101.5). gpu_process_mib_vision_on 40,443 MiB against 39,617 MiB of the text-only boot on node-4 (first-boot record): +826 MiB for the tower's weights (0.226 GiB), its scratch (568.5 MiB) and the encoder stream, against 0.791 GiB (810 MiB) planned. Replies are judged by eye: they name the colours and shapes of the synthetic images. The encoder takes one image at a time, so the 'batch' check is a three-image request and the solo repeats (bit equality of the tower's batch against single images is the kernels-vision record's). The no-vision boot's replies equal the first-boot smoke's, and its capacity line is unchanged apart from the vision fields (0)."
+}

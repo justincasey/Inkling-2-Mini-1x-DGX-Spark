@@ -1,0 +1,16 @@
+[package]
+name = "exl3dq"
+description = "Dev tool: dump REXL3's CPU EXL3 decode (gb-exl3) as .npy, to cross-check the oracle's numpy port"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# standalone: not a member of any workspace
+[workspace]
+
+[dependencies]
+# REXL3's CPU reference decoder (AGPL-3.0-only, see NOTICE), by relative path: a clone of the engine repository
+# (https://github.com/justincasey/REXL3, commit REXL3_COMMIT of config/pins.sh) placed next to this recipe, i.e.
+# <parent>/Inkling-2-Mini-1x-DGX-Spark/oracle/exl3dq -> <parent>/REXL3/crates/exl3. Read only.
+gb-exl3 = { path = "../../../REXL3/crates/exl3" }
+serde_json = "1"

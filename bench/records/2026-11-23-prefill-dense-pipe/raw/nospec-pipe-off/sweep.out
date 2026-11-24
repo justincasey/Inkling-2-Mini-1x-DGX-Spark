@@ -1,0 +1,16 @@
+13:25:35 bench prefill-sweep against http://node-3:8000 (inkling-2-mini-1x-dgx-spark, window 262144); results in bench/runs/20261123T192535Z-prefill-sweep
+13:25:35 gate prefill-sweep: python3 ~/projects/inkling2-mini-k-densepipe/bench/tools/prefill_sweep.py --url http://node-3:8000 --model inkling-2-mini-1x-dgx-spark --passes 4 --sizes 8192,32768,131072,229376 --decode-after 128 --out ~/projects/inkling2-mini-k-densepipe/bench/runs/20261123T192535Z-prefill-sweep/prefill-sweep.json
+PASS prefill-sweep
+METRIC decode_after_8k_tok_s=50.443
+METRIC prefill_8k_tok_s=2542.5
+METRIC prefill_8k_ttft_s=3.222
+METRIC decode_after_32k_tok_s=46.139
+METRIC prefill_32k_tok_s=2346.2
+METRIC prefill_32k_ttft_s=13.9663
+METRIC decode_after_128k_tok_s=34.188
+METRIC prefill_128k_tok_s=1778.6
+METRIC prefill_128k_ttft_s=73.6958
+METRIC decode_after_224k_tok_s=27.217
+METRIC prefill_224k_tok_s=1430.2
+METRIC prefill_224k_ttft_s=160.3798
+bench prefill-sweep: pass run=bench/runs/20261123T192535Z-prefill-sweep

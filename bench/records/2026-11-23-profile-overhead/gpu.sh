@@ -1,0 +1,1 @@
+ssh -o BatchMode=yes spark@node-4 'echo "gpu_mib=$(nvidia-smi --query-compute-apps=used_memory --format=csv,noheader,nounits | awk "{s+=\$1} END {print s+0}") avail_mib=$(awk "/^MemAvailable:/ {printf \"%d\", \$2/1024}" /proc/meminfo)"'

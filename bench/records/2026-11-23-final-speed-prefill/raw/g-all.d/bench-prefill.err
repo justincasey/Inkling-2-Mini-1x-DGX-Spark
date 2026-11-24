@@ -1,0 +1,3 @@
+prefill 32k: 32768 tokens in 13.78 s = 2378 tok/s; then 128 tokens at 87.855 tok/s
+prefill 128k: 131072 tokens in 73.6559 s = 1780 tok/s; then 128 tokens at 67.119 tok/s
+prefill 224k: 229376 tokens in 158.8459 s = 1444 tok/s; then 128 tokens at 63.156 tok/s

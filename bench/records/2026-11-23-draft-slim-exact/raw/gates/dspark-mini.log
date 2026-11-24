@@ -1,0 +1,22 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-slim/target/release/deps/inkling2_dspark-2190377fb6671b23
+== gb-cuda mini_
+test mini_drafter::mini_a_million_positions_use_33_partials ... a million positions committed in 4.9 s
+test mini_drafter::mini_contexts_past_one_group_and_a_full_launch_are_row_invariant ... Bf16: lengths [4095, 4096, 4097, 5000] in one launch: alone == reversed == repeated == batch; drafts [[220, 17, 87, 18, 13, 220, 44150], [220, 17, 25, 220, 19, 12, 69307], [220, 17, 13, 220, 44150, 11, 220], [4153, 11, 220, 19, 13, 20, 33]]
+test mini_drafter::mini_enqueue_proposal_refuses_a_batch_the_scratch_cannot_hold ... ok
+test mini_drafter::mini_golden_hashes ... golden hashes equal /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-slim/src/crates/cuda/../../testdata/gpu/golden_inkling2_loop_dspark.txt
+test mini_drafter::mini_graph_replay_equals_eager ... Bf16, pdl mask 0: graph replay == eager (free and forced; drafts, hd, Markov state)
+test mini_drafter::mini_graph_replay_follows_restaged_positions ... Bf16: a graph captured at [40, 700, 1024, 1290] replays at [43, 703, 1027, 1293] as the eager proposal does
+test mini_drafter::mini_incremental_commit_equals_one_commit_and_rollback_equals_replay ... Bf16: drafts at 1103: [62, 1485, 62, 102940, 62, 102940, 62]; rollback, chunked and many-commit replays are bit-equal
+test mini_drafter::mini_int8_plane_tracks_the_bf16_plane ... int8 vs bf16 plane, lengths [5, 300, 700, 1100, 1300]: free drafts agree 35/35; layer-1 K/V max 5.80 steps, 9081 of 10240 differ, rel L2 1.05e-2; hd max 31.49 steps, 77817 of 92160 differ, rel L2 1.33e-2
+test mini_drafter::mini_markov_variant_c_agrees_with_a ... MARKOV_VARIANT_AGREE oracle case real_chat-capital-effort0, 8 anchors [1, 8, 16, 24, 25, 30, 36, 40]
+test mini_drafter::mini_markov_variant_c_is_deterministic_and_graph_safe ... MARKOV_VARIANT_GRAPH Bf16 pdl mask 0: variant c twice equal, graph replay == eager (free and forced)
+test mini_drafter::mini_markov_variant_c_timing ... MARKOV_VARIANT_TIMING b=1 at 1300 positions (int8 plane, median of 20 propose calls): a 3.249 ms, c 14.054 ms, c - a 10.805 ms per round
+test mini_drafter::mini_matches_the_oracle ... long Bf16 plane (anchors [1, 600, 1023, 1024, 1025, 1031, 1032, 1100]):
+test mini_drafter::mini_norm_rows_equal_the_float64_reference ... norm rows at 2,304 (256 threads of 9 columns) vs the float64 reference: 0 of 5529600 bf16 outputs differ (worst relative 0.00e0)
+test mini_drafter::mini_propose_timing ... weights on the device 346369088 bytes (the fold's fold_w + fold_b 103359232 of them); state and scratch 29798300 bytes; upload with the fold 0.56 s
+test mini_drafter::mini_refuses_what_it_cannot_draft ... the drafter refuses an empty context, an anchor past the vocabulary, a repeated slot, a hole, a short stride, a wrong geometry
+test mini_drafter::mini_rows_are_invariant_across_windows ... Bf16: lengths [5, 700, 1023, 1024, 1025, 1031, 1032, 1033, 1100, 1300]: every request alone, in a reversed batch and repeated equals the batch (drafts and traces)
+test mini_drafter::mini_slot_snapshot_restores_the_bits ... a slot restored from its snapshot and plane pages proposes the same bits
+test mini_drafter::slim_picks_the_full_heads_winner ... SLIM_AGREE real_chat-capital-effort0: 23 anchors, 0 steps where the pick is not the full argmax
+test mini_drafter::slim_proposal_timing ... SLIM_TIMING ctx 4096 b=1: DraftSlim off 6.486 ms, on 3.333 ms, saved 3.153 ms
+test result: ok. 19 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 80.43s

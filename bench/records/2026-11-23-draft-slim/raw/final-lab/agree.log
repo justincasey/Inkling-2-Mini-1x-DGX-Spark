@@ -1,0 +1,7 @@
+== gb-cuda slim_picks_the_full_heads_winner
+test mini_drafter::slim_picks_the_full_heads_winner ... SLIM_AGREE real_chat-capital-effort0: 23 anchors, 0 steps where the pick is not the full argmax
+SLIM_AGREE real_chat-sky-effort0.9: 32 anchors, 1 steps where the pick is not the full argmax
+SLIM_AGREE real_raw-counting: 33 anchors, 0 steps where the pick is not the full argmax
+SLIM_AGREE real_raw-long-window: 1109 anchors, 0 steps where the pick is not the full argmax
+SLIM_AGREE real cases (stride 1): 1197 anchors, 8379 steps; steps whose pick is not the full argmax 1; drafts that differ from DraftSlim off 1 (2 tokens)
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 30 filtered out; finished in 21.12s

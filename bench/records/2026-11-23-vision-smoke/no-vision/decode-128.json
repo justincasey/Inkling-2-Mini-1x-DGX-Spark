@@ -1,0 +1,39 @@
+{
+ "request": {
+  "model": "inkling-2-mini-1x-dgx-spark",
+  "temperature": 0,
+  "prompt": "Once upon a time",
+  "max_tokens": 128
+ },
+ "reply": {
+  "id": "cmpl-d8453ea9850f83ee",
+  "object": "text_completion",
+  "created": 1795414792,
+  "model": "inkling-2-mini-1x-dgx-spark",
+  "system_fingerprint": "fp_bfe68ae1a087_88b4219e_cb1311_kvi8",
+  "choices": [
+   {
+    "index": 0,
+    "text": ", the humble banana was a staple in many households, but its popularity has waned in recent years. However, a new trend is emerging that\u2019s giving bananas a well-deserved resurgence. Enter the banana muffin, a delicious and nutritious treat that\u2019s taking the world by storm. In this article, we\u2019ll explore the benefits of banana muffins, how to make them, and why they\u2019re a must-try for anyone looking to add some variety to their breakfast or snack routine.\n\nThe Nutritional Benefits of Banana Muffin",
+    "finish_reason": "length"
+   }
+  ],
+  "usage": {
+   "prompt_tokens": 4,
+   "completion_tokens": 128,
+   "total_tokens": 132,
+   "prompt_tokens_details": {
+    "cached_tokens": 0
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 127
+   }
+  }
+ },
+ "wall_s": 3.476
+}

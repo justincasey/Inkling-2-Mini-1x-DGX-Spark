@@ -1,0 +1,10 @@
+METRIC decode_ctx128k_tok_s=26.732
+METRIC decode_ctx224k_tok_s=22.198
+METRIC decode_ctx32k_tok_s=33.397
+METRIC prefill_128k_s=127.5504
+METRIC prefill_128k_tok_s=1027.6
+METRIC prefill_224k_s=253.7179
+METRIC prefill_224k_tok_s=904.1
+METRIC prefill_32k_s=27.6017
+METRIC prefill_32k_tok_s=1187.2
+INFO pin: replies not compared (--raw); every concurrent reply was held to its solo reply

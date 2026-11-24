@@ -1,0 +1,23 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-rank/target/release/deps/inkling2_loop_rank-92f335230f3b1d49
+== gb-model forward_oracle_gate
+test forward_oracle_gate ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.1
+rexl3 event=inkling2_loop_load layers=8 gib=4.86 s=3.3
+rexl3 event=inkling2_loop_load layers=12 gib=6.98 s=4.5
+rexl3 event=inkling2_loop_load layers=16 gib=9.10 s=5.6
+rexl3 event=inkling2_loop_load layers=20 gib=11.24 s=6.7
+rexl3 event=inkling2_loop_load layers=24 gib=13.23 s=7.8
+LOOP_load_seconds 10.2 weight_gib 13.553
+LOOP_buffer_bytes 481099924
+LOOP_dump_a sha256 0773323c2fcb46afeb14e107839700c71659f4dd74e1860655f9390db190f43d bytes 121229024
+LOOP_top1 220 logit 29.40733
+LOOP_dump_b sha256 0773323c2fcb46afeb14e107839700c71659f4dd74e1860655f9390db190f43d bytes 121229024
+LOOP_top1 220 logit 29.40733
+LOOP_determinism identical 121229024 bytes
+LOOP_chunk_width 7 logits_identical 28008120 bytes sha256 74d6473e20814a9c2b5735ecdaafb132d6c85c167451aeb012c1b50b8c95eceb
+LOOP_chunk_width 11 logits_identical 28008120 bytes sha256 74d6473e20814a9c2b5735ecdaafb132d6c85c167451aeb012c1b50b8c95eceb
+LOOP_decode_row 31 identical
+LOOP_decode_row 32 identical
+LOOP_decode_row 33 identical
+LOOP_decode_row 34 identical
+LOOP_window_commit rollback identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 13.46s

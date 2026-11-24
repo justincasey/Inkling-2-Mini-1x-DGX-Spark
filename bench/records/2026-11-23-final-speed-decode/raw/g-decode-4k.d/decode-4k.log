@@ -1,0 +1,8 @@
+depth default c1 ctx 4096 run 1: 97.80 tok/s, tokens/round 3.938
+depth default c1 ctx 4096 run 2: 98.30 tok/s, tokens/round 3.938
+depth default c1 ctx 4096 run 3: 98.07 tok/s, tokens/round 3.938
+METRIC decode_default_c1_ctx4096_tok_s=98.068
+METRIC decode_default_c1_ctx4096_tpr=3.938
+METRIC decode_sweep_shallow_runs=0
+METRIC decode_sweep_depth_runs=3
+METRIC decode_sweep_flagged=0

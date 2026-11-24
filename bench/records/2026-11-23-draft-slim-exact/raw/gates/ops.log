@@ -1,0 +1,13 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-slim/target/release/deps/inkling2_ops-9fbf0538714d3e0a
+== gb-cuda split_topk
+test split_topk_equals_the_local_scan_and_merge ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 34 filtered out; finished in 0.30s
+== gb-cuda sharded_argmax
+test sharded_argmax_takes_the_lowest_index_among_equal_maxima ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 34 filtered out; finished in 0.26s
+== gb-cuda unembed_softcap
+test unembed_softcap_masks_the_padding_and_the_sharded_topk_is_the_global_one ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 34 filtered out; finished in 0.30s
+== gb-cuda golden
+test golden_inkling2_ops_hashes ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 34 filtered out; finished in 0.62s

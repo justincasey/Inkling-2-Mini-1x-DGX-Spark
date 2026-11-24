@@ -1,0 +1,165 @@
+{
+ "name": "prefill-exact",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "63ab69556c2ed5f3d0821fd96b00a6db9387bf9c"
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "1a36951e0b27715bf8e34b77130107ebd4ca282e",
+  "sha256": "b9bf75d835dfd220830989aba53bec192164a78584dd2419a1cbd5ea8eb85290",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "1a36951e0b27715bf8e34b77130107ebd4ca282e",
+   "system_fingerprint": "fp_1a36951e0b27_a1404573_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "a14045734ec87a16",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "none",
+  "PREFIX_CACHE": "off",
+  "VISION": "off",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec none --prefix-cache off --no-vision --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-3",
+ "gate": "exact-prefill",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "gb-model:inkling2_loop_rank",
+   "filter": "forward_oracle_gate long_context_gate (before == after, dump sha256 c25f9876...c45c0, chunk-width logits a105f245...f41a)",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model:inkling2_loop_graphs",
+   "filter": "graph_replay_equals_eager capture_refusal_runs_eager_and_counts (37-window logits sha256 8e214bd0...c2b7)",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model:inkling2_loop_prefix",
+   "filter": "prefix_exact_at_cuts prefix_logits_planes_equal prefix_restore_after_eviction prefix_long_prompt (20 cuts equal the cache record)",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model:inkling2_loop_prefill_perf",
+   "filter": "prefill_curve PF_TOKENS=135168 PF_EVERY=1 (33 chunk digests equal, chain f684af75...3bcb3)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda:inkling2_moe",
+   "filter": "partial_equals prefill_equals_decode mul1_prefill_equals prefill_with_tight four_rank_banks graph_replay_equals golden_inkling2",
+   "passed": 8,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda:inkling2_moe_mixed",
+   "filter": "mul1_bands_decode_equals_prefill band_split_equals every_pair_row graph_replay_equals band_entries_on bands_entries_refuse real_mini_layers",
+   "passed": 10,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda:inkling2_attn",
+   "filter": "mini:: small::",
+   "passed": 28,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda:inkling2_ops",
+   "filter": "split_topk sharded_argmax unembed_softcap golden",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda:exl3_big",
+   "filter": "big_linear_equals_the_decode_path_on big_linear_equals_the_decode_path_for big_linear_rows the_big_plan",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib (REXL3_NO_CUDA=1)",
+   "filter": "families::inkling2::",
+   "passed": 31,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib (REXL3_NO_CUDA=1)",
+   "filter": "families::inkling2_loop::",
+   "passed": 85,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/exactness.py",
+   "filter": "record 7da8c61 vs 1a36951, diff: identical 4 replies, replies sha256 f7975a6c...5433d",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/bench.py",
+   "filter": "--phases warm,decode,conc,prefill-32k --ref pinned-replies-engine-51f2993.json: PASS pin on both engines",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/exactness.py",
+   "filter": "concurrent --max-tokens 64: pass true",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/prefill_sweep.py",
+   "filter": "16 of 16 sweep passes' generated ids equal, sha256 afe69323...defb8",
+   "passed": 16,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "gate_logs_equal_lines": 1,
+  "chunk_digests_equal": 33,
+  "prefix_cuts_equal": 20,
+  "sweep_passes_equal": 16,
+  "exactness_replies_equal": 4
+ },
+ "commands": [
+  "see README.md"
+ ],
+ "notes": "Before = integration head 7da8c61 (GPU test binaries: the same tree with moe_prefill.cu of 7da8c61; live: a server built from 7da8c61). After = engine 1a36951. long_context_gate used 1,119 ids of the sweep's pass-0 prompt because the earlier lane's list (top-1 157 at 23.62496) is not kept; it was compared before and after, not against that figure. golden_exl3_big is #[ignore] and was not run."
+}

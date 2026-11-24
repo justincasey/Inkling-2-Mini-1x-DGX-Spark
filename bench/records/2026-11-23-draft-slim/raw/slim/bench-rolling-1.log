@@ -1,0 +1,23 @@
+13:41:45 bench rolling against http://node-1:8000 (inkling-2-mini-1x-dgx-spark, window 262144); results in bench/runs/20261123T194145Z-rolling
+13:41:45 no bench/reference.json: replies are measured, not compared (bench pin writes it on the pinned engine)
+13:41:45 bench.py warm,decode,rolling
+warm: done (discarded)
+decode prose: 512 tokens, ttft 0.1314 s, 51.912 tok/s, spec {'drafted': 264, 'accepted': 63, 'rounds': 448, 'acceptance': 0.2386, 'tokens_per_round': 1.1429}
+decode code: 512 tokens, ttft 0.1791 s, 131.701 tok/s, spec {'drafted': 597, 'accepted': 417, 'rounds': 94, 'acceptance': 0.6985, 'tokens_per_round': 5.4468}
+decode structured: 512 tokens, ttft 0.164 s, 85.984 tok/s, spec {'drafted': 712, 'accepted': 351, 'rounds': 160, 'acceptance': 0.493, 'tokens_per_round': 3.2}
+decode json: 512 tokens, ttft 0.197 s, 93.627 tok/s, spec {'drafted': 756, 'accepted': 382, 'rounds': 129, 'acceptance': 0.5053, 'tokens_per_round': 3.969}
+rolling c=4: 32 requests, 16384 tokens in 115.41 s = 141.96 tok/s; steady 143.461; short replies 0
+METRIC decode_acceptance=0.5208
+METRIC decode_c1_tok_s=90.806
+METRIC decode_c4_rolling_requests=32
+METRIC decode_c4_rolling_short_replies=0
+METRIC decode_c4_rolling_span_s=115.414
+METRIC decode_c4_rolling_tok_s=141.958
+METRIC decode_c4_steady_tok_s=143.461
+METRIC decode_code_tok_s=131.701
+METRIC decode_json_tok_s=93.627
+METRIC decode_prose_tok_s=51.912
+METRIC decode_structured_tok_s=85.984
+METRIC decode_tokens=2048
+METRIC decode_tokens_per_round=2.4645
+bench rolling: pass run=bench/runs/20261123T194145Z-rolling

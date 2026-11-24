@@ -1,0 +1,20 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-attn/target/release/deps/inkling2_attn_oracle-412c748deca64e89
+== gb-cuda small::
+running 2 tests
+test small::cpu_reference_matches_the_python_oracle ... Local: CPU reference vs oracle: 0 of 173568 outputs differ, by at most 0 bf16 ulp, worst head max-rel error 0.000e0
+Global: CPU reference vs oracle: 15 of 173568 outputs differ, by at most 2 bf16 ulp, worst head max-rel error 1.656e-3
+ok
+test small::kernels_match_the_python_oracle ... Local: kernels vs oracle over 113 rows: 39099 outputs differ, worst max-rel error 7.692e-3, min cosine 0.9999922
+Global: kernels vs oracle over 113 rows: 147570 outputs differ, worst max-rel error 3.194e-2, min cosine 0.9996604
+ok
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.49s
+== gb-cuda mini::
+running 2 tests
+test mini::cpu_reference_matches_the_python_oracle ... Local: CPU reference vs oracle: 22 of 347136 outputs differ, by at most 15 bf16 ulp, worst head max-rel error 5.051e-3
+Global: CPU reference vs oracle: 6 of 347136 outputs differ, by at most 5 bf16 ulp, worst head max-rel error 2.264e-3
+ok
+test mini::kernels_match_the_python_oracle ... Local: kernels vs oracle over 113 rows: 81717 outputs differ, worst max-rel error 7.752e-3, min cosine 0.9999927
+Global: kernels vs oracle over 113 rows: 84935 outputs differ, worst max-rel error 7.812e-3, min cosine 0.9999911
+ok
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.81s
+rc=0

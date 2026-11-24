@@ -1,0 +1,5 @@
+usage: gates.py spec [-h] [--url URL] [--model MODEL] [--timeout TIMEOUT]
+                     [--max-tokens MAX_TOKENS] [--label LABEL]
+                     [--big-tokens BIG_TOKENS] [--serial-boot]
+                     out
+gates.py spec: error: the following arguments are required: out

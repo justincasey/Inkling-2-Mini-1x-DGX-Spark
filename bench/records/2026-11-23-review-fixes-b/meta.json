@@ -1,0 +1,185 @@
+{
+ "name": "review-fixes-b",
+ "gate": "review-fixes-b",
+ "date": "2026-11-23",
+ "result": "pass",
+ "node": "node-2",
+ "engine": {
+  "commit": "2e684eb7109f11b6bccc2987de17c967663e3430",
+  "dirty": false,
+  "version": "0.1.1"
+ },
+ "recipe": {
+  "commit": "ee8a731537077952bd01da12a12568ce8f4b5f90"
+ },
+ "tests": [
+  {
+   "bin": "inkling2_loop_spec",
+   "filter": "flush_releases (fix 1)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_graphs",
+   "filter": "a_capture_refused (fix 2)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_graphs",
+   "filter": "a_graph_captured_early (fix 3)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_stall",
+   "filter": "decode_windows (fix 4)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_graphs",
+   "filter": "changing_the_overlap (fix 5)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_graphs",
+   "filter": "commits_that_cannot (fix 6)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_ops",
+   "filter": "_ (fix 7: mix at hidden 256, ops battery)",
+   "passed": 29,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_dspark",
+   "filter": "_ (fix 7: enqueue refusal; fix 9: long contexts, million, restaged graph)",
+   "passed": 28,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2_loop::device (fix 7)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-engine",
+   "filter": "class_prior (fix 8)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-engine gb-spec gb-sched",
+   "filter": "host suites (fix 8)",
+   "passed": 376,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_graphs",
+   "filter": "a_slow_lane (fix 9)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_graphs",
+   "filter": "a_capture_that_fails (fix 9)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_graphs",
+   "filter": "graph_replay_equals + capture_refusal (fix 9: replay per shape)",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_moe_mixed",
+   "filter": "_ (fix 9: arena bank)",
+   "passed": 13,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_spec",
+   "filter": "_ (fix 9: chat drafts accepted, replay asserted)",
+   "passed": 9,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_rank",
+   "filter": "forward_oracle_gate + long_context_gate (graphs on)",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_rank",
+   "filter": "forward_oracle_gate + long_context_gate (graphs off)",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_prefix",
+   "filter": "_",
+   "passed": 7,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_vision",
+   "filter": "_",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_attn",
+   "filter": "mini:: small::",
+   "passed": 28,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_moe",
+   "filter": "_",
+   "passed": 8,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2:: (the Small)",
+   "passed": 31,
+   "failed": 0
+  }
+ ],
+ "commands": [
+  "REXL3_SRC=<engine worktree> NODES=node-2 ./inkling2mini.sh build 2e684eb7109f11b6bccc2987de17c967663e3430",
+  "NODE=node-2 LAB_SRC=<engine worktree> PKG=gb-model TEST_ENV='REXL3_REQUIRE_GPU=1 LOOP_LONG_IDS_FILE=<lab>/ids_long.json [LOOP_ENC_STREAM=nonblocking REXL3_INKLING2_LOOP_PRIORITY=0|1]' scripts/ops_dev.sh test inkling2_loop_graphs|inkling2_loop_spec|inkling2_loop_rank|inkling2_loop_prefix|inkling2_loop_vision|inkling2_loop_stall <filters>",
+  "NODE=node-2 LAB_SRC=<engine worktree> PKG=gb-cuda TEST_ENV='REXL3_REQUIRE_GPU=1' scripts/ops_dev.sh test inkling2_ops|inkling2_moe|inkling2_moe_mixed|inkling2_attn|inkling2_dspark|inkling2_attn_oracle <filters>",
+  "SPEC=dspark PREFIX_CACHE=on VISION=on ./inkling2mini.sh start; bench/tools/bench.py --ref pinned.json --phases warm,decode,conc,prefill-32k; bench/tools/exactness.py record|diff|concurrent; ./inkling2mini.sh bench spec|cache|vision; bench/tools/specedge.py; ./inkling2mini.sh stop",
+  "fresh server: bench/tools/specmix.py --mix code --per-phase 12 --max-tokens 256 (reference); fresh server: specmix.py --mix chat,code --per-phase 12 --max-tokens 256 --reference-tpr 5.447",
+  "REXL3_NO_CUDA=1 cargo test -p gb-engine -p gb-spec -p gb-sched --locked; REXL3_NO_CUDA=1 cargo test -p gb-model --lib --locked -- families::inkling2:: families::inkling2_loop:: window_graph::"
+ ],
+ "metrics": {
+  "stall_blocking_slowest_window_ms": 2860.9,
+  "stall_blocking_encode_ms": 3187.9,
+  "stall_nonblocking_priority_slowest_window_ms": 151.58,
+  "stall_nonblocking_priority_median_window_ms": 144.51,
+  "stall_nonblocking_priority_encode_ms": 3670.8,
+  "stall_nonblocking_default_priority_slowest_window_ms": 517.08,
+  "stall_nonblocking_default_priority_median_window_ms": 407.5,
+  "quiet_window_median_ms": 24.1,
+  "specedge_cases_passed": 65,
+  "specedge_failures": 0,
+  "exactness_replies_sha256": "f7975a6c1dae761ef24508177ce06da5e0607d94f1e81c1c7a5a72b9e105433d",
+  "forward_oracle_dump_sha256": "c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0",
+  "graph_equal_logits_sha256_37_windows": "6d0a555b92e02953c9e26efecdd9dece0ab211030ba8947cbe03b8407846c06b",
+  "specmix_prose_tokens_per_round": 1.863,
+  "specmix_code_after_prose_tokens_per_round": 5.053,
+  "specmix_code_fresh_reference_tokens_per_round": 5.447,
+  "drafts_accepted_on_chat_prompt_16_rounds": 24,
+  "drafter_million_positions_partials": 257,
+  "drafter_million_positions_commit_seconds": 5.0
+ },
+ "notes": "The unfixed runs are the fixes' tests over a copy of the tree with only the fix reverted. Item 8 live: this pack's prose did not collapse the class, so the live mix shows the fade leaves a healthy class alone and code at 92-94% of a fresh server; the collapse and recovery are the engine test. recipe.commit is the lane head when the record was written. The Small's real-weight GPU tests need the Small's pack and were not run (they skip)."
+}

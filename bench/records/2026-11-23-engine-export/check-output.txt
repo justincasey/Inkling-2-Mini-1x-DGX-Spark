@@ -1,0 +1,90 @@
+series head fb5e3a7bbe590db3dc7ac039dd44fe751b92e3fc (engine/inkling2-export-work); dev head 59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a; base 02ef8cba920e1a86b911c6e20c248c43724ddd66
+
+branch table: # branch commits tip
+   1 engine/inkling2-family-host 2 054e4a25
+   2 engine/inkling2-token-ids 2 3328dc4a
+   3 engine/inkling2-kernels 2 a9bc08c3
+   4 engine/inkling2-attention 1 e501b1bd
+   5 engine/inkling2-vision 2 49f17388
+   6 engine/inkling2-dspark-drafter 3 8e476e33
+   7 engine/inkling2-rank-engine 4 7de442a5
+   8 engine/inkling2-group-wiring 1 faceded9
+   9 engine/inkling2-group-diagnostics 4 2fbc0987
+  10 engine/inkling2-draft-budget 1 879abf7d
+  11 engine/inkling2-prefill-lanes 4 eba312d3
+  12 engine/inkling2-linear-moe-tiles 7 5e4629fc
+  13 engine/inkling2-decode-pdl-warm 5 00da1d0a
+  14 engine/inkling2-moe-prefill-groups 3 a42d6cf3
+  15 engine/inkling2-markov-narrow-kernels 3 1f61b9f1
+  16 engine/inkling2-launch-fusion 3 fb71645f
+  17 engine/inkling2-collectives 5 08449a5f
+  18 engine/inkling2-loop-host 7 1f8dc81a
+  19 engine/inkling2-loop-dense-kernels 3 a892fedc
+  20 engine/inkling2-loop-attention-kernels 3 618227f3
+  21 engine/inkling2-loop-chat 3 d7071154
+  22 engine/inkling2-loop-moe-kernels 4 eb9b8d3f
+  23 engine/inkling2-loop-backend-rank 4 da00cafe
+  24 engine/inkling2-loop-vision-tower 9 990fb5e7
+  25 engine/inkling2-loop-drafter-kernels 8 eeabd55a
+  26 engine/inkling2-loop-vision-wiring 3 212fbe52
+  27 engine/inkling2-loop-rank-gate 4 2b0a437d
+  28 engine/inkling2-loop-prefix-cache 3 00a0e675
+  29 engine/inkling2-loop-decode-graphs 3 12bc4c2e
+  30 engine/inkling2-loop-decode-fuse 5 6b91bace
+  31 engine/inkling2-loop-drafter-wiring 12 ddc54445
+  32 engine/inkling2-loop-stop-strings 3 ab68166d
+  33 engine/inkling2-loop-cache-images 4 a580fdf1
+  34 engine/inkling2-loop-memory-plan 5 43efeae1
+  35 engine/inkling2-loop-prefill-2tile 3 871d6f2a
+  36 engine/inkling2-loop-expert-arena 3 2b4cde4b
+  37 engine/inkling2-loop-review-backend 6 08db84df
+  38 engine/inkling2-loop-class-prior 1 23cf1dbe
+  39 engine/inkling2-loop-review-rank 5 b3a16ec0
+  40 engine/inkling2-loop-chained-round 5 ef2a3303
+  41 engine/inkling2-loop-drafter-fuse 6 046fb841
+  42 engine/inkling2-loop-round-costs 5 5a894351
+  43 engine/inkling2-loop-prefill-chunks 6 075180aa
+  44 engine/inkling2-loop-dense-pipeline 3 54cd7d39
+  45 engine/inkling2-loop-copy-hybrid 2 605ef482
+  46 engine/inkling2-loop-draft-slim 5 fb5e3a7b
+PASS branches stack in tips.txt order, each contains all previous
+PASS head branch engine/inkling2-export-work equals the last topic tip
+PASS no merge commits (the lane merges are linearised): 0
+PASS 185 commits on the base, all inside the topic branches
+PASS the series is based on the upstream base
+PASS every one of the 199 non-merge dev commits is in the series or is a listed drop
+  183 picked + 18 dropped (measurement builds and reverts) = 201; 2 synthetic integration commits
+PASS excluded paths are only the dev branch's large goldens (25 files, 10.8 MB, absent from the series)
+PASS the series tree equals the dev head's tree except fragments, the excluded goldens, the scrubs, the pdl_order gate and whitespace-only lines
+  scrubs of the dev lines (lab addresses, recipe pointers, the SAGE sentence), line for line (0 files; the substitution table is rules.SCRUB):
+  comment/whitespace-only differences (0 files):
+  fragment differences: 0 files (A = only in the series, D = only in the dev branch, M = differs)
+PASS every dev fragment is in the series
+PASS the series adds no path the dev branch lacks apart from fragments
+PASS git diff --check clean on every branch (each topic against the one before)
+PASS git diff --check clean over the whole series
+PASS every subject is `TYPE: Past-tense summary` of at most 90 characters (longest 89)
+PASS every message has a PROVENANCE line
+PASS author and committer are the GitHub noreply identity on every commit
+PASS no commit carries a signature (an unsigned series rebuilds to the same hashes; sign when filing)
+PASS no lab address or lab host name in any added line or message (node-1..node-4 are the allowed names)
+PASS dev head + .export/dev-scrub.patch (0 files) - the 25 excluded goldens has exactly the series head's tree: tree a6b4c68427 vs a6b4c68427
+PASS the word SAGE appears only in pack ids or in the one allowed sentence
+    SAGE hit crates/server/src/main.rs: 3 (pack ids 3, allowed sentence 0)
+    SAGE hit testdata/inkling2_loop/README.md: 2 (pack ids 2, allowed sentence 0)
+    SAGE hit testdata/inkling2_loop/gpu/README.md: 2 (pack ids 1, allowed sentence 1)
+    SAGE hit testdata/inkling2_loop/tensor_inventory.tsv: 1 (pack ids 1, allowed sentence 0)
+    SAGE hit testdata/inkling2_loop/vision/expected.json: 1 (pack ids 1, allowed sentence 0)
+    SAGE hit testdata/inkling2_loop/vision/fetch_vision_pack.py: 1 (pack ids 1, allowed sentence 0)
+    SAGE hit testdata/inkling2_loop/vision/gen_vision_ref.py: 1 (pack ids 1, allowed sentence 0)
+    SAGE hit commit 6f0f88ca: 1 (pack ids 1, allowed sentence 0)
+    SAGE hit commit b7c1367a: 1 (pack ids 1, allowed sentence 0)
+    SAGE hit commit 9c19df90: 1 (pack ids 1, allowed sentence 0)
+    SAGE hit commit f210f569: 1 (pack ids 1, allowed sentence 0)
+PASS no internal project or lab name (internal project names, lab host names, personal e-mail) in added lines and messages
+PASS licence: no added line says code was copied or ported from vLLM, transformers or another source (239 citing lines in 71 places, listed in .export/licence-scan.txt)
+PASS the series adds 55 changelog fragments, all well formed (name, headings, not empty)
+PASS every topic with a FEAT or FIX commit adds or updates a changelog fragment
+PASS the worktree HEAD is the series head
+
+ALL PASS

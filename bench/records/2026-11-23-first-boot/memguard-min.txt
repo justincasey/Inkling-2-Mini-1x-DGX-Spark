@@ -1,0 +1,16 @@
+pid=1557050
+started=2026-11-23T05:35:18Z
+updated=2026-11-23T05:36:45Z
+stage=ready
+now_mib=78982
+min_mib=78795
+min_at=2026-11-23T05:35:50Z
+loading_min_mib=78985
+ready_min_mib=78795
+window=
+window_min_mib=78795
+window_min_at=2026-11-23T05:35:50Z
+swap_base_mib=151
+swap_now_mib=151
+floor_mib=1024
+MemTotal:       127598640 kB

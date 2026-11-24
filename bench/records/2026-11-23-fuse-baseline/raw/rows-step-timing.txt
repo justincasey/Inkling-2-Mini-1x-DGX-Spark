@@ -1,0 +1,6 @@
+LOOP_GRAPH_step_us mode graph ctx 3800 rows 1 steps 100 median 19121 mean 19223 min 19022
+LOOP_GRAPH_step_us mode graph ctx 3800 rows 2 steps 100 median 22527 mean 22667 min 21452
+LOOP_GRAPH_step_us mode graph ctx 3800 rows 3 steps 100 median 24829 mean 24920 min 23336
+LOOP_GRAPH_step_us mode graph ctx 3800 rows 4 steps 100 median 26722 mean 26972 min 25424
+LOOP_GRAPH_step_us mode graph ctx 3800 rows 6 steps 100 median 30287 mean 30346 min 28200
+LOOP_GRAPH_step_us mode graph ctx 3800 rows 8 steps 100 median 32994 mean 33196 min 31163

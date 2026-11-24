@@ -1,0 +1,7 @@
+evict: 24 prompts x 1500 ids; second pass (reverse): 16 hits [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], 8 misses; evictions 30; every reply equal to its uncached one: True
+concurrent: 4 streams, cached tokens [2960, 2960, 2960, 0]; every reply equal to its solo uncached one: True
+METRIC cache_stress_evictions=30.0
+METRIC cache_stress_hits=16
+METRIC cache_stress_misses=8
+METRIC cache_stress_concurrent_cached_min=2960
+cache_stress: pass -> /tmp/state-runs/cache-stress.json

@@ -1,0 +1,89 @@
+{
+ "name": "profile-overhead",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "f6156b40e49d98f2f4746786469528b580b1e20c",
+  "dirty_files": [
+   "bench/records/2026-11-23-profile-long-capacity/",
+   "bench/records/2026-11-23-profile-long/"
+  ]
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "918e6854bb9d4cfe2a9857d92f592722fdf826eb",
+  "sha256": "a9b77320979ee81b2728eb23ed4bed1dd02021ec9dc1771f6ef644e73609fbae",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "918e6854bb9d4cfe2a9857d92f592722fdf826eb",
+   "system_fingerprint": "fp_918e6854bb9d_0677d17b_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "0677d17bcd2acfa4",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2190 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "none",
+  "PREFIX_CACHE": "off",
+  "VISION": "off",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec none --prefix-cache off --no-vision --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-4",
+ "tests": [
+  {
+   "bin": "inkling2mini.sh",
+   "filter": "start x5 profile-shape boots, GPU MiB at ready",
+   "passed": 5,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "kv_bytes_per_token": 16512,
+  "slot_mib": 161,
+  "prefill_row_mib": 0.411,
+  "unaccounted_gib": 8.41,
+  "graphs_overlap_mib": 174,
+  "decode_c1_graphs_off_tok_s": 41.5,
+  "decode_c1_graphs_on_tok_s": 53.4
+ },
+ "commands": [
+  "PREFIX_CACHE=off VISION=off SLOTS=S KV_TOKENS=K PREFILL_CHUNK=C ./inkling2mini.sh start (5 shapes)",
+  "EXTRA_ENV='REXL3_INKLING2_LOOP_GRAPHS=0 REXL3_INKLING2_LOOP_OVERLAP=0' ./inkling2mini.sh start; ./inkling2mini.sh bench decode",
+  "./inkling2mini.sh start; ./inkling2mini.sh bench decode"
+ ],
+ "notes": "Measured by difference; the arena removes most of the fixed part (expert-arena record).",
+ "gate": "memory-breakdown",
+ "result": "pass"
+}

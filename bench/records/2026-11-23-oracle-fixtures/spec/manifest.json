@@ -1,0 +1,198 @@
+{
+ "meta": {
+  "pack_config_sha256": "d8a196f413ed98937820ba601ada03f98aa608648e6c8406a16f5550af86f473",
+  "oracle_source_sha256": "a2805238d6b2ee474c2813e39a5ae0c30267d7fbea1ce743496f53ddecfa2243",
+  "numerics_version": "2",
+  "emulate": "none"
+ },
+ "fixtures": {
+  "raw-long-window": {
+   "sha256": "60c1629c51a42e400c34f9b7e04ab25bb8860469a5d72fac30281ed4f9f31c19",
+   "prompt_len": 1119,
+   "generated": [
+    220,
+    95788,
+    220,
+    94234,
+    220,
+    98238,
+    220,
+    98912
+   ],
+   "generated_text": " 561 562 563 564",
+   "seconds": 922.1,
+   "verified_recompute": true,
+   "recompute_check": {
+    "rows": 1126,
+    "n_differing_logits": 0,
+    "logit_max_abs": 0.0,
+    "logit_max_rel_rms": 0.0,
+    "logit_max_ulps": 0.0,
+    "rows_with_differing_logits": [],
+    "argmax_equal": true,
+    "top2_order_equal": true,
+    "hidden_equal": true,
+    "core_out_equal": true,
+    "h_final_equal": true,
+    "routes_equal": true,
+    "router_w_max_ulps": 0.0,
+    "router_margin_max_abs": 0.0,
+    "ok": true,
+    "mode": "<= 2 fp32 ulp",
+    "seconds": 717.7
+   },
+   "size": 1174554088,
+   "meta": {
+    "pack_config_sha256": "d8a196f413ed98937820ba601ada03f98aa608648e6c8406a16f5550af86f473",
+    "oracle_source_sha256": "a2805238d6b2ee474c2813e39a5ae0c30267d7fbea1ce743496f53ddecfa2243",
+    "numerics_version": "2",
+    "emulate": "none"
+   }
+  },
+  "chat-sky-effort0.9": {
+   "sha256": "0dd087a94e45ac917c215830dd40cab2f0a6867eaa9e8d3fbe9366e4ee0e0c7d",
+   "prompt_len": 26,
+   "generated": [
+    200001,
+    200008,
+    371,
+    150409,
+    171960,
+    25,
+    196980,
+    100887,
+    149881,
+    150011,
+    156021,
+    151661,
+    149876,
+    158808,
+    149884,
+    152978,
+    152778,
+    13,
+    1,
+    170289,
+    150893,
+    150011,
+    156021,
+    13
+   ],
+   "generated_text": "<|message_model|><|content_thinking|>The user asks: \"Explain in one sentence why the sky is usually blue.\" Need answer one sentence.",
+   "seconds": 964.1,
+   "verified_recompute": true,
+   "recompute_check": {
+    "rows": 49,
+    "n_differing_logits": 1,
+    "logit_max_abs": 1.1920928955078125e-07,
+    "logit_max_rel_rms": 7.22061510199566e-09,
+    "logit_max_ulps": 1.0,
+    "rows_with_differing_logits": [
+     28
+    ],
+    "argmax_equal": true,
+    "top2_order_equal": true,
+    "hidden_equal": true,
+    "core_out_equal": true,
+    "h_final_equal": true,
+    "routes_equal": true,
+    "router_w_max_ulps": 0.0,
+    "router_margin_max_abs": 0.0,
+    "ok": true,
+    "mode": "<= 2 fp32 ulp",
+    "seconds": 619.9
+   },
+   "size": 51113808,
+   "meta": {
+    "pack_config_sha256": "d8a196f413ed98937820ba601ada03f98aa608648e6c8406a16f5550af86f473",
+    "oracle_source_sha256": "a2805238d6b2ee474c2813e39a5ae0c30267d7fbea1ce743496f53ddecfa2243",
+    "numerics_version": "2",
+    "emulate": "none"
+   }
+  },
+  "raw-counting": {
+   "sha256": "efc73ed44c17590ff22aff667d67e03188e745b804f376b3c066f25c40529284",
+   "prompt_len": 35,
+   "generated": [
+    220,
+    68079,
+    11,
+    220,
+    68084,
+    11,
+    220,
+    68063,
+    11,
+    220,
+    68080,
+    11,
+    220,
+    68107,
+    11,
+    220
+   ],
+   "generated_text": " 13, 14, 15, 16, 17, ",
+   "seconds": 581.5,
+   "verified_recompute": true,
+   "recompute_check": {
+    "rows": 50,
+    "n_differing_logits": 0,
+    "logit_max_abs": 0.0,
+    "logit_max_rel_rms": 0.0,
+    "logit_max_ulps": 0.0,
+    "rows_with_differing_logits": [],
+    "argmax_equal": true,
+    "top2_order_equal": true,
+    "hidden_equal": true,
+    "core_out_equal": true,
+    "h_final_equal": true,
+    "routes_equal": true,
+    "router_w_max_ulps": 0.0,
+    "router_margin_max_abs": 0.0,
+    "ok": true,
+    "mode": "<= 2 fp32 ulp",
+    "seconds": 315.4
+   },
+   "size": 52156920,
+   "meta": {
+    "pack_config_sha256": "d8a196f413ed98937820ba601ada03f98aa608648e6c8406a16f5550af86f473",
+    "oracle_source_sha256": "a2805238d6b2ee474c2813e39a5ae0c30267d7fbea1ce743496f53ddecfa2243",
+    "numerics_version": "2",
+    "emulate": "none"
+   }
+  },
+  "chat-capital-effort0": {
+   "sha256": "317571c029c880c2f926de4554b1897820086ec05ebb301e2df91507a33cc926",
+   "prompt_len": 25,
+   "generated": [
+    200001,
+    200008,
+    371,
+    150409,
+    171960,
+    149887,
+    149876,
+    151451,
+    149879,
+    151194,
+    11,
+    150011,
+    151290,
+    13,
+    170289,
+    150893
+   ],
+   "generated_text": "<|message_model|><|content_thinking|>The user asks for the capital of France, one word. Need answer",
+   "seconds": 765.3,
+   "verified_recompute": true,
+   "size": 41725728,
+   "meta": {
+    "pack_config_sha256": "d8a196f413ed98937820ba601ada03f98aa608648e6c8406a16f5550af86f473",
+    "oracle_source_sha256": "80f7767c96358b2f5e8a0568755db262a55b84d99bfe98544a8cc332759b1903",
+    "numerics_version": "1",
+    "emulate": "none"
+   }
+  }
+ },
+ "note": "merged from two runs; each entry's `meta` is the metadata of the run that wrote it. chat-capital-effort0 was written with numerics_version 1 (before dense_fp16); for emulate none the oracle is bit-identical to version 2 (bench/records/2026-11-23-oracle-cacheddiff/logs/old-vs-new-oracle.txt)"
+}

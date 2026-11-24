@@ -1,0 +1,96 @@
+{
+ "name": "final-speed-decode",
+ "date": "2026-11-23T23:02:27Z",
+ "recipe": {
+  "commit": "9adf2f0f7c0d40c7b0feb766cb12b3b62c3f4f7e",
+  "dirty_files": []
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a",
+  "sha256": "637d50b40f75378de92407eda48265d9f4dc912076a308c7c28dd1db37c7f7d2",
+  "pinned_commit": "59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a",
+  "lab_build": false,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a",
+   "system_fingerprint": "fp_59d08a9c5e9f_f2c81e67_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "f2c81e67b7de2016",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "1",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "dspark",
+  "PREFIX_CACHE": "on",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-1",
+ "gate": "speed-decode",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "bench/tools/bench.py",
+   "filter": "decode: four kinds x 5 runs, every reply equal to the pinned reply (PASS pin), concurrent == solo",
+   "passed": 5,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "decode_mean4_tok_s": 91.438,
+  "decode_prose_tok_s": 52.023,
+  "decode_code_tok_s": 129.754,
+  "decode_structured_tok_s": 88.472,
+  "decode_json_tok_s": 95.538,
+  "decode_c4_aggregate_tok_s": 113.175,
+  "decode_c8_aggregate_tok_s": 134.764,
+  "decode_tokens_per_round": 2.441,
+  "decode_acceptance": 0.543,
+  "decode_runs": 5,
+  "decode_mean4_tok_s_min": 90.021,
+  "decode_mean4_tok_s_max": 92.281,
+  "decode_c1_4k_tok_s": 98.068,
+  "gpu_clock_mhz": 2184
+ },
+ "commands": [
+  "./inkling2mini.sh bench all   (decode phase: warm, 1 stream over four kinds, 4 and 8 at once)",
+  "./inkling2mini.sh bench decode   (g-pass2-decode)",
+  "./inkling2mini.sh bench rolling   (g-pass2-rolling)",
+  "./inkling2mini.sh bench decode   (g-pass3-decode)",
+  "./inkling2mini.sh bench rolling   (g-pass3-rolling)",
+  "./inkling2mini.sh bench decode-4k   (c = 1, cold 4,096-token prompt, 3 runs)"
+ ],
+ "notes": "Drafter dspark, prefix cache on, vision on (the shipping defaults), boot g (fresh boot after the pin boot), GPU capped at 2,200 MHz. Medians over every run of the phase: `bench all` and the later `bench decode` / `bench rolling` passes (each starts with its own discarded warm-up); decode_mean4_tok_s is the mean over prose, code, structured and json of the median run. decode_c4_aggregate_tok_s is the span number (all tokens over the span to the last reply), decode_c8_aggregate_tok_s is 8 requests on 4 slots. decode_c1_4k_tok_s is c = 1 on a cold 4,096-token prompt (256 tokens), median of 3."
+}

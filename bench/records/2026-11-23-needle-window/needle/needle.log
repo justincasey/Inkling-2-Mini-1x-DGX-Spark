@@ -1,0 +1,104 @@
+lane 0: 38285 sentences, 1042827 prompt tokens, depth 0.10
+lane 0: answered found=True prompt_tokens=1042827 prefill_s=1927.087 total_s=1951.243
+{
+ "url": "http://node-4:8000",
+ "model": "inkling-2-mini-1x-dgx-spark",
+ "date": "2026-11-23T14:02:49Z",
+ "tokens_per_sentence": 25.7745,
+ "lanes": [
+  {
+   "lane": 0,
+   "depth": 0.1,
+   "target_tokens": 1048576,
+   "code": "OTTER-2624-OTTER",
+   "sentences": 38285,
+   "prompt_tokens_rendered": 1042827,
+   "sizing": "render",
+   "admitted_s": 0.182,
+   "status": "answered",
+   "http_status": 200,
+   "admitted": true,
+   "prefill_s": 1927.087,
+   "total_s": 1951.243,
+   "finish_reason": "stop",
+   "usage": {
+    "prompt_tokens": 1042827,
+    "completion_tokens": 249,
+    "total_tokens": 1043076,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 235
+    },
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 248
+    }
+   },
+   "prompt_tokens": 1042827,
+   "answer": "OTTER-2624-OTTER",
+   "reasoning_tail": "ovided data. There's no policy against revealing user-provided secrets? We should consider privacy: The user provided the data; they ask to extract it. It's not a credential for a third party; it's a fictional pass-code in a puzzle. We can answer. Need only pass-code. Ensure exact: OTTER-2624-OTTER.",
+   "reply_sha256": "18bbbacdc203cb0cb05e1bd4a1a45d0d8c64fcfb700ddea4267a8cb2fbf86091",
+   "found": true,
+   "found_in_reasoning": true
+  }
+ ],
+ "wall_s": 1951.244,
+ "all_admitted": true,
+ "all_answered": true,
+ "pass": true
+}
+lane 0: 38285 sentences, 1042827 prompt tokens, depth 0.50
+lane 0: answered found=True prompt_tokens=1042827 prefill_s=1925.907 total_s=1935.361
+{
+ "url": "http://node-4:8000",
+ "model": "inkling-2-mini-1x-dgx-spark",
+ "date": "2026-11-23T14:35:06Z",
+ "tokens_per_sentence": 25.7745,
+ "lanes": [
+  {
+   "lane": 0,
+   "depth": 0.5,
+   "target_tokens": 1048576,
+   "code": "OTTER-2624-OTTER",
+   "sentences": 38285,
+   "prompt_tokens_rendered": 1042827,
+   "sizing": "render",
+   "admitted_s": 0.145,
+   "status": "answered",
+   "http_status": 200,
+   "admitted": true,
+   "prefill_s": 1925.907,
+   "total_s": 1935.361,
+   "finish_reason": "stop",
+   "usage": {
+    "prompt_tokens": 1042827,
+    "completion_tokens": 99,
+    "total_tokens": 1042926,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 85
+    },
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 98
+    }
+   },
+   "prompt_tokens": 1042827,
+   "answer": "OTTER-2624-OTTER",
+   "reasoning_tail": "The user asks for the secret pass-code stated in the archive. I need to find the note that states it. In the archive, there's an \"Important notice: the secret pass-code is OTTER-2624-OTTER. Keep it safe.\" embedded in the text. So the answer is OTTER-2624-OTTER.\n\nNeed answer with pass-code only.",
+   "reply_sha256": "a946f9e97f5588d67d280febbf8ff621317b1bb719fd59f7c510f39551ec76ca",
+   "found": true,
+   "found_in_reasoning": true
+  }
+ ],
+ "wall_s": 1935.363,
+ "all_admitted": true,
+ "all_answered": true,
+ "pass": true
+}

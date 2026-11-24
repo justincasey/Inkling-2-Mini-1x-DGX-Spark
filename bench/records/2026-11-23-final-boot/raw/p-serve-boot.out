@@ -1,0 +1,75 @@
+== node-1 /home/spark/inkling-2-mini-1x-dgx-spark/logs/serve.log
+rexl3 event=reexec reason=malloc_arena_max value=2 (set MALLOC_ARENA_MAX, or REXL3_MALLOC_REEXEC=0, to keep it off)
+rexl3 level=info event=prefill_contract contract=p2 default=1 var=REXL3_NEMO_PREFILL_CONTRACT
+rexl3 level=info event=glm_prefill_contract contract=p2 default=1 var=REXL3_GLM_PREFILL_CONTRACT dense=glm-fold128-v1 experts=glm-moe-fold128-2grp-v1 kda=glm-kda-chunk16-v1 mla-ae=glm-mla-ae-fold128-v1
+rexl3 level=info event=ling_mla_contract contract=p2 default=1 var=REXL3_LING_MLA_CONTRACT mla-ae=ling-mla-ae-fold128-bf16-v1 mla-attn=ling-mla-attn-tc32-bf16-v2-decode-split1024 router=ling-router-mma16-kasc-fp32-v1
+rexl3 event=start version=0.1.1 commit=59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a system_fingerprint=fp_59d08a9c5e9f_f2c81e67_cb1311_kvi8 nvcc=13.0.88 cuda_arch=sm_121 kernel_hash=f2c81e67b7de2016 cudart=13.0 cuda_driver=13.0 cublas=13.1.1
+rexl3 event=toks_ready version=0.3.2 tier=neon algo=1 n_ids=200058 n_added=60 paths=0x3 par_threads=8
+rexl3 event=chat_format id=inkling2
+rexl3 event=reasoning_capabilities source=declared verdict=ok reasons=true open=<|content_thinking|> open_id=200008 close=<|end_message|> close_id=200010 switch=- template_default=off controls=reasoning_effort levels=none,minimal,low,medium,high,xhigh,max budget=false top_level=reasoning_effort unread=- undeclared=- findings=[]
+rexl3 event=boot phase=tokenizer_loaded t=0.944
+rexl3 event=boot phase=listening t=0.945
+rexl3 event=listening model=inkling-2-mini-1x-dgx-spark addr=http://0.0.0.0:8000 max_model_len=262144 backend=cuda
+rexl3 event=reasoning_defaults default_thinking=off default_effort=-
+rexl3 event=http ts=1795471696 method=GET route=/metrics status=200 headers_ms=0.164 id=req-0000000000000001
+rexl3 event=http ts=1795471697 method=GET route=/metrics status=200 headers_ms=0.135 id=req-0000000000000002
+rexl3 event=http ts=1795471698 method=GET route=/metrics status=200 headers_ms=0.121 id=req-0000000000000003
+rexl3 level=warn event=unvalidated_pack target=sha256:f8068e796ebca6c14e7af1b703865e1264515de4a970d18b6065fbb672481b55 draft=none reason="this pack is not one this release was validated on (target sha256:f8068e796ebca6c14e7af1b703865e1264515de4a970d18b6065fbb672481b55, draft none); pass --allow-unvalidated-pack to serve it anyway" warning="this pack is not one this release was validated on; it is served only because --allow-unvalidated-pack was given"
+rexl3 event=mem_stage stage=boot_start cuda_free_mib=117299 took_mib=0.0 mem_available_mib=117008
+rexl3 event=memory_view cuda_free_gib=114.5 mem_free_gib=114.5 mem_available_gib=114.3 cached_gib=0.5 planned_from=mem_available plan_free_gib=114.0 floor_gib=8.0
+rexl3 event=mem_stage stage=planned cuda_free_mib=117286 took_mib=13.2 mem_available_mib=117008
+rexl3 event=inkling2_loop_plan slots=4 max_context=262144 kv_pages=4100 kv_tokens=1048576 kv_gib=18.16 lanes_at_max_context=4 weights_gib=13.88 free_after_gib=99.27 floor_gib=8.00 reserve_gib=4.74 state_mib_per_slot=174.4 kv_bytes_per_token=18576 kv_dtype=int8 drafter=dspark prefix_cache=on prefix_entries=16 prefix_pages=1536 prefix_gib=9.47 prefix_reach_tokens=393216 spare_gib=67.41 tower_gib=0.79 vision_reserve_gib=0.28 weights_alloc_padding_gib=0.06 step_buffers_gib=2.73 fixed_overhead_gib=2.80 predicted_ready_available_gib=68.22
+rexl3 event=prefix_cache_plan entries=16 pages=1536 gib=9.47 spare_gib=67.41 reach_tokens=393216 window=262144
+rexl3 event=http ts=1795471699 method=GET route=/metrics status=200 headers_ms=0.218 id=req-0000000000000004
+rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=115664 took_mib=1621.8 mem_available_mib=116275
+rexl3 event=http ts=1795471699 method=GET route=/health status=503 headers_ms=0.022 id=req-0000000000000005
+rexl3 event=http ts=1795471700 method=GET route=/metrics status=200 headers_ms=0.164 id=req-0000000000000006
+rexl3 event=mem_stage stage=weights_layer_4 cuda_free_mib=115477 took_mib=187.2 mem_available_mib=115182
+rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=1.8
+rexl3 event=http ts=1795471701 method=GET route=/metrics status=200 headers_ms=0.225 id=req-0000000000000007
+rexl3 event=mem_stage stage=weights_layer_8 cuda_free_mib=113547 took_mib=1930.5 mem_available_mib=113252
+rexl3 event=inkling2_loop_load layers=8 gib=4.86 s=2.6
+rexl3 event=mem_stage stage=weights_layer_12 cuda_free_mib=111852 took_mib=1695.1 mem_available_mib=111557
+rexl3 event=inkling2_loop_load layers=12 gib=6.98 s=3.6
+rexl3 event=http ts=1795471702 method=GET route=/metrics status=200 headers_ms=0.193 id=req-0000000000000008
+rexl3 event=mem_stage stage=weights_layer_16 cuda_free_mib=109825 took_mib=2026.9 mem_available_mib=109510
+rexl3 event=inkling2_loop_load layers=16 gib=9.10 s=4.5
+rexl3 event=http ts=1795471703 method=GET route=/metrics status=200 headers_ms=0.155 id=req-0000000000000009
+rexl3 event=mem_stage stage=weights_layer_20 cuda_free_mib=107639 took_mib=2186.2 mem_available_mib=107324
+rexl3 event=inkling2_loop_load layers=20 gib=11.24 s=5.4
+rexl3 event=http ts=1795471704 method=GET route=/metrics status=200 headers_ms=0.166 id=req-000000000000000a
+rexl3 event=http ts=1795471704 method=GET route=/health status=503 headers_ms=0.049 id=req-000000000000000b
+rexl3 event=mem_stage stage=weights_layer_24 cuda_free_mib=105620 took_mib=2018.2 mem_available_mib=105304
+rexl3 event=inkling2_loop_load layers=24 gib=13.23 s=6.3
+rexl3 event=boot phase=weights_loaded t=10.405 gib=13.55
+rexl3 event=mem_stage stage=weights_loaded cuda_free_mib=105315 took_mib=305.7 mem_available_mib=105001
+rexl3 event=mem_stage stage=rank_start cuda_free_mib=105315 took_mib=0.0 mem_available_mib=105001
+rexl3 event=http ts=1795471705 method=GET route=/metrics status=200 headers_ms=0.124 id=req-000000000000000c
+rexl3 event=mem_stage stage=visit_state_kv_pool_rings cuda_free_mib=81545 took_mib=23769.3 mem_available_mib=81232
+rexl3 event=mem_stage stage=slot_state_conv_tables cuda_free_mib=81527 took_mib=18.4 mem_available_mib=81214
+rexl3 event=mem_stage stage=lane_scratch cuda_free_mib=81351 took_mib=175.6 mem_available_mib=81038
+rexl3 event=mem_stage stage=step_buffers cuda_free_mib=80728 took_mib=623.5 mem_available_mib=80415
+rexl3 event=mem_stage stage=attention_and_controller_scratch cuda_free_mib=79984 took_mib=743.6 mem_available_mib=79671
+rexl3 event=mem_stage stage=moe_scratch_decode_prefill_owned cuda_free_mib=79227 took_mib=757.8 mem_available_mib=78913
+rexl3 event=mem_stage stage=rank_ready cuda_free_mib=79225 took_mib=1.8 mem_available_mib=78912
+rexl3 event=http ts=1795471706 method=GET route=/metrics status=200 headers_ms=0.123 id=req-000000000000000d
+rexl3 event=inkling2_loop_drafter_loaded weight_bytes=346369088 planned_weight_bytes=346369088 state_and_scratch_bytes=3137781360 slots=4 pages=5636 plane=int8 load_s=1.01
+rexl3 event=boot phase=drafter_loaded t=12.455 gib=3.24
+rexl3 event=mem_stage stage=drafter_loaded cuda_free_mib=75232 took_mib=3992.6 mem_available_mib=75155
+rexl3 event=http ts=1795471707 method=GET route=/metrics status=200 headers_ms=0.175 id=req-000000000000000e
+rexl3 event=http ts=1795471708 method=GET route=/metrics status=200 headers_ms=0.185 id=req-000000000000000f
+rexl3 event=http ts=1795471709 method=GET route=/metrics status=200 headers_ms=0.162 id=req-0000000000000010
+rexl3 event=inkling2_loop_vision_loaded tokens=4096 planned_tower_gib=0.791 scratch_mib=568.5 scratch_bytes=596142492 features_reserve_gib=0.28
+rexl3 event=http ts=1795471709 method=GET route=/health status=503 headers_ms=0.019 id=req-0000000000000011
+rexl3 event=mem_stage stage=vision_tower cuda_free_mib=74095 took_mib=1137.6 mem_available_mib=74290
+rexl3 event=mem_stage stage=prefix_cache_arena cuda_free_mib=71311 took_mib=2783.8 mem_available_mib=71507
+rexl3 event=boot phase=kv_planned t=15.365 gib=18.14
+rexl3 event=mem_stage stage=engine_ready cuda_free_mib=71311 took_mib=0.1 mem_available_mib=71507
+rexl3 event=vision_ready family=inkling2_loop tokens=4096
+rexl3 event=boot phase=ready t=15.381
+rexl3 event=http ts=1795471710 method=GET route=/metrics status=200 headers_ms=0.172 id=req-0000000000000012
+rexl3 event=http ts=1795471711 method=GET route=/metrics status=200 headers_ms=0.181 id=req-0000000000000013
+rexl3 event=http ts=1795471712 method=GET route=/metrics status=200 headers_ms=0.156 id=req-0000000000000014
+rexl3 event=http ts=1795471713 method=GET route=/metrics status=200 headers_ms=0.174 id=req-0000000000000015
+rexl3 event=http ts=1795471714 method=GET route=/metrics status=200 headers_ms=0.187 id=req-0000000000000016
+rexl3 event=http ts=1795471714 method=GET route=/health status=200 headers_ms=0.021 id=req-0000000000000017

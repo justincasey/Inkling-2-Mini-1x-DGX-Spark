@@ -1,0 +1,118 @@
+{
+ "name": "spec-speed",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "0cd9d50623f7b43bd848ada0b26223dc2689d597",
+  "dirty_files": [
+   "bench/records/2026-11-23-spec-exact/"
+  ]
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "761b14388d12d0cecf3a0186876f6952c35a9c7c",
+  "sha256": "f7c9fbebefce07e21f6909221b9addd42f08c065bbe292a33647ea6c4d41121c",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "761b14388d12d0cecf3a0186876f6952c35a9c7c",
+   "system_fingerprint": "fp_761b14388d12_0c624bb1_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "0c624bb1ac792a7d",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2190 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "dspark",
+  "PREFIX_CACHE": "off",
+  "VISION": "off",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "REXL3_ALLOW_UNGATED_COMPONENTS=1 REXL3_INKLING2_LOOP_SPEC_POLICY=plan",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 REXL3_ALLOW_UNGATED_COMPONENTS=1 REXL3_INKLING2_LOOP_SPEC_POLICY=plan /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache off --no-vision --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-2",
+ "gate": "spec-speed",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "inkling2_loop_spec_timing",
+   "filter": "round_cost_table",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_routelog",
+   "filter": "route_log",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "specbench.py",
+   "filter": "final default, 6 kinds + c=4, drafted == serial",
+   "passed": 7,
+   "failed": 0
+  },
+  {
+   "bin": "specbench.py",
+   "filter": "fixed7/fixed4/fixed2/plan7/planL/curveL/markovc, drafted == serial",
+   "passed": 7,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "serial_tok_s_c1": 52.2,
+  "speedup_chat": 0.901,
+  "speedup_code": 2.239,
+  "speedup_json": 1.648,
+  "speedup_longctx": 1.558,
+  "speedup_tool": 2.368,
+  "speedup_reasoning": 1.404,
+  "speedup_median_reasoning_chat_code": 1.404,
+  "c4_serial_tok_s": 99.92,
+  "c4_drafted_tok_s": 110.48,
+  "c4_speedup": 1.106,
+  "verify_8_rows_ms_4k": 29.36,
+  "verify_1_row_ms_4k": 19.27,
+  "propose_ms_1_request_4k": 8.31,
+  "round_ms_4k": 37.7,
+  "breakeven_tokens_per_round_4k": 1.96,
+  "speedup_fixed4_reasoning": 1.433,
+  "speedup_fixed2_reasoning": 1.308,
+  "c4_speedup_fixed4": 1.128,
+  "route_distinct_experts_w8_reasoning": 28.12,
+  "route_consecutive_overlap_reasoning": 0.432
+ },
+ "commands": [
+  "see README.md"
+ ],
+ "notes": "Shipped default measured on 761b143; experiments on 5e6df8d, dfb05bb and 4234dd7 (policy knobs only differ). The unexplained c=4 engine-side gap is listed in the README."
+}

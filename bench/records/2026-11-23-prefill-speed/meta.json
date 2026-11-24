@@ -1,0 +1,110 @@
+{
+ "name": "prefill-speed",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "63ab69556c2ed5f3d0821fd96b00a6db9387bf9c"
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "1a36951e0b27715bf8e34b77130107ebd4ca282e",
+  "sha256": "b9bf75d835dfd220830989aba53bec192164a78584dd2419a1cbd5ea8eb85290",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "1a36951e0b27715bf8e34b77130107ebd4ca282e",
+   "system_fingerprint": "fp_1a36951e0b27_a1404573_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "a14045734ec87a16",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "none",
+  "PREFIX_CACHE": "off",
+  "VISION": "off",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec none --prefix-cache off --no-vision --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-3",
+ "gate": "speed-prefill",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "inkling2mini.sh bench prefill-sweep",
+   "filter": "PASS prefill-sweep (8K, 32K, 128K, 224K x 4 passes, unique prompts)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/bench.py --ref pinned-replies-engine-51f2993.json",
+   "filter": "warm,decode,conc,prefill-32k: PASS pin",
+   "passed": 1,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "prefill_8k_tok_s": 2493.3,
+  "prefill_32k_tok_s": 2304.4,
+  "prefill_128k_tok_s": 1754.9,
+  "prefill_224k_tok_s": 1415.2,
+  "prefill_8k_ttft_s": 3.2856,
+  "prefill_32k_ttft_s": 14.2196,
+  "prefill_128k_ttft_s": 74.6875,
+  "prefill_224k_ttft_s": 162.0848,
+  "decode_after_8k_tok_s": 50.209,
+  "decode_after_32k_tok_s": 46.012,
+  "decode_after_128k_tok_s": 34.169,
+  "decode_after_224k_tok_s": 27.382,
+  "baseline_prefill_8k_tok_s": 2436.7,
+  "baseline_prefill_32k_tok_s": 2254.8,
+  "baseline_prefill_128k_tok_s": 1725.5,
+  "baseline_prefill_224k_tok_s": 1394.9,
+  "gain_8k_pct": 2.32,
+  "gain_32k_pct": 2.2,
+  "gain_128k_pct": 1.7,
+  "gain_224k_pct": 1.46,
+  "pct_of_bf16_ceiling_8k": 26.2,
+  "pct_of_bf16_ceiling_32k": 27.2,
+  "pct_of_bf16_ceiling_128k": 29.8,
+  "pct_of_bf16_ceiling_224k": 31.3,
+  "decode_c1_tok_s": 53.407,
+  "decode_c4_tok_s": 100.13,
+  "decode_c8_tok_s": 104.856,
+  "memavailable_min_mib": 77932
+ },
+ "commands": [
+  "see README.md"
+ ],
+ "notes": "Median of three kept passes (warm-up discarded, unique prompt each pass), node-3 alone, SM clock locked at 2,200 MHz, SPEC none, PREFIX_CACHE off, VISION off, graphs on, chunk 4,096, engine 1a36951 against the baseline record on 7da8c61. 224K ceiling derived from ROOFLINE.md's formula (4,519 tok/s)."
+}

@@ -1,0 +1,36 @@
+== node-4 /home/spark/inkling-2-mini-1x-dgx-spark/logs/serve.log
+rexl3 event=reexec reason=malloc_arena_max value=2 (set MALLOC_ARENA_MAX, or REXL3_MALLOC_REEXEC=0, to keep it off)
+rexl3 level=info event=prefill_contract contract=p2 default=1 var=REXL3_NEMO_PREFILL_CONTRACT
+rexl3 level=info event=glm_prefill_contract contract=p2 default=1 var=REXL3_GLM_PREFILL_CONTRACT dense=glm-fold128-v1 experts=glm-moe-fold128-2grp-v1 kda=glm-kda-chunk16-v1 mla-ae=glm-mla-ae-fold128-v1
+rexl3 level=info event=ling_mla_contract contract=p2 default=1 var=REXL3_LING_MLA_CONTRACT mla-ae=ling-mla-ae-fold128-bf16-v1 mla-attn=ling-mla-attn-tc32-bf16-v2-decode-split1024 router=ling-router-mma16-kasc-fp32-v1
+rexl3 event=start version=0.1.1 commit=3287e80d16363703ed3c77725a1732dd4bd254b4 system_fingerprint=fp_3287e80d1636_ca3ba287_cb1311_kvi8 nvcc=13.0.88 cuda_arch=sm_121 kernel_hash=ca3ba287e1a5ac9e cudart=13.0 cuda_driver=13.0 cublas=13.1.1
+rexl3 level=warn event=ungated_components family=inkling2_loop components=inkling2_loop_short_conv,inkling2_loop_forward (REXL3_ALLOW_UNGATED_COMPONENTS=1: these have not passed their oracle gate; outputs are unqualified)
+rexl3 event=toks_ready version=0.3.2 tier=neon algo=1 n_ids=200058 n_added=60 paths=0x3 par_threads=8
+rexl3 event=chat_format id=inkling2
+rexl3 event=reasoning_capabilities source=declared verdict=ok reasons=true open=<|content_thinking|> open_id=200008 close=<|end_message|> close_id=200010 switch=- template_default=off controls=reasoning_effort levels=none,minimal,low,medium,high,xhigh,max budget=false top_level=reasoning_effort unread=- undeclared=- findings=[]
+rexl3 event=boot phase=tokenizer_loaded t=0.870
+rexl3 event=boot phase=listening t=0.870
+rexl3 event=listening model=inkling-2-mini-1x-dgx-spark addr=http://0.0.0.0:8000 max_model_len=262144 backend=cuda
+rexl3 event=reasoning_defaults default_thinking=off default_effort=-
+rexl3 level=warn event=unvalidated_pack target=sha256:f8068e796ebca6c14e7af1b703865e1264515de4a970d18b6065fbb672481b55 draft=none reason="this pack is not one this release was validated on (target sha256:f8068e796ebca6c14e7af1b703865e1264515de4a970d18b6065fbb672481b55, draft none); pass --allow-unvalidated-pack to serve it anyway" warning="this pack is not one this release was validated on; it is served only because --allow-unvalidated-pack was given"
+rexl3 event=memory_view cuda_free_gib=115.4 mem_free_gib=115.4 mem_available_gib=115.8 cached_gib=0.5 planned_from=mem_available plan_free_gib=115.0 floor_gib=8.0
+rexl3 event=inkling2_loop_plan slots=4 max_context=262144 kv_pages=4100 kv_tokens=1048576 kv_gib=16.14 lanes_at_max_context=4 weights_gib=13.55 free_after_gib=101.45 floor_gib=8.00 reserve_gib=5.00 state_mib_per_slot=166.3 kv_bytes_per_token=16512 kv_dtype=int8 drafter=none prefix_cache=off spare_gib=71.66
+rexl3 event=http ts=1795412666 method=GET route=/health status=503 headers_ms=0.338 id=req-0000000000000001
+rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=1.9
+rexl3 event=inkling2_loop_load layers=8 gib=4.86 s=2.9
+rexl3 event=inkling2_loop_load layers=12 gib=6.98 s=4.0
+rexl3 event=inkling2_loop_load layers=16 gib=9.10 s=5.2
+rexl3 event=inkling2_loop_load layers=20 gib=11.24 s=6.2
+rexl3 event=http ts=1795412671 method=GET route=/health status=503 headers_ms=0.018 id=req-0000000000000002
+rexl3 event=inkling2_loop_load layers=24 gib=13.23 s=7.2
+rexl3 level=warn event=inkling2_loop_weights_differ planned=14552922948 loaded=14552899328
+rexl3 event=boot phase=weights_loaded t=10.927 gib=13.55
+rexl3 event=boot phase=kv_planned t=11.674 gib=16.12
+rexl3 level=warn event=ungated_components family=inkling2_loop components=inkling2_loop_short_conv,inkling2_loop_forward (REXL3_ALLOW_UNGATED_COMPONENTS=1: these have not passed their oracle gate; outputs are unqualified)
+rexl3 event=boot phase=ready t=11.688
+rexl3 event=http ts=1795412676 method=GET route=/health status=200 headers_ms=0.023 id=req-0000000000000003
+rexl3 event=http ts=1795412680 method=POST route=/v1/chat/completions status=200 headers_ms=1058.150 id=req-0000000000000004
+rexl3 event=http ts=1795412680 method=POST route=/v1/completions status=200 headers_ms=474.745 id=req-0000000000000005
+rexl3 event=http ts=1795412682 method=POST route=/v1/chat/completions status=200 headers_ms=1772.376 id=req-0000000000000006
+rexl3 event=http ts=1795412688 method=POST route=/v1/chat/completions status=200 headers_ms=6595.779 id=req-0000000000000007
+rexl3 event=http ts=1795412692 method=POST route=/v1/chat/completions status=200 headers_ms=3188.602 id=req-0000000000000008

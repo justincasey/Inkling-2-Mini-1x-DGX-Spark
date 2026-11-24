@@ -1,0 +1,9 @@
+gb-cuda inkling2_attn rc=0
+gb-cuda inkling2_attn_oracle rc=0
+gb-cuda inkling2_ops rc=0
+gb-cuda inkling2_dspark rc=0
+gb-cuda inkling2_moe rc=1
+gb-cuda inkling2_moe_mixed rc=0
+gb-cuda inkling2_loop_vision rc=0
+gb-model inkling2_vision rc=0
+gb-model inkling2_loop_vision rc=0

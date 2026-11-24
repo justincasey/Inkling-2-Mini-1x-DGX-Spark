@@ -1,0 +1,36 @@
+phase 1: chat x 12
+  chat 1/12: 2.016 tokens/round, drafted 367, accepted 128, 60.36 tok/s
+  chat 2/12: 2.016 tokens/round, drafted 364, accepted 128, 60.41 tok/s
+  chat 3/12: 2.0 tokens/round, drafted 355, accepted 127, 60.67 tok/s
+  chat 4/12: 1.984 tokens/round, drafted 350, accepted 126, 60.46 tok/s
+  chat 5/12: 1.984 tokens/round, drafted 346, accepted 126, 60.63 tok/s
+  chat 6/12: 1.984 tokens/round, drafted 352, accepted 126, 60.49 tok/s
+  chat 7/12: 1.984 tokens/round, drafted 348, accepted 126, 60.44 tok/s
+  chat 8/12: 1.984 tokens/round, drafted 353, accepted 126, 60.46 tok/s
+  chat 9/12: 1.969 tokens/round, drafted 349, accepted 125, 60.02 tok/s
+  chat 10/12: 1.969 tokens/round, drafted 346, accepted 125, 60.22 tok/s
+  chat 11/12: 1.969 tokens/round, drafted 343, accepted 125, 60.26 tok/s
+  chat 12/12: 1.969 tokens/round, drafted 342, accepted 125, 60.31 tok/s
+phase 2: code x 12
+  code 1/12: 4.491 tokens/round, drafted 294, accepted 198, 107.67 tok/s
+  code 2/12: 4.491 tokens/round, drafted 295, accepted 198, 107.45 tok/s
+  code 3/12: 4.491 tokens/round, drafted 296, accepted 198, 107.49 tok/s
+  code 4/12: 4.741 tokens/round, drafted 295, accepted 201, 110.49 tok/s
+  code 5/12: 4.741 tokens/round, drafted 295, accepted 201, 110.02 tok/s
+  code 6/12: 4.741 tokens/round, drafted 295, accepted 201, 111.09 tok/s
+  code 7/12: 4.741 tokens/round, drafted 295, accepted 201, 111.04 tok/s
+  code 8/12: 4.741 tokens/round, drafted 295, accepted 201, 110.7 tok/s
+  code 9/12: 4.741 tokens/round, drafted 295, accepted 201, 111.07 tok/s
+  code 10/12: 4.741 tokens/round, drafted 295, accepted 201, 110.85 tok/s
+  code 11/12: 4.741 tokens/round, drafted 306, accepted 201, 109.85 tok/s
+  code 12/12: 4.741 tokens/round, drafted 306, accepted 201, 110.05 tok/s
+# specmix 2026-11-23T20:07:51Z - slim
+
+model inkling-2-mini-1x-dgx-spark, mix chat,code, 12 greedy requests of 256 tokens per phase
+
+| phase | kind | tokens/round | first third | last third | median tok/s | drafted | accepted |
+|---|---|---|---|---|---|---|---|
+| 1 | chat | 1.986 | 2.004 | 1.969 | 60.42 | 4215 | 1513 |
+| 2 | code | 4.676 | 4.551 | 4.741 | 110.27 | 3562 | 2403 |
+
+PASS drafting follows the traffic

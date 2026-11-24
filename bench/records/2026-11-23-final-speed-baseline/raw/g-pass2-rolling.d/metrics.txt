@@ -1,0 +1,13 @@
+METRIC decode_acceptance=0.5401
+METRIC decode_c1_tok_s=91.438
+METRIC decode_c4_rolling_requests=32
+METRIC decode_c4_rolling_short_replies=0
+METRIC decode_c4_rolling_span_s=115.114
+METRIC decode_c4_rolling_tok_s=142.329
+METRIC decode_c4_steady_tok_s=143.079
+METRIC decode_code_tok_s=129.72
+METRIC decode_json_tok_s=95.538
+METRIC decode_prose_tok_s=52.023
+METRIC decode_structured_tok_s=88.472
+METRIC decode_tokens=2048
+METRIC decode_tokens_per_round=2.441

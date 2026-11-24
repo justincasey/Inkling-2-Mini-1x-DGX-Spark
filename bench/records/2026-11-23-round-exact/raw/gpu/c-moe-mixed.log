@@ -1,0 +1,16 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-round/target/release/deps/inkling2_moe_mixed-107fa5e4ee85b701
+== gb-cuda _
+test an_arena_bank_equals_the_from_groups_bank ... arena bank == from_groups bank (hidden 512, 32 experts, tiny bands false, 5 rows)
+test band_entries_on_a_uniform_layer_equal_the_single_band_functions ... ok
+test band_split_equals_single_band_mini_shape ... rows=33 hot=false: pairs per class [150, 79, 35]
+test band_split_equals_single_band_small ... rows=40 hot=false: pairs per class [187, 82, 51]
+test bands_entries_refuse_what_they_do_not_run ... ok
+test bench_decode_cost_of_bands ... REXL3_MOE_BENCH unset: not run
+test bench_prefill_layers ... REXL3_MOE_BENCH or the pack unset: not run
+test every_pair_row_is_written_once_mini_shape ... ok
+test every_pair_row_is_written_once_small ... ok
+test graph_replay_equals_eager_over_bands ... ok
+test mul1_bands_decode_equals_prefill_mini_shape ... ok
+test mul1_bands_decode_equals_prefill_small ... ok
+test real_mini_layers_equal_the_oracle ... layer 12: bands (gate/up bits, down bits, experts) = [(4, 4, 107), (5, 5, 4), (4, 5, 17)]
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.99s

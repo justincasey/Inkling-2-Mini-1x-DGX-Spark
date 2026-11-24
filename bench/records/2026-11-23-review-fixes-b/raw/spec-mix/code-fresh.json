@@ -1,0 +1,123 @@
+{
+ "meta": {
+  "url": "http://node-2:8000",
+  "model": "inkling-2-mini-1x-dgx-spark",
+  "date": "2026-11-23T13:29:47Z",
+  "label": "fresh code only",
+  "mix": [
+   "code"
+  ],
+  "per_phase": 12,
+  "max_tokens": 256,
+  "reference_tpr": null
+ },
+ "phases": [
+  {
+   "kind": "code",
+   "requests": [
+    {
+     "completion_tokens": 256,
+     "rounds": 53,
+     "drafted": 297,
+     "accepted": 202,
+     "tok_s": 94.77,
+     "tokens_per_round": 4.83
+    },
+    {
+     "completion_tokens": 256,
+     "rounds": 47,
+     "drafted": 323,
+     "accepted": 208,
+     "tok_s": 105.95,
+     "tokens_per_round": 5.447
+    },
+    {
+     "completion_tokens": 256,
+     "rounds": 47,
+     "drafted": 326,
+     "accepted": 208,
+     "tok_s": 102.86,
+     "tokens_per_round": 5.447
+    },
+    {
+     "completion_tokens": 256,
+     "rounds": 47,
+     "drafted": 326,
+     "accepted": 208,
+     "tok_s": 106.36,
+     "tokens_per_round": 5.447
+    },
+    {
+     "completion_tokens": 256,
+     "rounds": 47,
+     "drafted": 326,
+     "accepted": 208,
+     "tok_s": 107.35,
+     "tokens_per_round": 5.447
+    },
+    {
+     "completion_tokens": 256,
+     "rounds": 47,
+     "drafted": 326,
+     "accepted": 208,
+     "tok_s": 106.04,
+     "tokens_per_round": 5.447
+    },
+    {
+     "completion_tokens": 256,
+     "rounds": 47,
+     "drafted": 326,
+     "accepted": 208,
+     "tok_s": 100.25,
+     "tokens_per_round": 5.447
+    },
+    {
+     "completion_tokens": 256,
+     "rounds": 47,
+     "drafted": 326,
+     "accepted": 208,
+     "tok_s": 105.13,
+     "tokens_per_round": 5.447
+    },
+    {
+     "completion_tokens": 256,
+     "rounds": 47,
+     "drafted": 326,
+     "accepted": 208,
+     "tok_s": 104.61,
+     "tokens_per_round": 5.447
+    },
+    {
+     "completion_tokens": 256,
+     "rounds": 47,
+     "drafted": 326,
+     "accepted": 208,
+     "tok_s": 104.19,
+     "tokens_per_round": 5.447
+    },
+    {
+     "completion_tokens": 256,
+     "rounds": 47,
+     "drafted": 326,
+     "accepted": 208,
+     "tok_s": 105.86,
+     "tokens_per_round": 5.447
+    },
+    {
+     "completion_tokens": 256,
+     "rounds": 47,
+     "drafted": 326,
+     "accepted": 208,
+     "tok_s": 106.87,
+     "tokens_per_round": 5.447
+    }
+   ],
+   "tokens_per_round": 5.389,
+   "first_third_tpr": 5.278,
+   "last_third_tpr": 5.447,
+   "median_tok_s": 105.5
+  }
+ ],
+ "failures": [],
+ "partial": false
+}

@@ -1,0 +1,34 @@
+prose        512 tokens    52.2 tok/s  distinct-4gram 0.998
+code         512 tokens    52.5 tok/s  distinct-4gram 0.833
+structured   512 tokens    52.3 tok/s  distinct-4gram 0.585
+json         512 tokens    51.8 tok/s  distinct-4gram 0.515
+extra00      512 tokens    52.4 tok/s  distinct-4gram 0.978
+extra01      512 tokens    52.8 tok/s  distinct-4gram 0.931
+extra02      512 tokens    52.8 tok/s  distinct-4gram 0.959
+extra03      512 tokens    53.1 tok/s  distinct-4gram 0.403  LOOP
+extra04      512 tokens    53.4 tok/s  distinct-4gram 0.574
+extra05      512 tokens    53.4 tok/s  distinct-4gram 0.747
+extra06      512 tokens    53.0 tok/s  distinct-4gram 0.674
+extra07      512 tokens    52.8 tok/s  distinct-4gram 0.517
+extra08      512 tokens    53.0 tok/s  distinct-4gram 0.800
+extra09      512 tokens    53.4 tok/s  distinct-4gram 0.733
+extra10      512 tokens    52.5 tok/s  distinct-4gram 0.741
+extra11      512 tokens    53.2 tok/s  distinct-4gram 0.872
+extra12      512 tokens    52.7 tok/s  distinct-4gram 0.876
+extra13      512 tokens    53.0 tok/s  distinct-4gram 0.876
+extra14      512 tokens    53.0 tok/s  distinct-4gram 0.733
+extra15      512 tokens    52.9 tok/s  distinct-4gram 0.242  LOOP
+extra16      512 tokens    52.1 tok/s  distinct-4gram 0.855
+extra17      512 tokens    52.9 tok/s  distinct-4gram 0.994
+extra18      512 tokens    52.6 tok/s  distinct-4gram 0.992
+extra19      512 tokens    53.3 tok/s  distinct-4gram 0.519
+extra20      512 tokens    52.7 tok/s  distinct-4gram 0.847
+extra21      512 tokens    52.7 tok/s  distinct-4gram 0.969
+extra22      512 tokens    53.1 tok/s  distinct-4gram 0.664
+extra23      512 tokens    52.7 tok/s  distinct-4gram 0.890
+extra24      512 tokens    52.6 tok/s  distinct-4gram 0.623
+extra25      512 tokens    52.4 tok/s  distinct-4gram 0.951
+extra26      512 tokens    53.1 tok/s  distinct-4gram 0.974
+extra27      512 tokens    49.6 tok/s  distinct-4gram 0.984
+extra28      512 tokens    48.6 tok/s  distinct-4gram 0.807
+extra29      512 tokens    48.4 tok/s  distinct-4gram 0.479  LOOP

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# nsys_run.sh NAME [ENV...]: profile 20 graph decode steps of the lab test binary, print the kernel table
+NAME=$1; shift
+"$(cd "$(dirname "$0")/../../../.." && pwd)/scripts/gpu_cap.sh" node-2 || exit 1   # the GPU cap first: hardware protection, no GPU work without it
+ssh -o BatchMode=yes spark@node-2 "set -e; LAB=/home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-graph; D=/home/spark/inkling-2-mini-1x-dgx-spark/lab/graph-ids; cd \$LAB/src; BIN=\$(cat \$LAB/bin.path); env REXL3_INKLING2_LOOP_DIR=/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw LOOP_LONG_IDS_FILE=\$D/ids_long.json LOOP_PROFILE_STEPS=20 LOOP_PROFILE_MODE=graph $* flock -x -n /tmp/rexl3-gpu.lock nsys profile -t cuda --cuda-graph-trace=node -o \$D/$NAME --force-overwrite true \$BIN decode_step_timing --test-threads=1 --nocapture 2>&1 | grep -E 'LOOP_GRAPH|rror'; nsys export --type sqlite -o \$D/$NAME.sqlite --force-overwrite true \$D/$NAME.nsys-rep >/dev/null 2>&1; python3 \$D/prof_an.py \$D/$NAME.sqlite 15 30" | cut -c1-165

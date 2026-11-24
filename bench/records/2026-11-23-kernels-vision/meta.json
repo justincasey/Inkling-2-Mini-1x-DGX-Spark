@@ -1,0 +1,110 @@
+{
+  "name": "kernels-vision",
+  "gate": "kernels-vision",
+  "date": "2026-11-23",
+  "result": "pass",
+  "node": "node-2",
+  "engine": {
+    "commit": "41814cc4e724cb347fe541148c0b74f8955209c3",
+    "dirty": false,
+    "version": "lab test build (cargo test --release), no server binary"
+  },
+  "recipe": {
+    "commit": "b48642be0cb48f441764a4e0d187ddaea68785da"
+  },
+  "tests": [
+    {
+      "bin": "gb-cuda inkling2_loop_vision",
+      "filter": "mini_vision",
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "bin": "gb-model inkling2_loop_vision",
+      "filter": "mini_vision",
+      "passed": 2,
+      "failed": 0
+    },
+    {
+      "bin": "gb-model inkling2_vision (the Small's vision tests; golden hashes, batch invariance, real Small pack vs HF reduced digests)",
+      "filter": "",
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "bin": "gb-vision inkling2_loop_preprocess (the Mac)",
+      "filter": "",
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "bin": "gb-vision inkling2_preprocess (the Mac, the Small's)",
+      "filter": "",
+      "passed": 2,
+      "failed": 0
+    },
+    {
+      "bin": "gb-model --lib (the Mac)",
+      "filter": "families::inkling2::",
+      "passed": 31,
+      "failed": 0
+    },
+    {
+      "bin": "gb-model --lib (the Mac)",
+      "filter": "families::inkling2_loop::vision",
+      "passed": 4,
+      "failed": 0
+    }
+  ],
+  "commands": [
+    "NODE=node-2 LAB_SRC=<engine worktree inkling2-loop-vision> OPS_LINES=200 scripts/ops_dev.sh test inkling2_loop_vision mini_vision",
+    "NODE=node-2 LAB_SRC=<engine worktree inkling2-loop-vision> PKG=gb-model OPS_LINES=200 scripts/ops_dev.sh test inkling2_loop_vision mini_vision",
+    "NODE=node-2 LAB_SRC=<engine worktree inkling2-loop-vision> PKG=gb-model OPS_LINES=200 TEST_ENV=REXL3_INKLING2_DIR=<the Small's staged pack, read only> scripts/ops_dev.sh test inkling2_vision ''",
+    "python testdata/inkling2_loop/vision/fetch_vision_pack.py --out target/vision-ref/visionpack   (the Mac, HTTP range reads of the pinned pack: 842 tensors, 242,863,152 B)",
+    "python testdata/inkling2_loop/vision/gen_vision_ref.py --pack target/vision-ref/visionpack --oracle <recipe>/oracle --threads 6   (the Mac; transformers be48e7a0, torch 2.14.1 CPU; regenerates the committed goldens byte for byte)",
+    "REXL3_NO_CUDA=1 CARGO_BUILD_JOBS=6 cargo check -p gb-cuda --tests --locked   (the Mac)",
+    "REXL3_NO_CUDA=1 cargo test -p gb-model --lib --locked families::inkling2::   (the Mac: 31 passed)"
+  ],
+  "metrics": {
+    "images": 4,
+    "tower_cos_min_rgb_333x517": 0.998036,
+    "tower_cos_mean_rgb_333x517": 0.999674,
+    "tower_largest_err_over_row_rms_rgb_333x517": 0.2476,
+    "tower_cos_min_rgb_480x320": 0.997853,
+    "tower_cos_mean_rgb_480x320": 0.999714,
+    "tower_largest_err_over_row_rms_rgb_480x320": 0.3231,
+    "tower_cos_min_rgba_300x220": 0.999169,
+    "tower_cos_mean_rgba_300x220": 0.999778,
+    "tower_largest_err_over_row_rms_rgba_300x220": 0.165,
+    "tower_cos_min_la_150x1000": 0.995924,
+    "tower_cos_mean_la_150x1000": 0.999593,
+    "tower_largest_err_over_row_rms_la_150x1000": 0.3515,
+    "hf_bf16_cos_min_rgb_333x517": 0.996343,
+    "hf_bf16_cos_mean_rgb_333x517": 0.999643,
+    "hf_bf16_largest_err_over_row_rms_rgb_333x517": 0.2936,
+    "hf_bf16_cos_min_rgb_480x320": 0.998657,
+    "hf_bf16_cos_mean_rgb_480x320": 0.999739,
+    "hf_bf16_largest_err_over_row_rms_rgb_480x320": 0.1886,
+    "hf_bf16_cos_min_rgba_300x220": 0.998969,
+    "hf_bf16_cos_mean_rgba_300x220": 0.999768,
+    "hf_bf16_largest_err_over_row_rms_rgba_300x220": 0.1591,
+    "hf_bf16_cos_min_la_150x1000": 0.997496,
+    "hf_bf16_cos_mean_la_150x1000": 0.999638,
+    "hf_bf16_largest_err_over_row_rms_la_150x1000": 0.2575,
+    "batch_of_four_equals_each_alone_bitwise": true,
+    "graph_replay_equals_eager_real_tower_images": 4,
+    "bias_values_not_exact_in_fp16": 3,
+    "bias_values_total": 211968,
+    "feature_values_changed_by_the_3_inexact_biases": 0,
+    "feature_values_total_four_images": 831744,
+    "feature_values_changed_by_fp16_epilogue_mode": 749576,
+    "epilogue_vs_separate_fp32_add_worst_ulps_of_operands": 1.98,
+    "encode_ms_rgb_333x517": 18,
+    "encode_ms_rgb_480x320": 17,
+    "encode_ms_rgba_300x220": 11,
+    "encode_ms_la_150x1000": 17,
+    "tower_scratch_mib_at_2049_rows": 72.1,
+    "preprocessor_patch_tensors_byte_exact_vs_hf_images": 4
+  },
+  "notes": "Reference: HF transformers be48e7a0 vision tower in fp32 on the pack's effective weights (EXL3 linears decoded to float64 by oracle/exl3.py, BF16 biases and plain tensors as stored) and the vLLM-normalised pixels the engine feeds (the Small's expected.json gives the same HF pixel digests at fc00b5b3). The gate holds the engine to HF's own bf16 tower against that reference: cosine min >= HF - 0.003, mean >= HF - 3e-4, largest element error over the row rms <= 2x HF's. Encode times are one host-side call (patch upload, launches, sync, download) on a locked 2,200 MHz GPU, one run each, not a benchmark. The Small's real-weights vision test ran against the Small's staged pack, read only (REXL3_INKLING2_DIR); its per-token HF comparison needs a reference directory this lane did not generate, so that run checks HF's reduced digests only (worst relative deviation 0.020 to 0.041) and the exact bits come from the synthetic golden-hash test."
+}

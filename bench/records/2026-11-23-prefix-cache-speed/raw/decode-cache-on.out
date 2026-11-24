@@ -1,0 +1,33 @@
+=== run 1
+METRIC decode_c1_tok_s=37.089
+METRIC decode_c4_tok_s=80.013
+METRIC decode_c8_tok_s=79.975
+METRIC decode_code_tok_s=37.438
+METRIC decode_json_tok_s=36.851
+METRIC decode_prose_tok_s=36.872
+METRIC decode_structured_tok_s=37.194
+METRIC decode_tokens=2048
+METRIC decode_tokens_per_round=1.002
+bench decode: pass run=bench/runs/20261123T075304Z-decode
+=== run 2
+METRIC decode_c1_tok_s=37.096
+METRIC decode_c4_tok_s=80.06
+METRIC decode_c8_tok_s=83.281
+METRIC decode_code_tok_s=37.414
+METRIC decode_json_tok_s=36.849
+METRIC decode_prose_tok_s=36.917
+METRIC decode_structured_tok_s=37.202
+METRIC decode_tokens=2048
+METRIC decode_tokens_per_round=1.002
+bench decode: pass run=bench/runs/20261123T075552Z-decode
+=== run 3
+METRIC decode_c1_tok_s=37.109
+METRIC decode_c4_tok_s=79.97
+METRIC decode_c8_tok_s=86.801
+METRIC decode_code_tok_s=37.452
+METRIC decode_json_tok_s=36.888
+METRIC decode_prose_tok_s=36.908
+METRIC decode_structured_tok_s=37.19
+METRIC decode_tokens=2048
+METRIC decode_tokens_per_round=1.002
+bench decode: pass run=bench/runs/20261123T075839Z-decode

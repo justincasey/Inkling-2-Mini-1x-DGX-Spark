@@ -1,0 +1,69 @@
+==> A.progress <==
+2026-11-23T16:11:33Z start t0.2-renorm chat-capital-effort0 (engine,expert_skip=0.2,skip_renorm)
+2026-11-23T16:30:17Z end t0.2-renorm chat-capital-effort0 rc=0
+2026-11-23T16:30:17Z start t0.3-renorm chat-capital-effort0 (engine,expert_skip=0.3,skip_renorm)
+2026-11-23T16:51:31Z start d0.2-renorm chat-capital-effort0 (engine,expert_skip=0.2,skip_renorm)
+2026-11-23T17:16:08Z end d0.2-renorm chat-capital-effort0 rc=0
+2026-11-23T17:16:08Z start t0.15-renorm chat-capital-effort0 (engine,expert_skip=0.15,skip_renorm)
+2026-11-23T17:33:04Z end t0.15-renorm chat-capital-effort0 rc=0
+2026-11-23T17:33:04Z start t0.2-plain chat-capital-effort0 (engine,expert_skip=0.2)
+2026-11-23T17:52:38Z end t0.2-plain chat-capital-effort0 rc=0
+2026-11-23T17:52:38Z start t0.2-renorm raw-counting (engine,expert_skip=0.2,skip_renorm)
+2026-11-23T18:07:10Z end t0.2-renorm raw-counting rc=0
+2026-11-23T18:07:10Z start d0.3-renorm chat-capital-effort0 (engine,expert_skip=0.3,skip_renorm)
+2026-11-23T18:37:34Z end d0.3-renorm chat-capital-effort0 rc=0
+2026-11-23T18:37:34Z start d0.2-renorm raw-counting (engine,expert_skip=0.2,skip_renorm)
+2026-11-23T18:56:47Z end d0.2-renorm raw-counting rc=0
+2026-11-23T18:56:47Z lane A done
+
+==> B.progress <==
+2026-11-23T16:11:33Z start t0.2-renorm chat-sky-effort0.9 (engine,expert_skip=0.2,skip_renorm)
+2026-11-23T16:32:08Z end t0.2-renorm chat-sky-effort0.9 rc=0
+2026-11-23T16:32:08Z start t0.3-renorm chat-sky-effort0.9 (engine,expert_skip=0.3,skip_renorm)
+2026-11-23T16:54:16Z start d0.2-renorm chat-sky-effort0.9 (engine,expert_skip=0.2,skip_renorm)
+2026-11-23T17:25:44Z end d0.2-renorm chat-sky-effort0.9 rc=0
+2026-11-23T17:25:44Z start t0.15-renorm chat-sky-effort0.9 (engine,expert_skip=0.15,skip_renorm)
+2026-11-23T17:47:32Z end t0.15-renorm chat-sky-effort0.9 rc=0
+2026-11-23T17:47:32Z start t0.2-plain chat-sky-effort0.9 (engine,expert_skip=0.2)
+2026-11-23T18:11:15Z end t0.2-plain chat-sky-effort0.9 rc=0
+2026-11-23T18:11:15Z start t0.3-renorm raw-counting (engine,expert_skip=0.3,skip_renorm)
+2026-11-23T18:23:31Z end t0.3-renorm raw-counting rc=0
+2026-11-23T18:23:31Z start d0.3-renorm chat-sky-effort0.9 (engine,expert_skip=0.3,skip_renorm)
+2026-11-23T18:53:28Z end d0.3-renorm chat-sky-effort0.9 rc=0
+2026-11-23T18:53:28Z start t0.2-plain raw-counting (engine,expert_skip=0.2)
+2026-11-23T19:00:03Z end t0.2-plain raw-counting rc=0
+2026-11-23T19:00:03Z lane B done
+== d0.2-renorm-chat-capital-effort0.log
+engine,expert_skip=0.2,skip_renorm: 40 rows in 1475s -> /home/spark/inkling-2-mini-1x-dgx-spark/lab/skipstudy/runs/d0.2-renorm-chat-capital-effort0.safetensors.part
+== d0.2-renorm-chat-sky-effort0.9.log
+engine,expert_skip=0.2,skip_renorm: 49 rows in 1884s -> /home/spark/inkling-2-mini-1x-dgx-spark/lab/skipstudy/runs/d0.2-renorm-chat-sky-effort0.9.safetensors.part
+== d0.2-renorm-raw-counting.log
+engine,expert_skip=0.2,skip_renorm: 50 rows in 1149s -> /home/spark/inkling-2-mini-1x-dgx-spark/lab/skipstudy/runs/d0.2-renorm-raw-counting.safetensors.part
+== d0.3-renorm-chat-capital-effort0.log
+engine,expert_skip=0.3,skip_renorm: 40 rows in 1820s -> /home/spark/inkling-2-mini-1x-dgx-spark/lab/skipstudy/runs/d0.3-renorm-chat-capital-effort0.safetensors.part
+== d0.3-renorm-chat-sky-effort0.9.log
+engine,expert_skip=0.3,skip_renorm: 49 rows in 1794s -> /home/spark/inkling-2-mini-1x-dgx-spark/lab/skipstudy/runs/d0.3-renorm-chat-sky-effort0.9.safetensors.part
+== t0.15-renorm-chat-capital-effort0.log
+engine,expert_skip=0.15,skip_renorm: 40 rows in 1014s -> /home/spark/inkling-2-mini-1x-dgx-spark/lab/skipstudy/runs/t0.15-renorm-chat-capital-effort0.safetensors.part
+== t0.15-renorm-chat-sky-effort0.9.log
+engine,expert_skip=0.15,skip_renorm: 49 rows in 1304s -> /home/spark/inkling-2-mini-1x-dgx-spark/lab/skipstudy/runs/t0.15-renorm-chat-sky-effort0.9.safetensors.part
+== t0.2-plain-chat-capital-effort0.log
+engine,expert_skip=0.2: 40 rows in 1168s -> /home/spark/inkling-2-mini-1x-dgx-spark/lab/skipstudy/runs/t0.2-plain-chat-capital-effort0.safetensors.part
+== t0.2-plain-chat-sky-effort0.9.log
+engine,expert_skip=0.2: 49 rows in 1419s -> /home/spark/inkling-2-mini-1x-dgx-spark/lab/skipstudy/runs/t0.2-plain-chat-sky-effort0.9.safetensors.part
+== t0.2-plain-raw-counting.log
+engine,expert_skip=0.2: 50 rows in 394s -> /home/spark/inkling-2-mini-1x-dgx-spark/lab/skipstudy/runs/t0.2-plain-raw-counting.safetensors.part
+== t0.2-renorm-chat-capital-effort0.log
+engine,expert_skip=0.2,skip_renorm: 40 rows in 1122s -> /home/spark/inkling-2-mini-1x-dgx-spark/lab/skipstudy/runs/t0.2-renorm-chat-capital-effort0.safetensors.part
+== t0.2-renorm-chat-sky-effort0.9.log
+engine,expert_skip=0.2,skip_renorm: 49 rows in 1232s -> /home/spark/inkling-2-mini-1x-dgx-spark/lab/skipstudy/runs/t0.2-renorm-chat-sky-effort0.9.safetensors.part
+== t0.2-renorm-raw-counting.log
+engine,expert_skip=0.2,skip_renorm: 50 rows in 867s -> /home/spark/inkling-2-mini-1x-dgx-spark/lab/skipstudy/runs/t0.2-renorm-raw-counting.safetensors.part
+== t0.3-renorm-chat-capital-effort0.log
+engine,expert_skip=0.3,skip_renorm: 40 rows in 1267s -> /home/spark/inkling-2-mini-1x-dgx-spark/lab/skipstudy/runs/t0.3-renorm-chat-capital-effort0.safetensors.part
+== t0.3-renorm-chat-sky-effort0.9.log
+engine,expert_skip=0.3,skip_renorm: 49 rows in 1316s -> /home/spark/inkling-2-mini-1x-dgx-spark/lab/skipstudy/runs/t0.3-renorm-chat-sky-effort0.9.safetensors.part
+== t0.3-renorm-raw-counting.log
+engine,expert_skip=0.3,skip_renorm: 50 rows in 734s -> /home/spark/inkling-2-mini-1x-dgx-spark/lab/skipstudy/runs/t0.3-renorm-raw-counting.safetensors.part
+== control.log
+engine,expert_skip=1e-09,skip_renorm: 16 rows in 616s -> runs/control-skip-path-16.safetensors

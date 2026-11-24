@@ -1,0 +1,20 @@
+rexl3 event=inkling2_loop_plan slots=4 max_context=262144 kv_pages=4100 kv_tokens=1048576 kv_gib=16.14 lanes_at_max_context=4 weights_gib=13.55 free_after_gib=102.45 floor_gib=8.00 reserve_gib=5.00 state_mib_per_slot=166.3 kv_bytes_per_token=16512 kv_dtype=int8 drafter=none prefix_cache=on prefix_entries=16 prefix_pages=1536 prefix_gib=8.59 prefix_reach_tokens=393216 spare_gib=72.66 tower_gib=0.00 vision_reserve_gib=0.00
+ready gpu_mib=48479 avail_mib=69698
+02:34:37 profile: one cold prompt of the window (262144 tokens)
+02:38:05 profile: 4 concurrent cold prompts of the window
+02:51:41 profile: a decode burst (1, 4 and 8 streams: the CUDA graphs and overlap lanes allocate on first use)
+02:51:41 no bench/reference.json: replies are measured, not compared (bench pin writes it on the pinned engine)
+02:51:41 bench.py warm,decode,conc
+warm: done (discarded)
+decode prose: 512 tokens, ttft 0.1369 s, 52.831 tok/s, spec {'drafted': 0, 'accepted': 0, 'rounds': 511, 'acceptance': None, 'tokens_per_round': 1.002}
+decode code: 512 tokens, ttft 0.1969 s, 53.628 tok/s, spec {'drafted': 0, 'accepted': 0, 'rounds': 511, 'acceptance': None, 'tokens_per_round': 1.002}
+decode structured: 512 tokens, ttft 0.1739 s, 53.257 tok/s, spec {'drafted': 0, 'accepted': 0, 'rounds': 511, 'acceptance': None, 'tokens_per_round': 1.002}
+decode json: 512 tokens, ttft 0.2099 s, 53.036 tok/s, spec {'drafted': 0, 'accepted': 0, 'rounds': 511, 'acceptance': None, 'tokens_per_round': 1.002}
+conc c=4: 2048 tokens in 20.48 s = 100.00 tok/s
+conc c=8: 4096 tokens in 39.00 s = 105.04 tok/s
+METRIC sampled_gpu_peak_mib=48710
+METRIC sampled_avail_min_mib=69384
+memwatch guard=running window=20261123T083437Z-21693 window_min_mib=69376 window_min_at=2026-11-23T08:53:27Z loading_min_mib=69714 ready_min_mib=69376 min_mib=69376 min_at=2026-11-23T08:53:27Z now_mib=69423 updated=2026-11-23T08:53:41Z
+METRIC mem_min_gib=67.75
+METRIC mem_loading_min_gib=68.08
+METRIC mem_ready_min_gib=67.75

@@ -1,0 +1,92 @@
+{
+ "name": "prefix-cache",
+ "gate": "cache",
+ "date": "2026-11-23",
+ "result": "pass",
+ "node": "node-3",
+ "engine": {
+  "commit": "de2d4a30e423a6e671b797cc6c0b9c1848703c27",
+  "dirty": false,
+  "version": "0.1.1",
+  "lab_build": true,
+  "sha256": "57347321cdcdc2364a4fef27634a00f2b564f3131c782fc022a3c4c321fcbfe7",
+  "pinned_commit": "",
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "branch": "inkling2-loop-state",
+  "version_detail": {
+   "system_fingerprint": "fp_de2d4a30e423_ac7d5b32_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "ac7d5b329cb44062",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  }
+ },
+ "recipe": {
+  "commit": "5c62b03f29e9ca5fafa30e74aab2353ff844b524",
+  "dirty_files": []
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44"
+ },
+ "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "none",
+  "PREFIX_CACHE": "on",
+  "VISION": "off"
+ },
+ "serve": {
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec none --prefix-cache on --no-vision --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "tests": [
+  {"bin": "gb-model --lib", "filter": "families::inkling2_loop:: (host: backend cache bookkeeping on a recording rank, the real Engine over a simulated rank with the Mini's state structure, the plan and the by-name refusals)", "passed": 70, "failed": 0},
+  {"bin": "gb-model --lib", "filter": "families::inkling2:: (the Small's tests, unchanged)", "passed": 31, "failed": 0},
+  {"bin": "gb-model --lib", "filter": "family:: plan:: serve::", "passed": 139, "failed": 0},
+  {"bin": "inkling2_loop_prefix", "filter": "prefix_exact_at_cuts (20 cuts: below, at and above the 1,024 window, around the ring wraps at 1,031 and 2,062, page boundaries, different chunk grids; state, last row, logits plane of the first decode step, decode)", "passed": 1, "failed": 0},
+  {"bin": "inkling2_loop_prefix", "filter": "prefix_logits_planes_equal (hidden, core_out, h_final, logits of the next chunk byte-equal at 4 cuts)", "passed": 1, "failed": 0},
+  {"bin": "inkling2_loop_prefix", "filter": "prefix_restore_after_eviction (donor slot reused, snapshot evicted, 3 restores, non-vacuity negative, no leak)", "passed": 1, "failed": 0},
+  {"bin": "inkling2_loop_prefix", "filter": "prefix_restore_beside_decoding_streams (restore and prefill between the windows of two streams, three streams in one window)", "passed": 1, "failed": 0},
+  {"bin": "inkling2_loop_prefix", "filter": "prefix_long_prompt (12,300 tokens cut at 12,000)", "passed": 1, "failed": 0},
+  {"bin": "gates.py", "filter": "cache: 5 prompts (29 to 73,167 tokens) uncached/cold/warm and 2 shared-prefix pairs (2,081 and 73,246 tokens), PREFIX_CACHE=on", "passed": 7, "failed": 0},
+  {"bin": "cache_stress.py", "filter": "evict (24 prompts over 16 snapshot slots, reverse re-ask: 16 restores, 8 misses) and concurrent (3 restores and 1 cold at once, each equal to its solo run)", "passed": 2, "failed": 0}
+ ],
+ "commands": [
+  "REXL3_NO_CUDA=1 cargo test -p gb-model --lib --locked families::inkling2_loop::   (also families::inkling2::, family::, plan::, serve::), run in the engine worktree",
+  "NODE=node-3 LAB_SRC=<engine worktree> PKG=gb-model TEST_ENV='REXL3_INKLING2_LOOP_DIR=/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw' scripts/ops_dev.sh test inkling2_loop_prefix prefix_exact_at_cuts",
+  "the same with the filters: prefix_logits_planes_equal prefix_restore_after_eviction prefix_restore_beside_decoding_streams prefix_long_prompt prefix_snapshot_costs",
+  "./inkling2mini.sh build de2d4a30e423a6e671b797cc6c0b9c1848703c27   (.env: NODES=node-3 REXL3_SRC=<engine worktree> SPEC=none VISION=off PREFIX_CACHE=on)",
+  "./inkling2mini.sh memwatch begin; ./inkling2mini.sh start; ./inkling2mini.sh bench cache; python3 bench/tools/cache_stress.py --url http://node-3:8000 --model inkling-2-mini-1x-dgx-spark --out cache-stress.json",
+  "./inkling2mini.sh memwatch report; ./inkling2mini.sh status; ./inkling2mini.sh stop"
+ ],
+ "metrics": {
+  "snapshot_slot_bytes": 170835968,
+  "snapshot_rings_bytes": 168919040,
+  "snapshot_conv_bytes": 1916928,
+  "kv_page_bytes": 4227072,
+  "gpu_cuts_checked": 20,
+  "gpu_cuts_identical": 20,
+  "gpu_planes_cuts_identical": 4,
+  "gpu_long_prompt_tokens": 12300,
+  "gpu_long_prompt_cut": 12000,
+  "plan_prefix_entries": 16,
+  "plan_prefix_pages": 1536,
+  "plan_prefix_gib": 8.59,
+  "plan_prefix_reach_tokens": 393216,
+  "gate_warm_cached_tokens_70k": 73103,
+  "gate_shared_cached_tokens_70k": 73191,
+  "gate_shared_cached_tokens_1k": 2026,
+  "stress_evictions": 30,
+  "stress_second_pass_hits": 16,
+  "stress_second_pass_misses": 8,
+  "stress_concurrent_min_cached_tokens": 2960,
+  "stress_restore_failures": 0
+ },
+ "notes": "Engine commit de2d4a3 is what the node built and ran; the branch tip 103f373 adds only a rustfmt re-wrap of three new files (snapshot.rs, backend_cache_tests.rs, inkling2_loop_prefix.rs). The first two GPU runs (prefix_exact_at_cuts, and the planes/eviction/concurrent/long/costs run) used the working tree of commits 5f2d5f2 + the test file; prefix_restore_after_eviction was re-run after the non-vacuity negative was added (raw/gpu-prefix_restore_after_eviction-rerun.log). The cache gate and stress ran on the live server with the cache on, SPEC=none, VISION=off. Images and a drafter with the cache are not built (refused by name). The gb-server test inkling2_loop_bare_model_flag_applies_int8_kv_four_lanes_no_drafts_and_aliases fails on this branch and on its base (it asserts the tower is not built); it is not part of this record."
+}

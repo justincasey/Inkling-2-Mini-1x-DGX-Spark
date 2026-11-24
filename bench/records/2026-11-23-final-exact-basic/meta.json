@@ -1,0 +1,109 @@
+{
+ "name": "final-exact-basic",
+ "date": "2026-11-23T23:29:17Z",
+ "recipe": {
+  "commit": "9adf2f0f7c0d40c7b0feb766cb12b3b62c3f4f7e",
+  "dirty_files": []
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a",
+  "sha256": "637d50b40f75378de92407eda48265d9f4dc912076a308c7c28dd1db37c7f7d2",
+  "pinned_commit": "59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a",
+  "lab_build": false,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a",
+   "system_fingerprint": "fp_59d08a9c5e9f_f2c81e67_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "f2c81e67b7de2016",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2184 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "1",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "dspark",
+  "PREFIX_CACHE": "on",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-1",
+ "gate": "exact-basic",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "bench/tools/exactness.py",
+   "filter": "concurrent==solo (boot p, chunk 4096, 4 prompts, 4 lanes)",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/exactness.py",
+   "filter": "concurrent==solo (boot g, chunk 4096, 4 prompts, 4 lanes)",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/exactness.py",
+   "filter": "concurrent==solo (boot c, chunk 1000, 4 prompts, 4 lanes)",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/exactness.py",
+   "filter": "chunk width: 4096 vs 1000 byte-equal (replies and finish reasons)",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/exactness.py",
+   "filter": "boot to boot: boot p vs boot g (4096) byte-equal",
+   "passed": 4,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "prompts": 4,
+  "max_prompt_tokens": 8334,
+  "new_tokens": 128,
+  "exactness_replies_identical": 4,
+  "solo_xlong_s": 5.821
+ },
+ "commands": [
+  "boot p: ./inkling2mini.sh bench exactness   (PREFILL_CHUNK=4096)",
+  "boot g: ./inkling2mini.sh bench exactness   (fresh boot, 4096)",
+  "boot c: PREFILL_CHUNK=1000 ./inkling2mini.sh start; PREFILL_CHUNK=1000 ./inkling2mini.sh bench exactness",
+  "python3 bench/tools/exactness.py diff p g; diff p c   (local)"
+ ],
+ "notes": "Four fixed prompts (about 16, 521, 2,030 and 8,334 tokens), 128 greedy tokens, solo, one at a time; boots p and g with PREFILL_CHUNK 4096, boot c with 1000; shipping defaults otherwise. prompt_logprobs is refused by this engine, so the comparison rests on the generated ids and finish reasons (the tool says so). A record of this gate is taken first on each boot, before anything that reads the prefix cache."
+}

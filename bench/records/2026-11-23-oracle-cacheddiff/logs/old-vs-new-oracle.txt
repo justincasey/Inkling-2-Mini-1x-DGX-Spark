@@ -1,0 +1,3 @@
+oldnew.py run with the oracle of commit 02d190c (before LoopRank's dense_fp16 change) and of this branch's merge of the session branch (88cf02f),
+tiny looped model, emulate none, generate(prompt of 9 tokens, 6 new): torch.equal per field
+{'tokens': True, 'logits': True, 'h_final': True, 'hidden': True, 'router_idx': True, 'router_w': True, 'router_margin': True, 'core_out': True}

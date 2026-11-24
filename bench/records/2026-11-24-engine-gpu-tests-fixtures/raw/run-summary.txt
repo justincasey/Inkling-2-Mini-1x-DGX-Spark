@@ -1,0 +1,5 @@
+attn_oracle-real.txt rc=0
+ops-oracle.txt rc=0
+dspark-small-oracle.txt rc=0
+dspark-mini-oracle.txt rc=0
+moe-mixed-bench.txt rc=0

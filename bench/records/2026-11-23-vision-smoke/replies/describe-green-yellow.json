@@ -1,0 +1,98 @@
+{
+ "request": {
+  "messages": "<messages: 1, image data urls elided>",
+  "reasoning_effort": "none",
+  "max_tokens": 200
+ },
+ "status": 200,
+ "wall_s": 1.58,
+ "reply": {
+  "id": "chatcmpl-6f65541b672c2211",
+  "object": "chat.completion",
+  "created": 1795414730,
+  "model": "inkling-2-mini-1x-dgx-spark",
+  "system_fingerprint": "fp_bfe68ae1a087_88b4219e_cb1311_kvi8",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "Left: green; right: yellow.",
+     "reasoning_content": "The user is asking about an image with left and right halves. Looking at the image, the left half is green and the right half is yellow. Need answer briefly.",
+     "reasoning": "The user is asking about an image with left and right halves. Looking at the image, the left half is green and the right half is yellow. Need answer briefly."
+    },
+    "finish_reason": "stop",
+    "token_ids": [
+     200001,
+     200008,
+     371,
+     150409,
+     149884,
+     161646,
+     150081,
+     149916,
+     150641,
+     149899,
+     150706,
+     149880,
+     150349,
+     151309,
+     31446,
+     13,
+     220,
+     144665,
+     149922,
+     149876,
+     150641,
+     11,
+     149876,
+     150706,
+     152013,
+     149884,
+     152373,
+     149880,
+     149876,
+     150349,
+     152013,
+     149884,
+     155423,
+     13,
+     170289,
+     150893,
+     183263,
+     13,
+     200010,
+     200001,
+     200004,
+     31671,
+     25,
+     152373,
+     26,
+     150349,
+     25,
+     155423,
+     13,
+     200010,
+     200006
+    ]
+   }
+  ],
+  "usage": {
+   "prompt_tokens": 72,
+   "completion_tokens": 51,
+   "total_tokens": 123,
+   "prompt_tokens_details": {
+    "cached_tokens": 0
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 37
+   },
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 50
+   }
+  },
+  "prompt_tokens_count": 72
+ }
+}

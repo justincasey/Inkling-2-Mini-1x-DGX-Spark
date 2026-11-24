@@ -1,0 +1,286 @@
+{
+ "name": "final-api-test",
+ "date": "2026-11-23T23:03:06Z",
+ "recipe": {
+  "commit": "9adf2f0f7c0d40c7b0feb766cb12b3b62c3f4f7e",
+  "dirty_files": []
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a",
+  "sha256": "637d50b40f75378de92407eda48265d9f4dc912076a308c7c28dd1db37c7f7d2",
+  "pinned_commit": "59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a",
+  "lab_build": false,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a",
+   "system_fingerprint": "fp_59d08a9c5e9f_f2c81e67_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "f2c81e67b7de2016",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "1",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "dspark",
+  "PREFIX_CACHE": "on",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-1",
+ "gate": "api-test",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "health",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "models",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "tokenize",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "chat",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "render",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "max_tokens",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "stop",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "streaming",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "reasoning",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "tools",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "completions",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "errors",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "metrics",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "spec",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "prefix cache",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "concurrency",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "determinism",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "health",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "models",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "window",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "tokenize",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "chat",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "usage",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "reasoning",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "levels",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "effort system level 0",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "effort effort none",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "effort effort high",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "tools",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "metrics",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "spec",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "spec serial",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "prefix-cache",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "vision",
+   "passed": 1,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "api_checks_passed": 17,
+  "api_checks_failed": 0,
+  "probe_checks_passed": 17,
+  "probe_cached_tokens_repeat": 2352,
+  "probe_max_model_len": 262144,
+  "probe_reasoning_tokens_high": 188,
+  "probe_reasoning_tokens_none": 39,
+  "probe_spec_acceptance": 0.4918,
+  "probe_spec_drafted": 368,
+  "boot_s": 16
+ },
+ "commands": [
+  "./inkling2mini.sh bench probe   (bench/probe.py: the OpenAI surface, the drafter on, one image)",
+  "./inkling2mini.sh bench api   (tests/api_conformance.py)"
+ ],
+ "notes": "Boot g, shipping defaults: the drafter is on, so the probe's spec and serial checks run in their drafter-on form (docs: probe.py --spec auto reads the state from /metrics)."
+}

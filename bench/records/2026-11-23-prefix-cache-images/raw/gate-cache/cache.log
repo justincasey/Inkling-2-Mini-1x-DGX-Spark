@@ -1,0 +1,8 @@
+short   (31 tokens): equal; cached tokens uncached 0 cold 0 warm 0
+medium  (536 tokens): equal; cached tokens uncached 0 cold 0 warm 472
+long    (2045 tokens): equal; cached tokens uncached 0 cold 0 warm 1981
+xlong   (8349 tokens): equal; cached tokens uncached 0 cold 0 warm 8285
+70k     (73169 tokens): equal; cached tokens uncached 0 cold 0 warm 73105
+shared-1k (shared 2083 of 2092/2093 tokens): equal; cached tokens tail 0 0 tail 1 2028
+shared-70k (shared 73248 of 73257/73258 tokens): equal; cached tokens tail 0 0 tail 1 73193
+cache: pass (prefix_cache_reach_tokens 393216) -> ~/projects/inkling2-mini-k-state/bench/runs/20261123T083406Z-cache/cache.json

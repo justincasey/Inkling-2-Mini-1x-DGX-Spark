@@ -1,0 +1,8 @@
+lane 0: 9581 sentences, 259992 prompt tokens, depth 0.20
+lane 1: 9562 sentences, 259942 prompt tokens, depth 0.40
+lane 2: 9572 sentences, 259956 prompt tokens, depth 0.60
+lane 3: 9565 sentences, 260014 prompt tokens, depth 0.80
+lane 0: answered found=True prompt_tokens=259992 prefill_s=790.289 total_s=811.011
+lane 1: answered found=True prompt_tokens=259942 prefill_s=790.057 total_s=811.473
+lane 2: answered found=True prompt_tokens=259956 prefill_s=778.568 total_s=808.433
+lane 3: answered found=True prompt_tokens=260014 prefill_s=790.173 total_s=812.913

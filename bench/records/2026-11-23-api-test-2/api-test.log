@@ -1,0 +1,18 @@
+PASS health: 200
+PASS models: ['inkling-2-mini-1x-dgx-spark'] max_model_len=262144 configured=262144
+PASS tokenize: 2 tokens
+PASS chat: {"prompt_tokens": 25, "completion_tokens": 37, "total_tokens": 62, "prompt_tokens_details": {"cached_tokens": 0}, "completion_tokens_details": {"reasoning_tokens": 30}, "spec": {"drafted": 0, "accepted": 0, "rounds": 36}}
+PASS render: 25 prompt tokens
+PASS max_tokens: 16 tokens, finish length
+PASS stop: content 'ALPHA BRAVO '
+PASS streaming: 33 chunks, completion_tokens=37
+PASS reasoning: reasoning_tokens=188, 619 chars of reasoning
+PASS tools: get_weather({'city': 'Paris'}), streamed identically, tool_choice none, result answered
+PASS completions: text ' Paris.\n\nA. Noun\n\nB. Adjective\n\nC.'
+PASS errors: {'unknown model': 404, 'bad JSON': 400, 'no messages': 400, 'unknown field': 400, 'max_tokens 262145': '200 clamped (51 tokens, finish stop)', 'max_tokens 10000000': '200 clamped (51 tokens, finish stop)'}
+PASS metrics: requests +1, max_model_len 262144, prefix cache off
+PASS spec: drafter off: {'drafted': 0, 'accepted': 0, 'rounds': 255, 'acceptance': None, 'tokens_per_round': 1.0039}
+PASS prefix cache: cache off: repeat cached_tokens=0 of 2387
+PASS concurrency: [200, 200]
+PASS determinism: 64 identical ids
+api_conformance: 17 PASS, 0 FAIL

@@ -1,0 +1,51 @@
+{
+ "request": {
+  "model": "inkling-2-mini-1x-dgx-spark",
+  "temperature": 0,
+  "messages": [
+   {
+    "role": "user",
+    "content": "What is 17 * 23? Think it through, then give the number."
+   }
+  ],
+  "max_tokens": 700,
+  "reasoning_effort": "high"
+ },
+ "reply": {
+  "id": "chatcmpl-495a780d5fc56f15",
+  "object": "chat.completion",
+  "created": 1795414785,
+  "model": "inkling-2-mini-1x-dgx-spark",
+  "system_fingerprint": "fp_bfe68ae1a087_88b4219e_cb1311_kvi8",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "17 \u00d7 23 = 17 \u00d7 20 + 17 \u00d7 3 = 340 + 51 = 391.\n\n391",
+     "reasoning_content": "The user wants me to compute 17 * 23. Let me think through it.\n\n17 * 23 = 17 * 20 + 17 * 3 = 340 + 51 = 391.\n\nCheck: 20*23 = 460, minus 3*23 = 69, 460 - 69 = 391. Yes.\n\nNeed to give the number. The user says think it through, then give the number. I can provide brief reasoning and final number. No need for more tools.",
+     "reasoning": "The user wants me to compute 17 * 23. Let me think through it.\n\n17 * 23 = 17 * 20 + 17 * 3 = 340 + 51 = 391.\n\nCheck: 20*23 = 460, minus 3*23 = 69, 460 - 69 = 391. Yes.\n\nNeed to give the number. The user says think it through, then give the number. I can provide brief reasoning and final number. No need for more tools."
+    },
+    "finish_reason": "stop"
+   }
+  ],
+  "usage": {
+   "prompt_tokens": 32,
+   "completion_tokens": 145,
+   "total_tokens": 177,
+   "prompt_tokens_details": {
+    "cached_tokens": 0
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 111
+   },
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 144
+   }
+  },
+  "prompt_tokens_count": 32
+ },
+ "wall_s": 4.008
+}

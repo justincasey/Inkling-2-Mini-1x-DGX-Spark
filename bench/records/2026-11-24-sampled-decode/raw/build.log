@@ -1,0 +1,4 @@
+18:47:40 build the pinned engine 59d08a9c5e9f on node-2
+18:47:40 GPU SM clock capped at 2200 MHz on node-2: GPU clocks set to "(gpuClkMin 2200, gpuClkMax 2200)" for GPU 0000000F:01:00.0
+built 59d08a9c5e9f9d3ce96ed9d2353c68b70169cc1a: rexl3-serve sha256 8e1e6a382cc9d057634d8dd0dcc38bfbcdbc7172d475a708f0adc144655421f6
+18:49:35 build: engine 59d08a9c5e9f installed under /home/spark/inkling-2-mini-1x-dgx-spark/bin

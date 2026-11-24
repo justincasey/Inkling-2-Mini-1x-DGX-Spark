@@ -1,0 +1,222 @@
+{
+ "name": "skip-study",
+ "gate": "skip-study",
+ "date": "2026-11-23",
+ "result": "pass",
+ "node": "node-2",
+ "engine": {
+  "commit": null,
+  "dirty": false,
+  "version": "none: CPU oracle emulation (oracle/skip_study.py, Emulation.expert_skip), no engine involved"
+ },
+ "recipe": {
+  "commit": "e1d05952de28ff0f62418965451b3671a169adc2"
+ },
+ "verdict": "FAIL the plan's B1 gate as stated (skip on every row: KL mean 0.148 at t=0.2 renorm, 17x the 0.0088; top-1 122/139); decode-only skipping (prefill exact) meets the KL clause at t=0.2 (0.0022 over 53 rows) but flips 2 of 53 argmax (margins 0.39 and 0.03; the A lane's floor 0 of 53): unproven, the sample is 53 rows",
+ "tests": [
+  {
+   "bin": "pytest oracle/tests/test_expert_skip.py",
+   "filter": "expert_skip: off bit-identical, dropped set == rule, renorm keeps the sum, top pick never dropped, experts asked for exactly the kept picks",
+   "passed": 10,
+   "failed": 0
+  },
+  {
+   "bin": "pytest oracle/tests/test_skip_study.py",
+   "filter": "skip_study statistics (pass-layer map, bytes, union rule, KL, flips) and the forward driver on a synthetic EXL3 pack (control bit-equal, decode-only)",
+   "passed": 6,
+   "failed": 0
+  },
+  {
+   "bin": "pytest oracle/tests",
+   "filter": "whole oracle suite",
+   "passed": 242,
+   "failed": 0
+  },
+  {
+   "bin": "skip_study.py control",
+   "filter": "control: --emulate engine,expert_skip=1e-9,skip_renorm (skip path, nothing dropped), first 16 rows of chat-capital-effort0 == engine fixture bit for bit (hidden, h_final, routes, logits)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "skip_study.py forward",
+   "filter": "t0.15-renorm chat-capital-effort0 (40 rows, skip on every row) completed and compared",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "skip_study.py forward",
+   "filter": "t0.15-renorm chat-sky-effort0.9 (49 rows, skip on every row) completed and compared",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "skip_study.py forward",
+   "filter": "t0.2-renorm chat-capital-effort0 (40 rows, skip on every row) completed and compared",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "skip_study.py forward",
+   "filter": "t0.2-renorm chat-sky-effort0.9 (49 rows, skip on every row) completed and compared",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "skip_study.py forward",
+   "filter": "t0.2-renorm raw-counting (50 rows, skip on every row) completed and compared",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "skip_study.py forward",
+   "filter": "t0.3-renorm chat-capital-effort0 (40 rows, skip on every row) completed and compared",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "skip_study.py forward",
+   "filter": "t0.3-renorm chat-sky-effort0.9 (49 rows, skip on every row) completed and compared",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "skip_study.py forward",
+   "filter": "t0.3-renorm raw-counting (50 rows, skip on every row) completed and compared",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "skip_study.py forward",
+   "filter": "t0.2-plain chat-capital-effort0 (40 rows, skip on every row) completed and compared",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "skip_study.py forward",
+   "filter": "t0.2-plain chat-sky-effort0.9 (49 rows, skip on every row) completed and compared",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "skip_study.py forward",
+   "filter": "t0.2-plain raw-counting (50 rows, skip on every row) completed and compared",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "skip_study.py forward",
+   "filter": "d0.2-renorm chat-capital-effort0 (15 rows, prefill exact, decode skips) completed and compared",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "skip_study.py forward",
+   "filter": "d0.2-renorm chat-sky-effort0.9 (23 rows, prefill exact, decode skips) completed and compared",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "skip_study.py forward",
+   "filter": "d0.2-renorm raw-counting (15 rows, prefill exact, decode skips) completed and compared",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "skip_study.py forward",
+   "filter": "d0.3-renorm chat-capital-effort0 (15 rows, prefill exact, decode skips) completed and compared",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "skip_study.py forward",
+   "filter": "d0.3-renorm chat-sky-effort0.9 (23 rows, prefill exact, decode skips) completed and compared",
+   "passed": 1,
+   "failed": 0
+  }
+ ],
+ "commands": [
+  "python oracle/skip_study.py forward --pack PACK --fixture fx/engine/<prompt>.safetensors --emulate engine,expert_skip=T[,skip_renorm] [--decode-only] --out runs/<tag>-<prompt>.safetensors --workers 3 --threads 4 --weight-cache-gib 6   (nice -n 19; two at a time)",
+  "python oracle/skip_study.py control --run runs/control-skip-path-16.safetensors --fixture fx/engine/chat-capital-effort0.safetensors --out control.json",
+  "python oracle/skip_study.py summary --engine fx/engine --spec fx/spec --runs runs --census census.json --prompts chat-capital-effort0 chat-sky-effort0.9 raw-counting --tags t0.15-renorm t0.2-renorm t0.3-renorm t0.2-plain d0.2-renorm d0.3-renorm --out report.json",
+  "python oracle/skip_study.py tables --report report.json --out tables.md"
+ ],
+ "metrics": {
+  "rows_t0p15_renorm": 89,
+  "kl_mean_t0p15_renorm": 0.10609,
+  "kl_p99_t0p15_renorm": 1.05818,
+  "kl_max_t0p15_renorm": 1.59347,
+  "kl_mean_generated_rows_t0p15_renorm": 0.00116,
+  "top1_equal_t0p15_renorm": 78,
+  "top1_rows_t0p15_renorm": 89,
+  "picks_dropped_t0p15_renorm": 0.0766,
+  "mass_dropped_t0p15_renorm": 0.0241,
+  "bytes_dropped_one_row_t0p15_renorm": 0.0722,
+  "window_bytes_saved_4x8_t0p15_renorm": 0.0535,
+  "window_bytes_saved_1x8_t0p15_renorm": 0.0587,
+  "rows_t0p2_renorm": 139,
+  "kl_mean_t0p2_renorm": 0.14769,
+  "kl_p99_t0p2_renorm": 2.31511,
+  "kl_max_t0p2_renorm": 2.68957,
+  "kl_mean_generated_rows_t0p2_renorm": 0.00297,
+  "top1_equal_t0p2_renorm": 122,
+  "top1_rows_t0p2_renorm": 139,
+  "picks_dropped_t0p2_renorm": 0.1181,
+  "mass_dropped_t0p2_renorm": 0.0464,
+  "bytes_dropped_one_row_t0p2_renorm": 0.1128,
+  "window_bytes_saved_4x8_t0p2_renorm": 0.0954,
+  "window_bytes_saved_1x8_t0p2_renorm": 0.1078,
+  "rows_t0p3_renorm": 139,
+  "kl_mean_t0p3_renorm": 0.25616,
+  "kl_p99_t0p3_renorm": 2.43731,
+  "kl_max_t0p3_renorm": 2.90571,
+  "kl_mean_generated_rows_t0p3_renorm": 0.00845,
+  "top1_equal_t0p3_renorm": 117,
+  "top1_rows_t0p3_renorm": 139,
+  "picks_dropped_t0p3_renorm": 0.2619,
+  "mass_dropped_t0p3_renorm": 0.1309,
+  "bytes_dropped_one_row_t0p3_renorm": 0.2541,
+  "window_bytes_saved_4x8_t0p3_renorm": 0.1942,
+  "window_bytes_saved_1x8_t0p3_renorm": 0.2266,
+  "rows_t0p2_plain": 139,
+  "kl_mean_t0p2_plain": 0.06226,
+  "kl_p99_t0p2_plain": 1.05483,
+  "kl_max_t0p2_plain": 1.25922,
+  "kl_mean_generated_rows_t0p2_plain": 0.00188,
+  "top1_equal_t0p2_plain": 129,
+  "top1_rows_t0p2_plain": 139,
+  "picks_dropped_t0p2_plain": 0.1181,
+  "mass_dropped_t0p2_plain": 0.0464,
+  "bytes_dropped_one_row_t0p2_plain": 0.1128,
+  "window_bytes_saved_4x8_t0p2_plain": 0.0954,
+  "window_bytes_saved_1x8_t0p2_plain": 0.1078,
+  "rows_d0p2_renorm": 53,
+  "kl_mean_d0p2_renorm": 0.00222,
+  "kl_p99_d0p2_renorm": 0.02641,
+  "kl_max_d0p2_renorm": 0.04158,
+  "kl_mean_generated_rows_d0p2_renorm": 0.00222,
+  "top1_equal_d0p2_renorm": 51,
+  "top1_rows_d0p2_renorm": 53,
+  "picks_dropped_d0p2_renorm": 0.1037,
+  "mass_dropped_d0p2_renorm": 0.0402,
+  "bytes_dropped_one_row_d0p2_renorm": 0.099,
+  "window_bytes_saved_4x8_d0p2_renorm": 0.0794,
+  "window_bytes_saved_1x8_d0p2_renorm": 0.0901,
+  "rows_d0p3_renorm": 38,
+  "kl_mean_d0p3_renorm": 0.01352,
+  "kl_p99_d0p3_renorm": 0.09641,
+  "kl_max_d0p3_renorm": 0.11892,
+  "kl_mean_generated_rows_d0p3_renorm": 0.01352,
+  "top1_equal_d0p3_renorm": 37,
+  "top1_rows_d0p3_renorm": 38,
+  "picks_dropped_d0p3_renorm": 0.2323,
+  "mass_dropped_d0p3_renorm": 0.1105,
+  "bytes_dropped_one_row_d0p3_renorm": 0.2232,
+  "window_bytes_saved_4x8_d0p3_renorm": 0.1711,
+  "window_bytes_saved_1x8_d0p3_renorm": 0.1964,
+  "floor_kl_mean_same_rows_t0p2_renorm": 0.00161,
+  "floor_kl_mean_same_rows_d0p2_renorm": 0.00051,
+  "gate_kl_pack_card": 0.0088
+ },
+ "notes": "informational gate: result pass = every planned run completed and the verdict is stated, whatever it is"
+}

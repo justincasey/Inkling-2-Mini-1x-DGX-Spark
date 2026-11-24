@@ -1,0 +1,10 @@
+short   (16 tokens): equal; drafted 184 accepted 63 rounds 64 acceptance 0.3424 tokens/round 2.0
+medium  (521 tokens): equal; drafted 161 accepted 94 rounds 33 acceptance 0.5839 tokens/round 3.8788
+long    (2030 tokens): equal; drafted 175 accepted 84 rounds 43 acceptance 0.48 tokens/round 2.9767
+xlong   (8334 tokens): equal; drafted 192 accepted 81 rounds 46 acceptance 0.4219 tokens/round 2.7826
+70k     (73154 tokens): equal; drafted 154 accepted 95 rounds 32 acceptance 0.6169 tokens/round 4.0
+concurrent short  : equal
+concurrent medium : equal
+concurrent long   : equal
+concurrent xlong  : equal
+spec: pass; drafted 1445 accepted 721 rounds 422 acceptance 0.499 tokens/round 2.7299 -> /tmp/slim/runs/slim/gates-spec.json

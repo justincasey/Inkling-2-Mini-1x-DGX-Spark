@@ -1,0 +1,98 @@
+{
+ "name": "oracle-cacheddiff",
+ "gate": "oracle-cacheddiff",
+ "date": "2026-11-23",
+ "result": "pass",
+ "node": "node-1",
+ "recipe": {
+  "commit": "d6d4da7e104532ca00ef2bea633cccafe6b0e2b3",
+  "branch": "lane/oracle"
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44"
+ },
+ "tests": [
+  {
+   "bin": "pytest",
+   "filter": "oracle/tests",
+   "passed": 187,
+   "failed": 0
+  },
+  {
+   "bin": "pytest",
+   "filter": "oracle/tests/test_verify_recompute.py",
+   "passed": 12,
+   "failed": 0
+  }
+ ],
+ "commands": [
+  "python tools/real_diff.py PACK out chat-sky-effort0.9 --workers 3 --threads 4 --cache-gib 10   (cached vs full recompute, per-position stats and raw tensors)",
+  "python tools/analyse.py ; python tools/element.py   (which logit differs; replay of it from the stored hidden states)",
+  "python tools/rate.py   (1-row vs 49-row unembed products on the real unembed, 40 sign patterns of the real final hidden rows)",
+  "python tools/synth.py H   (tiny looped model, cached == recompute at 6 prompt lengths, H = 256, 1152, 2304; Mac: synth_mac.py)",
+  "tools/run.sh   (gen_fixtures.py --only raw-long-window --verify-recompute; then --only chat-sky-effort0.9 raw-counting --verify-recompute; --workers 3 --threads 4 --weight-cache-gib 12)",
+  "python tools/oldnew.py old|new ROOT   (old vs new oracle, emulate none)"
+ ],
+ "metrics": {
+  "failing_prompt": "chat-sky-effort0.9",
+  "rows": 49,
+  "logits_compared": 9802842,
+  "differing_logits": 1,
+  "row": 28,
+  "token_id": 64928,
+  "logit_abs_difference": 1.1920928955078125e-07,
+  "fp32_ulps": 1.0,
+  "relative_to_row_rms": 7.221e-09,
+  "argmax_equal": true,
+  "top2_order_equal": true,
+  "hidden_equal_every_pass": true,
+  "routes_equal": true,
+  "fp64_product_difference_1row_vs_batch": 4.6629367034256575e-15,
+  "unembed_flip_rate": {
+   "flips": 9,
+   "logits": 64225280,
+   "per_logit": 1.4e-07,
+   "max_ulps": 1.0
+  },
+  "synthetic_tiny_cached_equals_recompute": {
+   "hidden_sizes": [
+    256,
+    1152,
+    2304
+   ],
+   "prompt_lengths": [
+    3,
+    7,
+    12,
+    17,
+    25,
+    33
+   ],
+   "all_bit_equal": true,
+   "hosts": [
+    "Mac",
+    "node-1"
+   ]
+  },
+  "timing_s": {
+   "chat_sky_prefill_26_rows": 496,
+   "decode_step": "20.1-21.0",
+   "chat_sky_cached_total": 967,
+   "chat_sky_full_recompute_49_rows": 623,
+   "raw_long_window_cached_1119_plus_8": 922.1,
+   "raw_long_window_recompute_1126_rows": 717.7,
+   "raw_counting_cached_35_plus_16": 581.5,
+   "raw_counting_recompute": 315.4,
+   "chat_sky_new_code_cached": 964.1,
+   "chat_sky_new_code_recompute": 619.9
+  },
+  "fixed_generator_runs": {
+   "raw-long-window": "ok, 0 differing logits",
+   "chat-sky-effort0.9": "ok, 1 differing logit, 1 ulp",
+   "raw-counting": "ok, 0 differing logits"
+  },
+  "raw_long_window_generated_text": " 561 562 563 564 (prompt counts to 560)"
+ },
+ "notes": "Cause: float64 summation order of the unembed (1-row decode product vs gemm), flipping one fp32 rounding. Not a semantic difference. The oracle did not change numerically for emulate none (old-vs-new-oracle.txt), so no existing emulate-none fixture is invalid; engine-emulation fixtures made with code before dense_fp16 (numerics_version 1) are stale for the engine gate. Fixtures written on node-1 (not in the repo): lab/oracle-cacheddiff/fixtures/spec/{raw-long-window,chat-sky-effort0.9,raw-counting}.safetensors."
+}

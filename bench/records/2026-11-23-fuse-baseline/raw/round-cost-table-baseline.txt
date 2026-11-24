@@ -1,0 +1,41 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-fuse/target/release/deps/inkling2_loop_spec_timing-bdb33336b114696d
+== gb-model round_cost_table
+test round_cost_table ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=113695 took_mib=0.0 mem_available_mib=116986
+LOOP_TIMING window ctx=4096 streams=1 rows=1 drafter=0 ms=19.036
+LOOP_TIMING window ctx=4096 streams=1 rows=2 drafter=0 ms=21.461
+LOOP_TIMING window ctx=4096 streams=1 rows=3 drafter=0 ms=23.641
+LOOP_TIMING window ctx=4096 streams=1 rows=4 drafter=0 ms=24.638
+LOOP_TIMING window ctx=4096 streams=1 rows=5 drafter=0 ms=26.269
+LOOP_TIMING window ctx=4096 streams=1 rows=6 drafter=0 ms=27.222
+LOOP_TIMING window ctx=4096 streams=1 rows=7 drafter=0 ms=27.826
+LOOP_TIMING window ctx=4096 streams=1 rows=8 drafter=0 ms=29.248
+LOOP_TIMING window ctx=4096 streams=2 rows=1 drafter=0 ms=23.093
+LOOP_TIMING window ctx=4096 streams=2 rows=2 drafter=0 ms=25.906
+LOOP_TIMING window ctx=4096 streams=2 rows=3 drafter=0 ms=28.376
+LOOP_TIMING window ctx=4096 streams=2 rows=4 drafter=0 ms=30.260
+LOOP_TIMING window ctx=4096 streams=2 rows=5 drafter=0 ms=32.142
+LOOP_TIMING window ctx=4096 streams=2 rows=6 drafter=0 ms=34.270
+LOOP_TIMING window ctx=4096 streams=2 rows=7 drafter=0 ms=35.398
+LOOP_TIMING window ctx=4096 streams=2 rows=8 drafter=0 ms=37.479
+LOOP_TIMING window ctx=4096 streams=4 rows=1 drafter=0 ms=28.840
+LOOP_TIMING window ctx=4096 streams=4 rows=2 drafter=0 ms=33.040
+LOOP_TIMING window ctx=4096 streams=4 rows=3 drafter=0 ms=36.864
+LOOP_TIMING window ctx=4096 streams=4 rows=4 drafter=0 ms=40.826
+LOOP_TIMING window ctx=4096 streams=4 rows=5 drafter=0 ms=45.002
+LOOP_TIMING window ctx=4096 streams=4 rows=6 drafter=0 ms=47.428
+LOOP_TIMING window ctx=4096 streams=4 rows=7 drafter=0 ms=50.041
+LOOP_TIMING window ctx=4096 streams=4 rows=8 drafter=0 ms=52.307
+LOOP_TIMING drafter attached weights_bytes=339917888 state_and_taps_bytes=216461696
+LOOP_TIMING propose ctx=4096 requests=1 ms=8.450
+LOOP_TIMING propose ctx=4096 requests=2 ms=8.935
+LOOP_TIMING propose ctx=4096 requests=4 ms=9.975
+LOOP_TIMING window ctx=4096 streams=1 rows=1 drafter=1 ms=19.223
+LOOP_TIMING window ctx=4096 streams=1 rows=3 drafter=1 ms=23.444
+LOOP_TIMING window ctx=4096 streams=1 rows=8 drafter=1 ms=29.271
+LOOP_TIMING window ctx=4096 streams=2 rows=1 drafter=1 ms=23.079
+LOOP_TIMING window ctx=4096 streams=2 rows=3 drafter=1 ms=28.585
+LOOP_TIMING window ctx=4096 streams=2 rows=8 drafter=1 ms=37.356
+LOOP_TIMING window ctx=4096 streams=4 rows=1 drafter=1 ms=29.034
+LOOP_TIMING window ctx=4096 streams=4 rows=3 drafter=1 ms=36.752
+LOOP_TIMING window ctx=4096 streams=4 rows=8 drafter=1 ms=51.290
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 45.56s

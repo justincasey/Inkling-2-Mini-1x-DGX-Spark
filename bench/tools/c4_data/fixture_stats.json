@@ -1,0 +1,82 @@
+{
+ "_provenance": "Derived from router_idx/router_w planes of the 4 spec fixtures (oracle fp64 runs, pack 44c78c9d, real routing of the oracle on prompts: chat-capital-effort0 40 rows, chat-sky-effort0.9 49, raw-counting 50, raw-long-window 1126) read read-only from node-1 /home/spark/inkling-2-mini-1x-dgx-spark/fixtures/spec/ by header-range copy (copy_planes_remote.py); rows are prompt + a few generated rows, NOT served replies; raw-long-window is a counting text (very repetitive: its window unions are lower than real replies). Expert bytes from intake/census.json. Regenerate: gen_fixture_stats.py.",
+ "rows_total": 1265,
+ "rank_mass_share": [
+  0.2528,
+  0.18,
+  0.1387,
+  0.1143,
+  0.0956,
+  0.0832,
+  0.0728,
+  0.0625
+ ],
+ "row_skip_pooled": [
+  {
+   "rel_threshold": 0.1,
+   "picks_dropped": 0.0125,
+   "mass_dropped": 0.0032,
+   "bytes_saved_one_row": 0.0121
+  },
+  {
+   "rel_threshold": 0.15,
+   "picks_dropped": 0.0492,
+   "mass_dropped": 0.017,
+   "bytes_saved_one_row": 0.0483
+  },
+  {
+   "rel_threshold": 0.2,
+   "picks_dropped": 0.1055,
+   "mass_dropped": 0.0431,
+   "bytes_saved_one_row": 0.1041
+  },
+  {
+   "rel_threshold": 0.3,
+   "picks_dropped": 0.2496,
+   "mass_dropped": 0.1272,
+   "bytes_saved_one_row": 0.248
+  },
+  {
+   "rel_threshold": 0.4,
+   "picks_dropped": 0.4042,
+   "mass_dropped": 0.2374,
+   "bytes_saved_one_row": 0.4027
+  },
+  {
+   "rel_threshold": 0.5,
+   "picks_dropped": 0.5349,
+   "mass_dropped": 0.3462,
+   "bytes_saved_one_row": 0.5335
+  }
+ ],
+ "window_bytes_saved_long_window_indicative": {
+  "0.15": {
+   "1x1": 0.0449,
+   "1x8": 0.0359,
+   "4x8": 0.0311
+  },
+  "0.2": {
+   "1x1": 0.101,
+   "1x8": 0.083,
+   "4x8": 0.0744
+  },
+  "0.3": {
+   "1x1": 0.2413,
+   "1x8": 0.1997,
+   "4x8": 0.177
+  },
+  "0.5": {
+   "1x1": 0.5265,
+   "1x8": 0.4567,
+   "4x8": 0.4084
+  }
+ },
+ "cross_text_pair_overlap_fraction (random 0.0625)": {
+  "raw-long-window|chat-capital-effort0": 0.1204,
+  "raw-long-window|chat-sky-effort0.9": 0.1197,
+  "chat-sky-effort0.9|raw-counting": 0.1445,
+  "chat-sky-effort0.9|chat-capital-effort0": 0.2647
+ },
+ "cross_text_overlap_multiplier_vs_random_mean_of_pairs": 2.6,
+ "cross_text_note": "pairs are prompt rows (chat-template and counting text), which share template routes: an upper bound on the overlap of two served streams; the independent closed form is the optimistic end"
+}

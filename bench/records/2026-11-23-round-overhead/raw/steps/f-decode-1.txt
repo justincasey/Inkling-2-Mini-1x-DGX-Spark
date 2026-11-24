@@ -1,0 +1,21 @@
+09:49:18 bench decode against http://node-4:8000 (inkling-2-mini-1x-dgx-spark, window 262144); results in bench/runs/20261123T154918Z-decode
+09:49:18 no bench/reference.json: replies are measured, not compared (bench pin writes it on the pinned engine)
+09:49:18 bench.py warm,decode,conc
+warm: done (discarded)
+decode prose: 512 tokens, ttft 0.1337 s, 50.55 tok/s, spec {'drafted': 302, 'accepted': 83, 'rounds': 428, 'acceptance': 0.2748, 'tokens_per_round': 1.1963}
+decode code: 512 tokens, ttft 0.1969 s, 114.488 tok/s, spec {'drafted': 568, 'accepted': 408, 'rounds': 103, 'acceptance': 0.7183, 'tokens_per_round': 4.9709}
+decode structured: 512 tokens, ttft 0.1707 s, 78.52 tok/s, spec {'drafted': 697, 'accepted': 348, 'rounds': 163, 'acceptance': 0.4993, 'tokens_per_round': 3.1411}
+decode json: 512 tokens, ttft 0.2066 s, 87.554 tok/s, spec {'drafted': 755, 'accepted': 384, 'rounds': 127, 'acceptance': 0.5086, 'tokens_per_round': 4.0315}
+conc c=4: 2048 tokens in 19.38 s = 105.66 tok/s
+conc c=8: 4096 tokens in 30.92 s = 132.46 tok/s
+METRIC decode_acceptance=0.5267
+METRIC decode_c1_tok_s=82.778
+METRIC decode_c4_tok_s=105.66
+METRIC decode_c8_tok_s=132.461
+METRIC decode_code_tok_s=114.488
+METRIC decode_json_tok_s=87.554
+METRIC decode_prose_tok_s=50.55
+METRIC decode_structured_tok_s=78.52
+METRIC decode_tokens=2048
+METRIC decode_tokens_per_round=2.4945
+bench decode: pass run=bench/runs/20261123T154918Z-decode

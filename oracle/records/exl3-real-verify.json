@@ -1,0 +1,2003 @@
+{
+ "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+ "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+ "command": "oracle/tools/verify_exl3_real.py",
+ "timestamp_utc": "2026-11-23T03:05:46Z",
+ "host": "macOS-15.6.1-arm64-arm-64bit",
+ "entries": [
+  {
+   "tensor": "model.llm.layers.12.mlp.experts.0.gate_proj",
+   "k": 4,
+   "bytes": 26542080,
+   "match": true,
+   "k_bits": 4.0,
+   "k_in": 2304,
+   "n_out": 1152,
+   "shape": [
+    2304,
+    1152
+   ],
+   "bytes_trellis": 1327104,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "model.llm.layers.12.mlp.experts.0.gate_proj",
+   "source": {
+    "file": "model-00001-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     72,
+     64
+    ],
+    "trellis_offset": 7520629752,
+    "trellis_nbytes": 1327104,
+    "trellis_ranges": [
+     [
+      7520629752,
+      7521956856
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.020826370708443846,
+    "w_absmax": 0.2931093516090186,
+    "wq_rms": 0.9044469594358457,
+    "suh_absmin": 0.00997161865234375,
+    "suh_absmax": 0.028045654296875,
+    "svh_absmin": 0.98779296875,
+    "svh_absmax": 1.01171875
+   },
+   "triple_k": {
+    "gate_proj": 4,
+    "up_proj": 4,
+    "down_proj": 4
+   },
+   "picked_for_k": 4
+  },
+  {
+   "tensor": "model.llm.layers.12.mlp.experts.0.up_proj",
+   "k": 4,
+   "bytes": 26542080,
+   "match": true,
+   "k_bits": 4.0,
+   "k_in": 2304,
+   "n_out": 1152,
+   "shape": [
+    2304,
+    1152
+   ],
+   "bytes_trellis": 1327104,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "model.llm.layers.12.mlp.experts.0.up_proj",
+   "source": {
+    "file": "model-00001-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     72,
+     64
+    ],
+    "trellis_offset": 7521963772,
+    "trellis_nbytes": 1327104,
+    "trellis_ranges": [
+     [
+      7521963772,
+      7523290876
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.02081876342524197,
+    "w_absmax": 0.3728503975956875,
+    "wq_rms": 0.8982572306058846,
+    "suh_absmin": 0.00872039794921875,
+    "suh_absmax": 0.0287628173828125,
+    "svh_absmin": 0.9873046875,
+    "svh_absmax": 1.0107421875
+   },
+   "triple_k": {
+    "gate_proj": 4,
+    "up_proj": 4,
+    "down_proj": 4
+   },
+   "picked_for_k": 4
+  },
+  {
+   "tensor": "model.llm.layers.12.mlp.experts.0.down_proj",
+   "k": 4,
+   "bytes": 26542080,
+   "match": true,
+   "k_bits": 4.0,
+   "k_in": 1152,
+   "n_out": 2304,
+   "shape": [
+    1152,
+    2304
+   ],
+   "bytes_trellis": 1327104,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    9,
+    17
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "model.llm.layers.12.mlp.experts.0.down_proj",
+   "source": {
+    "file": "model-00001-of-00002.safetensors",
+    "tensor_shape": [
+     72,
+     144,
+     64
+    ],
+    "trellis_offset": 7523297792,
+    "trellis_nbytes": 1327104,
+    "trellis_ranges": [
+     [
+      7523297792,
+      7524624896
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.029408118799907325,
+    "w_absmax": 0.35821101042108683,
+    "wq_rms": 0.9051702221955958,
+    "suh_absmin": 0.02655029296875,
+    "suh_absmax": 0.04010009765625,
+    "svh_absmin": 0.9833984375,
+    "svh_absmax": 1.015625
+   },
+   "triple_k": {
+    "gate_proj": 4,
+    "up_proj": 4,
+    "down_proj": 4
+   },
+   "picked_for_k": 4
+  },
+  {
+   "tensor": "model.llm.layers.23.mlp.experts.1.gate_proj",
+   "k": 4,
+   "bytes": 26542080,
+   "match": true,
+   "k_bits": 4.0,
+   "k_in": 2304,
+   "n_out": 1152,
+   "shape": [
+    2304,
+    1152
+   ],
+   "bytes_trellis": 1327104,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "model.llm.layers.23.mlp.experts.1.gate_proj",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     72,
+     64
+    ],
+    "trellis_offset": 5900768484,
+    "trellis_nbytes": 1327104,
+    "trellis_ranges": [
+     [
+      5900768484,
+      5902095588
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.02080718727328937,
+    "w_absmax": 0.37196764203685,
+    "wq_rms": 0.8985468909321848,
+    "suh_absmin": 0.0150909423828125,
+    "suh_absmax": 0.0272369384765625,
+    "svh_absmin": 0.9931640625,
+    "svh_absmax": 1.0078125
+   },
+   "triple_k": {
+    "gate_proj": 4,
+    "up_proj": 4,
+    "down_proj": 4
+   },
+   "picked_for_k": 4
+  },
+  {
+   "tensor": "model.llm.layers.23.mlp.experts.1.up_proj",
+   "k": 4,
+   "bytes": 26542080,
+   "match": true,
+   "k_bits": 4.0,
+   "k_in": 2304,
+   "n_out": 1152,
+   "shape": [
+    2304,
+    1152
+   ],
+   "bytes_trellis": 1327104,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "model.llm.layers.23.mlp.experts.1.up_proj",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     72,
+     64
+    ],
+    "trellis_offset": 5902102504,
+    "trellis_nbytes": 1327104,
+    "trellis_ranges": [
+     [
+      5902102504,
+      5903429608
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.02080616610458799,
+    "w_absmax": 0.280500746170178,
+    "wq_rms": 0.9012271274834045,
+    "suh_absmin": 0.01568603515625,
+    "suh_absmax": 0.0282135009765625,
+    "svh_absmin": 0.99365234375,
+    "svh_absmax": 1.0078125
+   },
+   "triple_k": {
+    "gate_proj": 4,
+    "up_proj": 4,
+    "down_proj": 4
+   },
+   "picked_for_k": 4
+  },
+  {
+   "tensor": "model.llm.layers.23.mlp.experts.1.down_proj",
+   "k": 4,
+   "bytes": 26542080,
+   "match": true,
+   "k_bits": 4.0,
+   "k_in": 1152,
+   "n_out": 2304,
+   "shape": [
+    1152,
+    2304
+   ],
+   "bytes_trellis": 1327104,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    9,
+    17
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "model.llm.layers.23.mlp.experts.1.down_proj",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     72,
+     144,
+     64
+    ],
+    "trellis_offset": 5903436524,
+    "trellis_nbytes": 1327104,
+    "trellis_ranges": [
+     [
+      5903436524,
+      5904763628
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.029400885567680494,
+    "w_absmax": 0.3735402769049667,
+    "wq_rms": 0.9010534697364485,
+    "suh_absmin": 0.01532745361328125,
+    "suh_absmax": 0.0535888671875,
+    "svh_absmin": 0.990234375,
+    "svh_absmax": 1.009765625
+   },
+   "triple_k": {
+    "gate_proj": 4,
+    "up_proj": 4,
+    "down_proj": 4
+   },
+   "picked_for_k": 4
+  },
+  {
+   "tensor": "model.llm.layers.12.mlp.experts.4.gate_proj",
+   "k": 5,
+   "bytes": 26542080,
+   "match": true,
+   "k_bits": 5.0,
+   "k_in": 2304,
+   "n_out": 1152,
+   "shape": [
+    2304,
+    1152
+   ],
+   "bytes_trellis": 1658880,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "model.llm.layers.12.mlp.experts.4.gate_proj",
+   "source": {
+    "file": "model-00001-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     72,
+     80
+    ],
+    "trellis_offset": 7536637992,
+    "trellis_nbytes": 1658880,
+    "trellis_ranges": [
+     [
+      7536637992,
+      7538296872
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.020835469886029724,
+    "w_absmax": 0.15463681147932104,
+    "wq_rms": 0.8739912470701708,
+    "suh_absmin": 0.008056640625,
+    "suh_absmax": 0.026763916015625,
+    "svh_absmin": 0.98974609375,
+    "svh_absmax": 1.01171875
+   },
+   "triple_k": {
+    "gate_proj": 5,
+    "up_proj": 5,
+    "down_proj": 5
+   },
+   "picked_for_k": 5
+  },
+  {
+   "tensor": "model.llm.layers.12.mlp.experts.4.up_proj",
+   "k": 5,
+   "bytes": 26542080,
+   "match": true,
+   "k_bits": 5.0,
+   "k_in": 2304,
+   "n_out": 1152,
+   "shape": [
+    2304,
+    1152
+   ],
+   "bytes_trellis": 1658880,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "model.llm.layers.12.mlp.experts.4.up_proj",
+   "source": {
+    "file": "model-00001-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     72,
+     80
+    ],
+    "trellis_offset": 7538303788,
+    "trellis_nbytes": 1658880,
+    "trellis_ranges": [
+     [
+      7538303788,
+      7539962668
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.020837425645459113,
+    "w_absmax": 0.10979610356347355,
+    "wq_rms": 0.8676710183242219,
+    "suh_absmin": 0.0082550048828125,
+    "suh_absmax": 0.026397705078125,
+    "svh_absmin": 0.990234375,
+    "svh_absmax": 1.009765625
+   },
+   "triple_k": {
+    "gate_proj": 5,
+    "up_proj": 5,
+    "down_proj": 5
+   },
+   "picked_for_k": 5
+  },
+  {
+   "tensor": "model.llm.layers.12.mlp.experts.4.down_proj",
+   "k": 5,
+   "bytes": 26542080,
+   "match": true,
+   "k_bits": 5.0,
+   "k_in": 1152,
+   "n_out": 2304,
+   "shape": [
+    1152,
+    2304
+   ],
+   "bytes_trellis": 1658880,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    9,
+    17
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "model.llm.layers.12.mlp.experts.4.down_proj",
+   "source": {
+    "file": "model-00001-of-00002.safetensors",
+    "tensor_shape": [
+     72,
+     144,
+     80
+    ],
+    "trellis_offset": 7539969584,
+    "trellis_nbytes": 1658880,
+    "trellis_ranges": [
+     [
+      7539969584,
+      7541628464
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.029447409052017422,
+    "w_absmax": 0.29620997895016815,
+    "wq_rms": 0.8609649969252715,
+    "suh_absmin": 0.028717041015625,
+    "suh_absmax": 0.04290771484375,
+    "svh_absmin": 0.98583984375,
+    "svh_absmax": 1.0146484375
+   },
+   "triple_k": {
+    "gate_proj": 5,
+    "up_proj": 5,
+    "down_proj": 5
+   },
+   "picked_for_k": 5
+  },
+  {
+   "tensor": "model.llm.layers.23.mlp.experts.0.gate_proj",
+   "k": 4,
+   "bytes": 26542080,
+   "match": true,
+   "k_bits": 4.0,
+   "k_in": 2304,
+   "n_out": 1152,
+   "shape": [
+    2304,
+    1152
+   ],
+   "bytes_trellis": 1327104,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "model.llm.layers.23.mlp.experts.0.gate_proj",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     72,
+     64
+    ],
+    "trellis_offset": 5896434648,
+    "trellis_nbytes": 1327104,
+    "trellis_ranges": [
+     [
+      5896434648,
+      5897761752
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.020800562957065047,
+    "w_absmax": 0.11148469806130819,
+    "wq_rms": 0.8993418462225073,
+    "suh_absmin": 0.01373291015625,
+    "suh_absmax": 0.02532958984375,
+    "svh_absmin": 0.9912109375,
+    "svh_absmax": 1.009765625
+   },
+   "triple_k": {
+    "gate_proj": 4,
+    "up_proj": 4,
+    "down_proj": 5
+   },
+   "picked_for_k": 5
+  },
+  {
+   "tensor": "model.llm.layers.23.mlp.experts.0.up_proj",
+   "k": 4,
+   "bytes": 26542080,
+   "match": true,
+   "k_bits": 4.0,
+   "k_in": 2304,
+   "n_out": 1152,
+   "shape": [
+    2304,
+    1152
+   ],
+   "bytes_trellis": 1327104,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "model.llm.layers.23.mlp.experts.0.up_proj",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     72,
+     64
+    ],
+    "trellis_offset": 5897768668,
+    "trellis_nbytes": 1327104,
+    "trellis_ranges": [
+     [
+      5897768668,
+      5899095772
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.02079825290924828,
+    "w_absmax": 0.11020701019756093,
+    "wq_rms": 0.9099442232461874,
+    "suh_absmin": 0.013580322265625,
+    "suh_absmax": 0.0250396728515625,
+    "svh_absmin": 0.99169921875,
+    "svh_absmax": 1.0107421875
+   },
+   "triple_k": {
+    "gate_proj": 4,
+    "up_proj": 4,
+    "down_proj": 5
+   },
+   "picked_for_k": 5
+  },
+  {
+   "tensor": "model.llm.layers.23.mlp.experts.0.down_proj",
+   "k": 5,
+   "bytes": 26542080,
+   "match": true,
+   "k_bits": 5.0,
+   "k_in": 1152,
+   "n_out": 2304,
+   "shape": [
+    1152,
+    2304
+   ],
+   "bytes_trellis": 1658880,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    9,
+    17
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "model.llm.layers.23.mlp.experts.0.down_proj",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     72,
+     144,
+     80
+    ],
+    "trellis_offset": 5899102688,
+    "trellis_nbytes": 1658880,
+    "trellis_ranges": [
+     [
+      5899102688,
+      5900761568
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.029436570185916704,
+    "w_absmax": 0.40699343867469867,
+    "wq_rms": 0.8801016399440085,
+    "suh_absmin": 0.0237884521484375,
+    "suh_absmax": 0.038360595703125,
+    "svh_absmin": 0.99462890625,
+    "svh_absmax": 1.005859375
+   },
+   "triple_k": {
+    "gate_proj": 4,
+    "up_proj": 4,
+    "down_proj": 5
+   },
+   "picked_for_k": 5
+  },
+  {
+   "tensor": "model.llm.layers.11.attn.wq_du",
+   "k": 6,
+   "bytes": 70778880,
+   "match": true,
+   "k_bits": 6.0,
+   "k_in": 2304,
+   "n_out": 3072,
+   "shape": [
+    2304,
+    3072
+   ],
+   "bytes_trellis": 5308416,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    12,
+    23
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "model.llm.layers.11.attn.wq_du",
+   "source": {
+    "file": "model-00001-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     192,
+     96
+    ],
+    "trellis_offset": 6927069908,
+    "trellis_nbytes": 5308416,
+    "trellis_ranges": [
+     [
+      6927069908,
+      6932378324
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.02083021647245234,
+    "w_absmax": 0.28133082334541676,
+    "wq_rms": 0.8229280086152279,
+    "suh_absmin": 0.01233673095703125,
+    "suh_absmax": 0.032470703125,
+    "svh_absmin": 0.998046875,
+    "svh_absmax": 1.001953125
+   }
+  },
+  {
+   "tensor": "model.llm.layers.0.attn.wo_ud",
+   "k": 6,
+   "bytes": 70778880,
+   "match": true,
+   "k_bits": 6.0,
+   "k_in": 3072,
+   "n_out": 2304,
+   "shape": [
+    3072,
+    2304
+   ],
+   "bytes_trellis": 5308416,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    9,
+    17
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "model.llm.layers.0.attn.wo_ud",
+   "source": {
+    "file": "model-00001-of-00002.safetensors",
+    "tensor_shape": [
+     192,
+     144,
+     96
+    ],
+    "trellis_offset": 935975368,
+    "trellis_nbytes": 5308416,
+    "trellis_ranges": [
+     [
+      935975368,
+      941283784
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.018039169251322755,
+    "w_absmax": 0.5117495479437516,
+    "wq_rms": 0.7817860082122982,
+    "suh_absmin": 0.01312255859375,
+    "suh_absmax": 0.028900146484375,
+    "svh_absmin": 0.9990234375,
+    "svh_absmax": 1.0009765625
+   }
+  },
+  {
+   "tensor": "mtp:layers.1.self_attn.q_proj",
+   "k": 4,
+   "bytes": 70778880,
+   "match": true,
+   "k_bits": 4.0,
+   "k_in": 2304,
+   "n_out": 3072,
+   "shape": [
+    2304,
+    3072
+   ],
+   "bytes_trellis": 3538944,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    12,
+    23
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "mtp.layers.1.self_attn.q_proj",
+   "source": {
+    "file": "mtp.safetensors",
+    "tensor_shape": [
+     144,
+     192,
+     64
+    ],
+    "trellis_offset": 81660192,
+    "trellis_nbytes": 3538944,
+    "trellis_ranges": [
+     [
+      81660192,
+      85199136
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.020809759926261225,
+    "w_absmax": 0.174189152117421,
+    "wq_rms": 0.8951373403718895,
+    "suh_absmin": 0.004180908203125,
+    "suh_absmax": 0.027679443359375,
+    "svh_absmin": 0.9912109375,
+    "svh_absmax": 1.01171875
+   }
+  },
+  {
+   "tensor": "mtp:markov_head.hidden_out",
+   "k": 4,
+   "bytes": 5898240,
+   "match": true,
+   "k_bits": 4.0,
+   "k_in": 256,
+   "n_out": 2304,
+   "shape": [
+    256,
+    2304
+   ],
+   "bytes_trellis": 294912,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    9,
+    17
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "mtp.markov_head.hidden_out",
+   "source": {
+    "file": "mtp.safetensors",
+    "tensor_shape": [
+     16,
+     144,
+     64
+    ],
+    "trellis_offset": 131364944,
+    "trellis_nbytes": 294912,
+    "trellis_ranges": [
+     [
+      131364944,
+      131659856
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.06251860330710846,
+    "w_absmax": 0.328238662269058,
+    "wq_rms": 0.9004907236030911,
+    "suh_absmin": 0.0638427734375,
+    "suh_absmax": 0.0723876953125,
+    "svh_absmin": 0.984375,
+    "svh_absmax": 1.0166015625
+   }
+  },
+  {
+   "tensor": "mtp:markov_head.rnn_proj",
+   "k": 4,
+   "bytes": 39321600,
+   "match": true,
+   "k_bits": 4.0,
+   "k_in": 5120,
+   "n_out": 768,
+   "shape": [
+    5120,
+    768
+   ],
+   "bytes_trellis": 1966080,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "mtp.markov_head.rnn_proj",
+   "source": {
+    "file": "mtp.safetensors",
+    "tensor_shape": [
+     320,
+     48,
+     64
+    ],
+    "trellis_offset": 234597460,
+    "trellis_nbytes": 1966080,
+    "trellis_ranges": [
+     [
+      234597460,
+      236563540
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.01397416918519815,
+    "w_absmax": 0.3024785398920126,
+    "wq_rms": 0.8086344800957903,
+    "suh_absmin": 0.003643035888671875,
+    "suh_absmax": 0.053253173828125,
+    "svh_absmin": 0.986328125,
+    "svh_absmax": 1.0107421875
+   }
+  },
+  {
+   "tensor": "model.visual.proj_out",
+   "k": 6,
+   "bytes": 94371840,
+   "match": true,
+   "k_bits": 6.0,
+   "k_in": 4096,
+   "n_out": 2304,
+   "shape": [
+    4096,
+    2304
+   ],
+   "bytes_trellis": 7077888,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    9,
+    17
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "model.visual.proj_out",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     256,
+     144,
+     96
+    ],
+    "trellis_offset": 6993657096,
+    "trellis_nbytes": 7077888,
+    "trellis_ranges": [
+     [
+      6993657096,
+      7000734984
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.015623809775002533,
+    "w_absmax": 0.5973745114221031,
+    "wq_rms": 0.8256168695556184,
+    "suh_absmin": 0.01580810546875,
+    "suh_absmax": 0.038818359375,
+    "svh_absmin": 0.9990234375,
+    "svh_absmax": 1.0009765625
+   }
+  },
+  {
+   "tensor": "model.visual.backbone.layers.0.self_attn.q_proj",
+   "k": 6,
+   "bytes": 10485760,
+   "match": true,
+   "k_bits": 6.0,
+   "k_in": 1024,
+   "n_out": 1024,
+   "shape": [
+    1024,
+    1024
+   ],
+   "bytes_trellis": 786432,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "model.visual.backbone.layers.0.self_attn.q_proj",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     64,
+     64,
+     96
+    ],
+    "trellis_offset": 6770363116,
+    "trellis_nbytes": 786432,
+    "trellis_ranges": [
+     [
+      6770363116,
+      6771149548
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.031248712073022246,
+    "w_absmax": 0.5676974505264096,
+    "wq_rms": 0.49247394626350977,
+    "suh_absmin": 0.0189361572265625,
+    "suh_absmax": 0.26708984375,
+    "svh_absmin": 0.978515625,
+    "svh_absmax": 1.0244140625
+   }
+  },
+  {
+   "tensor": "model.llm.unembed[cols 0:1024]",
+   "k": 6,
+   "bytes": 23592960,
+   "match": true,
+   "k_bits": 6.0,
+   "k_in": 2304,
+   "n_out": 1024,
+   "shape": [
+    2304,
+    1024
+   ],
+   "bytes_trellis": 1769472,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "model.llm.unembed.slab_0_1024",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     12568,
+     96
+    ],
+    "trellis_offset": 6409997784,
+    "trellis_nbytes": 347480064,
+    "columns": [
+     0,
+     1024
+    ],
+    "requests": 144,
+    "request_bytes": 12288,
+    "first_range": [
+     6409997784,
+     6410010072
+    ],
+    "trellis_ranges": "144 ranges of 12288 bytes, row kk at offset 6409997784+(kk*12568+0)*192"
+   },
+   "stats": {
+    "w_rms": 0.020829826980743663,
+    "w_absmax": 0.5547952632330242,
+    "wq_rms": 0.7886495550744511,
+    "suh_absmin": 0.022369384765625,
+    "suh_absmax": 0.052978515625,
+    "svh_absmin": 0.99853515625,
+    "svh_absmax": 1.001953125
+   }
+  },
+  {
+   "tensor": "model.llm.unembed[cols 199936:201088]",
+   "k": 6,
+   "bytes": 26542080,
+   "match": true,
+   "k_bits": 6.0,
+   "k_in": 2304,
+   "n_out": 1152,
+   "shape": [
+    2304,
+    1152
+   ],
+   "bytes_trellis": 1990656,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "strips_equal_rust": true,
+   "decode_cols_equal": true,
+   "strips_checked": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "marker": "0x83dcd12d",
+   "cache_prefix": "model.llm.unembed.slab_199936_201088",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     12568,
+     96
+    ],
+    "trellis_offset": 6409997784,
+    "trellis_nbytes": 347480064,
+    "columns": [
+     199936,
+     201088
+    ],
+    "requests": 144,
+    "request_bytes": 13824,
+    "first_range": [
+     6412397016,
+     6412410840
+    ],
+    "trellis_ranges": "144 ranges of 13824 bytes, row kk at offset 6409997784+(kk*12568+12496)*192"
+   },
+   "stats": {
+    "w_rms": 0.02024368311806485,
+    "w_absmax": 0.18832920836030093,
+    "wq_rms": 0.7724185089771464,
+    "suh_absmin": 0.022369384765625,
+    "suh_absmax": 0.052978515625,
+    "svh_absmin": 0.0,
+    "svh_absmax": 1.001953125
+   }
+  }
+ ],
+ "groups": {
+  "model.llm.layers.12.mlp.experts.0.gate_proj": {
+   "k_bits": 4.0,
+   "k_in": 2304,
+   "n_out": 1152,
+   "bytes_trellis": 1327104,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "model-00001-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     72,
+     64
+    ],
+    "trellis_offset": 7520629752,
+    "trellis_nbytes": 1327104,
+    "trellis_ranges": [
+     [
+      7520629752,
+      7521956856
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.020826370708443846,
+    "w_absmax": 0.2931093516090186,
+    "wq_rms": 0.9044469594358457,
+    "suh_absmin": 0.00997161865234375,
+    "suh_absmax": 0.028045654296875,
+    "svh_absmin": 0.98779296875,
+    "svh_absmax": 1.01171875
+   }
+  },
+  "model.llm.layers.12.mlp.experts.0.up_proj": {
+   "k_bits": 4.0,
+   "k_in": 2304,
+   "n_out": 1152,
+   "bytes_trellis": 1327104,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "model-00001-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     72,
+     64
+    ],
+    "trellis_offset": 7521963772,
+    "trellis_nbytes": 1327104,
+    "trellis_ranges": [
+     [
+      7521963772,
+      7523290876
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.02081876342524197,
+    "w_absmax": 0.3728503975956875,
+    "wq_rms": 0.8982572306058846,
+    "suh_absmin": 0.00872039794921875,
+    "suh_absmax": 0.0287628173828125,
+    "svh_absmin": 0.9873046875,
+    "svh_absmax": 1.0107421875
+   }
+  },
+  "model.llm.layers.12.mlp.experts.0.down_proj": {
+   "k_bits": 4.0,
+   "k_in": 1152,
+   "n_out": 2304,
+   "bytes_trellis": 1327104,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "model-00001-of-00002.safetensors",
+    "tensor_shape": [
+     72,
+     144,
+     64
+    ],
+    "trellis_offset": 7523297792,
+    "trellis_nbytes": 1327104,
+    "trellis_ranges": [
+     [
+      7523297792,
+      7524624896
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.029408118799907325,
+    "w_absmax": 0.35821101042108683,
+    "wq_rms": 0.9051702221955958,
+    "suh_absmin": 0.02655029296875,
+    "suh_absmax": 0.04010009765625,
+    "svh_absmin": 0.9833984375,
+    "svh_absmax": 1.015625
+   }
+  },
+  "model.llm.layers.23.mlp.experts.1.gate_proj": {
+   "k_bits": 4.0,
+   "k_in": 2304,
+   "n_out": 1152,
+   "bytes_trellis": 1327104,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     72,
+     64
+    ],
+    "trellis_offset": 5900768484,
+    "trellis_nbytes": 1327104,
+    "trellis_ranges": [
+     [
+      5900768484,
+      5902095588
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.02080718727328937,
+    "w_absmax": 0.37196764203685,
+    "wq_rms": 0.8985468909321848,
+    "suh_absmin": 0.0150909423828125,
+    "suh_absmax": 0.0272369384765625,
+    "svh_absmin": 0.9931640625,
+    "svh_absmax": 1.0078125
+   }
+  },
+  "model.llm.layers.23.mlp.experts.1.up_proj": {
+   "k_bits": 4.0,
+   "k_in": 2304,
+   "n_out": 1152,
+   "bytes_trellis": 1327104,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     72,
+     64
+    ],
+    "trellis_offset": 5902102504,
+    "trellis_nbytes": 1327104,
+    "trellis_ranges": [
+     [
+      5902102504,
+      5903429608
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.02080616610458799,
+    "w_absmax": 0.280500746170178,
+    "wq_rms": 0.9012271274834045,
+    "suh_absmin": 0.01568603515625,
+    "suh_absmax": 0.0282135009765625,
+    "svh_absmin": 0.99365234375,
+    "svh_absmax": 1.0078125
+   }
+  },
+  "model.llm.layers.23.mlp.experts.1.down_proj": {
+   "k_bits": 4.0,
+   "k_in": 1152,
+   "n_out": 2304,
+   "bytes_trellis": 1327104,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     72,
+     144,
+     64
+    ],
+    "trellis_offset": 5903436524,
+    "trellis_nbytes": 1327104,
+    "trellis_ranges": [
+     [
+      5903436524,
+      5904763628
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.029400885567680494,
+    "w_absmax": 0.3735402769049667,
+    "wq_rms": 0.9010534697364485,
+    "suh_absmin": 0.01532745361328125,
+    "suh_absmax": 0.0535888671875,
+    "svh_absmin": 0.990234375,
+    "svh_absmax": 1.009765625
+   }
+  },
+  "model.llm.layers.12.mlp.experts.4.gate_proj": {
+   "k_bits": 5.0,
+   "k_in": 2304,
+   "n_out": 1152,
+   "bytes_trellis": 1658880,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "model-00001-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     72,
+     80
+    ],
+    "trellis_offset": 7536637992,
+    "trellis_nbytes": 1658880,
+    "trellis_ranges": [
+     [
+      7536637992,
+      7538296872
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.020835469886029724,
+    "w_absmax": 0.15463681147932104,
+    "wq_rms": 0.8739912470701708,
+    "suh_absmin": 0.008056640625,
+    "suh_absmax": 0.026763916015625,
+    "svh_absmin": 0.98974609375,
+    "svh_absmax": 1.01171875
+   }
+  },
+  "model.llm.layers.12.mlp.experts.4.up_proj": {
+   "k_bits": 5.0,
+   "k_in": 2304,
+   "n_out": 1152,
+   "bytes_trellis": 1658880,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "model-00001-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     72,
+     80
+    ],
+    "trellis_offset": 7538303788,
+    "trellis_nbytes": 1658880,
+    "trellis_ranges": [
+     [
+      7538303788,
+      7539962668
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.020837425645459113,
+    "w_absmax": 0.10979610356347355,
+    "wq_rms": 0.8676710183242219,
+    "suh_absmin": 0.0082550048828125,
+    "suh_absmax": 0.026397705078125,
+    "svh_absmin": 0.990234375,
+    "svh_absmax": 1.009765625
+   }
+  },
+  "model.llm.layers.12.mlp.experts.4.down_proj": {
+   "k_bits": 5.0,
+   "k_in": 1152,
+   "n_out": 2304,
+   "bytes_trellis": 1658880,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "model-00001-of-00002.safetensors",
+    "tensor_shape": [
+     72,
+     144,
+     80
+    ],
+    "trellis_offset": 7539969584,
+    "trellis_nbytes": 1658880,
+    "trellis_ranges": [
+     [
+      7539969584,
+      7541628464
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.029447409052017422,
+    "w_absmax": 0.29620997895016815,
+    "wq_rms": 0.8609649969252715,
+    "suh_absmin": 0.028717041015625,
+    "suh_absmax": 0.04290771484375,
+    "svh_absmin": 0.98583984375,
+    "svh_absmax": 1.0146484375
+   }
+  },
+  "model.llm.layers.23.mlp.experts.0.gate_proj": {
+   "k_bits": 4.0,
+   "k_in": 2304,
+   "n_out": 1152,
+   "bytes_trellis": 1327104,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     72,
+     64
+    ],
+    "trellis_offset": 5896434648,
+    "trellis_nbytes": 1327104,
+    "trellis_ranges": [
+     [
+      5896434648,
+      5897761752
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.020800562957065047,
+    "w_absmax": 0.11148469806130819,
+    "wq_rms": 0.8993418462225073,
+    "suh_absmin": 0.01373291015625,
+    "suh_absmax": 0.02532958984375,
+    "svh_absmin": 0.9912109375,
+    "svh_absmax": 1.009765625
+   }
+  },
+  "model.llm.layers.23.mlp.experts.0.up_proj": {
+   "k_bits": 4.0,
+   "k_in": 2304,
+   "n_out": 1152,
+   "bytes_trellis": 1327104,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     72,
+     64
+    ],
+    "trellis_offset": 5897768668,
+    "trellis_nbytes": 1327104,
+    "trellis_ranges": [
+     [
+      5897768668,
+      5899095772
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.02079825290924828,
+    "w_absmax": 0.11020701019756093,
+    "wq_rms": 0.9099442232461874,
+    "suh_absmin": 0.013580322265625,
+    "suh_absmax": 0.0250396728515625,
+    "svh_absmin": 0.99169921875,
+    "svh_absmax": 1.0107421875
+   }
+  },
+  "model.llm.layers.23.mlp.experts.0.down_proj": {
+   "k_bits": 5.0,
+   "k_in": 1152,
+   "n_out": 2304,
+   "bytes_trellis": 1658880,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     72,
+     144,
+     80
+    ],
+    "trellis_offset": 5899102688,
+    "trellis_nbytes": 1658880,
+    "trellis_ranges": [
+     [
+      5899102688,
+      5900761568
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.029436570185916704,
+    "w_absmax": 0.40699343867469867,
+    "wq_rms": 0.8801016399440085,
+    "suh_absmin": 0.0237884521484375,
+    "suh_absmax": 0.038360595703125,
+    "svh_absmin": 0.99462890625,
+    "svh_absmax": 1.005859375
+   }
+  },
+  "model.llm.layers.11.attn.wq_du": {
+   "k_bits": 6.0,
+   "k_in": 2304,
+   "n_out": 3072,
+   "bytes_trellis": 5308416,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "model-00001-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     192,
+     96
+    ],
+    "trellis_offset": 6927069908,
+    "trellis_nbytes": 5308416,
+    "trellis_ranges": [
+     [
+      6927069908,
+      6932378324
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.02083021647245234,
+    "w_absmax": 0.28133082334541676,
+    "wq_rms": 0.8229280086152279,
+    "suh_absmin": 0.01233673095703125,
+    "suh_absmax": 0.032470703125,
+    "svh_absmin": 0.998046875,
+    "svh_absmax": 1.001953125
+   }
+  },
+  "model.llm.layers.0.attn.wo_ud": {
+   "k_bits": 6.0,
+   "k_in": 3072,
+   "n_out": 2304,
+   "bytes_trellis": 5308416,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "model-00001-of-00002.safetensors",
+    "tensor_shape": [
+     192,
+     144,
+     96
+    ],
+    "trellis_offset": 935975368,
+    "trellis_nbytes": 5308416,
+    "trellis_ranges": [
+     [
+      935975368,
+      941283784
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.018039169251322755,
+    "w_absmax": 0.5117495479437516,
+    "wq_rms": 0.7817860082122982,
+    "suh_absmin": 0.01312255859375,
+    "suh_absmax": 0.028900146484375,
+    "svh_absmin": 0.9990234375,
+    "svh_absmax": 1.0009765625
+   }
+  },
+  "mtp:layers.1.self_attn.q_proj": {
+   "k_bits": 4.0,
+   "k_in": 2304,
+   "n_out": 3072,
+   "bytes_trellis": 3538944,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "mtp.safetensors",
+    "tensor_shape": [
+     144,
+     192,
+     64
+    ],
+    "trellis_offset": 81660192,
+    "trellis_nbytes": 3538944,
+    "trellis_ranges": [
+     [
+      81660192,
+      85199136
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.020809759926261225,
+    "w_absmax": 0.174189152117421,
+    "wq_rms": 0.8951373403718895,
+    "suh_absmin": 0.004180908203125,
+    "suh_absmax": 0.027679443359375,
+    "svh_absmin": 0.9912109375,
+    "svh_absmax": 1.01171875
+   }
+  },
+  "mtp:markov_head.hidden_out": {
+   "k_bits": 4.0,
+   "k_in": 256,
+   "n_out": 2304,
+   "bytes_trellis": 294912,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "mtp.safetensors",
+    "tensor_shape": [
+     16,
+     144,
+     64
+    ],
+    "trellis_offset": 131364944,
+    "trellis_nbytes": 294912,
+    "trellis_ranges": [
+     [
+      131364944,
+      131659856
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.06251860330710846,
+    "w_absmax": 0.328238662269058,
+    "wq_rms": 0.9004907236030911,
+    "suh_absmin": 0.0638427734375,
+    "suh_absmax": 0.0723876953125,
+    "svh_absmin": 0.984375,
+    "svh_absmax": 1.0166015625
+   }
+  },
+  "mtp:markov_head.rnn_proj": {
+   "k_bits": 4.0,
+   "k_in": 5120,
+   "n_out": 768,
+   "bytes_trellis": 1966080,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "mtp.safetensors",
+    "tensor_shape": [
+     320,
+     48,
+     64
+    ],
+    "trellis_offset": 234597460,
+    "trellis_nbytes": 1966080,
+    "trellis_ranges": [
+     [
+      234597460,
+      236563540
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.01397416918519815,
+    "w_absmax": 0.3024785398920126,
+    "wq_rms": 0.8086344800957903,
+    "suh_absmin": 0.003643035888671875,
+    "suh_absmax": 0.053253173828125,
+    "svh_absmin": 0.986328125,
+    "svh_absmax": 1.0107421875
+   }
+  },
+  "model.visual.proj_out": {
+   "k_bits": 6.0,
+   "k_in": 4096,
+   "n_out": 2304,
+   "bytes_trellis": 7077888,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     256,
+     144,
+     96
+    ],
+    "trellis_offset": 6993657096,
+    "trellis_nbytes": 7077888,
+    "trellis_ranges": [
+     [
+      6993657096,
+      7000734984
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.015623809775002533,
+    "w_absmax": 0.5973745114221031,
+    "wq_rms": 0.8256168695556184,
+    "suh_absmin": 0.01580810546875,
+    "suh_absmax": 0.038818359375,
+    "svh_absmin": 0.9990234375,
+    "svh_absmax": 1.0009765625
+   }
+  },
+  "model.visual.backbone.layers.0.self_attn.q_proj": {
+   "k_bits": 6.0,
+   "k_in": 1024,
+   "n_out": 1024,
+   "bytes_trellis": 786432,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     64,
+     64,
+     96
+    ],
+    "trellis_offset": 6770363116,
+    "trellis_nbytes": 786432,
+    "trellis_ranges": [
+     [
+      6770363116,
+      6771149548
+     ]
+    ]
+   },
+   "stats": {
+    "w_rms": 0.031248712073022246,
+    "w_absmax": 0.5676974505264096,
+    "wq_rms": 0.49247394626350977,
+    "suh_absmin": 0.0189361572265625,
+    "suh_absmax": 0.26708984375,
+    "svh_absmin": 0.978515625,
+    "svh_absmax": 1.0244140625
+   }
+  },
+  "model.llm.unembed[cols 0:1024]": {
+   "k_bits": 6.0,
+   "k_in": 2304,
+   "n_out": 1024,
+   "bytes_trellis": 1769472,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     12568,
+     96
+    ],
+    "trellis_offset": 6409997784,
+    "trellis_nbytes": 347480064,
+    "columns": [
+     0,
+     1024
+    ],
+    "requests": 144,
+    "request_bytes": 12288,
+    "first_range": [
+     6409997784,
+     6410010072
+    ],
+    "trellis_ranges": "144 ranges of 12288 bytes, row kk at offset 6409997784+(kk*12568+0)*192"
+   },
+   "stats": {
+    "w_rms": 0.020829826980743663,
+    "w_absmax": 0.5547952632330242,
+    "wq_rms": 0.7886495550744511,
+    "suh_absmin": 0.022369384765625,
+    "suh_absmax": 0.052978515625,
+    "svh_absmin": 0.99853515625,
+    "svh_absmax": 1.001953125
+   }
+  },
+  "model.llm.unembed[cols 199936:201088]": {
+   "k_bits": 6.0,
+   "k_in": 2304,
+   "n_out": 1152,
+   "bytes_trellis": 1990656,
+   "wq_bits_equal": true,
+   "dense_bits_equal": true,
+   "marker": "0x83dcd12d",
+   "source": {
+    "file": "model-00002-of-00002.safetensors",
+    "tensor_shape": [
+     144,
+     12568,
+     96
+    ],
+    "trellis_offset": 6409997784,
+    "trellis_nbytes": 347480064,
+    "columns": [
+     199936,
+     201088
+    ],
+    "requests": 144,
+    "request_bytes": 13824,
+    "first_range": [
+     6412397016,
+     6412410840
+    ],
+    "trellis_ranges": "144 ranges of 13824 bytes, row kk at offset 6409997784+(kk*12568+12496)*192"
+   },
+   "stats": {
+    "w_rms": 0.02024368311806485,
+    "w_absmax": 0.18832920836030093,
+    "wq_rms": 0.7724185089771464,
+    "suh_absmin": 0.022369384765625,
+    "suh_absmax": 0.052978515625,
+    "svh_absmin": 0.0,
+    "svh_absmax": 1.001953125
+   }
+  }
+ },
+ "experts_ffn_sanity": {
+  "12.0": {
+   "bits": [
+    4.0,
+    4.0,
+    4.0
+   ],
+   "gate_rms": 1.0082032550741744,
+   "up_rms": 1.0035846892819735,
+   "y_rms": 0.6046098360391026,
+   "finite": true
+  },
+  "23.1": {
+   "bits": [
+    4.0,
+    4.0,
+    4.0
+   ],
+   "gate_rms": 1.0031969366082287,
+   "up_rms": 0.9993615727155608,
+   "y_rms": 0.6100188948215806,
+   "finite": true
+  },
+  "12.4": {
+   "bits": [
+    5.0,
+    5.0,
+    5.0
+   ],
+   "gate_rms": 0.991526813266044,
+   "up_rms": 0.9962835646955657,
+   "y_rms": 0.5759735052088206,
+   "finite": true
+  },
+  "23.0": {
+   "bits": [
+    4.0,
+    4.0,
+    5.0
+   ],
+   "gate_rms": 0.9963259539559315,
+   "up_rms": 1.005255320907779,
+   "y_rms": 0.6013099308884267,
+   "finite": true
+  }
+ },
+ "summary": {
+  "entries": 21,
+  "entries_per_k": {
+   "4": 11,
+   "5": 4,
+   "6": 6
+  },
+  "all_equal": true,
+  "total_bytes_fetched": 50169044,
+  "total_requests": 376,
+  "all_markers_mul1": true,
+  "max_rss_mib": 1337,
+  "seconds": 54.5
+ }
+}

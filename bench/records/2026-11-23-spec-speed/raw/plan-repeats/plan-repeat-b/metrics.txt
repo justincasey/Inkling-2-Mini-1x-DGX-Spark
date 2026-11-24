@@ -1,0 +1,718 @@
+# HELP rexl3_decisions_total Decision question score jobs by terminal/admission status (not HTTP request count).
+# TYPE rexl3_decisions_total counter
+rexl3_decisions_total{status="admitted"} 0
+rexl3_decisions_total{status="completed"} 0
+rexl3_decisions_total{status="cancelled"} 0
+# HELP rexl3_decision_prompt_tokens_total Prompt tokens admitted to native score jobs.
+# TYPE rexl3_decision_prompt_tokens_total counter
+rexl3_decision_prompt_tokens_total 0
+# HELP rexl3_decisions_cached_tokens_total Prefix tokens reused by completed native score jobs.
+# TYPE rexl3_decisions_cached_tokens_total counter
+rexl3_decisions_cached_tokens_total 0
+# HELP rexl3_build_info Build identity (labels); always 1.
+# TYPE rexl3_build_info gauge
+rexl3_build_info{version="0.1.1",commit="dfb05bb1cabfc9dca7a1dec18fcfd7c05a9b48f0",system_fingerprint="fp_dfb05bb1cabf_0c624bb1_cb1311_kvi8",nvcc="13.0.88",cuda_arch="sm_121",kernel_hash="0c624bb1ac792a7d",cudart="13.0",cuda_driver="13.0",cublas="13.1.1"} 1
+# HELP rexl3_engine_info Pack fingerprints, validation and KV plan (labels); always 1.
+# TYPE rexl3_engine_info gauge
+rexl3_engine_info{target_fingerprint="sha256:f8068e796ebca6c14e7af1b703865e1264515de4a970d18b6065fbb672481b55",pack_validated="no (--allow-unvalidated-pack)",pack_warning="this pack is not one this release was validated on; it is served only because --allow-unvalidated-pack was given",kv_dtype="int8",slots="4",kv_pages="4100",kv_tokens="1048576",spec="dspark",drafter="dspark",prefix_cache="off",spec_budget="Plan, 7 drafts"} 1
+# HELP rexl3_reasoning_info The model's reasoning capabilities as checked at load (labels); always 1.
+# TYPE rexl3_reasoning_info gauge
+rexl3_reasoning_info{source="declared",verdict="ok",reasons="true",controls="reasoning_effort",levels="none,minimal,low,medium,high,xhigh,max",budget="false",default_thinking="off",close="<|end_message|>"} 1
+# HELP rexl3_boot_phase_seconds Seconds from process start to each boot phase.
+# TYPE rexl3_boot_phase_seconds gauge
+rexl3_boot_phase_seconds{phase="tokenizer_loaded"} 0.915
+rexl3_boot_phase_seconds{phase="listening"} 0.915
+rexl3_boot_phase_seconds{phase="weights_loaded"} 10.501
+rexl3_boot_phase_seconds{phase="drafter_loaded"} 11.718
+rexl3_boot_phase_seconds{phase="kv_planned"} 11.723
+rexl3_boot_phase_seconds{phase="ready"} 11.740
+# HELP rexl3_boot_phase_gib GiB made resident by each boot phase that has a size.
+# TYPE rexl3_boot_phase_gib gauge
+rexl3_boot_phase_gib{phase="weights_loaded"} 13.553
+rexl3_boot_phase_gib{phase="drafter_loaded"} 2.492
+rexl3_boot_phase_gib{phase="kv_planned"} 18.141
+# HELP rexl3_load_stage_seconds Seconds the weight loader spent in each stage (read, convert, malloc, memcpy, memset, wait, pin) per component (scan, target, draft, vision, engine). Summed over loader threads: equals wall time while one thread loads, more when several do.
+# TYPE rexl3_load_stage_seconds gauge
+rexl3_load_stage_seconds{component="scan",stage="read"} 22.3968
+rexl3_load_stage_seconds{component="scan",stage="convert"} 0.1481
+rexl3_load_stage_seconds{component="scan",stage="malloc"} 2.0894
+rexl3_load_stage_seconds{component="scan",stage="memcpy"} 0.4538
+rexl3_load_stage_seconds{component="scan",stage="memset"} 0.0030
+# HELP rexl3_load_stage_bytes Bytes each weight-loader stage moved or converted.
+# TYPE rexl3_load_stage_bytes gauge
+rexl3_load_stage_bytes{component="scan",stage="read"} 13548561896
+rexl3_load_stage_bytes{component="scan",stage="convert"} 73322752
+rexl3_load_stage_bytes{component="scan",stage="malloc"} 37817214140
+rexl3_load_stage_bytes{component="scan",stage="memcpy"} 14789724992
+rexl3_load_stage_bytes{component="scan",stage="memset"} 22001956604
+# HELP rexl3_load_stage_calls Calls each weight-loader stage made.
+# TYPE rexl3_load_stage_calls gauge
+rexl3_load_stage_calls{component="scan",stage="read"} 47085
+rexl3_load_stage_calls{component="scan",stage="convert"} 18896
+rexl3_load_stage_calls{component="scan",stage="malloc"} 11341
+rexl3_load_stage_calls{component="scan",stage="memcpy"} 10822
+rexl3_load_stage_calls{component="scan",stage="memset"} 472
+# HELP rexl3_engine_heartbeat_age_seconds Age of last safe engine progress, with phase-specific readiness budgets.
+# TYPE rexl3_engine_heartbeat_age_seconds gauge
+rexl3_engine_heartbeat_age_seconds 0.031096332
+# HELP rexl3_request_timeouts_total End-to-end request deadlines expired.
+# TYPE rexl3_request_timeouts_total counter
+rexl3_request_timeouts_total 0
+# HELP rexl3_stream_failures_total Terminal bounded-stream producer failures (not HTTP header success).
+# TYPE rexl3_stream_failures_total counter
+rexl3_stream_failures_total 0
+# HELP rexl3_ready 1 while the engine is up and healthy (what /health reports).
+# TYPE rexl3_ready gauge
+rexl3_ready 1
+# HELP rexl3_engine_state Engine state, one series per state, 1 for the current one (loading, ok, draining, degraded, failed).
+# TYPE rexl3_engine_state gauge
+rexl3_engine_state{state="loading"} 0
+rexl3_engine_state{state="ok"} 1
+rexl3_engine_state{state="draining"} 0
+rexl3_engine_state{state="degraded"} 0
+rexl3_engine_state{state="failed"} 0
+# HELP rexl3_uptime_seconds Seconds since the process started.
+# TYPE rexl3_uptime_seconds gauge
+rexl3_uptime_seconds 475.0
+# HELP rexl3_requests_total Requests admitted.
+# TYPE rexl3_requests_total counter
+rexl3_requests_total 68
+# HELP rexl3_requests_rejected_total Requests that never ran, counted once each: queue full, can never fit, malformed, server shutting down, queue timeout.
+# TYPE rexl3_requests_rejected_total counter
+rexl3_requests_rejected_total 0
+# HELP rexl3_requests_queue_full_total Requests refused with 429 because the queue was full.
+# TYPE rexl3_requests_queue_full_total counter
+rexl3_requests_queue_full_total 0
+# HELP rexl3_queue_timeouts_total Requests answered 503 after waiting longer than --queue-timeout.
+# TYPE rexl3_queue_timeouts_total counter
+rexl3_queue_timeouts_total 0
+# HELP rexl3_requests_cancelled_total Engine cancellations before normal engine completion, including client departures and server stop-string cuts; not server failures.
+# TYPE rexl3_requests_cancelled_total counter
+rexl3_requests_cancelled_total 0
+# HELP rexl3_queue_depth Requests waiting for a free slot.
+# TYPE rexl3_queue_depth gauge
+rexl3_queue_depth 0
+# HELP rexl3_prefilling_sequences Admitted sequences whose prompt is still being prefilled.
+# TYPE rexl3_prefilling_sequences gauge
+rexl3_prefilling_sequences 0
+# HELP rexl3_failed_sequences_total Sequences the engine failed (a bad row, a prefill error, a failed step).
+# TYPE rexl3_failed_sequences_total counter
+rexl3_failed_sequences_total 0
+# HELP rexl3_prompt_tokens_total Full prompt tokens of admitted requests, including cached prefixes; not actual prefill work.
+# TYPE rexl3_prompt_tokens_total counter
+rexl3_prompt_tokens_total 11900
+# HELP rexl3_completion_tokens_total Tokens produced in real engine token batches; not SSE events or delivered client tokens.
+# TYPE rexl3_completion_tokens_total counter
+rexl3_completion_tokens_total 34816
+# HELP rexl3_spec_drafted_total Draft tokens proposed, accumulated when requests finish.
+# TYPE rexl3_spec_drafted_total counter
+rexl3_spec_drafted_total 32014
+# HELP rexl3_spec_accepted_total Draft tokens accepted, accumulated when requests finish.
+# TYPE rexl3_spec_accepted_total counter
+rexl3_spec_accepted_total 12793
+# HELP rexl3_spec_rounds_total Verify rounds of finished requests.
+# TYPE rexl3_spec_rounds_total counter
+rexl3_spec_rounds_total 21955
+# HELP rexl3_active_sequences Sequences decoding.
+# TYPE rexl3_active_sequences gauge
+rexl3_active_sequences 0
+# HELP rexl3_step_errors_total Engine rounds that returned an error.
+# TYPE rexl3_step_errors_total counter
+rexl3_step_errors_total 0
+# HELP rexl3_max_model_len Longest prompt plus generation one request may hold: the smaller of the configured window and the KV pool the plan allocated.
+# TYPE rexl3_max_model_len gauge
+rexl3_max_model_len 262144
+# HELP rexl3_configured_max_model_len The context window as configured (--max-model-len).
+# TYPE rexl3_configured_max_model_len gauge
+rexl3_configured_max_model_len 262144
+# HELP rexl3_cache_config_info The per-request limit as a kv_cache_size_tokens label (read by r0b0bench) and the configured window; always 1.
+# TYPE rexl3_cache_config_info gauge
+rexl3_cache_config_info{kv_cache_size_tokens="262144",configured_max_model_len="262144"} 1
+# HELP rexl3_spec_position_offered_total Rounds in which the drafter produced a draft at this position.
+# TYPE rexl3_spec_position_offered_total counter
+rexl3_spec_position_offered_total{mode="greedy",streams="1",position="1"} 3525
+rexl3_spec_position_offered_total{mode="greedy",streams="1",position="2"} 3511
+rexl3_spec_position_offered_total{mode="greedy",streams="1",position="3"} 3506
+rexl3_spec_position_offered_total{mode="greedy",streams="1",position="4"} 3483
+rexl3_spec_position_offered_total{mode="greedy",streams="1",position="5"} 2783
+rexl3_spec_position_offered_total{mode="greedy",streams="1",position="6"} 2778
+rexl3_spec_position_offered_total{mode="greedy",streams="1",position="7"} 1078
+rexl3_spec_position_offered_total{mode="greedy",streams="2+",position="1"} 2059
+rexl3_spec_position_offered_total{mode="greedy",streams="2+",position="2"} 2055
+rexl3_spec_position_offered_total{mode="greedy",streams="2+",position="3"} 1899
+rexl3_spec_position_offered_total{mode="greedy",streams="2+",position="4"} 1671
+rexl3_spec_position_offered_total{mode="greedy",streams="2+",position="5"} 1454
+rexl3_spec_position_offered_total{mode="greedy",streams="2+",position="6"} 1181
+rexl3_spec_position_offered_total{mode="greedy",streams="2+",position="7"} 1031
+# HELP rexl3_spec_position_verified_total Rounds in which the verify window carried the draft at this position.
+# TYPE rexl3_spec_position_verified_total counter
+rexl3_spec_position_verified_total{mode="greedy",streams="1",position="1"} 3525
+rexl3_spec_position_verified_total{mode="greedy",streams="1",position="2"} 3511
+rexl3_spec_position_verified_total{mode="greedy",streams="1",position="3"} 3506
+rexl3_spec_position_verified_total{mode="greedy",streams="1",position="4"} 3483
+rexl3_spec_position_verified_total{mode="greedy",streams="1",position="5"} 2783
+rexl3_spec_position_verified_total{mode="greedy",streams="1",position="6"} 2778
+rexl3_spec_position_verified_total{mode="greedy",streams="1",position="7"} 1078
+rexl3_spec_position_verified_total{mode="greedy",streams="2+",position="1"} 2059
+rexl3_spec_position_verified_total{mode="greedy",streams="2+",position="2"} 2055
+rexl3_spec_position_verified_total{mode="greedy",streams="2+",position="3"} 1899
+rexl3_spec_position_verified_total{mode="greedy",streams="2+",position="4"} 1671
+rexl3_spec_position_verified_total{mode="greedy",streams="2+",position="5"} 1454
+rexl3_spec_position_verified_total{mode="greedy",streams="2+",position="6"} 1181
+rexl3_spec_position_verified_total{mode="greedy",streams="2+",position="7"} 1031
+# HELP rexl3_spec_position_reached_total Rounds in which every earlier draft was accepted, so this position was tested against the target.
+# TYPE rexl3_spec_position_reached_total counter
+rexl3_spec_position_reached_total{mode="greedy",streams="1",position="1"} 3525
+rexl3_spec_position_reached_total{mode="greedy",streams="1",position="2"} 2385
+rexl3_spec_position_reached_total{mode="greedy",streams="1",position="3"} 1577
+rexl3_spec_position_reached_total{mode="greedy",streams="1",position="4"} 1105
+rexl3_spec_position_reached_total{mode="greedy",streams="1",position="5"} 819
+rexl3_spec_position_reached_total{mode="greedy",streams="1",position="6"} 679
+rexl3_spec_position_reached_total{mode="greedy",streams="1",position="7"} 442
+rexl3_spec_position_reached_total{mode="greedy",streams="2+",position="1"} 2059
+rexl3_spec_position_reached_total{mode="greedy",streams="2+",position="2"} 1532
+rexl3_spec_position_reached_total{mode="greedy",streams="2+",position="3"} 1071
+rexl3_spec_position_reached_total{mode="greedy",streams="2+",position="4"} 781
+rexl3_spec_position_reached_total{mode="greedy",streams="2+",position="5"} 584
+rexl3_spec_position_reached_total{mode="greedy",streams="2+",position="6"} 491
+rexl3_spec_position_reached_total{mode="greedy",streams="2+",position="7"} 380
+# HELP rexl3_spec_position_accepted_total Rounds in which the draft at this position equalled the target's sample.
+# TYPE rexl3_spec_position_accepted_total counter
+rexl3_spec_position_accepted_total{mode="greedy",streams="1",position="1"} 2385
+rexl3_spec_position_accepted_total{mode="greedy",streams="1",position="2"} 1582
+rexl3_spec_position_accepted_total{mode="greedy",streams="1",position="3"} 1105
+rexl3_spec_position_accepted_total{mode="greedy",streams="1",position="4"} 852
+rexl3_spec_position_accepted_total{mode="greedy",streams="1",position="5"} 679
+rexl3_spec_position_accepted_total{mode="greedy",streams="1",position="6"} 521
+rexl3_spec_position_accepted_total{mode="greedy",streams="1",position="7"} 392
+rexl3_spec_position_accepted_total{mode="greedy",streams="2+",position="1"} 1532
+rexl3_spec_position_accepted_total{mode="greedy",streams="2+",position="2"} 1105
+rexl3_spec_position_accepted_total{mode="greedy",streams="2+",position="3"} 799
+rexl3_spec_position_accepted_total{mode="greedy",streams="2+",position="4"} 601
+rexl3_spec_position_accepted_total{mode="greedy",streams="2+",position="5"} 510
+rexl3_spec_position_accepted_total{mode="greedy",streams="2+",position="6"} 396
+rexl3_spec_position_accepted_total{mode="greedy",streams="2+",position="7"} 334
+# HELP rexl3_spec_seq_rounds_total Sequence-rounds recorded in the position counters.
+# TYPE rexl3_spec_seq_rounds_total counter
+rexl3_spec_seq_rounds_total{mode="greedy",streams="1"} 11723
+rexl3_spec_seq_rounds_total{mode="greedy",streams="2+"} 10232
+# HELP rexl3_spec_conf_reached_total Draft positions tested, by the draft's own confidence (kind: score or margin; bin lower edge in `ge`).
+# TYPE rexl3_spec_conf_reached_total counter
+# HELP rexl3_spec_conf_accepted_total Draft positions accepted, by the draft's own confidence (kind: score or margin; bin lower edge in `ge`).
+# TYPE rexl3_spec_conf_accepted_total counter
+# HELP rexl3_round_streams_total Decode rounds, by how many streams ran in them (the last label also counts wider rounds).
+# TYPE rexl3_round_streams_total counter
+rexl3_round_streams_total{streams="1"} 11723
+rexl3_round_streams_total{streams="2"} 182
+rexl3_round_streams_total{streams="3"} 116
+rexl3_round_streams_total{streams="4"} 2380
+# HELP rexl3_round_verify_rows_total Rows of the verify step summed over rounds, by streams in the round.
+# TYPE rexl3_round_verify_rows_total counter
+rexl3_round_verify_rows_total{streams="1"} 32387
+rexl3_round_verify_rows_total{streams="2"} 1956
+rexl3_round_verify_rows_total{streams="3"} 1871
+rexl3_round_verify_rows_total{streams="4"} 17755
+# HELP rexl3_round_draft_streams_total Streams that asked the drafter for drafts, summed over rounds, by streams in the round.
+# TYPE rexl3_round_draft_streams_total counter
+rexl3_round_draft_streams_total{streams="1"} 3525
+rexl3_round_draft_streams_total{streams="2"} 343
+rexl3_round_draft_streams_total{streams="3"} 324
+rexl3_round_draft_streams_total{streams="4"} 1392
+# HELP rexl3_round_phase_seconds_total Engine-thread wall seconds in each phase of a decode round (draft, verify, commit; plan: a tree round's search and row allocation), by streams in the round.
+# TYPE rexl3_round_phase_seconds_total counter
+rexl3_round_phase_seconds_total{phase="draft",streams="1"} 25.848753
+rexl3_round_phase_seconds_total{phase="draft",streams="2"} 1.402824
+rexl3_round_phase_seconds_total{phase="draft",streams="3"} 0.966689
+rexl3_round_phase_seconds_total{phase="draft",streams="4"} 3.281456
+rexl3_round_phase_seconds_total{phase="verify",streams="1"} 286.876054
+rexl3_round_phase_seconds_total{phase="verify",streams="2"} 8.998959
+rexl3_round_phase_seconds_total{phase="verify",streams="3"} 7.909508
+rexl3_round_phase_seconds_total{phase="verify",streams="4"} 109.956346
+rexl3_round_phase_seconds_total{phase="commit",streams="1"} 0.000568
+rexl3_round_phase_seconds_total{phase="commit",streams="2"} 0.000029
+rexl3_round_phase_seconds_total{phase="commit",streams="3"} 0.000026
+rexl3_round_phase_seconds_total{phase="commit",streams="4"} 0.000392
+# HELP rexl3_prefix_cache_enabled 1 when the engine runs a prefix cache.
+# TYPE rexl3_prefix_cache_enabled gauge
+rexl3_prefix_cache_enabled 0
+# HELP rexl3_graph_cache_replays_total Windows that replayed a captured CUDA graph (hits).
+# TYPE rexl3_graph_cache_replays_total counter
+rexl3_graph_cache_replays_total 14298
+# HELP rexl3_graph_cache_captures_total Windows captured into a CUDA graph (a miss on the second sighting).
+# TYPE rexl3_graph_cache_captures_total counter
+rexl3_graph_cache_captures_total 51
+# HELP rexl3_graph_cache_eager_windows_total Windows that ran eagerly (a first sighting, a shape marked eager, a failed capture).
+# TYPE rexl3_graph_cache_eager_windows_total counter
+rexl3_graph_cache_eager_windows_total 52
+# HELP rexl3_graph_cache_evictions_total Captured graphs destroyed to stay under the cache's limit (least recently used first).
+# TYPE rexl3_graph_cache_evictions_total counter
+rexl3_graph_cache_evictions_total 0
+# HELP rexl3_graph_cache_capture_failures_total Captures that failed; the shape then runs eagerly.
+# TYPE rexl3_graph_cache_capture_failures_total counter
+rexl3_graph_cache_capture_failures_total 0
+# HELP rexl3_graph_cache_capture_seconds_total Time spent capturing graphs.
+# TYPE rexl3_graph_cache_capture_seconds_total counter
+rexl3_graph_cache_capture_seconds_total 0.682610818
+# HELP rexl3_draft_graph_cache_replays_total Draft-head calls that replayed a captured graph.
+# TYPE rexl3_draft_graph_cache_replays_total counter
+rexl3_draft_graph_cache_replays_total 0
+# HELP rexl3_draft_graph_cache_captures_total Draft-head calls captured into a graph.
+# TYPE rexl3_draft_graph_cache_captures_total counter
+rexl3_draft_graph_cache_captures_total 0
+# HELP rexl3_draft_graph_cache_eager_total Draft-head calls that ran eagerly.
+# TYPE rexl3_draft_graph_cache_eager_total counter
+rexl3_draft_graph_cache_eager_total 0
+# HELP rexl3_http_requests_total Requests entered HTTP middleware, including malformed bodies and unknown routes; not engine admissions.
+# TYPE rexl3_http_requests_total counter
+rexl3_http_requests_total 89
+# HELP rexl3_token_batches_total Nonempty engine token batches produced, including the first batch; not SSE events or client flushes.
+# TYPE rexl3_token_batches_total counter
+rexl3_token_batches_total 22023
+# HELP rexl3_requests_completed_total Admitted requests successfully completed by the engine; excludes failures and cancellations.
+# TYPE rexl3_requests_completed_total counter
+rexl3_requests_completed_total 68
+# HELP rexl3_http_responses_total HTTP response headers returned once by fixed status code, all routes; HTTP 200 is not stream success.
+# TYPE rexl3_http_responses_total counter
+rexl3_http_responses_total{code="200"} 86
+rexl3_http_responses_total{code="201"} 0
+rexl3_http_responses_total{code="204"} 0
+rexl3_http_responses_total{code="400"} 0
+rexl3_http_responses_total{code="401"} 0
+rexl3_http_responses_total{code="403"} 0
+rexl3_http_responses_total{code="404"} 0
+rexl3_http_responses_total{code="405"} 0
+rexl3_http_responses_total{code="413"} 0
+rexl3_http_responses_total{code="415"} 0
+rexl3_http_responses_total{code="429"} 0
+rexl3_http_responses_total{code="500"} 0
+rexl3_http_responses_total{code="503"} 2
+rexl3_http_responses_total{code="504"} 0
+rexl3_http_responses_total{code="other"} 0
+# HELP rexl3_http_route_responses_total Actual HTTP headers by bounded canonical route/status, includes refusals; not stream success.
+# TYPE rexl3_http_route_responses_total counter
+rexl3_http_route_responses_total{route="/health",code="200"} 1
+rexl3_http_route_responses_total{route="/health",code="201"} 0
+rexl3_http_route_responses_total{route="/health",code="204"} 0
+rexl3_http_route_responses_total{route="/health",code="400"} 0
+rexl3_http_route_responses_total{route="/health",code="401"} 0
+rexl3_http_route_responses_total{route="/health",code="403"} 0
+rexl3_http_route_responses_total{route="/health",code="404"} 0
+rexl3_http_route_responses_total{route="/health",code="405"} 0
+rexl3_http_route_responses_total{route="/health",code="413"} 0
+rexl3_http_route_responses_total{route="/health",code="415"} 0
+rexl3_http_route_responses_total{route="/health",code="429"} 0
+rexl3_http_route_responses_total{route="/health",code="500"} 0
+rexl3_http_route_responses_total{route="/health",code="503"} 2
+rexl3_http_route_responses_total{route="/health",code="504"} 0
+rexl3_http_route_responses_total{route="/health",code="other"} 0
+rexl3_http_route_responses_total{route="/health/live",code="200"} 0
+rexl3_http_route_responses_total{route="/health/live",code="201"} 0
+rexl3_http_route_responses_total{route="/health/live",code="204"} 0
+rexl3_http_route_responses_total{route="/health/live",code="400"} 0
+rexl3_http_route_responses_total{route="/health/live",code="401"} 0
+rexl3_http_route_responses_total{route="/health/live",code="403"} 0
+rexl3_http_route_responses_total{route="/health/live",code="404"} 0
+rexl3_http_route_responses_total{route="/health/live",code="405"} 0
+rexl3_http_route_responses_total{route="/health/live",code="413"} 0
+rexl3_http_route_responses_total{route="/health/live",code="415"} 0
+rexl3_http_route_responses_total{route="/health/live",code="429"} 0
+rexl3_http_route_responses_total{route="/health/live",code="500"} 0
+rexl3_http_route_responses_total{route="/health/live",code="503"} 0
+rexl3_http_route_responses_total{route="/health/live",code="504"} 0
+rexl3_http_route_responses_total{route="/health/live",code="other"} 0
+rexl3_http_route_responses_total{route="/health/ready",code="200"} 0
+rexl3_http_route_responses_total{route="/health/ready",code="201"} 0
+rexl3_http_route_responses_total{route="/health/ready",code="204"} 0
+rexl3_http_route_responses_total{route="/health/ready",code="400"} 0
+rexl3_http_route_responses_total{route="/health/ready",code="401"} 0
+rexl3_http_route_responses_total{route="/health/ready",code="403"} 0
+rexl3_http_route_responses_total{route="/health/ready",code="404"} 0
+rexl3_http_route_responses_total{route="/health/ready",code="405"} 0
+rexl3_http_route_responses_total{route="/health/ready",code="413"} 0
+rexl3_http_route_responses_total{route="/health/ready",code="415"} 0
+rexl3_http_route_responses_total{route="/health/ready",code="429"} 0
+rexl3_http_route_responses_total{route="/health/ready",code="500"} 0
+rexl3_http_route_responses_total{route="/health/ready",code="503"} 0
+rexl3_http_route_responses_total{route="/health/ready",code="504"} 0
+rexl3_http_route_responses_total{route="/health/ready",code="other"} 0
+rexl3_http_route_responses_total{route="/v1/health",code="200"} 0
+rexl3_http_route_responses_total{route="/v1/health",code="201"} 0
+rexl3_http_route_responses_total{route="/v1/health",code="204"} 0
+rexl3_http_route_responses_total{route="/v1/health",code="400"} 0
+rexl3_http_route_responses_total{route="/v1/health",code="401"} 0
+rexl3_http_route_responses_total{route="/v1/health",code="403"} 0
+rexl3_http_route_responses_total{route="/v1/health",code="404"} 0
+rexl3_http_route_responses_total{route="/v1/health",code="405"} 0
+rexl3_http_route_responses_total{route="/v1/health",code="413"} 0
+rexl3_http_route_responses_total{route="/v1/health",code="415"} 0
+rexl3_http_route_responses_total{route="/v1/health",code="429"} 0
+rexl3_http_route_responses_total{route="/v1/health",code="500"} 0
+rexl3_http_route_responses_total{route="/v1/health",code="503"} 0
+rexl3_http_route_responses_total{route="/v1/health",code="504"} 0
+rexl3_http_route_responses_total{route="/v1/health",code="other"} 0
+rexl3_http_route_responses_total{route="/metrics",code="200"} 12
+rexl3_http_route_responses_total{route="/metrics",code="201"} 0
+rexl3_http_route_responses_total{route="/metrics",code="204"} 0
+rexl3_http_route_responses_total{route="/metrics",code="400"} 0
+rexl3_http_route_responses_total{route="/metrics",code="401"} 0
+rexl3_http_route_responses_total{route="/metrics",code="403"} 0
+rexl3_http_route_responses_total{route="/metrics",code="404"} 0
+rexl3_http_route_responses_total{route="/metrics",code="405"} 0
+rexl3_http_route_responses_total{route="/metrics",code="413"} 0
+rexl3_http_route_responses_total{route="/metrics",code="415"} 0
+rexl3_http_route_responses_total{route="/metrics",code="429"} 0
+rexl3_http_route_responses_total{route="/metrics",code="500"} 0
+rexl3_http_route_responses_total{route="/metrics",code="503"} 0
+rexl3_http_route_responses_total{route="/metrics",code="504"} 0
+rexl3_http_route_responses_total{route="/metrics",code="other"} 0
+rexl3_http_route_responses_total{route="/v1/models",code="200"} 1
+rexl3_http_route_responses_total{route="/v1/models",code="201"} 0
+rexl3_http_route_responses_total{route="/v1/models",code="204"} 0
+rexl3_http_route_responses_total{route="/v1/models",code="400"} 0
+rexl3_http_route_responses_total{route="/v1/models",code="401"} 0
+rexl3_http_route_responses_total{route="/v1/models",code="403"} 0
+rexl3_http_route_responses_total{route="/v1/models",code="404"} 0
+rexl3_http_route_responses_total{route="/v1/models",code="405"} 0
+rexl3_http_route_responses_total{route="/v1/models",code="413"} 0
+rexl3_http_route_responses_total{route="/v1/models",code="415"} 0
+rexl3_http_route_responses_total{route="/v1/models",code="429"} 0
+rexl3_http_route_responses_total{route="/v1/models",code="500"} 0
+rexl3_http_route_responses_total{route="/v1/models",code="503"} 0
+rexl3_http_route_responses_total{route="/v1/models",code="504"} 0
+rexl3_http_route_responses_total{route="/v1/models",code="other"} 0
+rexl3_http_route_responses_total{route="/v1/completions",code="200"} 34
+rexl3_http_route_responses_total{route="/v1/completions",code="201"} 0
+rexl3_http_route_responses_total{route="/v1/completions",code="204"} 0
+rexl3_http_route_responses_total{route="/v1/completions",code="400"} 0
+rexl3_http_route_responses_total{route="/v1/completions",code="401"} 0
+rexl3_http_route_responses_total{route="/v1/completions",code="403"} 0
+rexl3_http_route_responses_total{route="/v1/completions",code="404"} 0
+rexl3_http_route_responses_total{route="/v1/completions",code="405"} 0
+rexl3_http_route_responses_total{route="/v1/completions",code="413"} 0
+rexl3_http_route_responses_total{route="/v1/completions",code="415"} 0
+rexl3_http_route_responses_total{route="/v1/completions",code="429"} 0
+rexl3_http_route_responses_total{route="/v1/completions",code="500"} 0
+rexl3_http_route_responses_total{route="/v1/completions",code="503"} 0
+rexl3_http_route_responses_total{route="/v1/completions",code="504"} 0
+rexl3_http_route_responses_total{route="/v1/completions",code="other"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions",code="200"} 34
+rexl3_http_route_responses_total{route="/v1/chat/completions",code="201"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions",code="204"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions",code="400"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions",code="401"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions",code="403"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions",code="404"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions",code="405"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions",code="413"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions",code="415"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions",code="429"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions",code="500"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions",code="503"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions",code="504"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions",code="other"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions/render",code="200"} 2
+rexl3_http_route_responses_total{route="/v1/chat/completions/render",code="201"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions/render",code="204"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions/render",code="400"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions/render",code="401"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions/render",code="403"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions/render",code="404"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions/render",code="405"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions/render",code="413"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions/render",code="415"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions/render",code="429"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions/render",code="500"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions/render",code="503"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions/render",code="504"} 0
+rexl3_http_route_responses_total{route="/v1/chat/completions/render",code="other"} 0
+rexl3_http_route_responses_total{route="/v1/decisions",code="200"} 0
+rexl3_http_route_responses_total{route="/v1/decisions",code="201"} 0
+rexl3_http_route_responses_total{route="/v1/decisions",code="204"} 0
+rexl3_http_route_responses_total{route="/v1/decisions",code="400"} 0
+rexl3_http_route_responses_total{route="/v1/decisions",code="401"} 0
+rexl3_http_route_responses_total{route="/v1/decisions",code="403"} 0
+rexl3_http_route_responses_total{route="/v1/decisions",code="404"} 0
+rexl3_http_route_responses_total{route="/v1/decisions",code="405"} 0
+rexl3_http_route_responses_total{route="/v1/decisions",code="413"} 0
+rexl3_http_route_responses_total{route="/v1/decisions",code="415"} 0
+rexl3_http_route_responses_total{route="/v1/decisions",code="429"} 0
+rexl3_http_route_responses_total{route="/v1/decisions",code="500"} 0
+rexl3_http_route_responses_total{route="/v1/decisions",code="503"} 0
+rexl3_http_route_responses_total{route="/v1/decisions",code="504"} 0
+rexl3_http_route_responses_total{route="/v1/decisions",code="other"} 0
+rexl3_http_route_responses_total{route="other",code="200"} 2
+rexl3_http_route_responses_total{route="other",code="201"} 0
+rexl3_http_route_responses_total{route="other",code="204"} 0
+rexl3_http_route_responses_total{route="other",code="400"} 0
+rexl3_http_route_responses_total{route="other",code="401"} 0
+rexl3_http_route_responses_total{route="other",code="403"} 0
+rexl3_http_route_responses_total{route="other",code="404"} 0
+rexl3_http_route_responses_total{route="other",code="405"} 0
+rexl3_http_route_responses_total{route="other",code="413"} 0
+rexl3_http_route_responses_total{route="other",code="415"} 0
+rexl3_http_route_responses_total{route="other",code="429"} 0
+rexl3_http_route_responses_total{route="other",code="500"} 0
+rexl3_http_route_responses_total{route="other",code="503"} 0
+rexl3_http_route_responses_total{route="other",code="504"} 0
+rexl3_http_route_responses_total{route="other",code="other"} 0
+# HELP rexl3_sse_terminal_total Stream outcomes observed when terminal event is polled by HTTP body, or body dropped before terminal; not TCP acknowledgement.
+# TYPE rexl3_sse_terminal_total counter
+rexl3_sse_terminal_total{outcome="success"} 0
+rexl3_sse_terminal_total{outcome="error"} 0
+rexl3_sse_terminal_total{outcome="cancelled"} 0
+# HELP rexl3_kv_pool_tokens_used Tokens reserved by admitted sequences; not allocator usage; refreshed after engine steps.
+# TYPE rexl3_kv_pool_tokens_used gauge
+rexl3_kv_pool_tokens_used 0
+# HELP rexl3_kv_pool_tokens Declared planned KV token capacity; not GPU free memory.
+# TYPE rexl3_kv_pool_tokens gauge
+rexl3_kv_pool_tokens 1048576
+# HELP rexl3_admission_bytes_used Admission bytes reserved including pinned cache; not allocator-measured GPU memory.
+# TYPE rexl3_admission_bytes_used gauge
+rexl3_admission_bytes_used 0
+# HELP rexl3_admission_bytes_capacity Engine admission byte capacity.
+# TYPE rexl3_admission_bytes_capacity gauge
+rexl3_admission_bytes_capacity 20209698816
+# HELP rexl3_slots_total Resolved configured concurrent sequence slots; slots used equals active plus prefilling.
+# TYPE rexl3_slots_total gauge
+rexl3_slots_total 4
+# HELP rexl3_engine_snapshot_age_seconds Age of last post-step engine snapshot; unchanged while idle or inside a long prefill slice.
+# TYPE rexl3_engine_snapshot_age_seconds gauge
+rexl3_engine_snapshot_age_seconds 0.031
+# HELP rexl3_prefill_tokens_processed_total Prompt tokens reported advanced by successful backend prefill slices, excludes cache restores; includes later failed or cancelled requests.
+# TYPE rexl3_prefill_tokens_processed_total counter
+rexl3_prefill_tokens_processed_total 11900
+# HELP rexl3_prefill_tokens_cached_total Prompt tokens restored from prefix cache, at restore time, not actual backend prefill.
+# TYPE rexl3_prefill_tokens_cached_total counter
+rexl3_prefill_tokens_cached_total 0
+# HELP rexl3_request_ttft_seconds HTTP middleware entry to first engine token batch observed by decoder; includes body/preprocessing/inbox/queue/prefill, not SSE flush.
+# TYPE rexl3_request_ttft_seconds histogram
+rexl3_request_ttft_seconds_bucket{le="0.001"} 0
+rexl3_request_ttft_seconds_bucket{le="0.002"} 0
+rexl3_request_ttft_seconds_bucket{le="0.004"} 0
+rexl3_request_ttft_seconds_bucket{le="0.008"} 0
+rexl3_request_ttft_seconds_bucket{le="0.016"} 0
+rexl3_request_ttft_seconds_bucket{le="0.032"} 0
+rexl3_request_ttft_seconds_bucket{le="0.064"} 0
+rexl3_request_ttft_seconds_bucket{le="0.128"} 0
+rexl3_request_ttft_seconds_bucket{le="0.256"} 44
+rexl3_request_ttft_seconds_bucket{le="0.512"} 52
+rexl3_request_ttft_seconds_bucket{le="1.024"} 68
+rexl3_request_ttft_seconds_bucket{le="2.048"} 68
+rexl3_request_ttft_seconds_bucket{le="4.096"} 68
+rexl3_request_ttft_seconds_bucket{le="8.192"} 68
+rexl3_request_ttft_seconds_bucket{le="16.384"} 68
+rexl3_request_ttft_seconds_bucket{le="32.768"} 68
+rexl3_request_ttft_seconds_bucket{le="65.536"} 68
+rexl3_request_ttft_seconds_bucket{le="131.072"} 68
+rexl3_request_ttft_seconds_bucket{le="262.144"} 68
+rexl3_request_ttft_seconds_bucket{le="524.288"} 68
+rexl3_request_ttft_seconds_bucket{le="1048.576"} 68
+rexl3_request_ttft_seconds_bucket{le="2097.152"} 68
+rexl3_request_ttft_seconds_bucket{le="4194.304"} 68
+rexl3_request_ttft_seconds_bucket{le="8388.608"} 68
+rexl3_request_ttft_seconds_bucket{le="+Inf"} 68
+rexl3_request_ttft_seconds_sum 23.054009112
+rexl3_request_ttft_seconds_count 68
+# HELP rexl3_engine_submit_ttft_seconds Immediately before engine submit to first engine token batch observed by decoder; includes inbox/queue/prefill, not SSE flush.
+# TYPE rexl3_engine_submit_ttft_seconds histogram
+rexl3_engine_submit_ttft_seconds_bucket{le="0.001"} 0
+rexl3_engine_submit_ttft_seconds_bucket{le="0.002"} 0
+rexl3_engine_submit_ttft_seconds_bucket{le="0.004"} 0
+rexl3_engine_submit_ttft_seconds_bucket{le="0.008"} 0
+rexl3_engine_submit_ttft_seconds_bucket{le="0.016"} 0
+rexl3_engine_submit_ttft_seconds_bucket{le="0.032"} 0
+rexl3_engine_submit_ttft_seconds_bucket{le="0.064"} 0
+rexl3_engine_submit_ttft_seconds_bucket{le="0.128"} 0
+rexl3_engine_submit_ttft_seconds_bucket{le="0.256"} 44
+rexl3_engine_submit_ttft_seconds_bucket{le="0.512"} 52
+rexl3_engine_submit_ttft_seconds_bucket{le="1.024"} 68
+rexl3_engine_submit_ttft_seconds_bucket{le="2.048"} 68
+rexl3_engine_submit_ttft_seconds_bucket{le="4.096"} 68
+rexl3_engine_submit_ttft_seconds_bucket{le="8.192"} 68
+rexl3_engine_submit_ttft_seconds_bucket{le="16.384"} 68
+rexl3_engine_submit_ttft_seconds_bucket{le="32.768"} 68
+rexl3_engine_submit_ttft_seconds_bucket{le="65.536"} 68
+rexl3_engine_submit_ttft_seconds_bucket{le="131.072"} 68
+rexl3_engine_submit_ttft_seconds_bucket{le="262.144"} 68
+rexl3_engine_submit_ttft_seconds_bucket{le="524.288"} 68
+rexl3_engine_submit_ttft_seconds_bucket{le="1048.576"} 68
+rexl3_engine_submit_ttft_seconds_bucket{le="2097.152"} 68
+rexl3_engine_submit_ttft_seconds_bucket{le="4194.304"} 68
+rexl3_engine_submit_ttft_seconds_bucket{le="8388.608"} 68
+rexl3_engine_submit_ttft_seconds_bucket{le="+Inf"} 68
+rexl3_engine_submit_ttft_seconds_sum 23.001813175
+rexl3_engine_submit_ttft_seconds_count 68
+# HELP rexl3_token_batch_itl_seconds Gaps between consecutive engine token batches observed by decoder; batches not tokens and not SSE chunks.
+# TYPE rexl3_token_batch_itl_seconds histogram
+rexl3_token_batch_itl_seconds_bucket{le="0.001"} 0
+rexl3_token_batch_itl_seconds_bucket{le="0.002"} 0
+rexl3_token_batch_itl_seconds_bucket{le="0.004"} 0
+rexl3_token_batch_itl_seconds_bucket{le="0.008"} 0
+rexl3_token_batch_itl_seconds_bucket{le="0.016"} 0
+rexl3_token_batch_itl_seconds_bucket{le="0.032"} 8212
+rexl3_token_batch_itl_seconds_bucket{le="0.064"} 20174
+rexl3_token_batch_itl_seconds_bucket{le="0.128"} 21907
+rexl3_token_batch_itl_seconds_bucket{le="0.256"} 21945
+rexl3_token_batch_itl_seconds_bucket{le="0.512"} 21955
+rexl3_token_batch_itl_seconds_bucket{le="1.024"} 21955
+rexl3_token_batch_itl_seconds_bucket{le="2.048"} 21955
+rexl3_token_batch_itl_seconds_bucket{le="4.096"} 21955
+rexl3_token_batch_itl_seconds_bucket{le="8.192"} 21955
+rexl3_token_batch_itl_seconds_bucket{le="16.384"} 21955
+rexl3_token_batch_itl_seconds_bucket{le="32.768"} 21955
+rexl3_token_batch_itl_seconds_bucket{le="65.536"} 21955
+rexl3_token_batch_itl_seconds_bucket{le="131.072"} 21955
+rexl3_token_batch_itl_seconds_bucket{le="262.144"} 21955
+rexl3_token_batch_itl_seconds_bucket{le="524.288"} 21955
+rexl3_token_batch_itl_seconds_bucket{le="1048.576"} 21955
+rexl3_token_batch_itl_seconds_bucket{le="2097.152"} 21955
+rexl3_token_batch_itl_seconds_bucket{le="4194.304"} 21955
+rexl3_token_batch_itl_seconds_bucket{le="8388.608"} 21955
+rexl3_token_batch_itl_seconds_bucket{le="+Inf"} 21955
+rexl3_token_batch_itl_seconds_sum 821.860754270
+rexl3_token_batch_itl_seconds_count 21955
+# HELP rexl3_request_e2e_seconds HTTP middleware entry to generation task terminal result, success or error; excludes client cancellation; not network flush.
+# TYPE rexl3_request_e2e_seconds histogram
+rexl3_request_e2e_seconds_bucket{le="0.001"} 0
+rexl3_request_e2e_seconds_bucket{le="0.002"} 0
+rexl3_request_e2e_seconds_bucket{le="0.004"} 0
+rexl3_request_e2e_seconds_bucket{le="0.008"} 0
+rexl3_request_e2e_seconds_bucket{le="0.016"} 0
+rexl3_request_e2e_seconds_bucket{le="0.032"} 0
+rexl3_request_e2e_seconds_bucket{le="0.064"} 0
+rexl3_request_e2e_seconds_bucket{le="0.128"} 0
+rexl3_request_e2e_seconds_bucket{le="0.256"} 0
+rexl3_request_e2e_seconds_bucket{le="0.512"} 0
+rexl3_request_e2e_seconds_bucket{le="1.024"} 0
+rexl3_request_e2e_seconds_bucket{le="2.048"} 0
+rexl3_request_e2e_seconds_bucket{le="4.096"} 0
+rexl3_request_e2e_seconds_bucket{le="8.192"} 15
+rexl3_request_e2e_seconds_bucket{le="16.384"} 48
+rexl3_request_e2e_seconds_bucket{le="32.768"} 68
+rexl3_request_e2e_seconds_bucket{le="65.536"} 68
+rexl3_request_e2e_seconds_bucket{le="131.072"} 68
+rexl3_request_e2e_seconds_bucket{le="262.144"} 68
+rexl3_request_e2e_seconds_bucket{le="524.288"} 68
+rexl3_request_e2e_seconds_bucket{le="1048.576"} 68
+rexl3_request_e2e_seconds_bucket{le="2097.152"} 68
+rexl3_request_e2e_seconds_bucket{le="4194.304"} 68
+rexl3_request_e2e_seconds_bucket{le="8388.608"} 68
+rexl3_request_e2e_seconds_bucket{le="+Inf"} 68
+rexl3_request_e2e_seconds_sum 844.916215063
+rexl3_request_e2e_seconds_count 68
+# HELP rexl3_request_preprocessing_seconds HTTP entry through body parse, template, tokenization and image preparation to engine submit, for submitted requests.
+# TYPE rexl3_request_preprocessing_seconds histogram
+rexl3_request_preprocessing_seconds_bucket{le="0.001"} 46
+rexl3_request_preprocessing_seconds_bucket{le="0.002"} 66
+rexl3_request_preprocessing_seconds_bucket{le="0.004"} 68
+rexl3_request_preprocessing_seconds_bucket{le="0.008"} 68
+rexl3_request_preprocessing_seconds_bucket{le="0.016"} 68
+rexl3_request_preprocessing_seconds_bucket{le="0.032"} 68
+rexl3_request_preprocessing_seconds_bucket{le="0.064"} 68
+rexl3_request_preprocessing_seconds_bucket{le="0.128"} 68
+rexl3_request_preprocessing_seconds_bucket{le="0.256"} 68
+rexl3_request_preprocessing_seconds_bucket{le="0.512"} 68
+rexl3_request_preprocessing_seconds_bucket{le="1.024"} 68
+rexl3_request_preprocessing_seconds_bucket{le="2.048"} 68
+rexl3_request_preprocessing_seconds_bucket{le="4.096"} 68
+rexl3_request_preprocessing_seconds_bucket{le="8.192"} 68
+rexl3_request_preprocessing_seconds_bucket{le="16.384"} 68
+rexl3_request_preprocessing_seconds_bucket{le="32.768"} 68
+rexl3_request_preprocessing_seconds_bucket{le="65.536"} 68
+rexl3_request_preprocessing_seconds_bucket{le="131.072"} 68
+rexl3_request_preprocessing_seconds_bucket{le="262.144"} 68
+rexl3_request_preprocessing_seconds_bucket{le="524.288"} 68
+rexl3_request_preprocessing_seconds_bucket{le="1048.576"} 68
+rexl3_request_preprocessing_seconds_bucket{le="2097.152"} 68
+rexl3_request_preprocessing_seconds_bucket{le="4194.304"} 68
+rexl3_request_preprocessing_seconds_bucket{le="8388.608"} 68
+rexl3_request_preprocessing_seconds_bucket{le="+Inf"} 68
+rexl3_request_preprocessing_seconds_sum 0.052195937
+rexl3_request_preprocessing_seconds_count 68
+# HELP rexl3_request_queue_seconds Engine FIFO enqueue to successful slot admission; excludes inbox/preprocessing and rejected queue timeouts.
+# TYPE rexl3_request_queue_seconds histogram
+rexl3_request_queue_seconds_bucket{le="0.001"} 68
+rexl3_request_queue_seconds_bucket{le="0.002"} 68
+rexl3_request_queue_seconds_bucket{le="0.004"} 68
+rexl3_request_queue_seconds_bucket{le="0.008"} 68
+rexl3_request_queue_seconds_bucket{le="0.016"} 68
+rexl3_request_queue_seconds_bucket{le="0.032"} 68
+rexl3_request_queue_seconds_bucket{le="0.064"} 68
+rexl3_request_queue_seconds_bucket{le="0.128"} 68
+rexl3_request_queue_seconds_bucket{le="0.256"} 68
+rexl3_request_queue_seconds_bucket{le="0.512"} 68
+rexl3_request_queue_seconds_bucket{le="1.024"} 68
+rexl3_request_queue_seconds_bucket{le="2.048"} 68
+rexl3_request_queue_seconds_bucket{le="4.096"} 68
+rexl3_request_queue_seconds_bucket{le="8.192"} 68
+rexl3_request_queue_seconds_bucket{le="16.384"} 68
+rexl3_request_queue_seconds_bucket{le="32.768"} 68
+rexl3_request_queue_seconds_bucket{le="65.536"} 68
+rexl3_request_queue_seconds_bucket{le="131.072"} 68
+rexl3_request_queue_seconds_bucket{le="262.144"} 68
+rexl3_request_queue_seconds_bucket{le="524.288"} 68
+rexl3_request_queue_seconds_bucket{le="1048.576"} 68
+rexl3_request_queue_seconds_bucket{le="2097.152"} 68
+rexl3_request_queue_seconds_bucket{le="4194.304"} 68
+rexl3_request_queue_seconds_bucket{le="8388.608"} 68
+rexl3_request_queue_seconds_bucket{le="+Inf"} 68
+rexl3_request_queue_seconds_sum 0.000496961
+rexl3_request_queue_seconds_count 68
+# HELP rexl3_engine_prefill_slice_seconds Wall time of engine steps begun with prefilling sequences; can include concurrent decode work, not whole request prefill.
+# TYPE rexl3_engine_prefill_slice_seconds histogram
+rexl3_engine_prefill_slice_seconds_bucket{le="0.001"} 0
+rexl3_engine_prefill_slice_seconds_bucket{le="0.002"} 0
+rexl3_engine_prefill_slice_seconds_bucket{le="0.004"} 0
+rexl3_engine_prefill_slice_seconds_bucket{le="0.008"} 0
+rexl3_engine_prefill_slice_seconds_bucket{le="0.016"} 0
+rexl3_engine_prefill_slice_seconds_bucket{le="0.032"} 0
+rexl3_engine_prefill_slice_seconds_bucket{le="0.064"} 0
+rexl3_engine_prefill_slice_seconds_bucket{le="0.128"} 0
+rexl3_engine_prefill_slice_seconds_bucket{le="0.256"} 63
+rexl3_engine_prefill_slice_seconds_bucket{le="0.512"} 68
+rexl3_engine_prefill_slice_seconds_bucket{le="1.024"} 68
+rexl3_engine_prefill_slice_seconds_bucket{le="2.048"} 68
+rexl3_engine_prefill_slice_seconds_bucket{le="4.096"} 68
+rexl3_engine_prefill_slice_seconds_bucket{le="8.192"} 68
+rexl3_engine_prefill_slice_seconds_bucket{le="16.384"} 68
+rexl3_engine_prefill_slice_seconds_bucket{le="32.768"} 68
+rexl3_engine_prefill_slice_seconds_bucket{le="65.536"} 68
+rexl3_engine_prefill_slice_seconds_bucket{le="131.072"} 68
+rexl3_engine_prefill_slice_seconds_bucket{le="262.144"} 68
+rexl3_engine_prefill_slice_seconds_bucket{le="524.288"} 68
+rexl3_engine_prefill_slice_seconds_bucket{le="1048.576"} 68
+rexl3_engine_prefill_slice_seconds_bucket{le="2097.152"} 68
+rexl3_engine_prefill_slice_seconds_bucket{le="4194.304"} 68
+rexl3_engine_prefill_slice_seconds_bucket{le="8388.608"} 68
+rexl3_engine_prefill_slice_seconds_bucket{le="+Inf"} 68
+rexl3_engine_prefill_slice_seconds_sum 13.442434459
+rexl3_engine_prefill_slice_seconds_count 68
+# HELP rexl3_http_headers_seconds HTTP entry to response header creation, all routes; for streaming excludes terminal body duration.
+# TYPE rexl3_http_headers_seconds histogram
+rexl3_http_headers_seconds_bucket{le="0.001"} 20
+rexl3_http_headers_seconds_bucket{le="0.002"} 20
+rexl3_http_headers_seconds_bucket{le="0.004"} 20
+rexl3_http_headers_seconds_bucket{le="0.008"} 20
+rexl3_http_headers_seconds_bucket{le="0.016"} 20
+rexl3_http_headers_seconds_bucket{le="0.032"} 20
+rexl3_http_headers_seconds_bucket{le="0.064"} 20
+rexl3_http_headers_seconds_bucket{le="0.128"} 20
+rexl3_http_headers_seconds_bucket{le="0.256"} 20
+rexl3_http_headers_seconds_bucket{le="0.512"} 20
+rexl3_http_headers_seconds_bucket{le="1.024"} 20
+rexl3_http_headers_seconds_bucket{le="2.048"} 20
+rexl3_http_headers_seconds_bucket{le="4.096"} 20
+rexl3_http_headers_seconds_bucket{le="8.192"} 35
+rexl3_http_headers_seconds_bucket{le="16.384"} 68
+rexl3_http_headers_seconds_bucket{le="32.768"} 88
+rexl3_http_headers_seconds_bucket{le="65.536"} 88
+rexl3_http_headers_seconds_bucket{le="131.072"} 88
+rexl3_http_headers_seconds_bucket{le="262.144"} 88
+rexl3_http_headers_seconds_bucket{le="524.288"} 88
+rexl3_http_headers_seconds_bucket{le="1048.576"} 88
+rexl3_http_headers_seconds_bucket{le="2097.152"} 88
+rexl3_http_headers_seconds_bucket{le="4194.304"} 88
+rexl3_http_headers_seconds_bucket{le="8388.608"} 88
+rexl3_http_headers_seconds_bucket{le="+Inf"} 88
+rexl3_http_headers_seconds_sum 844.926429243
+rexl3_http_headers_seconds_count 88

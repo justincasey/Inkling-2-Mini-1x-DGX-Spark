@@ -1,0 +1,10 @@
+short   (16 tokens): equal; drafted 190 accepted 63 rounds 64 acceptance 0.3316 tokens/round 2.0
+medium  (521 tokens): equal; drafted 158 accepted 94 rounds 33 acceptance 0.5949 tokens/round 3.8788
+long    (2030 tokens): equal; drafted 178 accepted 84 rounds 43 acceptance 0.4719 tokens/round 2.9767
+xlong   (8334 tokens): equal; drafted 199 accepted 82 rounds 45 acceptance 0.4121 tokens/round 2.8444
+70k     (73154 tokens): equal; drafted 147 accepted 96 rounds 31 acceptance 0.6531 tokens/round 4.129
+concurrent short  : equal
+concurrent medium : equal
+concurrent long   : equal
+concurrent xlong  : equal
+spec: pass; drafted 1479 accepted 732 rounds 411 acceptance 0.4949 tokens/round 2.8029 -> /tmp/rnd/final/gates-spec.json

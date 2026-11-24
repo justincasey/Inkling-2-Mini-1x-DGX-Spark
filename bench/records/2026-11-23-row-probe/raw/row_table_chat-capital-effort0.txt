@@ -1,0 +1,110 @@
+rows 40, passes 48, variant kv8+attn_bf16_p+dense_fp16
+
+attn_core rel: worst (pass, row) by ratio to the median of the other rows
+  ratio   pass  row   value      median-of-others
+   17.57    17   25  3.550e-03  2.020e-04
+   14.67     4    4  2.844e-03  1.939e-04
+   13.76    17   33  2.781e-03  2.020e-04
+   11.30    17   17  2.283e-03  2.020e-04
+   10.37    17   32  2.094e-03  2.020e-04
+   10.30    29   30  1.030e-03  9.806e-05
+    9.17    35   39  9.172e-04  3.159e-05
+    6.46    35   11  6.463e-04  3.159e-05
+
+attn_out rel: worst (pass, row) by ratio to the median of the other rows
+  ratio   pass  row   value      median-of-others
+    7.71    18   13  2.995e-03  3.884e-04
+    7.31    30   32  2.421e-03  3.312e-04
+    5.52    41   14  3.355e-03  6.072e-04
+    5.34    17   33  4.826e-03  9.041e-04
+    5.11    29   30  1.988e-03  3.893e-04
+    4.70     4    4  3.634e-03  7.727e-04
+    4.65    42    6  4.299e-03  9.255e-04
+    4.10    37    6  3.530e-03  8.615e-04
+
+mix rel: worst (pass, row) by ratio to the median of the other rows
+  ratio   pass  row   value      median-of-others
+    9.45    36   11  9.450e-04  0.000e+00
+    8.12    25   13  8.116e-04  0.000e+00
+    6.39    29   17  6.386e-04  0.000e+00
+    6.29    21   26  6.291e-04  0.000e+00
+    6.27    22   39  6.271e-04  0.000e+00
+    5.25    39   16  5.246e-04  0.000e+00
+    5.24    21   22  5.242e-04  0.000e+00
+    5.18    41   18  5.185e-04  0.000e+00
+
+router logit err: worst (pass, row) by ratio to the median of the other rows
+  ratio   pass  row   value      median-of-others
+    1.73    34    1  2.889e-07  1.671e-07
+    1.72    22    7  2.691e-07  1.565e-07
+    1.69    16    7  2.341e-07  1.383e-07
+    1.67     7   31  2.909e-07  1.741e-07
+    1.67    22    1  2.613e-07  1.565e-07
+    1.66    39    1  2.215e-07  1.331e-07
+    1.59    34    0  2.652e-07  1.671e-07
+    1.59    39    7  2.113e-07  1.331e-07
+
+moe rel: worst (pass, row) by ratio to the median of the other rows
+  ratio   pass  row   value      median-of-others
+    3.76     2   22  1.494e-03  3.970e-04
+    3.14    41    6  1.470e-03  4.685e-04
+    3.04    42   29  1.501e-03  4.938e-04
+    2.92    17   34  1.308e-03  4.485e-04
+    2.89    34   33  1.245e-03  4.301e-04
+    2.79     3    7  1.002e-03  3.595e-04
+    2.76     6   39  1.140e-03  4.133e-04
+    2.76    27   31  1.061e-03  3.850e-04
+
+residual elems: worst (pass, row) by ratio to the median of the other rows
+  ratio   pass  row   value      median-of-others
+    1.00    38   39  1.000e+00  0.000e+00
+    0.00    47   39  0.000e+00  0.000e+00
+    0.00    47   38  0.000e+00  0.000e+00
+    0.00    47   37  0.000e+00  0.000e+00
+    0.00    47   36  0.000e+00  0.000e+00
+    0.00    47   35  0.000e+00  0.000e+00
+    0.00    47   34  0.000e+00  0.000e+00
+    0.00    47   33  0.000e+00  0.000e+00
+
+msg rel: worst (pass, row) by ratio to the median of the other rows
+  ratio   pass  row   value      median-of-others
+    0.00    24   37  1.817e-07  5.965e-08
+    0.00    25   37  1.686e-07  6.772e-08
+    0.00    29   37  1.645e-07  7.356e-08
+    0.00    21    9  1.616e-07  7.498e-08
+    0.00    28   37  1.599e-07  6.764e-08
+    0.00    36   34  1.575e-07  6.250e-08
+    0.00    23   37  1.552e-07  7.167e-08
+    0.00    41   18  1.530e-07  6.441e-08
+
+attn_in rel: worst (pass, row) by ratio to the median of the other rows
+  ratio   pass  row   value      median-of-others
+    8.49    19    3  8.495e-04  0.000e+00
+    8.09    18   38  8.090e-04  0.000e+00
+    7.97    28   39  7.972e-04  0.000e+00
+    7.41    24   14  7.407e-04  0.000e+00
+    7.27    39   12  7.266e-04  0.000e+00
+    7.11    34   39  7.108e-04  0.000e+00
+    6.79    31   31  6.791e-04  0.000e+00
+    6.23    41    2  6.230e-04  0.000e+00
+
+how often each row is the worst row of a pass (per op; rows with at least 3 of the passes)
+  attn_core rel        row 25: 4, row 39: 4, row 20: 3, row 6: 3, row 2: 2
+  attn_out rel         row 6: 7, row 14: 3, row 27: 3, row 24: 2, row 20: 2
+  mix rel              row 9: 4, row 36: 3, row 10: 3, row 33: 3, row 12: 3
+  router logit err     row 7: 11, row 1: 6, row 14: 5, row 0: 4, row 9: 3
+  moe rel              row 10: 5, row 33: 4, row 34: 4, row 24: 3, row 7: 2
+  residual elems       row 39: 1
+  msg rel              row 37: 6, row 35: 4, row 38: 2, row 25: 2, row 26: 2
+  attn_in rel          row 20: 2, row 39: 2, row 5: 2, row 31: 2, row 38: 1
+
+chosen rows: per op, the max ratio over passes (at pass), and the median ratio over passes
+op                                 row 0                 row 1                 row 2                 row 3                 row 5                 row 23 
+attn_core rel             1.68@15 med 0.05      3.88@35 med 0.34      5.21@14 med 0.55      4.20@33 med 0.61      4.25@3  med 0.98      4.17@6  med 1.00
+attn_out rel              1.51@46 med 0.19      1.98@35 med 0.38      2.06@38 med 0.66      3.11@44 med 0.68      3.53@27 med 0.91      2.80@6  med 1.12
+mix rel                   2.19@27 med 0.00      4.46@30 med 0.00      5.09@24 med 0.00      2.52@33 med 0.00      3.65@22 med 0.00      4.47@25 med 0.00
+router logit err          1.59@34 med 1.21      1.73@34 med 1.16      1.47@47 med 1.02      1.15@15 med 0.94      1.16@33 med 0.97      1.31@45 med 0.96
+moe rel                   1.74@5  med 0.67      2.04@2  med 0.82      2.64@27 med 1.04      2.19@37 med 1.11      2.05@32 med 1.07      2.37@11 med 1.07
+residual elems            0.00@47 med 0.00      0.00@47 med 0.00      0.00@47 med 0.00      0.00@47 med 0.00      0.00@47 med 0.00      0.00@47 med 0.00
+msg rel                   0.00@41 med 0.00      0.00@18 med 0.00      0.00@38 med 0.00      0.00@38 med 0.00      0.00@32 med 0.00      0.00@31 med 0.00
+attn_in rel               3.89@21 med 0.00      2.37@40 med 0.00      6.23@41 med 0.00      8.49@19 med 0.00      5.87@32 med 0.00      0.39@25 med 0.00

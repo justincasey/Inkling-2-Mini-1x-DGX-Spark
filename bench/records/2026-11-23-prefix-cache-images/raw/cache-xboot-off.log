@@ -1,0 +1,14 @@
+short   (21 tokens): equal; cached tokens uncached 0 cold 0 warm 0
+medium  (526 tokens): equal; cached tokens uncached 0 cold 0 warm 0
+long    (2035 tokens): equal; cached tokens uncached 0 cold 0 warm 0
+xlong   (8339 tokens): equal; cached tokens uncached 0 cold 0 warm 0
+70k     (68908 tokens): equal; cached tokens uncached 0 cold 0 warm 0
+shared-1k (shared 2073 of 2082/2083 tokens): equal; cached tokens tail 0 0 tail 1 0
+shared-70k (shared 68951 of 68960/68961 tokens): equal; cached tokens tail 0 0 tail 1 0
+FAIL medium warm: 0 cached tokens (expected 1..526: served from the cache)
+FAIL long warm: 0 cached tokens (expected 1..2035: served from the cache)
+FAIL xlong warm: 0 cached tokens (expected 1..8339: served from the cache)
+FAIL 70k warm: 0 cached tokens (expected 1..68908: served from the cache)
+FAIL shared-1k tail 1 (shared prefix cached): 0 cached tokens (expected 1..2073: served from the cache)
+FAIL shared-70k tail 1 (shared prefix cached): 0 cached tokens (expected 1..68951: served from the cache)
+cache: FAIL (prefix_cache_reach_tokens None) -> /tmp/state-img/cache-xboot-off.json

@@ -1,0 +1,47 @@
+{
+ "gate": "speed-prefill",
+ "result": "pass",
+ "node": "node-3",
+ "tests": [
+  {
+   "bin": "gb-cuda inkling2_dense_pipe",
+   "filter": "bench_visit (DP_BENCH=1)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model inkling2_loop_prefill_perf",
+   "filter": "prefill_curve under nsys, pipe on and off (PF_TOKENS=135168)",
+   "passed": 2,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "prefill_32k_tok_s": 2357.4,
+  "prefill_32k_tok_s_nospec": 2400.8,
+  "prefill_8k_tok_s": 2498.9,
+  "prefill_128k_tok_s": 1791.3,
+  "prefill_224k_tok_s": 1439.5,
+  "prefill_8k_tok_s_nospec": 2605.1,
+  "prefill_128k_tok_s_nospec": 1809.4,
+  "prefill_224k_tok_s_nospec": 1450.2,
+  "prefill_32k_tok_s_pipe_off": 2301.4,
+  "prefill_32k_tok_s_nospec_pipe_off": 2346.2,
+  "chunk_span_ms_depth0_pipe_off": 1589.0,
+  "chunk_span_ms_depth0_pipe_on": 1541.0,
+  "dense_stage_ms_depth0_pipe_off": 289.1,
+  "dense_stage_ms_depth0_pipe_on": 249.3,
+  "visit_dense_ms_shipped": 5.898,
+  "visit_dense_ms_pipe_shared_kv": 5.015,
+  "visit_dense_ms_pipe_three_inputs": 4.942
+ },
+ "commands": [
+  "tools/gates.sh raw/gates-new.log",
+  "scripts/ops_dev.sh run inkling2_dense_pipe bench_visit (DP_BENCH=1)",
+  "tools/nsys_pf.sh pipe-on|pipe-off PF_TOKENS=135168; tools/prof_pf.py <sqlite> 1,3,9,33",
+  "./inkling2mini.sh build fd6ef616be704ad0863bd5dbebdc97408527d4bb",
+  "./inkling2mini.sh start; tools/live.sh ship ship-pipe-on; CACHE=1 tools/live.sh sweep ship-pipe-on|ship-pipe-off",
+  "SPEC=none PREFIX_CACHE=off VISION=off ./inkling2mini.sh start; tools/live.sh sweep nospec-pipe-on|nospec-pipe-off (pipe off: EXTRA_ENV=REXL3_INKLING2_LOOP_DENSE_PIPE=0)"
+ ],
+ "notes": "Cold prefill over 3,000 tok/s at 32K asked: NOT reached (2,357.4 shipping, 2,400.8 SPEC=none; +2.4% and +2.3% over the same binary with the pipe off, which reproduces ce650e3). Dense stages -39.8 ms of a 4,096-row chunk at depth 0 (span -48.0 ms, -3.0%); per-visit dense time -15.0% / -16.2% in the final lab run (go/no-go at 15%: met at the line). Clock cap: the sweeps ship-pipe-on, ship-pipe-off, nospec-pipe-on and nospec-pipe-off, the stage profiles and the visit bench ran after a verified -lgc 2200,2200 success line (raw/clock-lock.log; the controller's start line); the lab knock-outs and the first gate run were made before the owner's cap order with the node reading 2,197 MHz and are used for ratios only. Engine is a lab build of the committed tree."
+}

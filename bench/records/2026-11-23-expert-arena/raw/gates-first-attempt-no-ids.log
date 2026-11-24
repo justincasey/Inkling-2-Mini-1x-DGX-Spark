@@ -1,0 +1,16 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-backend/target/release/deps/inkling2_loop_graphs-76816e451b7b124b
+== gb-model graph_replay_equals
+test graph_replay_equals_eager ... REXL3_INKLING2_LOOP_DIR or LOOP_LONG_IDS_FILE unset: not run
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.10s
+== gb-model capture_refusal
+test capture_refusal_runs_eager_and_counts ... REXL3_INKLING2_LOOP_DIR or LOOP_LONG_IDS_FILE unset: not run
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.09s
+======
+ops_dev: usage: test TESTBIN FILTER...
+======
+ops_dev: usage: test TESTBIN FILTER...
+=====
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-backend/target/release/deps/inkling2_ops-9fbf0538714d3e0a
+== gb-cuda golden
+test golden_inkling2_ops_hashes ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 34 filtered out; finished in 0.62s

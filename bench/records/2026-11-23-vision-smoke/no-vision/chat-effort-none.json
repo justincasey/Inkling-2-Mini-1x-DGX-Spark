@@ -1,0 +1,51 @@
+{
+ "request": {
+  "model": "inkling-2-mini-1x-dgx-spark",
+  "temperature": 0,
+  "messages": [
+   {
+    "role": "user",
+    "content": "What is the capital of France? Answer in one word."
+   }
+  ],
+  "max_tokens": 64,
+  "reasoning_effort": "none"
+ },
+ "reply": {
+  "id": "chatcmpl-bf34803e7e68be51",
+  "object": "chat.completion",
+  "created": 1795414784,
+  "model": "inkling-2-mini-1x-dgx-spark",
+  "system_fingerprint": "fp_bfe68ae1a087_88b4219e_cb1311_kvi8",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "Paris",
+     "reasoning_content": "The user asks for the capital of France, one word. Need answer only. Capital of France is Paris. Ensure one word. No extra.",
+     "reasoning": "The user asks for the capital of France, one word. Need answer only. Capital of France is Paris. Ensure one word. No extra."
+    },
+    "finish_reason": "stop"
+   }
+  ],
+  "usage": {
+   "prompt_tokens": 25,
+   "completion_tokens": 37,
+   "total_tokens": 62,
+   "prompt_tokens_details": {
+    "cached_tokens": 0
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 30
+   },
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 36
+   }
+  },
+  "prompt_tokens_count": 25
+ },
+ "wall_s": 1.089
+}

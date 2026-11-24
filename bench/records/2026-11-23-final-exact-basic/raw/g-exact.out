@@ -1,0 +1,6 @@
+16:15:24 bench exactness against http://node-1:8000 (inkling-2-mini-1x-dgx-spark, window 262144); results in bench/runs/20261123T221524Z-exactness
+16:15:24 gate exact-record: python3 ~/projects/inkling2-mini-k-real/bench/tools/exactness.py record ~/projects/inkling2-mini-k-real/bench/runs/20261123T221524Z-exactness/exact-chunk4096.json --url http://node-1:8000 --model inkling-2-mini-1x-dgx-spark --label PREFILL_CHUNK=4096 SPEC=dspark PREFIX_CACHE=on VISION=on --max-tokens 128
+PASS exact-record
+16:15:39 gate exact-concurrent: python3 ~/projects/inkling2-mini-k-real/bench/tools/exactness.py concurrent --url http://node-1:8000 --model inkling-2-mini-1x-dgx-spark --max-tokens 128
+PASS exact-concurrent
+bench exactness: pass run=bench/runs/20261123T221524Z-exactness

@@ -1,0 +1,23 @@
+ok   chat (0.97s, finish length, usage {"prompt_tokens": 37, "completion_tokens": 32, "total_tokens": 69, "prompt_tokens_details": {"cached_tokens": 0}, "completion_tokens_details": {"reasoning_tokens": 30}, "spec": {"drafted": 0, "accepted": 0, "rounds": 31}}; spec drafted=0 accepted=0 rounds=31 acceptance=None tokens/round=1.0323)
+     content:   ''
+     reasoning: 'The user asks for the capital of France, answer in one word. Need answer only one word. Capital of France is Paris. Ensure final exactly one'
+     token_ids: [200001, 200008, 371, 150409, 171960, 149887, 149876, 151451, 149879, 151194, 11, 150893, 149881, 150011, 151290, 13, 170289, 150893, 150130, 150011, 151290, 13, 158558, 149879, 151194, 149884, 152717, 13, 174520, 150400, 152703, 150011]
+ok   completion (0.49s, finish length, usage {"prompt_tokens": 35, "completion_tokens": 16, "total_tokens": 51, "prompt_tokens_details": {"cached_tokens": 0}, "completion_tokens_details": {"reasoning_tokens": 0}, "spec": {"drafted": 0, "accepted": 0, "rounds": 15}}; spec drafted=0 accepted=0 rounds=15 acceptance=None tokens/round=1.0667)
+     prompt:    '1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,'
+     text:      ' 13, 14, 15, 16, 17, '
+     token_ids: [220, 68079, 11, 220, 68084, 11, 220, 68063, 11, 220, 68080, 11, 220, 68107, 11, 220]
+ok   tool (1.79s, finish tool_calls, usage {"prompt_tokens": 128, "completion_tokens": 59, "total_tokens": 187, "prompt_tokens_details": {"cached_tokens": 0}, "completion_tokens_details": {"reasoning_tokens": 25}, "spec": {"drafted": 0, "accepted": 0, "rounds": 58}}; spec drafted=0 accepted=0 rounds=58 acceptance=None tokens/round=1.0172)
+     tool_calls: [{"id": "call_127caa86d2af41e2", "type": "function", "function": {"name": "get_weather", "arguments": "{\"city\":\"Paris\"}"}}]
+     content:    ''
+     reasoning:  'The user asks for current weather in Paris using get_weather tool. Need call function. Then answer based on result.'
+ok   think-on (6.61s, finish stop, usage {"prompt_tokens": 38, "completion_tokens": 242, "total_tokens": 280, "prompt_tokens_details": {"cached_tokens": 0}, "completion_tokens_details": {"reasoning_tokens": 188}, "spec": {"drafted": 0, "accepted": 0, "rounds": 241}}; spec drafted=0 accepted=0 rounds=241 acceptance=None tokens/round=1.0041)
+     reasoning_effort 'high': reasoning_tokens=188, reasoning 619 chars, content 146 chars
+     content:   '**9 sheep.**\n\n"All but 9 run away" means that 9 sheep stay behind — the other 8 (17 − 9) are the ones who ran off. So the farmer has 9 sheep left.'
+     reasoning: 'This is a classic riddle/trick question. Let me think carefully.\n\n"A farmer has 17 sheep. All but 9 run away. How many sheep does the farmer have left?"\n\nThe straightforward reading: All but 9 run away means 9 sheep remain (the ones that didn\'t run away). So the answer is 9.\n\nWait, let me parse: "Al'
+ok   think-off (3.20s, finish stop, usage {"prompt_tokens": 36, "completion_tokens": 116, "total_tokens": 152, "prompt_tokens_details": {"cached_tokens": 0}, "completion_tokens_details": {"reasoning_tokens": 105}, "spec": {"drafted": 0, "accepted": 0, "rounds": 115}}; spec drafted=0 accepted=0 rounds=115 acceptance=None tokens/round=1.0087)
+     reasoning_effort 'none': reasoning_tokens=105, reasoning 352 chars, content 17 chars
+     content:   '9 sheep are left.'
+     reasoning: 'The user asks a riddle: "A farmer has 17 sheep. All but 9 run away. How many sheep does the farmer have left?" Need answer. Interpret "All but 9 run away" means all except 9 run away, so 9 remain. Need be careful: farmer has 17 sheep, all but 9 run away = 17-9=8 run away, 9 left. Answer 9. Provide c'
+skip image (--skip-image: VISION=off)
+smoke: pass (chat ok, completion ok, tool ok, think-on ok, think-off ok)
+rc=0

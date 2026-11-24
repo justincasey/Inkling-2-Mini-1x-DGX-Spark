@@ -1,0 +1,10 @@
+short   (16 tokens): equal; drafted 0 accepted 0 rounds 127 acceptance None tokens/round 1.0079
+medium  (521 tokens): equal; drafted 0 accepted 0 rounds 127 acceptance None tokens/round 1.0079
+long    (2030 tokens): equal; drafted 0 accepted 0 rounds 127 acceptance None tokens/round 1.0079
+xlong   (8334 tokens): equal; drafted 0 accepted 0 rounds 127 acceptance None tokens/round 1.0079
+70k     (73154 tokens): equal; drafted 0 accepted 0 rounds 127 acceptance None tokens/round 1.0079
+concurrent short  : equal
+concurrent medium : equal
+concurrent long   : equal
+concurrent xlong  : equal
+spec: pass; drafted 0 accepted 0 rounds 1143 acceptance None tokens/round 1.0079 -> /tmp/dw2/B-spec.json

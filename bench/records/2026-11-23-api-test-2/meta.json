@@ -1,0 +1,339 @@
+{
+ "name": "api-test-2",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "0bae2996f54cb3ff16d4d4e7bce3e8749fbc7757",
+  "dirty_files": []
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "0ed77ffe9decda95f05b8c4c362655369eb00e6e",
+  "sha256": "400e9a8ffc8f9c54d430c24197072e11c3777ffe6787f3612a9862fca861fb51",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "0ed77ffe9decda95f05b8c4c362655369eb00e6e",
+   "system_fingerprint": "fp_0ed77ffe9dec_ac7d5b32_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "ac7d5b329cb44062",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "none",
+  "PREFIX_CACHE": "off",
+  "VISION": "off",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec none --prefix-cache off --no-vision --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "gate": "api-test",
+ "result": "pass",
+ "node": "node-4",
+ "tests": [
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "health",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "models",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "tokenize",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "chat",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "render",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "max_tokens",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "stop",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "streaming",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "reasoning",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "tools",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "completions",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "errors",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "metrics",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "spec",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "prefix cache",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "concurrency",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "tests/api_conformance.py",
+   "filter": "determinism",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "health",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "models",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "window",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "tokenize",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "chat",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "usage",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "reasoning",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "levels",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "effort system level 0",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "effort effort none",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "effort effort high",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "tools",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "metrics",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "spec",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "spec serial",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/probe.py",
+   "filter": "prefix-cache",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2",
+   "passed": 90,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib (node-4, REXL3_INKLING2_LOOP_DIR)",
+   "filter": "the_real_packs_headers_price_to_the_loaders_total",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-server --test inkling2_loop_chat",
+   "filter": "all",
+   "passed": 19,
+   "failed": 0
+  },
+  {
+   "bin": "gb-server --test inkling2_format",
+   "filter": "all",
+   "passed": 18,
+   "failed": 0
+  },
+  {
+   "bin": "gb-server --test reasoning_capabilities",
+   "filter": "all",
+   "passed": 13,
+   "failed": 0
+  },
+  {
+   "bin": "gb-server (rexl3_serve)",
+   "filter": "unit tests",
+   "passed": 11,
+   "failed": 0
+  },
+  {
+   "bin": "tests/test_gates.py",
+   "filter": "all",
+   "passed": 69,
+   "failed": 0
+  },
+  {
+   "bin": "tests/test_bench.py",
+   "filter": "all",
+   "passed": 27,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2:: (the Small's)",
+   "passed": 31,
+   "failed": 0
+  }
+ ],
+ "commands": [
+  "NODES=node-4 REXL3_SRC=<engine worktree> ./inkling2mini.sh build 0ed77ffe9decda95f05b8c4c362655369eb00e6e",
+  "./inkling2mini.sh start (SPEC=none PREFIX_CACHE=off VISION=off, no EXTRA_ENV)",
+  "./inkling2mini.sh bench probe",
+  "./inkling2mini.sh bench api",
+  "python3 effort_probe.py",
+  "./inkling2mini.sh status; ./inkling2mini.sh memwatch report",
+  "./inkling2mini.sh stop"
+ ],
+ "metrics": {
+  "api_checks_passed": 17,
+  "api_checks_failed": 0,
+  "probe_checks_passed": 16,
+  "reasoning_tokens_none_17x23": 39,
+  "reasoning_tokens_none_sheep": 105,
+  "reasoning_tokens_none_capital": 30,
+  "reasoning_tokens_none_haiku": 378,
+  "reasoning_tokens_high_sheep": 188,
+  "boot_s": 16,
+  "weights_planned_equals_loaded": 1
+ },
+ "notes": "Fresh lab build of the committed engine head 0ed77ffe9dec, no REXL3_ALLOW_UNGATED_COMPONENTS (the family marks short_conv and forward built), no weights_differ event in serve.log, no level=error or fatal. Supersedes 2026-11-23-api-test (fail, one engine item) by date. See README for the three defects."
+}

@@ -1,0 +1,10 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-slim/target/release/deps/inkling2_loop_prefix-1b9273b4b3b48c2f
+== gb-model _
+test prefix_exact_at_cuts ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=113609 took_mib=0.0 mem_available_mib=117773
+test prefix_images_another_image_changes_the_reply ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=112634 took_mib=-15311.4 mem_available_mib=116572
+test prefix_images_exact ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=112559 took_mib=-14738.0 mem_available_mib=116498
+test prefix_logits_planes_equal ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=113142 took_mib=-15706.0 mem_available_mib=117081
+test prefix_long_prompt ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=112633 took_mib=-14798.9 mem_available_mib=116572
+test prefix_restore_after_eviction ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=112455 took_mib=-15638.5 mem_available_mib=116393
+test prefix_restore_beside_decoding_streams ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=112750 took_mib=-15430.7 mem_available_mib=116688
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 180.80s

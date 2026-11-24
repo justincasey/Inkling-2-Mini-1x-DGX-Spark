@@ -1,0 +1,20 @@
+GPU SM clock capped at 2200 MHz on node-3
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-pintests/target/release/deps/inkling2_moe-5a1bf6fc5d31c1ff
+GPU SM clock capped at 2200 MHz on node-3
+== gb-cuda 
+running 9 tests
+test bench_real_moe_layer ... ignored
+test four_rank_banks_sum_to_the_tp4_result ... TP4 sum: cosine 0.9999972, max error 0.0181 of the row RMS
+ok
+test golden_inkling2_moe_hashes ... ok
+test graph_replay_equals_eager ... ok
+test mul1_prefill_equals_decode_at_k4_and_k5 ... ok
+test partial_equals_the_float64_reference ... rank None: cosine 0.9999980, max error 0.0171 of the row RMS
+rank Some(3): cosine 0.9999984, max error 0.0197 of the row RMS
+ok
+test prefill_equals_decode_and_rows_are_invariant ... ok
+test prefill_with_tight_class_grids_equals_decode ... ok
+test real_layers_equal_the_reference_and_the_oracle ... layer 0: 7 of 32 picks on rank 2; cosine 0.9999980, max error 0.0225 of the row RMS
+layer 47: 5 of 32 picks on rank 2; cosine 0.9999982, max error 0.0194 of the row RMS
+ok
+test result: ok. 8 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 4.69s

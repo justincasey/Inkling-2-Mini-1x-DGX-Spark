@@ -1,0 +1,16 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-moe/target/release/deps/inkling2_moe_mixed-107fa5e4ee85b701
+== gb-cuda bench_decode_cost_of_bands
+test bench_decode_cost_of_bands ... BENCH synthetic 1 band (4,4,4) bands [(4, 4, 128)] rows 1: eager median 171.9 us (min 158.6), graph replay median 148.2 us (min 138.9), 200 calls
+BENCH synthetic 1 band (4,4,4) bands [(4, 4, 128)] rows 4: eager median 554.8 us (min 469.9), graph replay median 534.3 us (min 456.5), 200 calls
+BENCH synthetic 3 bands bands [(4, 4, 73), (4, 5, 37), (5, 5, 18)] rows 1: eager median 261.0 us (min 224.1), graph replay median 217.8 us (min 169.0), 200 calls
+BENCH synthetic 3 bands bands [(4, 4, 73), (4, 5, 37), (5, 5, 18)] rows 4: eager median 668.5 us (min 568.2), graph replay median 622.2 us (min 531.3), 200 calls
+BENCH real layer 0 bands [(4, 4, 128)] rows 1: eager median 172.9 us (min 161.6), graph replay median 148.4 us (min 134.2), 200 calls
+BENCH real layer 0 bands [(4, 4, 128)] rows 4: eager median 545.1 us (min 469.9), graph replay median 538.5 us (min 459.5), 200 calls
+BENCH real layer 23 bands [(4, 5, 1), (4, 4, 127)] rows 1: eager median 201.6 us (min 183.0), graph replay median 162.5 us (min 143.1), 200 calls
+BENCH real layer 23 bands [(4, 5, 1), (4, 4, 127)] rows 4: eager median 591.7 us (min 515.8), graph replay median 559.8 us (min 475.9), 200 calls
+BENCH real layer 22 bands [(4, 4, 125), (4, 5, 2), (5, 5, 1)] rows 1: eager median 230.0 us (min 216.9), graph replay median 173.7 us (min 156.5), 200 calls
+BENCH real layer 22 bands [(4, 4, 125), (4, 5, 2), (5, 5, 1)] rows 4: eager median 619.6 us (min 528.2), graph replay median 575.3 us (min 486.0), 200 calls
+BENCH real layer 12 bands [(4, 4, 107), (5, 5, 4), (4, 5, 17)] rows 1: eager median 242.6 us (min 223.2), graph replay median 193.1 us (min 156.6), 200 calls
+BENCH real layer 12 bands [(4, 4, 107), (5, 5, 4), (4, 5, 17)] rows 4: eager median 646.0 us (min 545.6), graph replay median 602.8 us (min 506.6), 200 calls
+BENCH SM clock samples taken while measuring (clocks.sm, clocks.max.sm, clocks.applications.graphics, power.draw, utilization.gpu): ["2184 MHz, 3003 MHz, 2418 MHz, 9.54 W, 55 %", "2177 MHz, 3003 MHz, 2418 MHz, 15.93 W, 92 %", "2177 MHz, 3003 MHz, 2418 MHz, 20.42 W, 81 %", "2177 MHz, 3003 MHz, 2418 MHz, 18.76 W, 89 %", "2177 MHz, 3003 MHz, 2418 MHz, 19.93 W, 95 %", "2177 MHz, 3003 MHz, 2418 MHz, 19.25 W, 96 %", "2177 MHz, 3003 MHz, 2418 MHz, 19.84 W, 96 %", "2177 MHz, 3003 MHz, 2418 MHz, 19.72 W, 95 %", "2177 MHz, 3003 MHz, 2418 MHz, 19.48 W, 95 %", "2177 MHz, 3003 MHz, 2418 MHz, 19.80 W, 95 %", "2177 MHz, 3003 MHz, 2418 MHz, 19.17 W, 95 %", "2184 MHz, 3003 MHz, 2418 MHz, 20.08 W, 95 %", "2184 MHz, 3003 MHz, 2418 MHz, 18.95 W, 95 %"]
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 10.05s

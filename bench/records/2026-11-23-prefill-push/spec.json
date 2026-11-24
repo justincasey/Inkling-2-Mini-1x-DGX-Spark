@@ -1,0 +1,63 @@
+{
+ "gate": "speed-prefill",
+ "result": "pass",
+ "node": "node-3",
+ "tests": [
+  {
+   "bin": "inkling2mini.sh bench prefill-sweep",
+   "filter": "PASS prefill-sweep: shipping configuration (8K 32K 128K 224K), SPEC=none configuration, chunk 8192 shipping (8K 32K 128K)",
+   "passed": 3,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/stall_probe.py",
+   "filter": "chunk 4096 and chunk 8192",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "prefill-push-exact",
+   "filter": "the byte-identical proofs of the same engine commit (see that record)",
+   "passed": 1,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "prefill_8k_tok_s": 2435.6,
+  "prefill_32k_tok_s": 2302.2,
+  "prefill_128k_tok_s": 1760.2,
+  "prefill_224k_tok_s": 1418.8,
+  "prefill_8k_ttft_s": 3.3635,
+  "prefill_32k_ttft_s": 14.2336,
+  "prefill_128k_ttft_s": 74.4654,
+  "prefill_224k_ttft_s": 161.6645,
+  "prefill_8k_tok_s_nospec": 2542.6,
+  "prefill_32k_tok_s_nospec": 2344.7,
+  "prefill_128k_tok_s_nospec": 1777.4,
+  "prefill_224k_tok_s_nospec": 1429.5,
+  "prefill_32k_ttft_s_nospec": 13.9751,
+  "decode_after_8k_tok_s": 87.652,
+  "decode_after_32k_tok_s": 86.332,
+  "decode_after_128k_tok_s": 78.186,
+  "decode_after_224k_tok_s": 59.619,
+  "before_prefill_8k_tok_s": 2399.9,
+  "before_prefill_32k_tok_s": 2268.0,
+  "before_prefill_128k_tok_s": 1739.0,
+  "prefill_8k_tok_s_chunk8192": 2479.3,
+  "prefill_32k_tok_s_chunk8192": 2334.9,
+  "prefill_128k_tok_s_chunk8192": 1789.3,
+  "stall_max_gap_s_chunk4096": 1.9712,
+  "stall_max_gap_s_chunk8192": 3.7986,
+  "chunk_depth0_span_ms": 1586.2,
+  "chunk_depth0_span_ms_before": 1671.74,
+  "chunk_128k_span_ms": 3096.28,
+  "chunk_128k_span_ms_before": 3210.06,
+  "target_32k_tok_s": 3000,
+  "gap_to_target_ms_a_chunk_at_32k": 414,
+  "memavailable_min_mib": 69221
+ },
+ "commands": [
+  "see README.md"
+ ],
+ "notes": "The 3,000 tok/s at 32K was not reached (2,302.2 shipping, 2,344.7 SPEC=none). Median of three kept passes (warm-up discarded), a different prompt for every size and pass, node-3 alone, SM clock locked at 2,200 MHz, chunk 4,096. Shipping = SPEC dspark, PREFIX_CACHE on, VISION on, prompts sent without prefix_cache false. The before numbers are the merged head 1d53344 swept with the same tool (three sizes, run 20261123T143721Z, quoted not kept)."
+}

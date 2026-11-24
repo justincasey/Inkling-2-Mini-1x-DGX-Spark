@@ -1,0 +1,455 @@
+{
+ "name": "node-probe",
+ "date": "2026-11-22",
+ "probe_utc": "2026-11-23T03:39:01Z",
+ "scope": "plan step 2.1: read-only probe of the four Sparks that hold the Inkling-2-Small TP4 group; nothing on any node was changed (every node command is in .work/small-state-2026-11-22/commands.txt, git-ignored: it holds lab addresses)",
+ "nodes": {
+  "node-1": {
+   "probe_utc": "2026-11-23T03:39:01Z",
+   "architecture": "aarch64",
+   "host_uptime_s": 1901979.36,
+   "loadavg_1_5_15": [
+    "1.10",
+    "1.04",
+    "1.02"
+   ],
+   "gpu": {
+    "name": "NVIDIA GB10",
+    "driver": "580.178.04",
+    "sm_clock_mhz_idle_sample": "2184 MHz",
+    "utilization": "0 %",
+    "memory_used": "[N/A]"
+   },
+   "gpu_compute_apps": [
+    {
+     "pid": "1272649",
+     "process": "/home/spark/inkling-2-small-exl3-4bpw-4x-dgx-spark/bin/rexl3-serve",
+     "used_mib": "104291"
+    }
+   ],
+   "memory_kb": {
+    "MemTotal": 127598644,
+    "MemAvailable": 11660100,
+    "SwapTotal": 16777212,
+    "SwapFree": 16457784
+   },
+   "memory_available_gib": 11.12,
+   "disk": {
+    "filesystem": "/dev/nvme0n1p2",
+    "size": "3.7T",
+    "avail": "863G",
+    "use": "76%",
+    "note": "/home/spark and /home/spark/models are the same filesystem"
+   },
+   "containers": [
+    [
+     "other-service-1",
+     "other-service:tag",
+     "Up 3 weeks"
+    ]
+   ],
+   "sudo_n_exit": 0,
+   "nvcc": [
+    "13.0",
+    "13.0.88"
+   ],
+   "rust_toolchains": "1.89.0-aarch64-unknown-linux-gnu (active, default)",
+   "tools": {
+    "flock": "/usr/bin/flock",
+    "git": "/usr/bin/git",
+    "rsync": "/usr/bin/rsync",
+    "curl": "/usr/bin/curl",
+    "hf": null,
+    "cargo": "/home/spark/.cargo/bin/cargo",
+    "rustc": "/home/spark/.cargo/bin/rustc"
+   },
+   "hf_binary_at_default_path": true,
+   "gpu_lock_holder_pids": [
+    "1272649"
+   ],
+   "small_rank": {
+    "rank": 0,
+    "serve_pid": 1272649,
+    "serve_elapsed_s": 58953,
+    "serve_exe": "/home/spark/inkling-2-small-exl3-4bpw-4x-dgx-spark/bin/rexl3-serve",
+    "serve_cmdline": "/home/spark/inkling-2-small-exl3-4bpw-4x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Small-EXL3-4bpw --tp-ranks 4 --tp-rank 0 --tp-peer <rail-0 address>:29571 --max-model-len 1048576 --slots 4 --kv-tokens 4194304 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-small-exl3-4bpw-4x-dgx-spark --host 0.0.0.0 --port 8000",
+    "serve_env_rexl3_nccl": [
+     "NCCL_DEBUG=WARN",
+     "NCCL_IB_ADDR_FAMILY=AF_INET",
+     "NCCL_IB_DISABLE=0",
+     "NCCL_IB_GID_INDEX=3",
+     "NCCL_IB_HCA==rocep1s0f1:1,roceP2p1s0f1:1",
+     "NCCL_IB_ROCE_VERSION_NUM=2",
+     "NCCL_IB_TC=106",
+     "NCCL_MAX_NCHANNELS=4",
+     "NCCL_NET=IB",
+     "NCCL_NET_PLUGIN=none",
+     "NCCL_SOCKET_IFNAME=enp1s0f1np1",
+     "REXL3_MALLOC_REEXEC=0",
+     "REXL3_NCCL_LIB=/home/spark/rexl3/lib/libnccl.so.2"
+    ],
+    "binary_sha256": "dd8bd30224c66a70eee1e5617cc9b49ac5131298a5b945203f3975c2f6d0e0a8",
+    "commit_file": "a73ff7a3fe1c25902b9d6c7d9d0870b9a75bc915",
+    "version": {
+     "version": "0.1.1",
+     "commit": "a73ff7a3fe1c25902b9d6c7d9d0870b9a75bc915",
+     "system_fingerprint": "fp_a73ff7a3fe1c_cb5454c8_cb1311",
+     "nvcc": "13.0.88",
+     "cuda_arch": "sm_121",
+     "kernel_hash": "cb5454c888b09fa3",
+     "cudart": "13.0",
+     "cuda_driver": "13.0",
+     "cublas": "13.1.1"
+    },
+    "guard_pid": 1272522,
+    "guard_cmdline": "bash /home/spark/inkling-2-small-exl3-4bpw-4x-dgx-spark/run/memguard.sh",
+    "guard_env_rexl3_nccl": [],
+    "guard_armed_line": "memguard rank=0 armed pid=1272649 floor_loading=2048MiB floor_ready=1024MiB swap_base=311MiB swap_max_growth=64MiB swap_avail_below=8192MiB drop_every=20s sample=0.5s",
+    "guard_kills_logged": 0,
+    "gpu_process_mib": 104291
+   }
+  },
+  "node-2": {
+   "probe_utc": "2026-11-23T03:39:02Z",
+   "architecture": "aarch64",
+   "host_uptime_s": 1901403.44,
+   "loadavg_1_5_15": [
+    "1.01",
+    "1.08",
+    "1.08"
+   ],
+   "gpu": {
+    "name": "NVIDIA GB10",
+    "driver": "580.178.04",
+    "sm_clock_mhz_idle_sample": "2190 MHz",
+    "utilization": "0 %",
+    "memory_used": "[N/A]"
+   },
+   "gpu_compute_apps": [
+    {
+     "pid": "2740480",
+     "process": "/home/spark/inkling-2-small-exl3-4bpw-4x-dgx-spark/bin/rexl3-serve",
+     "used_mib": "103208"
+    }
+   ],
+   "memory_kb": {
+    "MemTotal": 127598640,
+    "MemAvailable": 13262620,
+    "SwapTotal": 16777212,
+    "SwapFree": 16776644
+   },
+   "memory_available_gib": 12.65,
+   "disk": {
+    "filesystem": "/dev/nvme0n1p2",
+    "size": "3.7T",
+    "avail": "1.5T",
+    "use": "59%",
+    "note": "/home/spark and /home/spark/models are the same filesystem"
+   },
+   "containers": [
+    [
+     "other-service-1",
+     "other-service:tag",
+     "Up 3 weeks"
+    ]
+   ],
+   "sudo_n_exit": 0,
+   "nvcc": [
+    "13.0",
+    "13.0.88"
+   ],
+   "rust_toolchains": "none (no rustup, no ~/.cargo, no ~/.rustup)",
+   "tools": {
+    "flock": "/usr/bin/flock",
+    "git": "/usr/bin/git",
+    "rsync": "/usr/bin/rsync",
+    "curl": "/usr/bin/curl",
+    "hf": null,
+    "cargo": null,
+    "rustc": null
+   },
+   "hf_binary_at_default_path": true,
+   "gpu_lock_holder_pids": [
+    "2740480"
+   ],
+   "small_rank": {
+    "rank": 1,
+    "serve_pid": 2740480,
+    "serve_elapsed_s": 58955,
+    "serve_exe": "/home/spark/inkling-2-small-exl3-4bpw-4x-dgx-spark/bin/rexl3-serve",
+    "serve_cmdline": "/home/spark/inkling-2-small-exl3-4bpw-4x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Small-EXL3-4bpw --tp-ranks 4 --tp-rank 1 --tp-peer <rail-0 address>:29571 --max-model-len 1048576 --slots 4 --kv-tokens 4194304 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-small-exl3-4bpw-4x-dgx-spark --host 0.0.0.0 --port 8000",
+    "serve_env_rexl3_nccl": [
+     "NCCL_DEBUG=WARN",
+     "NCCL_IB_ADDR_FAMILY=AF_INET",
+     "NCCL_IB_DISABLE=0",
+     "NCCL_IB_GID_INDEX=3",
+     "NCCL_IB_HCA==rocep1s0f1:1,roceP2p1s0f1:1",
+     "NCCL_IB_ROCE_VERSION_NUM=2",
+     "NCCL_IB_TC=106",
+     "NCCL_MAX_NCHANNELS=4",
+     "NCCL_NET=IB",
+     "NCCL_NET_PLUGIN=none",
+     "NCCL_SOCKET_IFNAME=enp1s0f1np1",
+     "REXL3_MALLOC_REEXEC=0",
+     "REXL3_NCCL_LIB=/home/spark/rexl3/lib/libnccl.so.2"
+    ],
+    "binary_sha256": "dd8bd30224c66a70eee1e5617cc9b49ac5131298a5b945203f3975c2f6d0e0a8",
+    "commit_file": "a73ff7a3fe1c25902b9d6c7d9d0870b9a75bc915",
+    "version": {
+     "version": "0.1.1",
+     "commit": "a73ff7a3fe1c25902b9d6c7d9d0870b9a75bc915",
+     "system_fingerprint": "fp_a73ff7a3fe1c_cb5454c8_cb1311",
+     "nvcc": "13.0.88",
+     "cuda_arch": "sm_121",
+     "kernel_hash": "cb5454c888b09fa3",
+     "cudart": "13.0",
+     "cuda_driver": "13.0",
+     "cublas": "13.1.1"
+    },
+    "guard_pid": 2740468,
+    "guard_cmdline": "bash /home/spark/inkling-2-small-exl3-4bpw-4x-dgx-spark/run/memguard.sh",
+    "guard_env_rexl3_nccl": [],
+    "guard_armed_line": "memguard rank=1 armed pid=2740480 floor_loading=2048MiB floor_ready=1024MiB swap_base=0MiB swap_max_growth=64MiB swap_avail_below=8192MiB drop_every=20s sample=0.5s",
+    "guard_kills_logged": 0,
+    "gpu_process_mib": 103208
+   }
+  },
+  "node-3": {
+   "probe_utc": "2026-11-23T03:39:03Z",
+   "architecture": "aarch64",
+   "host_uptime_s": 1901372.11,
+   "loadavg_1_5_15": [
+    "1.10",
+    "1.12",
+    "1.09"
+   ],
+   "gpu": {
+    "name": "NVIDIA GB10",
+    "driver": "580.178.04",
+    "sm_clock_mhz_idle_sample": "2197 MHz",
+    "utilization": "0 %",
+    "memory_used": "[N/A]"
+   },
+   "gpu_compute_apps": [
+    {
+     "pid": "3428740",
+     "process": "/home/spark/inkling-2-small-exl3-4bpw-4x-dgx-spark/bin/rexl3-serve",
+     "used_mib": "103208"
+    }
+   ],
+   "memory_kb": {
+    "MemTotal": 127598640,
+    "MemAvailable": 13083108,
+    "SwapTotal": 16777212,
+    "SwapFree": 16257984
+   },
+   "memory_available_gib": 12.48,
+   "disk": {
+    "filesystem": "/dev/nvme0n1p2",
+    "size": "3.7T",
+    "avail": "521G",
+    "use": "86%",
+    "note": "/home/spark and /home/spark/models are the same filesystem"
+   },
+   "containers": [
+    [
+     "other-service-1",
+     "other-service:tag",
+     "Up 3 weeks"
+    ]
+   ],
+   "sudo_n_exit": 0,
+   "nvcc": [
+    "13.0",
+    "13.0.88"
+   ],
+   "rust_toolchains": "1.89.0-aarch64-unknown-linux-gnu (active, default)",
+   "tools": {
+    "flock": "/usr/bin/flock",
+    "git": "/usr/bin/git",
+    "rsync": "/usr/bin/rsync",
+    "curl": "/usr/bin/curl",
+    "hf": null,
+    "cargo": "/home/spark/.cargo/bin/cargo",
+    "rustc": "/home/spark/.cargo/bin/rustc"
+   },
+   "hf_binary_at_default_path": true,
+   "gpu_lock_holder_pids": [
+    "3428740"
+   ],
+   "small_rank": {
+    "rank": 2,
+    "serve_pid": 3428740,
+    "serve_elapsed_s": 58956,
+    "serve_exe": "/home/spark/inkling-2-small-exl3-4bpw-4x-dgx-spark/bin/rexl3-serve",
+    "serve_cmdline": "/home/spark/inkling-2-small-exl3-4bpw-4x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Small-EXL3-4bpw --tp-ranks 4 --tp-rank 2 --tp-peer <rail-0 address>:29571 --max-model-len 1048576 --slots 4 --kv-tokens 4194304 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-small-exl3-4bpw-4x-dgx-spark --host 0.0.0.0 --port 8000",
+    "serve_env_rexl3_nccl": [
+     "NCCL_DEBUG=WARN",
+     "NCCL_IB_ADDR_FAMILY=AF_INET",
+     "NCCL_IB_DISABLE=0",
+     "NCCL_IB_GID_INDEX=3",
+     "NCCL_IB_HCA==rocep1s0f1:1,roceP2p1s0f1:1",
+     "NCCL_IB_ROCE_VERSION_NUM=2",
+     "NCCL_IB_TC=106",
+     "NCCL_MAX_NCHANNELS=4",
+     "NCCL_NET=IB",
+     "NCCL_NET_PLUGIN=none",
+     "NCCL_SOCKET_IFNAME=enp1s0f1np1",
+     "REXL3_MALLOC_REEXEC=0",
+     "REXL3_NCCL_LIB=/home/spark/rexl3/lib/libnccl.so.2"
+    ],
+    "binary_sha256": "dd8bd30224c66a70eee1e5617cc9b49ac5131298a5b945203f3975c2f6d0e0a8",
+    "commit_file": "a73ff7a3fe1c25902b9d6c7d9d0870b9a75bc915",
+    "version": {
+     "version": "0.1.1",
+     "commit": "a73ff7a3fe1c25902b9d6c7d9d0870b9a75bc915",
+     "system_fingerprint": "fp_a73ff7a3fe1c_cb5454c8_cb1311",
+     "nvcc": "13.0.88",
+     "cuda_arch": "sm_121",
+     "kernel_hash": "cb5454c888b09fa3",
+     "cudart": "13.0",
+     "cuda_driver": "13.0",
+     "cublas": "13.1.1"
+    },
+    "guard_pid": 3428674,
+    "guard_cmdline": "bash /home/spark/inkling-2-small-exl3-4bpw-4x-dgx-spark/run/memguard.sh",
+    "guard_env_rexl3_nccl": [],
+    "guard_armed_line": "memguard rank=2 armed pid=3428740 floor_loading=2048MiB floor_ready=1024MiB swap_base=507MiB swap_max_growth=64MiB swap_avail_below=8192MiB drop_every=20s sample=0.5s",
+    "guard_kills_logged": 0,
+    "gpu_process_mib": 103208
+   }
+  },
+  "node-4": {
+   "probe_utc": "2026-11-23T03:39:04Z",
+   "architecture": "aarch64",
+   "host_uptime_s": 1901287.99,
+   "loadavg_1_5_15": [
+    "1.06",
+    "1.03",
+    "1.00"
+   ],
+   "gpu": {
+    "name": "NVIDIA GB10",
+    "driver": "580.178.04",
+    "sm_clock_mhz_idle_sample": "2197 MHz",
+    "utilization": "0 %",
+    "memory_used": "[N/A]"
+   },
+   "gpu_compute_apps": [
+    {
+     "pid": "676261",
+     "process": "/home/spark/inkling-2-small-exl3-4bpw-4x-dgx-spark/bin/rexl3-serve",
+     "used_mib": "103208"
+    }
+   ],
+   "memory_kb": {
+    "MemTotal": 127598640,
+    "MemAvailable": 13092604,
+    "SwapTotal": 16777212,
+    "SwapFree": 16622136
+   },
+   "memory_available_gib": 12.49,
+   "disk": {
+    "filesystem": "/dev/nvme0n1p2",
+    "size": "3.7T",
+    "avail": "491G",
+    "use": "87%",
+    "note": "/home/spark and /home/spark/models are the same filesystem"
+   },
+   "containers": [
+    [
+     "other-service-1",
+     "other-service:tag",
+     "Up 3 weeks"
+    ]
+   ],
+   "sudo_n_exit": 0,
+   "nvcc": [
+    "13.0",
+    "13.0.88"
+   ],
+   "rust_toolchains": "1.89.0-aarch64-unknown-linux-gnu (active, default)",
+   "tools": {
+    "flock": "/usr/bin/flock",
+    "git": "/usr/bin/git",
+    "rsync": "/usr/bin/rsync",
+    "curl": "/usr/bin/curl",
+    "hf": null,
+    "cargo": "/home/spark/.cargo/bin/cargo",
+    "rustc": "/home/spark/.cargo/bin/rustc"
+   },
+   "hf_binary_at_default_path": true,
+   "gpu_lock_holder_pids": [
+    "676261"
+   ],
+   "small_rank": {
+    "rank": 3,
+    "serve_pid": 676261,
+    "serve_elapsed_s": 58958,
+    "serve_exe": "/home/spark/inkling-2-small-exl3-4bpw-4x-dgx-spark/bin/rexl3-serve",
+    "serve_cmdline": "/home/spark/inkling-2-small-exl3-4bpw-4x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Small-EXL3-4bpw --tp-ranks 4 --tp-rank 3 --tp-peer <rail-0 address>:29571 --max-model-len 1048576 --slots 4 --kv-tokens 4194304 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-small-exl3-4bpw-4x-dgx-spark --host 0.0.0.0 --port 8000",
+    "serve_env_rexl3_nccl": [
+     "NCCL_DEBUG=WARN",
+     "NCCL_IB_ADDR_FAMILY=AF_INET",
+     "NCCL_IB_DISABLE=0",
+     "NCCL_IB_GID_INDEX=3",
+     "NCCL_IB_HCA==rocep1s0f1:1,roceP2p1s0f1:1",
+     "NCCL_IB_ROCE_VERSION_NUM=2",
+     "NCCL_IB_TC=106",
+     "NCCL_MAX_NCHANNELS=4",
+     "NCCL_NET=IB",
+     "NCCL_NET_PLUGIN=none",
+     "NCCL_SOCKET_IFNAME=enp1s0f1np1",
+     "REXL3_MALLOC_REEXEC=0",
+     "REXL3_NCCL_LIB=/home/spark/rexl3/lib/libnccl.so.2"
+    ],
+    "binary_sha256": "dd8bd30224c66a70eee1e5617cc9b49ac5131298a5b945203f3975c2f6d0e0a8",
+    "commit_file": "a73ff7a3fe1c25902b9d6c7d9d0870b9a75bc915",
+    "version": {
+     "version": "0.1.1",
+     "commit": "a73ff7a3fe1c25902b9d6c7d9d0870b9a75bc915",
+     "system_fingerprint": "fp_a73ff7a3fe1c_cb5454c8_cb1311",
+     "nvcc": "13.0.88",
+     "cuda_arch": "sm_121",
+     "kernel_hash": "cb5454c888b09fa3",
+     "cudart": "13.0",
+     "cuda_driver": "13.0",
+     "cublas": "13.1.1"
+    },
+    "guard_pid": 676249,
+    "guard_cmdline": "bash /home/spark/inkling-2-small-exl3-4bpw-4x-dgx-spark/run/memguard.sh",
+    "guard_env_rexl3_nccl": [],
+    "guard_armed_line": "memguard rank=3 armed pid=676261 floor_loading=2048MiB floor_ready=1024MiB swap_base=151MiB swap_max_growth=64MiB swap_avail_below=8192MiB drop_every=20s sample=0.5s",
+    "guard_kills_logged": 0,
+    "gpu_process_mib": 103208
+   }
+  }
+ },
+ "small_group": {
+  "binary_sha256_all_equal": true,
+  "binary_sha256": "dd8bd30224c66a70eee1e5617cc9b49ac5131298a5b945203f3975c2f6d0e0a8",
+  "commit_all_equal": true,
+  "commit": "a73ff7a3fe1c25902b9d6c7d9d0870b9a75bc915",
+  "live_command_lines_equal_print_serve": true,
+  "note": "compared rank by rank against `inkling2.sh print-serve` (argv and the NCCL_*/REXL3_* environment); the engine adds REXL3_MALLOC_REEXEC=0 itself after re-exec, so the process name is `exe`",
+  "recipe_git_head": "12337a2afc4fcf831a3feec08b75ea679ff7bd83",
+  "recipe_worktree_clean": true
+ },
+ "tool_versions": {
+  "driver": "580.178.04",
+  "nvcc": "13.0.88 (all four nodes)",
+  "rust": "1.89.0 on node-1, node-3, node-4; none on node-2",
+  "engine_version_fields": {
+   "version": "0.1.1",
+   "commit": "a73ff7a3fe1c25902b9d6c7d9d0870b9a75bc915",
+   "system_fingerprint": "fp_a73ff7a3fe1c_cb5454c8_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "cb5454c888b09fa3",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "other_service_image": "other-service:tag (Up 3 weeks on every node)"
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "name": "prefill-moe-pipe-bounds",
+ "gate": "moe-pipe-bounds",
+ "date": "2026-11-23T17:32:41Z",
+ "result": "pass",
+ "node": "node-3",
+ "engine": {
+  "commit": "4f939a689b8ca72773306a59c8e3a16c4ef950b6",
+  "dirty": true,
+  "version": "lab builds of the integration head with one experiment macro each (not committed)"
+ },
+ "recipe": {
+  "commit": "805564ecfd5288ed6d229562b6f24d4d4fa5796e"
+ },
+ "tests": [],
+ "commands": [
+  "see README.md"
+ ],
+ "metrics": {
+  "layer0_ms_shipped": 14.96,
+  "layer17_ms_shipped": 16.62,
+  "layer0_ms_no_loop": 6.27,
+  "layer0_ms_compute_only": 13.3,
+  "layer0_ms_memory_only": 11.87,
+  "layer0_ms_rotation_free": 13.55,
+  "layer0_ms_epilogues_free": 13.43,
+  "rotation_pass_alu_ms": 0.81,
+  "gate_layer_drop_needed_pct": 15,
+  "best_case_layer_drop_pct": 30
+ },
+ "notes": "No-go for the MoePipe prototype by the measured bounds; no engine change. Lab macros removed parts of the work (garbage output)."
+}

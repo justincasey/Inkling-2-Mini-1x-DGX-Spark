@@ -1,0 +1,8 @@
+image red-square: 49 tokens, finish stop, names its colour: True; content 'Red square.'
+image blue-circle: 58 tokens, finish stop, names its colour: True; content 'Blue circle.'
+image green-yellow: 51 tokens, finish stop, names its colour: True; content 'Left: green; right: yellow.'
+text short (16 tokens): 64 ids, finish length
+text medium (521 tokens): 64 ids, finish length
+text long (2030 tokens): 64 ids, finish length
+text xlong (8334 tokens): 64 ids, finish length
+vision: recorded 3 image and 4 text replies -> /tmp/dw2/B-vision.json

@@ -1,0 +1,20 @@
+rexl3 event=inkling2_loop_plan slots=4 max_context=262144 kv_pages=4100 kv_tokens=1048576 kv_gib=18.16 lanes_at_max_context=4 weights_gib=13.88 free_after_gib=101.27 floor_gib=8.00 reserve_gib=4.74 state_mib_per_slot=174.4 kv_bytes_per_token=18576 kv_dtype=int8 drafter=dspark prefix_cache=on prefix_entries=16 prefix_pages=1536 prefix_gib=9.47 prefix_reach_tokens=393216 spare_gib=69.41 tower_gib=0.79 vision_reserve_gib=0.28 weights_alloc_padding_gib=0.06 step_buffers_gib=2.73 fixed_overhead_gib=2.80 predicted_ready_available_gib=70.22
+ready gpu_mib=47933 avail_mib=69301
+17:10:27 profile: one cold prompt of the window (262144 tokens)
+17:13:45 profile: 4 concurrent cold prompts of the window
+17:26:48 profile: a decode burst (1, 4 and 8 streams: the CUDA graphs and overlap lanes allocate on first use)
+17:26:48 bench.py warm,decode,conc
+PASS pin
+warm: done (discarded)
+decode prose: 512 tokens, ttft 0.1304 s, 53.03 tok/s, spec {'drafted': 420, 'accepted': 116, 'rounds': 395, 'acceptance': 0.2762, 'tokens_per_round': 1.2962}
+decode code: 512 tokens, ttft 0.1836 s, 128.144 tok/s, spec {'drafted': 607, 'accepted': 413, 'rounds': 98, 'acceptance': 0.6804, 'tokens_per_round': 5.2245}
+decode structured: 512 tokens, ttft 0.1702 s, 89.617 tok/s, spec {'drafted': 653, 'accepted': 352, 'rounds': 159, 'acceptance': 0.5391, 'tokens_per_round': 3.2201}
+decode json: 512 tokens, ttft 0.203 s, 98.262 tok/s, spec {'drafted': 722, 'accepted': 387, 'rounds': 124, 'acceptance': 0.536, 'tokens_per_round': 4.129}
+conc c=4: 2048 tokens in 18.47 s = 110.90 tok/s (span number)
+conc c=8: 4096 tokens in 32.74 s = 125.11 tok/s (8 requests on 4 slots: two waves, not an 8-stream batch)
+METRIC sampled_gpu_peak_mib=47933
+METRIC sampled_avail_min_mib=69075
+memwatch guard=running window=20261123T231027Z-11026 window_min_mib=69066 window_min_at=2026-11-23T23:19:40Z loading_min_mib=71578 ready_min_mib=69066 min_mib=69066 min_at=2026-11-23T23:19:40Z now_mib=69237 updated=2026-11-23T23:28:23Z
+METRIC mem_min_gib=67.45
+METRIC mem_loading_min_gib=69.9
+METRIC mem_ready_min_gib=67.45

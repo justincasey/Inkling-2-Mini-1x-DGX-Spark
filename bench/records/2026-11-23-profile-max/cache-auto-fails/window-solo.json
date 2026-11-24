@@ -1,0 +1,40 @@
+{
+ "url": "http://node-4:8000",
+ "model": "inkling-2-mini-1x-dgx-spark",
+ "date": "2026-11-23T09:44:19Z",
+ "tokens_per_sentence": 25.738,
+ "lanes": [
+  {
+   "lane": 0,
+   "depth": 0.5,
+   "target_tokens": 1048576,
+   "code": "AMBER-9411-OTTER",
+   "sentences": 38255,
+   "prompt_tokens_rendered": 1042547,
+   "sizing": "render",
+   "admitted_s": 0.166,
+   "error": {
+    "message": "the request deadline expired",
+    "type": "request_timeout",
+    "code": "request_timeout"
+   },
+   "status": "empty",
+   "http_status": 200,
+   "admitted": true,
+   "prefill_s": null,
+   "total_s": 1800.027,
+   "finish_reason": null,
+   "usage": null,
+   "prompt_tokens": null,
+   "answer": "",
+   "reasoning_tail": "",
+   "reply_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+   "found": false,
+   "found_in_reasoning": false
+  }
+ ],
+ "wall_s": 1800.027,
+ "all_admitted": true,
+ "all_answered": false,
+ "pass": false
+}

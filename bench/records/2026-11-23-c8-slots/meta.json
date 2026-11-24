@@ -1,0 +1,111 @@
+{
+ "name": "c8-slots",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "9f3a87af810871e2c272f0e3dac8ba1b4bf1e527",
+  "dirty_files": [
+   "bench/records/2026-11-23-c4-baseline/"
+  ]
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "1d53344d874b3a578152e35c500a2718599f5b61",
+  "sha256": "30bd44e3be1d4cf617a34c48378a764ec94d12e8dcdf3961aaf1356caf81273f",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "1d53344d874b3a578152e35c500a2718599f5b61",
+   "system_fingerprint": "fp_1d53344d874b_2fca53d7_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "2fca53d7ca972c41",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "1",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "8",
+  "KV_TOKENS": "2097152",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "dspark",
+  "PREFIX_CACHE": "on",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 8 --kv-tokens 2097152 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-4",
+ "gate": "speed-c8-slots",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "bench.py",
+   "filter": "warm,decode,conc,rolling (serial, 8 slots, passes 0-3)",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "bench.py",
+   "filter": "warm,decode,conc,rolling (drafted, 8 slots, passes 0-3)",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "exactness.py",
+   "filter": "record + diff drafted 8 slots == serial 4 slots",
+   "passed": 1,
+   "failed": 0
+  }
+ ],
+ "commands": [
+  "SLOTS=8 SPEC=none PREFIX_CACHE=on VISION=on ./inkling2mini.sh start",
+  "python3 bench/tools/bench.py --url http://node-4:8000 --model inkling-2-mini-1x-dgx-spark --max-model-len 262144 --phases warm,decode,conc,rolling --raw --out PASS.json (4 passes, first discarded)",
+  "./inkling2mini.sh memwatch report",
+  "./inkling2mini.sh stop",
+  "SLOTS=8 SPEC=dspark PREFIX_CACHE=on VISION=on ./inkling2mini.sh start; same passes",
+  "python3 bench/tools/exactness.py record exactness-8slots-drafted.json; python3 bench/tools/exactness.py diff exactness-B-serial.json exactness-8slots-drafted.json",
+  "./inkling2mini.sh stop"
+ ],
+ "metrics": {
+  "serial8_decode_c8_tok_s": 137.007,
+  "serial8_decode_c8_steady_tok_s": 137.528,
+  "serial8_decode_c4_rolling_tok_s": 100.578,
+  "serial8_decode_c4_tok_s": 100.418,
+  "drafted8_decode_c8_tok_s": 151.372,
+  "drafted8_decode_c8_steady_tok_s": 225.927,
+  "drafted8_decode_c4_rolling_tok_s": 131.656,
+  "drafted8_decode_c4_tok_s": 102.233,
+  "drafted8_decode_c1_tok_s": 81.462,
+  "serial8_decode_c1_tok_s": 53.243,
+  "kv_gib_serial": 32.28,
+  "kv_gib_drafted": 36.32,
+  "memavailable_min_mib_serial": 52816,
+  "memavailable_min_mib_drafted": 44837
+ },
+ "notes": "8 slots accepted with the drafter, the prefix cache and vision; no refusal. c=8 steady is computed from the per-request wall times (see README). Eight rolling workers: not measurable, bench.py has no flag (tool not edited). The memwatch figures are the guard's window minima read after each configuration. GPU clock locked at 2200 MHz (reads 2197)."
+}

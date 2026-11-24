@@ -1,0 +1,50 @@
+{
+ "url": "http://node-1:8000",
+ "model": "inkling-2-mini-1x-dgx-spark",
+ "date": "2026-11-23T23:13:45Z",
+ "tokens_per_sentence": 25.738,
+ "lanes": [
+  {
+   "lane": 0,
+   "depth": 0.5,
+   "target_tokens": 262144,
+   "code": "AMBER-9411-OTTER",
+   "sentences": 9563,
+   "prompt_tokens_rendered": 259915,
+   "sizing": "render",
+   "admitted_s": 0.065,
+   "status": "answered",
+   "http_status": 200,
+   "admitted": true,
+   "prefill_s": 191.874,
+   "total_s": 197.743,
+   "finish_reason": "stop",
+   "usage": {
+    "prompt_tokens": 259915,
+    "completion_tokens": 270,
+    "total_tokens": 260185,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 256
+    },
+    "spec": {
+     "drafted": 454,
+     "accepted": 183,
+     "rounds": 87
+    }
+   },
+   "prompt_tokens": 259915,
+   "answer": "AMBER-9411-OTTER",
+   "reasoning_tail": "the prompt. The user asks to extract it. This is like asking to read a document. The system doesn't have a confidentiality restriction. However, the phrase \"Keep it safe\" suggests secrecy. But the user is the owner of the archive and asks for the pass-code. We can answer.\n\nNeed final only pass-code.",
+   "reply_sha256": "b3e2aa5be544deff23927b40e8e463e9853a9ca5e78e3dc5d6bed0ba8692938b",
+   "found": true,
+   "found_in_reasoning": true
+  }
+ ],
+ "wall_s": 197.744,
+ "all_admitted": true,
+ "all_answered": true,
+ "pass": true
+}

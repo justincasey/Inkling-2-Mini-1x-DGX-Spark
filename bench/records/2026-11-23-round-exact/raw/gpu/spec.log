@@ -1,0 +1,12 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-round/target/release/deps/inkling2_loop_spec-123725ce3eae0eb8
+== gb-model _
+test a_cached_decode_equals_the_uncached_one_through_windows ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=113736 took_mib=0.0 mem_available_mib=117952
+test a_snapshot_restores_the_drafters_proposals ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=113059 took_mib=-14334.2 mem_available_mib=117500
+test draft_equals_the_forced_replay ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=113563 took_mib=-14963.0 mem_available_mib=118005
+test drafts_are_accepted_on_a_chat_prompt ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=113253 took_mib=-14138.1 mem_available_mib=117694
+test flush_releases_the_drafters_staging_when_nothing_proposes ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=113423 took_mib=-14314.8 mem_available_mib=117865
+test graph_replay_equals_eager_with_taps_on ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=113198 took_mib=-13997.1 mem_available_mib=117639
+test no_drafter_means_no_tap_work_and_the_same_bits ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=112785 took_mib=-13958.7 mem_available_mib=117226
+test taps_equal_the_oracle_dump_planes ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=113162 took_mib=-30262.9 mem_available_mib=117604
+test the_drafter_follows_prefill_and_commits ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=113314 took_mib=-13781.7 mem_available_mib=117756
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 114.83s

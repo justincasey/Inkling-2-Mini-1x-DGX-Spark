@@ -1,0 +1,4 @@
+METRIC stall_steady_gap_median_s=0.04229
+METRIC stall_max_gap_s=1.9712
+METRIC stall_long_prefill_wall_s=14.634
+gaps over 0.1 s while the long prompt ran: [1.645, 1.696, 1.737, 1.792, 1.835, 1.885, 1.91, 1.971]

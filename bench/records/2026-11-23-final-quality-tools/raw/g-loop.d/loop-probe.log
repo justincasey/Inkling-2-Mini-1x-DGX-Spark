@@ -1,0 +1,55 @@
+prose        512 tokens    51.9 tok/s  distinct-4gram 0.998
+code         512 tokens   120.9 tok/s  distinct-4gram 0.794
+structured   512 tokens    86.5 tok/s  distinct-4gram 0.615
+json         512 tokens    91.6 tok/s  distinct-4gram 0.503
+extra00      512 tokens    54.5 tok/s  distinct-4gram 0.978
+extra01      512 tokens    58.4 tok/s  distinct-4gram 0.843
+extra02      512 tokens    72.5 tok/s  distinct-4gram 0.906
+extra03      512 tokens    97.2 tok/s  distinct-4gram 0.768
+extra04      512 tokens   114.9 tok/s  distinct-4gram 0.605
+extra05      512 tokens   135.9 tok/s  distinct-4gram 0.395  LOOP
+extra06      512 tokens    74.9 tok/s  distinct-4gram 0.701
+extra07      512 tokens    97.9 tok/s  distinct-4gram 0.354  LOOP
+extra08      512 tokens   138.1 tok/s  distinct-4gram 0.218  LOOP
+extra09      512 tokens    92.7 tok/s  distinct-4gram 0.503
+extra10      512 tokens   103.7 tok/s  distinct-4gram 0.442  LOOP
+extra11      512 tokens   125.1 tok/s  distinct-4gram 0.283  LOOP
+extra12      512 tokens    77.2 tok/s  distinct-4gram 0.705
+extra13      512 tokens   102.9 tok/s  distinct-4gram 0.334  LOOP
+extra14      512 tokens   162.8 tok/s  distinct-4gram 0.069  LOOP
+extra15      512 tokens   128.1 tok/s  distinct-4gram 0.171  LOOP
+extra16      512 tokens    67.0 tok/s  distinct-4gram 0.735
+extra17      512 tokens    66.6 tok/s  distinct-4gram 0.725  LOOP
+extra18      512 tokens   108.4 tok/s  distinct-4gram 0.281  LOOP
+extra19      512 tokens   114.7 tok/s  distinct-4gram 0.361  LOOP
+extra20      512 tokens    61.5 tok/s  distinct-4gram 0.876
+extra21      512 tokens   142.3 tok/s  distinct-4gram 0.077  LOOP
+extra22      512 tokens   135.5 tok/s  distinct-4gram 0.399  LOOP
+extra23      512 tokens    85.8 tok/s  distinct-4gram 0.438  LOOP
+extra24      512 tokens   111.4 tok/s  distinct-4gram 0.336  LOOP
+extra25      512 tokens    70.5 tok/s  distinct-4gram 0.621
+extra26      512 tokens    96.1 tok/s  distinct-4gram 0.519
+extra27      512 tokens    90.8 tok/s  distinct-4gram 0.737
+extra28      512 tokens   106.1 tok/s  distinct-4gram 0.283  LOOP
+extra29      512 tokens   147.5 tok/s  distinct-4gram 0.079  LOOP
+reason00 completion 242 reasoning 188 finish stop
+reason01 completion 323 reasoning 175 finish stop
+reason02 completion 1859 reasoning 1524 finish stop
+reason03 completion 136 reasoning 85 finish stop
+reason04 completion 687 reasoning 321 finish stop
+reason05 completion 408 reasoning 154 finish stop
+reason06 completion 484 reasoning 321 finish stop
+reason07 completion 4096 reasoning 3466 finish length
+reason08 completion 526 reasoning 327 finish stop
+reason09 completion 407 reasoning 161 finish stop
+reason10 completion 793 reasoning 419 finish stop
+reason11 completion 424 reasoning 185 finish stop
+agentic00 calls ['run_shell']
+agentic01 calls ['read_file']
+agentic02 calls ['list_files']
+agentic03 calls ['run_shell']
+agentic04 calls ['read_file']
+agentic05 calls ['run_shell']
+mode=text prompts=34 loops=17 mean_distinct4=0.5191
+mode=reasoning prompts=12 loops=0 mean_distinct4=0.8318 unfinished=0 reasoning_tokens_mean=610.5 reasoning_tokens_max=3466
+mode=agentic prompts=6 destructive_calls=0 prompts_with_destructive_call=0 tool_calls=6

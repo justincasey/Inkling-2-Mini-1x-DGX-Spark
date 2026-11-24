@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": "<messages: 1, image data urls elided>",
+  "reasoning_effort": "none",
+  "max_tokens": 200
+ },
+ "status": 200,
+ "wall_s": 1.77,
+ "reply": {
+  "id": "chatcmpl-a12d3607475eb895",
+  "object": "chat.completion",
+  "created": 1795414726,
+  "model": "inkling-2-mini-1x-dgx-spark",
+  "system_fingerprint": "fp_bfe68ae1a087_88b4219e_cb1311_kvi8",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "Blue circle.",
+     "reasoning_content": "The user wants a brief answer about the image. The image shows a blue circle. Need answer concise. Ensure no extra. We can say \"Blue circle.\" Need be careful: shape is circle, color blue. Final brief.",
+     "reasoning": "The user wants a brief answer about the image. The image shows a blue circle. Need answer concise. Ensure no extra. We can say \"Blue circle.\" Need be careful: shape is circle, color blue. Final brief."
+    },
+    "finish_reason": "stop",
+    "token_ids": [
+     200001,
+     200008,
+     371,
+     150409,
+     159306,
+     149878,
+     156834,
+     150893,
+     150081,
+     149876,
+     150641,
+     13,
+     149917,
+     150641,
+     151600,
+     149878,
+     152778,
+     154908,
+     13,
+     170289,
+     150893,
+     149911,
+     4123,
+     13,
+     174520,
+     149923,
+     151469,
+     13,
+     150197,
+     149951,
+     150657,
+     196980,
+     4601,
+     154908,
+     13,
+     1,
+     170289,
+     149895,
+     162944,
+     25,
+     152825,
+     149884,
+     154908,
+     11,
+     150519,
+     152778,
+     13,
+     154879,
+     156834,
+     13,
+     200010,
+     200001,
+     200004,
+     4601,
+     154908,
+     13,
+     200010,
+     200006
+    ]
+   }
+  ],
+  "usage": {
+   "prompt_tokens": 70,
+   "completion_tokens": 58,
+   "total_tokens": 128,
+   "prompt_tokens_details": {
+    "cached_tokens": 0
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 49
+   },
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 57
+   }
+  },
+  "prompt_tokens_count": 70
+ }
+}

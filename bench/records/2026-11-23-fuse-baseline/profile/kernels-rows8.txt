@@ -1,0 +1,56 @@
+steps 20  kernels/step 2886.0  span median 33810 us (min 31976)
+sum of kernel durations/step 48121 us (side streams overlap)
+kernel                                               grid x block        n/step   med us   us/step  %span
+moe_gemv_kernel<8, 2, 4>                             9x6x64 x128           33.0    232.9    8453.3  25.0%
+moe_gemv_kernel<8, 2, 4>                             18x1x64 x128          33.0    120.7    4502.4  13.3%
+linear_kernel<12, 2, 4, 1, 1>                        24x4x1 x128           96.0     26.7    2678.3   7.9%
+linear_kernel<12, 2, 4, 1, 1>                        8x4x1 x128            96.0     19.1    1895.7   5.6%
+down_combine_kernel<float, 1>                        8x18x1 x256          126.0     11.9    1850.1   5.5%
+linear_kernel<12, 2, 8, 1, 1>                        1571x1x1 x256          1.0   1517.2    1526.3   4.5%
+linear_kernel<12, 2, 4, 1, 1>                        18x4x1 x128           48.0     27.7    1342.6   4.0%
+merge_kernel<8, 3, 0>                                8x24x1 x128           40.0     31.4    1268.5   3.8%
+attn_kernel<8, 3, 0, 16, 0>                          1x8x6 x96             40.0     30.6    1240.5   3.7%
+gateup_epilogue_kernel<1>                            64x3x1 x128          126.0      8.5    1201.2   3.6%
+lin_narrow_kernel<1>                                 288x1x1 x32          192.0      4.2    1049.9   3.1%
+lin_narrow_kernel<1>                                 8x1x1 x256            96.0      9.0     838.0   2.5%
+linear_kernel<12, 2, 4, 1, 1>                        3x4x1 x128            48.0     12.2     620.1   1.8%
+select_kernel                                        2x1x1 x128            48.0     11.7     581.5   1.7%
+attn_kernel<8, 3, 1, 16, 0>                          1x8x8 x96              8.0     69.2     559.7   1.7%
+moe_gemv_kernel<8, 2, 4>                             9x6x50 x128            3.0    164.8     501.6   1.5%
+own_remap_kernel                                     64x1x1 x128          126.0      1.3     501.2   1.5%
+rot_in_kernel                                        8x5x1 x128           241.0      1.9     486.6   1.4%
+moe_gemv_kernel<10, 2, 4>                            9x6x64 x128            3.0    155.5     479.0   1.4%
+moe_gemv_kernel<10, 2, 4>                            9x6x62 x128            3.0    152.9     470.9   1.4%
+rot_in_kernel                                        64x5x2 x128          126.0      3.2     445.8   1.3%
+group_kernel                                         1x1x1 x1024          126.0      3.5     426.7   1.3%
+moe_gemv_kernel<8, 2, 4>                             9x6x32 x128            6.0     81.0     421.9   1.2%
+moe_gemv_kernel<10, 2, 4>                            9x6x36 x128            3.0    128.9     416.1   1.2%
+conv_kernel                                          8x3x1 x128            96.0      4.0     414.9   1.2%
+lin_narrow_kernel<1>                                 16x1x1 x128           48.0      7.2     357.7   1.1%
+moe_gemv_kernel<10, 2, 4>                            18x1x32 x128           6.0     67.3     350.5   1.0%
+rot_out_kernel                                       8x6x1 x128            96.0      2.8     349.5   1.0%
+moe_gemv_kernel<10, 2, 4>                            9x6x27 x128            3.0    128.5     336.9   1.0%
+blend_kernel                                         8x1x1 x288            96.0      3.4     336.4   1.0%
+moe_gemv_kernel<8, 2, 4>                             9x6x35 x128            3.0     98.5     314.9   0.9%
+moe_gemv_kernel<8, 2, 4>                             18x1x50 x128           3.0     98.0     304.4   0.9%
+moe_gemv_kernel<8, 2, 4>                             9x6x43 x128            3.0     97.2     289.1   0.9%
+moe_gemv_kernel<10, 2, 4>                            18x1x36 x128           3.0     95.2     286.9   0.8%
+moe_gemv_kernel<8, 2, 4>                             9x6x60 x128            3.0     95.6     286.6   0.8%
+pair_kernel                                          8x1x1 x288            96.0      3.1     280.9   0.8%
+bias_kernel<8, 3, 0>                                 8x4x4 x256            40.0      6.8     278.7   0.8%
+rot_out_kernel                                       8x1x1 x128            48.0      6.3     270.6   0.8%
+moe_gemv_kernel<8, 2, 4>                             9x6x45 x128            3.0     88.1     269.1   0.8%
+moe_gemv_kernel<8, 2, 4>                             18x1x60 x128           3.0     96.3     266.1   0.8%
+moe_gemv_kernel<8, 2, 4>                             18x1x28 x128           6.0     47.8     262.7   0.8%
+moe_gemv_kernel<10, 2, 4>                            18x1x62 x128           3.0     90.3     262.1   0.8%
+merge_kernel<8, 3, 1>                                8x24x1 x128            8.0     31.6     259.5   0.8%
+split_local_kernel                                   98x8x1 x256            1.0    257.3     257.6   0.8%
+moe_gemv_kernel<10, 2, 4>                            9x6x25 x128            3.0     89.1     254.8   0.8%
+listed total 40048 us/step
+span 33810 us a step
+MoE (gate/up, down, epilogues, combine, group)        28605 us
+dense EXL3 (q/k/v/r/gate/wo: rotations + GEMV)         8498 us
+glue (mix, conv, controllers, router, select)          4960 us
+attention (prologue, bias, attn, merge, ring)          4110 us
+unembed                                                1526 us
+tail (top-k, commits, embed, norms)                     422 us

@@ -1,0 +1,16 @@
+
+running 11 tests
+test tests::the_arena_cap_is_set_only_when_nothing_names_one_and_it_is_not_opted_out ... ok
+test tests::the_kv_headroom_is_off_by_default_and_reaches_the_family_options ... ok
+test tests::the_default_slot_count_may_shrink_and_an_explicit_one_is_pinned ... ok
+test tests::the_pool_page_prefix_cache_is_a_value_of_the_prefix_cache_flag ... ok
+test tests::the_rendered_prompt_cap_follows_the_window_and_a_flag_overrides_it_in_either_order ... ok
+test tests::decisions_timeout_is_explicit_bounded_and_configurable ... ok
+test tests::lifecycle_defaults_are_active_and_cli_budgets_cannot_overflow_or_disable_them ... ok
+test tests::only_a_tensor_parallel_group_ends_its_fatal_paths_with_underscore_exit_and_leaks_its_engine ... ok
+test tests::tensor_parallel_flags_and_environment_resolve_and_refuse_by_name ... ok
+test tests::deepseek_v41_bare_model_flag_applies_q4_kv_and_aliases ... ok
+test tests::inkling2_loop_bare_model_flag_applies_int8_kv_four_lanes_no_drafts_and_aliases ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

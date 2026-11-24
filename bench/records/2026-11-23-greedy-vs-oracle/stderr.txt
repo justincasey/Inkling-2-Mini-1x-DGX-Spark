@@ -1,0 +1,1 @@
+chat-capital-effort0: equal (16 tokens, prompt 25, 1 requests, 0.5s)

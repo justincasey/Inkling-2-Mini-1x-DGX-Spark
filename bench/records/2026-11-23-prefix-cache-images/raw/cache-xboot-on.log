@@ -1,0 +1,8 @@
+short   (21 tokens): equal; cached tokens uncached 0 cold 0 warm 0
+medium  (526 tokens): equal; cached tokens uncached 0 cold 0 warm 462
+long    (2035 tokens): equal; cached tokens uncached 0 cold 0 warm 1971
+xlong   (8339 tokens): equal; cached tokens uncached 0 cold 0 warm 8275
+70k     (68908 tokens): equal; cached tokens uncached 0 cold 0 warm 68844
+shared-1k (shared 2073 of 2082/2083 tokens): equal; cached tokens tail 0 0 tail 1 2018
+shared-70k (shared 68951 of 68960/68961 tokens): equal; cached tokens tail 0 0 tail 1 68896
+cache: pass (prefix_cache_reach_tokens 393216) -> /tmp/state-img/cache-xboot-on.json

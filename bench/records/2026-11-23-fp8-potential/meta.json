@@ -1,0 +1,49 @@
+{
+ "name": "fp8-potential",
+ "gate": "fp8-potential",
+ "date": "2026-11-23",
+ "result": "fail",
+ "node": "node-4",
+ "engine": {
+  "commit": "ba571a9e007f6399a77ed2aeaa3d8692dba6c921",
+  "dirty": false,
+  "version": "0.1.1"
+ },
+ "recipe": {
+  "commit": "76d2c5f950928f6d19dcf2063e1bd2471062fab3"
+ },
+ "tests": [
+  {
+   "bin": "inkling2_fp8_bench",
+   "filter": "fp8_gemm_bench",
+   "passed": 3,
+   "failed": 0
+  }
+ ],
+ "commands": [
+  "NODE=node-4 LAB_SRC=<engine worktree rexl3-inkling2-loop-fp8 at ba571a9e007f> OPS_GREP=BENCH_F8 scripts/ops_dev.sh test inkling2_fp8_bench fp8_gemm_bench   (three runs: raw/bench-run1..3.txt)"
+ ],
+ "metrics": {
+  "ratio_e4m3_over_fp16_gateup_256pairs": 0.846,
+  "ratio_e4m3_over_fp16_down_256pairs": 0.931,
+  "ratio_e4m3_over_fp16_gateup_512pairs": 0.824,
+  "ratio_e4m3_over_fp16_down_512pairs": 0.919,
+  "ratio_e4m3_over_fp16_dense_2304x3072": 0.878,
+  "ratio_e4m3_over_fp16_dense_2304x1024": 0.882,
+  "ratio_e4m3_over_fp16_dense_3072x2304": 0.878,
+  "tflops_alane_gateup_256": 43.4,
+  "tflops_template_fp16_gateup_256": 44.4,
+  "tflops_template_e4m3_gateup_256": 53.3,
+  "tflops_alane_down_256": 46.8,
+  "tflops_template_e4m3_down_256": 49.7,
+  "tflops_template_fp16_dense_2304x3072": 54.7,
+  "tflops_template_e4m3_dense_2304x3072": 62.2,
+  "template_fp16_equals_alane_bytes": 1,
+  "e4m3_vs_fp16_rel_l2_down": 0.0267,
+  "projected_gain_32k_gemm_only_pct_derived": 6.8,
+  "projected_gain_32k_with_glue_pct_derived": 12.2,
+  "bound_gain_32k_roofline_pct_derived": 19.1,
+  "gate_a_required_gain_pct": 25
+ },
+ "notes": "fail = the decision gate's condition (a) (projected +25% at 32K) does not hold: NO-GO. GPU idle on node-4, SM clock 2,197 MHz sampled before and after, L2 flushed before every timed launch, median of 9 launches after 2 discarded, three runs. The engine tree built was the committed tree except the changelog fragment (no code). Projections are labelled derived: arithmetic on the stage table of docs/PREFILL-SPEED.md and the measured ratios."
+}

@@ -1,0 +1,741 @@
+{
+ "meta": {
+  "sizes": [
+   4096,
+   12288,
+   32768
+  ],
+  "reps": 3,
+  "tail": 64,
+  "counters_before": {
+   "lookups_total": 94.0,
+   "hits_total": 49.0,
+   "tokens_saved_total": 533436.0,
+   "inserts_total": 57.0,
+   "evictions_total": 41.0,
+   "entries": 16.0,
+   "pages": 428.0,
+   "snapshot_slots": 16.0,
+   "page_blocks": 1536.0
+  },
+  "counters_after": {
+   "lookups_total": 121.0,
+   "hits_total": 67.0,
+   "tokens_saved_total": 827196.0,
+   "inserts_total": 66.0,
+   "evictions_total": 50.0,
+   "entries": 16.0,
+   "pages": 964.0,
+   "snapshot_slots": 16.0,
+   "page_blocks": 1536.0
+  },
+  "model": "inkling-2-mini-1x-dgx-spark"
+ },
+ "cells": [
+  {
+   "size": 4096,
+   "rep": 0,
+   "cold": {
+    "prompt_tokens": 4096,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 3.3793,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 0,
+    "ttft_s": 3.2591,
+    "decode_s": 0.0,
+    "decode_tok_s": 0.0,
+    "generated_tokens": 1
+   },
+   "first": {
+    "prompt_tokens": 4096,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 3.3736,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 0,
+    "ttft_s": 3.3642,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   },
+   "shared": {
+    "prompt_tokens": 4096,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 0.1616,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 4032,
+    "ttft_s": 0.1484,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   },
+   "warm": {
+    "prompt_tokens": 4096,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 0.1691,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 4032,
+    "ttft_s": 0.159,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   }
+  },
+  {
+   "size": 4096,
+   "rep": 1,
+   "cold": {
+    "prompt_tokens": 4096,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 3.285,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 0,
+    "ttft_s": 3.2751,
+    "decode_s": 0.0,
+    "decode_tok_s": 0.0,
+    "generated_tokens": 1
+   },
+   "first": {
+    "prompt_tokens": 4096,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 3.451,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 0,
+    "ttft_s": 3.3642,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   },
+   "shared": {
+    "prompt_tokens": 4096,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 0.159,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 4032,
+    "ttft_s": 0.147,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   },
+   "warm": {
+    "prompt_tokens": 4096,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 0.1706,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 4032,
+    "ttft_s": 0.1594,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   }
+  },
+  {
+   "size": 4096,
+   "rep": 2,
+   "cold": {
+    "prompt_tokens": 4096,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 3.2744,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 0,
+    "ttft_s": 3.2656,
+    "decode_s": 0.0,
+    "decode_tok_s": 0.0,
+    "generated_tokens": 1
+   },
+   "first": {
+    "prompt_tokens": 4096,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 3.4599,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 0,
+    "ttft_s": 3.3656,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   },
+   "shared": {
+    "prompt_tokens": 4096,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 0.1644,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 4032,
+    "ttft_s": 0.1525,
+    "decode_s": 0.0001,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   },
+   "warm": {
+    "prompt_tokens": 4096,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 0.1719,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 4032,
+    "ttft_s": 0.1602,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   }
+  },
+  {
+   "size": 12288,
+   "rep": 0,
+   "cold": {
+    "prompt_tokens": 12288,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 10.0578,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 0,
+    "ttft_s": 9.9304,
+    "decode_s": 0.0,
+    "decode_tok_s": 0.0,
+    "generated_tokens": 1
+   },
+   "first": {
+    "prompt_tokens": 12288,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 10.0995,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 0,
+    "ttft_s": 10.0126,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   },
+   "shared": {
+    "prompt_tokens": 12288,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 0.1667,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 12224,
+    "ttft_s": 0.1534,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   },
+   "warm": {
+    "prompt_tokens": 12288,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 0.1872,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 12224,
+    "ttft_s": 0.1776,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   }
+  },
+  {
+   "size": 12288,
+   "rep": 1,
+   "cold": {
+    "prompt_tokens": 12288,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 9.9389,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 0,
+    "ttft_s": 9.9303,
+    "decode_s": 0.0001,
+    "decode_tok_s": 0.0,
+    "generated_tokens": 1
+   },
+   "first": {
+    "prompt_tokens": 12288,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 10.0264,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 0,
+    "ttft_s": 10.0172,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   },
+   "shared": {
+    "prompt_tokens": 12288,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 0.1678,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 12224,
+    "ttft_s": 0.1564,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   },
+   "warm": {
+    "prompt_tokens": 12288,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 0.1782,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 12224,
+    "ttft_s": 0.1679,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   }
+  },
+  {
+   "size": 12288,
+   "rep": 2,
+   "cold": {
+    "prompt_tokens": 12288,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 10.0076,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 0,
+    "ttft_s": 9.9212,
+    "decode_s": 0.0,
+    "decode_tok_s": 0.0,
+    "generated_tokens": 1
+   },
+   "first": {
+    "prompt_tokens": 12288,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 10.0417,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 0,
+    "ttft_s": 10.032,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   },
+   "shared": {
+    "prompt_tokens": 12288,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 0.1683,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 12224,
+    "ttft_s": 0.1572,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   },
+   "warm": {
+    "prompt_tokens": 12288,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 0.18,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 12224,
+    "ttft_s": 0.1686,
+    "decode_s": 0.0001,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   }
+  },
+  {
+   "size": 32768,
+   "rep": 0,
+   "cold": {
+    "prompt_tokens": 32768,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 27.4231,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 0,
+    "ttft_s": 27.4054,
+    "decode_s": 0.0,
+    "decode_tok_s": 0.0,
+    "generated_tokens": 1
+   },
+   "first": {
+    "prompt_tokens": 32768,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 27.5683,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 0,
+    "ttft_s": 27.4782,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   },
+   "shared": {
+    "prompt_tokens": 32768,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 0.1894,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 32704,
+    "ttft_s": 0.1736,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   },
+   "warm": {
+    "prompt_tokens": 32768,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 0.1984,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 32704,
+    "ttft_s": 0.1874,
+    "decode_s": 0.0001,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   }
+  },
+  {
+   "size": 32768,
+   "rep": 1,
+   "cold": {
+    "prompt_tokens": 32768,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 27.4132,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 0,
+    "ttft_s": 27.3981,
+    "decode_s": 0.0,
+    "decode_tok_s": 0.0,
+    "generated_tokens": 1
+   },
+   "first": {
+    "prompt_tokens": 32768,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 27.4964,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 0,
+    "ttft_s": 27.4828,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   },
+   "shared": {
+    "prompt_tokens": 32768,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 0.189,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 32704,
+    "ttft_s": 0.1774,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   },
+   "warm": {
+    "prompt_tokens": 32768,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 0.1981,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 32704,
+    "ttft_s": 0.1847,
+    "decode_s": 0.0001,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   }
+  },
+  {
+   "size": 32768,
+   "rep": 2,
+   "cold": {
+    "prompt_tokens": 32768,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 27.4128,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 0,
+    "ttft_s": 27.4008,
+    "decode_s": 0.0,
+    "decode_tok_s": 0.0,
+    "generated_tokens": 1
+   },
+   "first": {
+    "prompt_tokens": 32768,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 27.4856,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 0,
+    "ttft_s": 27.4698,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   },
+   "shared": {
+    "prompt_tokens": 32768,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 0.1963,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 32704,
+    "ttft_s": 0.1792,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   },
+   "warm": {
+    "prompt_tokens": 32768,
+    "finish_reason": "length",
+    "completion_tokens": 1,
+    "wall_s": 0.2024,
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 0,
+     "acceptance": null,
+     "tokens_per_round": null
+    },
+    "cached_tokens": 32704,
+    "ttft_s": 0.1897,
+    "decode_s": 0.0,
+    "decode_tok_s": null,
+    "generated_tokens": 1
+   }
+  }
+ ],
+ "metrics": {
+  "cache_ttft_cold_4096_s": 3.2656,
+  "cache_ttft_first_4096_s": 3.3642,
+  "cache_ttft_shared_4096_s": 0.1484,
+  "cache_ttft_warm_4096_s": 0.1594,
+  "cache_ttft_speedup_shared_4096": 22.01,
+  "cache_ttft_first_over_cold_4096": 1.03,
+  "cache_ttft_cold_12288_s": 9.9303,
+  "cache_ttft_first_12288_s": 10.0172,
+  "cache_ttft_shared_12288_s": 0.1564,
+  "cache_ttft_warm_12288_s": 0.1686,
+  "cache_ttft_speedup_shared_12288": 63.49,
+  "cache_ttft_first_over_cold_12288": 1.009,
+  "cache_ttft_cold_32768_s": 27.4008,
+  "cache_ttft_first_32768_s": 27.4782,
+  "cache_ttft_shared_32768_s": 0.1774,
+  "cache_ttft_warm_32768_s": 0.1874,
+  "cache_ttft_speedup_shared_32768": 154.46,
+  "cache_ttft_first_over_cold_32768": 1.003
+ },
+ "errors": []
+}

@@ -1,0 +1,111 @@
+{
+ "name": "smoke-tool",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "44e7efb4cc9d159f1d9e24d5e06c4c4ba5a50f8c",
+  "dirty_files": []
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "3287e80d16363703ed3c77725a1732dd4bd254b4",
+  "sha256": "ebcff82705fa38d9119b8b18013106fc707156747a65c1b6628456a26286e7df",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "3287e80d16363703ed3c77725a1732dd4bd254b4",
+   "system_fingerprint": "fp_3287e80d1636_ca3ba287_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "ca3ba287e1a5ac9e",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "none",
+  "PREFIX_CACHE": "off",
+  "VISION": "off",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "REXL3_ALLOW_UNGATED_COMPONENTS=1",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 REXL3_ALLOW_UNGATED_COMPONENTS=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec none --prefix-cache off --no-vision --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-4",
+ "gate": "smoke",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "bench/tools/smoke.py",
+   "filter": "chat",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/smoke.py",
+   "filter": "completion",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/smoke.py",
+   "filter": "tool",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/smoke.py",
+   "filter": "think-on",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "bench/tools/smoke.py",
+   "filter": "think-off",
+   "passed": 1,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "smoke_checks_passed": 5,
+  "smoke_checks_skipped": 1,
+  "think_off_reasoning_tokens": 105,
+  "think_on_reasoning_tokens": 188
+ },
+ "commands": [
+  "NODES=node-4 REXL3_SRC=<engine worktree> ./inkling2mini.sh build 3287e80d16363703ed3c77725a1732dd4bd254b4",
+  "./inkling2mini.sh doctor",
+  "./inkling2mini.sh print-serve",
+  "./inkling2mini.sh start",
+  "./inkling2mini.sh memwatch begin",
+  "./inkling2mini.sh smoke",
+  "./inkling2mini.sh logs 60"
+ ],
+ "notes": "Lab build, REXL3_ALLOW_UNGATED_COMPONENTS=1 (bring-up only). Image check skipped: VISION=off. Reasoning is not suppressed at effort none (105 reasoning tokens)."
+}

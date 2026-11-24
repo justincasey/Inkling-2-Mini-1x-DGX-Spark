@@ -1,0 +1,25 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-state/target/release/deps/inkling2_loop_prefix-1b9273b4b3b48c2f
+== gb-model prefix_exact_at_cuts
+test prefix_exact_at_cuts ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.2
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 2
+LOOP_PFX_cut 1 cold_chunk 2048 resumed_chunk 129 last_row_sha cdce5f343b13d39c state_sha b0a651cd9e50a585 decode_sha d194be2f61a6b1a0 identical
+LOOP_PFX_cut 255 cold_chunk 700 resumed_chunk 129 last_row_sha d879929334a0929b state_sha b85d818cf7e66ae4 decode_sha 3672326076fa0e6f identical
+LOOP_PFX_cut 256 cold_chunk 700 resumed_chunk 7 last_row_sha bffa2759f018dda3 state_sha 8550e8bbc3fd7a57 decode_sha e0bdf9d081bbb5f9 identical
+LOOP_PFX_cut 300 cold_chunk 2048 resumed_chunk 300 last_row_sha 0f7f6de8ab703e42 state_sha 72900afd094f8419 decode_sha c7074f1d78d67e11 identical
+LOOP_PFX_cut 512 cold_chunk 129 resumed_chunk 1 last_row_sha 58f723cc5c3db2aa state_sha c028b1eac09cd8f3 decode_sha e0074b6225adca9d identical
+LOOP_PFX_cut 1023 cold_chunk 700 resumed_chunk 129 last_row_sha d7eb5c89000822b3 state_sha ea72bf0edb2fa910 decode_sha e99ef3c21f5584f2 identical
+LOOP_PFX_cut 1024 cold_chunk 2048 resumed_chunk 300 last_row_sha cabcf89dc2d01a96 state_sha d756860f9f0c6db4 decode_sha 5de27757d23a14a0 identical
+LOOP_PFX_cut 1025 cold_chunk 300 resumed_chunk 7 last_row_sha 2e076611d5bb72e5 state_sha bba45c0479c9efda decode_sha 0ca6c3d2329bfe16 identical
+LOOP_PFX_cut 1030 cold_chunk 700 resumed_chunk 129 last_row_sha 7beb528c206e1e96 state_sha 5663bc3b40eceaa4 decode_sha ac849cb743d6d2dc identical
+LOOP_PFX_cut 1031 cold_chunk 700 resumed_chunk 129 last_row_sha 042701665506f8ab state_sha 13a0d41c1f183176 decode_sha 7fac5443a572a2c9 identical
+LOOP_PFX_cut 1032 cold_chunk 2048 resumed_chunk 1 last_row_sha 249e52b48ff9c655 state_sha 285a5e0501d9db44 decode_sha edaf5edaee5d4895 identical
+LOOP_PFX_cut 1100 cold_chunk 300 resumed_chunk 129 last_row_sha b439a55fd0863fec state_sha 76501d4c3f8b2903 decode_sha 22afd449db5d24e7 identical
+LOOP_PFX_cut 1500 cold_chunk 129 resumed_chunk 700 last_row_sha 920cf083880902b7 state_sha beefd772056e8ed8 decode_sha bf903d300f33153c identical
+LOOP_PFX_cut 2047 cold_chunk 2048 resumed_chunk 129 last_row_sha 5d8e85c1a136c52e state_sha af20e60d2425ea4f decode_sha e880b31871e6df24 identical
+LOOP_PFX_cut 2048 cold_chunk 700 resumed_chunk 300 last_row_sha e4cc70379c583b72 state_sha ade780c6340613cc decode_sha 6a6029cbd3ff9d1b identical
+LOOP_PFX_cut 2049 cold_chunk 300 resumed_chunk 129 last_row_sha 2cf093f80fbf9403 state_sha d7f72d51f3351596 decode_sha edf1cb54720e3627 identical
+LOOP_PFX_cut 2062 cold_chunk 2048 resumed_chunk 7 last_row_sha 4ec1f7d6e14d28a9 state_sha 5a16ac5bf8beb0a0 decode_sha 26d151b3c5bf3908 identical
+LOOP_PFX_cut 2063 cold_chunk 700 resumed_chunk 129 last_row_sha bd829e568ff2ff1a state_sha 5230f2056674da93 decode_sha 9dedb85bbe155e91 identical
+LOOP_PFX_cut 3000 cold_chunk 2048 resumed_chunk 300 last_row_sha cd9bea0615348eac state_sha 2fdbf18cfccf4c30 decode_sha aa8577c08a9aaf9e identical
+LOOP_PFX_cut 4096 cold_chunk 700 resumed_chunk 129 last_row_sha 6d5f3ff41ad61778 state_sha d56153549fb108d3 decode_sha f19731f673b4e115 identical
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 97.32s

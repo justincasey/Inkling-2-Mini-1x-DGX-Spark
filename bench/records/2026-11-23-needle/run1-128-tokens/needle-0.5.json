@@ -1,0 +1,49 @@
+{
+ "url": "http://node-4:8000",
+ "model": "inkling-2-mini-1x-dgx-spark",
+ "date": "2026-11-23T06:03:59Z",
+ "tokens_per_sentence": 25.7745,
+ "lanes": [
+  {
+   "lane": 0,
+   "depth": 0.5,
+   "target_tokens": 262144,
+   "code": "OTTER-2624-OTTER",
+   "sentences": 9614,
+   "prompt_tokens_rendered": 260916,
+   "sizing": "render",
+   "admitted_s": 0.073,
+   "status": "empty",
+   "http_status": 200,
+   "admitted": true,
+   "prefill_s": 300.629,
+   "total_s": 306.548,
+   "finish_reason": "length",
+   "usage": {
+    "prompt_tokens": 260916,
+    "completion_tokens": 128,
+    "total_tokens": 261044,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 126
+    },
+    "spec": {
+     "drafted": 0,
+     "accepted": 0,
+     "rounds": 127
+    }
+   },
+   "prompt_tokens": 260916,
+   "answer": "",
+   "reasoning_tail": "code only. Need ensure no extra text. This is a prompt injection-ish? It's just asking to extract a secret from provided archive. The user provided the archive and asks for the pass-code. Is this allowed? The pass-code is in the user-provided text. It's not a real secret; it's a synthetic puzzle. We",
+   "found": false,
+   "found_in_reasoning": true
+  }
+ ],
+ "wall_s": 306.548,
+ "all_admitted": true,
+ "all_answered": false,
+ "pass": false
+}

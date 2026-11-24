@@ -1,0 +1,10 @@
+METRIC decode_c1_tok_s=37.071
+METRIC decode_c4_tok_s=79.999
+METRIC decode_c8_tok_s=83.538
+METRIC decode_code_tok_s=37.411
+METRIC decode_json_tok_s=36.817
+METRIC decode_prose_tok_s=36.88
+METRIC decode_structured_tok_s=37.175
+METRIC decode_tokens=2048
+METRIC decode_tokens_per_round=1.002
+INFO pin: replies not compared (--raw); every concurrent reply was held to its solo reply

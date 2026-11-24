@@ -1,0 +1,37 @@
+{
+ "gate": "speed-prefill-baseline",
+ "result": "pass",
+ "node": "node-3",
+ "tests": [
+  {
+   "bin": "inkling2mini.sh bench prefill-sweep",
+   "filter": "PASS prefill-sweep on 7da8c61 (twice) and on 3df40c1 (8K, 32K)",
+   "passed": 3,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "prefill_8k_tok_s": 2436.7,
+  "prefill_32k_tok_s": 2254.8,
+  "prefill_128k_tok_s": 1725.5,
+  "prefill_224k_tok_s": 1394.9,
+  "prefill_8k_ttft_s": 3.3619,
+  "prefill_32k_ttft_s": 14.5325,
+  "prefill_128k_ttft_s": 75.9602,
+  "prefill_224k_ttft_s": 164.4348,
+  "decode_after_8k_tok_s": 50.541,
+  "decode_after_32k_tok_s": 46.263,
+  "decode_after_128k_tok_s": 34.36,
+  "decode_after_224k_tok_s": 27.603,
+  "isolation_3df40c1_prefill_32k_tok_s": 1200.4,
+  "isolation_3df40c1_prefill_32k_ttft_s": 27.2986,
+  "isolation_3df40c1_prefill_8k_tok_s": 1249.5,
+  "chunk_depth0_span_ms": 1671.74,
+  "chunk_depth0_idle_gaps_ms": 6.29,
+  "chunk_128k_span_ms": 3210.06
+ },
+ "commands": [
+  "see README.md"
+ ],
+ "notes": "Cold prefill medians of three kept passes (warm-up discarded, a unique prompt each pass), node-3 alone, SM clock locked at 2,200 MHz, SPEC none, PREFIX_CACHE off, VISION off, graphs on, chunk 4,096. The 3df40c1 isolation boot used REXL3_ALLOW_UNGATED_COMPONENTS=1. Profile: nsys -t cuda of the prefill_curve lab test on the same tree, not the server."
+}

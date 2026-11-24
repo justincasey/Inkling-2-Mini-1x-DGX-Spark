@@ -1,0 +1,25 @@
+GPU SM clock capped at 2200 MHz on node-3
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-pintests/target/release/deps/inkling2_loop_vision-09e7528dab7ae937
+GPU SM clock capped at 2200 MHz on node-3
+== gb-model 
+running 2 tests
+test mini_vision_batches_and_bias_modes_on_the_real_pack ... the batch of four images == each image alone, bit for bit (361 feature rows of 2304)
+graph replay == eager on the real tower for all four images, bit for bit
+rgb_333x517.png: epilogue-fp16 biases: 243765 of 269568 values differ from the exact-bias bits (largest 2.393e-2); against the reference cos min 0.998292 (exact 0.998036), mean 0.999719 (exact 0.999674), largest error 0.2564 (exact 0.2476) of the row rms
+rgb_480x320.png: epilogue-fp16 biases: 198706 of 221184 values differ from the exact-bias bits (largest 2.734e-2); against the reference cos min 0.997800 (exact 0.997853), mean 0.999719 (exact 0.999714), largest error 0.2352 (exact 0.3231) of the row rms
+rgba_300x220.png: epilogue-fp16 biases: 99028 of 110592 values differ from the exact-bias bits (largest 1.416e-2); against the reference cos min 0.999429 (exact 0.999169), mean 0.999783 (exact 0.999778), largest error 0.1491 (exact 0.1650) of the row rms
+la_150x1000.png: epilogue-fp16 biases: 208077 of 230400 values differ from the exact-bias bits (largest 3.320e-2); against the reference cos min 0.995661 (exact 0.995924), mean 0.999628 (exact 0.999593), largest error 0.3682 (exact 0.3515) of the row rms
+rgb_333x517.png: the 3 fp16-inexact biases rounded through fp16 (everything else exact): 0 of 269568 feature values differ
+rgb_480x320.png: the 3 fp16-inexact biases rounded through fp16 (everything else exact): 0 of 221184 feature values differ
+rgba_300x220.png: the 3 fp16-inexact biases rounded through fp16 (everything else exact): 0 of 110592 feature values differ
+la_150x1000.png: the 3 fp16-inexact biases rounded through fp16 (everything else exact): 0 of 230400 feature values differ
+fp16-rounded biases (3 values, worst error 2.98e-8): 0 of 831744 feature values differ from the exact-bias bits
+bias modes: 749576 of 831744 feature values differ (largest difference 3.320e-2, 2.498e-1 of the images' rms)
+ok
+test mini_vision_encoder_matches_the_reference_on_the_real_pack ... tower scratch 72.1 MiB for 2049 rows
+rgb_333x517.png: 117 tokens, 18 ms; cos min 0.998036 mean 0.999674 (94.9% of tokens >= 0.999), largest error 0.2476 of its row rms (token 25); HF bf16 tower: cos min 0.996343 mean 0.999643, largest error 0.2936
+rgb_480x320.png: 96 tokens, 17 ms; cos min 0.997853 mean 0.999714 (97.9% of tokens >= 0.999), largest error 0.3231 of its row rms (token 43); HF bf16 tower: cos min 0.998657 mean 0.999739, largest error 0.1886
+rgba_300x220.png: 48 tokens, 11 ms; cos min 0.999169 mean 0.999778 (100.0% of tokens >= 0.999), largest error 0.1650 of its row rms (token 33); HF bf16 tower: cos min 0.998969 mean 0.999768, largest error 0.1591
+la_150x1000.png: 100 tokens, 17 ms; cos min 0.995924 mean 0.999593 (94.0% of tokens >= 0.999), largest error 0.3515 of its row rms (token 15); HF bf16 tower: cos min 0.997496 mean 0.999638, largest error 0.2575
+ok
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.38s

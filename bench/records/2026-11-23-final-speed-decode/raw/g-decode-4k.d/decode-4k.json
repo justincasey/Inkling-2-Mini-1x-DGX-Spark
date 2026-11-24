@@ -1,0 +1,92 @@
+{
+ "url": "http://node-1:8000",
+ "model": "inkling-2-mini-1x-dgx-spark",
+ "window": 262144,
+ "ctxs": [
+  4096
+ ],
+ "conc": [
+  1
+ ],
+ "shallow": [],
+ "depth": [
+  {
+   "phase": "depth",
+   "mode": "default",
+   "c": 1,
+   "ctx": 4096,
+   "rep": 1,
+   "ok": true,
+   "tok_s": 97.803,
+   "ttft_s": 1.5657,
+   "prompt_tokens": 4096,
+   "tokens": 256,
+   "spec": {
+    "drafted": 310,
+    "accepted": 190,
+    "rounds": 65,
+    "acceptance": 0.6129,
+    "tokens_per_round": 3.9385
+   },
+   "tokens_per_round": 3.9385,
+   "prefill_tok_s": 2616.1,
+   "finish_reason": "length",
+   "epoch_start": 1795474423.694436,
+   "epoch_end": 1795474427.9344919
+  },
+  {
+   "phase": "depth",
+   "mode": "default",
+   "c": 1,
+   "ctx": 4096,
+   "rep": 2,
+   "ok": true,
+   "tok_s": 98.295,
+   "ttft_s": 1.5621,
+   "prompt_tokens": 4096,
+   "tokens": 256,
+   "spec": {
+    "drafted": 310,
+    "accepted": 190,
+    "rounds": 65,
+    "acceptance": 0.6129,
+    "tokens_per_round": 3.9385
+   },
+   "tokens_per_round": 3.9385,
+   "prefill_tok_s": 2622.1,
+   "finish_reason": "length",
+   "epoch_start": 1795474427.9381042,
+   "epoch_end": 1795474432.1575308
+  },
+  {
+   "phase": "depth",
+   "mode": "default",
+   "c": 1,
+   "ctx": 4096,
+   "rep": 3,
+   "ok": true,
+   "tok_s": 98.068,
+   "ttft_s": 1.5632,
+   "prompt_tokens": 4096,
+   "tokens": 256,
+   "spec": {
+    "drafted": 310,
+    "accepted": 190,
+    "rounds": 65,
+    "acceptance": 0.6129,
+    "tokens_per_round": 3.9385
+   },
+   "tokens_per_round": 3.9385,
+   "prefill_tok_s": 2620.3,
+   "finish_reason": "length",
+   "epoch_start": 1795474432.159623,
+   "epoch_end": 1795474436.375409
+  }
+ ],
+ "summary": {
+  "shallow_runs": 0,
+  "depth_runs": 3,
+  "flagged": 0,
+  "bench_failures": []
+ }
+}

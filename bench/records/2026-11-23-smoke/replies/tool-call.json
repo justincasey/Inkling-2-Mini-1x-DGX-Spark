@@ -1,0 +1,81 @@
+{
+ "request": {
+  "model": "inkling-2-mini-1x-dgx-spark",
+  "temperature": 0,
+  "messages": [
+   {
+    "role": "user",
+    "content": "What is the weather in Paris right now? Use the tool."
+   }
+  ],
+  "tools": [
+   {
+    "type": "function",
+    "function": {
+     "name": "get_weather",
+     "description": "Get the current weather for a city",
+     "parameters": {
+      "type": "object",
+      "properties": {
+       "city": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "city"
+      ]
+     }
+    }
+   }
+  ],
+  "max_tokens": 200,
+  "reasoning_effort": "none"
+ },
+ "reply": {
+  "id": "chatcmpl-789bee2195eec509",
+  "object": "chat.completion",
+  "created": 1795412161,
+  "model": "inkling-2-mini-1x-dgx-spark",
+  "system_fingerprint": "fp_c0cf5a1ba9b0_ca3ba287_cb1311_kvi8",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": null,
+     "tool_calls": [
+      {
+       "id": "call_8dbfd24ba72c4c53",
+       "type": "function",
+       "function": {
+        "name": "get_weather",
+        "arguments": "{\"city\":\"Paris\"}"
+       }
+      }
+     ],
+     "reasoning_content": "The user asks for weather in Paris right now and says use the tool. Need call get_weather with city Paris. Then answer based on tool.",
+     "reasoning": "The user asks for weather in Paris right now and says use the tool. Need call get_weather with city Paris. Then answer based on tool."
+    },
+    "finish_reason": "tool_calls"
+   }
+  ],
+  "usage": {
+   "prompt_tokens": 111,
+   "completion_tokens": 65,
+   "total_tokens": 176,
+   "prompt_tokens_details": {
+    "cached_tokens": 0
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 31
+   },
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 64
+   }
+  },
+  "prompt_tokens_count": 111
+ },
+ "wall_s": 1.938
+}

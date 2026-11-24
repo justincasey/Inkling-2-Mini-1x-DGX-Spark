@@ -1,0 +1,51 @@
+{
+ "name": "engine-build-host",
+ "gate": "engine-build",
+ "date": "2026-11-23",
+ "result": "pass",
+ "node": "node-2",
+ "engine": {
+  "commit": "df4862be52cb831072ce420d81412f0eae7039a8",
+  "dirty": false,
+  "version": "0.1.1, commit df4862be52cb831072ce420d81412f0eae7039a8, cuda_arch sm_121, nvcc 13.0.88, kernel_hash cb5454c888b09fa3 (version.txt)",
+  "lab_build": true
+ },
+ "recipe": {
+  "commit": "edc654cd83d0c33124f9d12f62ea8a4a7b8226d3"
+ },
+ "tests": [
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2:: families::inkling2_loop::",
+   "passed": 64,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda --lib",
+   "filter": "inkling2",
+   "passed": 19,
+   "failed": 0
+  },
+  {
+   "bin": "gb-server --lib",
+   "filter": "formats::inkling2",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-server --test inkling2_format",
+   "filter": "",
+   "passed": 18,
+   "failed": 0
+  }
+ ],
+ "commands": [
+  "REXL3_SRC=<rexl3-inkling2-loop worktree> NODES=node-2 ./inkling2mini.sh build df4862be52cb831072ce420d81412f0eae7039a8",
+  "NODES=node-2 ./inkling2mini.sh engine-test host"
+ ],
+ "metrics": {
+  "build_seconds": 138,
+  "engine_test_host_seconds": 74
+ },
+ "notes": "Lab build (REXL3_COMMIT is not pinned yet). rexl3-serve sha256 acad52f121c5e0f5d1c3fd11f808233cdb63eaf42036f6adb37e4e6393f3fcec. Build time is the `time` of the build command (staging with git archive, rsync, cargo build --release --locked, install): 2m17.8s wall on the first build, cold target dir, with the toolchain installed by setup just before. The 64 tests of gb-model are the Small's 31 (families::inkling2::) plus the Mini host half (families::inkling2_loop::) built with CUDA enabled (not REXL3_NO_CUDA)."
+}

@@ -1,0 +1,11 @@
+PASS describe-red-square: 1.7s, usage 70 prompt tokens; reply: 'the user wants a brief answer about the color and shape in the image. the image shows a red square/rectangle on a white background. it appears to be a red squar'
+PASS repeat-red-square: 49 ids, identical=True
+PASS describe-blue-circle: 1.8s, usage 70 prompt tokens; reply: 'the user wants a brief answer about the image. the image shows a blue circle. need answer concise. ensure no extra. we can say "blue circle." need be careful: s'
+PASS repeat-blue-circle: 58 ids, identical=True
+PASS describe-green-yellow: 1.6s, usage 72 prompt tokens; reply: 'the user is asking about an image with left and right halves. looking at the image, the left half is green and the right half is yellow. need answer briefly. le'
+PASS repeat-green-yellow: 51 ids, identical=True
+PASS three-images: 3.1s, 145 prompt tokens; reply: 'the user wants the main colour of each of three images. need answer briefly. image1: red square. image2: blue circle. image3: split green/yellow; main colour? it has two halves equal, green left and y'
+PASS concurrent: red==solo True, blue==solo True, text==solo True
+PASS cap-image: status 200, 8.3s, 4121 prompt tokens; reply: 'the user wants a one-sentence description of the stripes in the image. the image shows horizontal alternating red and white stripes. need answer concise. ensure'
+PASS over-cap: status 400: {"error": {"message": "messages[0].content[1]: unsupported image: 2720x2720 is 68 x 68 = 4624 tokens of 40 pixels, over the cap of 4096 (Inkling 2 does not resize)", "type": "invalid_request_error", "code": 400}}
+RESULT pass

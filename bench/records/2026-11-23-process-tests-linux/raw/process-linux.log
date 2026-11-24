@@ -1,0 +1,20 @@
+GPU SM clock capped at 2200 MHz on node-4
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop/target/release/deps/process-8b85e6e2070dedc7
+GPU SM clock capped at 2200 MHz on node-4
+== gb-server 
+test a_fatal_backend_error_ends_the_process_with_70_and_every_stream_gets_an_error ... ok
+test a_kv_pool_below_the_window_is_the_limit_the_binary_reports_and_enforces ... ok
+test a_model_folder_with_no_eos_token_is_a_startup_error ... ok
+test a_panic_on_the_engine_thread_ends_the_process_non_zero_and_closes_the_port ... ok
+test a_panic_while_the_engine_is_loading_ends_the_process_instead_of_serving_loading_forever ... ok
+test a_progress_wedge_is_not_reported_as_healthy_forever ... ok
+test a_wedged_safe_boundary_hits_an_explicit_failure_watchdog ... ok
+test an_idle_server_exits_zero_on_sigterm_at_once ... ok
+test consecutive_step_errors_end_the_process_for_the_supervisor_to_restart ... ok
+test loading_sigterm_is_cooperative_joined_and_not_a_clean_exit_racing_boot ... ok
+test replies_that_finish_inside_the_grace_period_finish_normally ... ok
+test sigterm_under_load_drains_inside_the_grace_period_and_marks_what_it_cut_off ... ok
+test the_modes_that_only_print_are_not_re_executed ... ok
+test the_server_caps_its_malloc_arenas_unless_the_caller_named_a_value_or_opted_out ... ok
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 13.87s
+rc=0

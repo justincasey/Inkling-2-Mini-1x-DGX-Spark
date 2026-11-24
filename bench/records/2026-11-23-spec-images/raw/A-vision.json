@@ -1,0 +1,742 @@
+{
+ "meta": {
+  "kind": "vision",
+  "url": "http://node-2:8000",
+  "model": "inkling-2-mini-1x-dgx-spark",
+  "label": "",
+  "max_tokens": 64,
+  "date": "2026-11-23T11:28:52Z",
+  "models": {
+   "object": "list",
+   "data": [
+    {
+     "id": "inkling-2-mini-1x-dgx-spark",
+     "object": "model",
+     "created": 1795433332,
+     "owned_by": "rexl3",
+     "max_model_len": 262144,
+     "configured_max_model_len": 262144,
+     "kv_pool_tokens": 1048576,
+     "prefix_cache_reach_tokens": 393216,
+     "pack_validated": "no (--allow-unvalidated-pack)",
+     "pack_warning": "this pack is not one this release was validated on; it is served only because --allow-unvalidated-pack was given",
+     "draft_validated": null,
+     "reasoning": {
+      "reasons": true,
+      "source": "declared",
+      "verdict": "ok",
+      "markers": {
+       "open": "<|content_thinking|>",
+       "close": "<|end_message|>",
+       "open_id": 200008,
+       "close_id": 200010
+      },
+      "controls": [],
+      "accepted_inert": [],
+      "levels": [
+       {
+        "name": "none",
+        "thinks": false,
+        "sets": {
+         "reasoning_effort": "none"
+        },
+        "default_budget": null,
+        "effort": 0.0,
+        "suppresses_reasoning": false
+       },
+       {
+        "name": "minimal",
+        "thinks": false,
+        "sets": {
+         "reasoning_effort": "minimal"
+        },
+        "default_budget": null,
+        "effort": 0.1,
+        "suppresses_reasoning": false
+       },
+       {
+        "name": "low",
+        "thinks": false,
+        "sets": {
+         "reasoning_effort": "low"
+        },
+        "default_budget": null,
+        "effort": 0.2,
+        "suppresses_reasoning": false
+       },
+       {
+        "name": "medium",
+        "thinks": false,
+        "sets": {
+         "reasoning_effort": "medium"
+        },
+        "default_budget": null,
+        "effort": 0.7,
+        "suppresses_reasoning": false
+       },
+       {
+        "name": "high",
+        "thinks": false,
+        "sets": {
+         "reasoning_effort": "high"
+        },
+        "default_budget": null,
+        "effort": 0.9,
+        "suppresses_reasoning": false
+       },
+       {
+        "name": "xhigh",
+        "thinks": false,
+        "sets": {
+         "reasoning_effort": "xhigh"
+        },
+        "default_budget": null,
+        "effort": 0.99,
+        "suppresses_reasoning": false
+       },
+       {
+        "name": "max",
+        "thinks": false,
+        "sets": {
+         "reasoning_effort": "max"
+        },
+        "default_budget": null,
+        "effort": 0.99,
+        "suppresses_reasoning": false
+       }
+      ],
+      "default": {
+       "template_thinks": false,
+       "server": "off",
+       "thinks": false
+      },
+      "budget": {
+       "supported": false,
+       "refusal": "this model's reasoning capabilities declare no reasoning budget"
+      },
+      "request_fields": [
+       "reasoning_effort",
+       "chat_template_kwargs.reasoning_effort"
+      ],
+      "aliases": [
+       {
+        "name": "openai",
+        "aliases": [
+         {
+          "place": "top_level",
+          "name": "reasoning_effort",
+          "control": "effort"
+         },
+         {
+          "place": "kwarg",
+          "name": "reasoning_effort",
+          "control": "effort"
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "images": true
+ },
+ "images": [
+  {
+   "name": "red-square",
+   "png_sha256": "984ab7d5b0ae1640247de737804ff541a576f75cdfa63823aae4171398e34f7d",
+   "question": "What colour is the shape in this image, and what shape is it? Answer briefly.",
+   "token_ids": [
+    200001,
+    200008,
+    371,
+    150409,
+    159306,
+    149878,
+    156834,
+    150893,
+    150081,
+    149876,
+    150519,
+    149880,
+    152825,
+    149881,
+    149876,
+    150641,
+    13,
+    149917,
+    150641,
+    151600,
+    149878,
+    150682,
+    152397,
+    14,
+    93677,
+    149894,
+    149878,
+    152091,
+    153064,
+    13,
+    150129,
+    156090,
+    149882,
+    149895,
+    149878,
+    150682,
+    152397,
+    13,
+    154710,
+    183263,
+    13,
+    200010,
+    200001,
+    200004,
+    3977,
+    152397,
+    13,
+    200010,
+    200006
+   ],
+   "finish_reason": "stop",
+   "content": "Red square.",
+   "reasoning": "The user wants a brief answer about the color and shape in the image. The image shows a red square/rectangle on a white background. It appears to be a red square. Answer briefly.",
+   "usage": {
+    "prompt_tokens": 70,
+    "completion_tokens": 49,
+    "total_tokens": 119,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 40
+    },
+    "spec": {
+     "drafted": 102,
+     "accepted": 34,
+     "rounds": 17
+    }
+   },
+   "seconds": 0.906,
+   "names_colour": true
+  },
+  {
+   "name": "blue-circle",
+   "png_sha256": "5e9e0cba8242a23f25f6a0d7e129501c9ea9caa7540976c13229b5368ee6c064",
+   "question": "What colour is the shape in this image, and what shape is it? Answer briefly.",
+   "token_ids": [
+    200001,
+    200008,
+    371,
+    150409,
+    159306,
+    149878,
+    156834,
+    150893,
+    150081,
+    149876,
+    150641,
+    13,
+    149917,
+    150641,
+    151600,
+    149878,
+    152778,
+    154908,
+    13,
+    170289,
+    150893,
+    149911,
+    4123,
+    13,
+    174520,
+    149923,
+    151469,
+    13,
+    150197,
+    149951,
+    150657,
+    196980,
+    4601,
+    154908,
+    13,
+    1,
+    170289,
+    149895,
+    162944,
+    25,
+    152825,
+    149884,
+    154908,
+    11,
+    150519,
+    152778,
+    13,
+    154879,
+    156834,
+    13,
+    200010,
+    200001,
+    200004,
+    4601,
+    154908,
+    13,
+    200010,
+    200006
+   ],
+   "finish_reason": "stop",
+   "content": "Blue circle.",
+   "reasoning": "The user wants a brief answer about the image. The image shows a blue circle. Need answer concise. Ensure no extra. We can say \"Blue circle.\" Need be careful: shape is circle, color blue. Final brief.",
+   "usage": {
+    "prompt_tokens": 70,
+    "completion_tokens": 58,
+    "total_tokens": 128,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 49
+    },
+    "spec": {
+     "drafted": 104,
+     "accepted": 39,
+     "rounds": 20
+    }
+   },
+   "seconds": 0.983,
+   "names_colour": true
+  },
+  {
+   "name": "green-yellow",
+   "png_sha256": "365ea4e7977c805eaf7baf6b193ea992f48c58da95282ca487f8b047aaab0b9d",
+   "question": "This image has a left half and a right half. What colour is each half? Answer briefly.",
+   "token_ids": [
+    200001,
+    200008,
+    371,
+    150409,
+    149884,
+    161646,
+    150081,
+    149916,
+    150641,
+    149899,
+    150706,
+    149880,
+    150349,
+    151309,
+    31446,
+    13,
+    220,
+    144665,
+    149922,
+    149876,
+    150641,
+    11,
+    149876,
+    150706,
+    152013,
+    149884,
+    152373,
+    149880,
+    149876,
+    150349,
+    152013,
+    149884,
+    155423,
+    13,
+    170289,
+    150893,
+    183263,
+    13,
+    200010,
+    200001,
+    200004,
+    31671,
+    25,
+    152373,
+    26,
+    150349,
+    25,
+    155423,
+    13,
+    200010,
+    200006
+   ],
+   "finish_reason": "stop",
+   "content": "Left: green; right: yellow.",
+   "reasoning": "The user is asking about an image with left and right halves. Looking at the image, the left half is green and the right half is yellow. Need answer briefly.",
+   "usage": {
+    "prompt_tokens": 72,
+    "completion_tokens": 51,
+    "total_tokens": 123,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 37
+    },
+    "spec": {
+     "drafted": 68,
+     "accepted": 39,
+     "rounds": 12
+    }
+   },
+   "seconds": 0.669,
+   "names_colour": true
+  }
+ ],
+ "text": [
+  {
+   "name": "short",
+   "prompt_tokens": 16,
+   "prompt_sha256": "04605c9e0fd17e852fbac81a8f81fe932e4bac8760dd43300f87bf525707d5b5",
+   "generated_ids": [
+    68014,
+    60103,
+    68014,
+    371,
+    186077,
+    133997,
+    220,
+    118570,
+    198,
+    43795,
+    82,
+    151333,
+    158117,
+    11,
+    150154,
+    156563,
+    198,
+    32,
+    220,
+    35730,
+    149920,
+    149876,
+    151333,
+    68014,
+    1072,
+    220,
+    57833,
+    158887,
+    82,
+    149876,
+    178381,
+    149879,
+    149878,
+    186077,
+    133997,
+    220,
+    118570,
+    150180,
+    152791,
+    82,
+    151333,
+    158117,
+    13,
+    149917,
+    150135,
+    150264,
+    153346,
+    149876,
+    160841,
+    11,
+    177805,
+    149876,
+    220,
+    118570,
+    149880,
+    150029,
+    151405,
+    156508,
+    13,
+    149917,
+    150514,
+    150264,
+    160243,
+    149876
+   ],
+   "finish_reason": "length",
+   "usage": {
+    "prompt_tokens": 16,
+    "completion_tokens": 64,
+    "total_tokens": 80,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0
+    },
+    "spec": {
+     "drafted": 145,
+     "accepted": 32,
+     "rounds": 31
+    }
+   }
+  },
+  {
+   "name": "medium",
+   "prompt_tokens": 521,
+   "prompt_sha256": "50c404fc11a517b36fd859d18316e1b0b2a80c5fb3835f2761625fe8c40c7ffa",
+   "generated_ids": [
+    149917,
+    220,
+    36555,
+    357,
+    149919,
+    101132,
+    220,
+    68189,
+    220,
+    39723,
+    161931,
+    149881,
+    149876,
+    162589,
+    172750,
+    149881,
+    151488,
+    156689,
+    196976,
+    44500,
+    220,
+    68052,
+    12,
+    68020,
+    8,
+    13,
+    149917,
+    220,
+    36555,
+    357,
+    149919,
+    101132,
+    220,
+    68189,
+    220,
+    39723,
+    161931,
+    149881,
+    149876,
+    162589,
+    172750,
+    149881,
+    151488,
+    156689,
+    196976,
+    44500,
+    220,
+    68052,
+    12,
+    68251,
+    8,
+    13,
+    149917,
+    220,
+    36555,
+    357,
+    149919,
+    101132,
+    220,
+    68189,
+    220,
+    39723,
+    161931,
+    149881
+   ],
+   "finish_reason": "length",
+   "usage": {
+    "prompt_tokens": 521,
+    "completion_tokens": 64,
+    "total_tokens": 585,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0
+    },
+    "spec": {
+     "drafted": 120,
+     "accepted": 41,
+     "rounds": 22
+    }
+   }
+  },
+  {
+   "name": "long",
+   "prompt_tokens": 2030,
+   "prompt_sha256": "a4daf5a4fd1ceaa3eff838d26f9cc38fdf2ce91e3a3144981bfb38f6e2d21f2e",
+   "generated_ids": [
+    68014,
+    3256,
+    149899,
+    149876,
+    151224,
+    25,
+    198,
+    12,
+    196982,
+    1714,
+    29,
+    25,
+    196982,
+    1437,
+    29,
+    198,
+    12,
+    196982,
+    1714,
+    29,
+    25,
+    196982,
+    1437,
+    29,
+    198,
+    145038,
+    68014,
+    7,
+    1795,
+    149876,
+    154747,
+    151162,
+    153966,
+    149891,
+    152265,
+    13,
+    8,
+    68014,
+    68070,
+    68014,
+    68025,
+    220,
+    68040,
+    12,
+    16,
+    13,
+    149917,
+    220,
+    36598,
+    154487,
+    189459,
+    220,
+    81999,
+    220,
+    39723,
+    152336,
+    127274,
+    193784,
+    149876,
+    152275,
+    150273,
+    149876,
+    172752,
+    196976
+   ],
+   "finish_reason": "length",
+   "usage": {
+    "prompt_tokens": 2030,
+    "completion_tokens": 64,
+    "total_tokens": 2094,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0
+    },
+    "spec": {
+     "drafted": 139,
+     "accepted": 38,
+     "rounds": 25
+    }
+   }
+  },
+  {
+   "name": "xlong",
+   "prompt_tokens": 8334,
+   "prompt_sha256": "5ee83f42c967664a2dfb95c3499c8e0f84b7d6adece949b7f5fef18c59f63d8f",
+   "generated_ids": [
+    198,
+    16,
+    13,
+    149876,
+    151346,
+    153194,
+    198,
+    17,
+    13,
+    149876,
+    152373,
+    2389,
+    198,
+    18,
+    13,
+    149876,
+    162589,
+    172750,
+    68014,
+    1738,
+    150396,
+    150570,
+    82,
+    155550,
+    150230,
+    151123,
+    13,
+    198,
+    16,
+    13,
+    158117,
+    220,
+    41512,
+    43538,
+    198,
+    17,
+    13,
+    192823,
+    155380,
+    82,
+    198,
+    18,
+    13,
+    155638,
+    157351,
+    68014,
+    1738,
+    150396,
+    153502,
+    155550,
+    150230,
+    151123,
+    13,
+    198,
+    16,
+    13,
+    149919,
+    101132,
+    198,
+    17,
+    13,
+    158490,
+    198,
+    18
+   ],
+   "finish_reason": "length",
+   "usage": {
+    "prompt_tokens": 8334,
+    "completion_tokens": 64,
+    "total_tokens": 8398,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0
+    },
+    "spec": {
+     "drafted": 109,
+     "accepted": 43,
+     "rounds": 20
+    }
+   }
+  }
+ ]
+}

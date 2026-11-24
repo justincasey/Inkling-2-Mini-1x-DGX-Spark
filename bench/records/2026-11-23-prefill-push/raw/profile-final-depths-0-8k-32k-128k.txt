@@ -1,0 +1,217 @@
+kernels 113021 chunks 34
+
+== chunk 1: kernels 3324, span 1586.20 ms, union-busy 1580.05 ms, idle gaps 6.15 ms, sum of kernel times 1588.33 ms
+-- by category: launches | total ms | share
+   378   397.576  25.0%  moe: gate/up GEMM
+   288   237.601  15.0%  dense EXL3 GEMM
+   378   186.213  11.7%  moe: down GEMM
+   192   119.126   7.5%  controller glue
+   126   110.491   7.0%  moe: rot_in
+   400    97.309   6.1%  bf16 linear (taps, sink, controllers)
+    40    88.328   5.6%  attn: core local
+    48    74.104   4.7%  moe: combine
+   120    65.339   4.1%  AttnRes mix
+    48    52.745   3.3%  attn: bias tables
+   288    49.308   3.1%  dense EXL3 input rotation
+    48    33.829   2.1%  attn: prologue
+     8    30.575   1.9%  attn: core global
+    96    26.633   1.7%  short conv
+    88     8.346   0.5%  attn: ring/commit
+   631     7.752   0.5%  moe: plan/remap
+    48     1.768   0.1%  other: <unnamed>::select_kernel
+    96     0.959   0.1%  other: <unnamed>::commit_kernel
+     3     0.325   0.0%  norm/embed
+-- by kernel: launches | total ms | mean us | share
+    89   307.918    3459.8  19.4%  void gateup_kernel<(int)8, (int)2, (int)2, (int)2, (int)1, (int)1, (int)1, (int)2, (int)2>
+   288   237.601     825.0  15.0%  void big_kernel<(int)4, (int)12, (int)2, (int)2, (int)1, (int)0>
+   126   110.491     876.9   7.0%  rot_in_kernel
+    48   107.672    2243.2   6.8%  void down_kernel<(int)8, (int)2, (int)2, (int)2, (int)1, (int)1, (int)4, (int)2>
+   400    97.309     243.3   6.1%  lin_wide2_kernel
+    37    89.344    2414.7   5.6%  void gateup_kernel<(int)10, (int)2, (int)2, (int)2, (int)1, (int)0, (int)1, (int)2, (int)2>
+    40    88.328    2208.2   5.6%  void attn_kernel<(int)8, (int)3, (bool)0, (int)32, (bool)1>
+    78    78.231    1003.0   4.9%  void down_kernel<(int)10, (int)2, (int)2, (int)2, (int)1, (int)0, (int)4, (int)2>
+    48    74.104    1543.8   4.7%  void combine_f32_kernel<(bool)1>
+    96    72.152     751.6   4.5%  blend_kernel
+   288    49.308     171.2   3.1%  rot_in_frag_kernel
+    96    46.974     489.3   3.0%  pair_kernel
+    40    42.855    1071.4   2.7%  void bias_kernel<(int)8, (int)3, (bool)0>
+     8    30.575    3821.9   1.9%  void attn_kernel<(int)8, (int)3, (bool)1, (int)32, (bool)1>
+    96    26.633     277.4   1.7%  conv_kernel
+    40    25.242     631.1   1.6%  void prologue_kernel<(int)8, (int)3, (bool)0>
+    24    20.143     839.3   1.3%  void mix_raw_kernel<(int)2, (int)4>
+    20    11.159     558.0   0.7%  void mix_raw_kernel<(int)4, (int)1>
+    22    10.116     459.8   0.6%  void mix_raw_kernel<(int)3, (int)1>
+     8     9.890    1236.3   0.6%  void bias_kernel<(int)8, (int)3, (bool)1>
+     8     8.587    1073.4   0.5%  void prologue_kernel<(int)8, (int)3, (bool)1>
+   126     5.959      47.3   0.4%  own_remap_kernel
+    11     5.820     529.1   0.4%  void mix_kernel<(int)5, (int)1>
+    40     5.290     132.3   0.3%  void ring_write_kernel<(int)8>
+    11     4.878     443.4   0.3%  void mix_kernel<(int)4, (int)1>
+    11     3.958     359.8   0.2%  void mix_kernel<(int)3, (int)1>
+    11     3.088     280.7   0.2%  void mix_kernel<(int)2, (int)1>
+    48     3.056      63.7   0.2%  void conv_commit_kernel<(int)8>
+    48     1.768      36.8   0.1%  select_kernel
+     2     1.703     851.7   0.1%  void mix_raw_kernel<(int)4, (int)3>
+
+== chunk 3: kernels 3324, span 1671.58 ms, union-busy 1665.51 ms, idle gaps 6.07 ms, sum of kernel times 1673.64 ms
+-- by category: launches | total ms | share
+   378   392.122  23.4%  moe: gate/up GEMM
+   288   236.004  14.1%  dense EXL3 GEMM
+   378   182.585  10.9%  moe: down GEMM
+     8   124.104   7.4%  attn: core global
+   192   118.808   7.1%  controller glue
+   126   106.714   6.4%  moe: rot_in
+    40    98.433   5.9%  attn: core local
+   400    95.718   5.7%  bf16 linear (taps, sink, controllers)
+    48    74.080   4.4%  moe: combine
+   120    64.822   3.9%  AttnRes mix
+    48    52.063   3.1%  attn: bias tables
+   288    49.310   2.9%  dense EXL3 input rotation
+    48    33.394   2.0%  attn: prologue
+    96    26.634   1.6%  short conv
+    88     8.237   0.5%  attn: ring/commit
+   631     7.652   0.5%  moe: plan/remap
+    48     1.667   0.1%  other: <unnamed>::select_kernel
+    96     0.977   0.1%  other: <unnamed>::commit_kernel
+     3     0.318   0.0%  norm/embed
+-- by kernel: launches | total ms | mean us | share
+    89   310.811    3492.3  18.6%  void gateup_kernel<(int)8, (int)2, (int)2, (int)2, (int)1, (int)1, (int)1, (int)2, (int)2>
+   288   236.004     819.5  14.1%  void big_kernel<(int)4, (int)12, (int)2, (int)2, (int)1, (int)0>
+     8   124.104   15513.0   7.4%  void attn_kernel<(int)8, (int)3, (bool)1, (int)32, (bool)1>
+    48   109.015    2271.1   6.5%  void down_kernel<(int)8, (int)2, (int)2, (int)2, (int)1, (int)1, (int)4, (int)2>
+   126   106.714     846.9   6.4%  rot_in_kernel
+    40    98.433    2460.8   5.9%  void attn_kernel<(int)8, (int)3, (bool)0, (int)32, (bool)1>
+   400    95.718     239.3   5.7%  lin_wide2_kernel
+    37    80.947    2187.7   4.8%  void gateup_kernel<(int)10, (int)2, (int)2, (int)2, (int)1, (int)0, (int)1, (int)2, (int)2>
+    48    74.080    1543.3   4.4%  void combine_f32_kernel<(bool)1>
+    78    73.247     939.1   4.4%  void down_kernel<(int)10, (int)2, (int)2, (int)2, (int)1, (int)0, (int)4, (int)2>
+    96    72.084     750.9   4.3%  blend_kernel
+   288    49.310     171.2   2.9%  rot_in_frag_kernel
+    96    46.723     486.7   2.8%  pair_kernel
+    40    42.659    1066.5   2.5%  void bias_kernel<(int)8, (int)3, (bool)0>
+    96    26.634     277.4   1.6%  conv_kernel
+    40    25.247     631.2   1.5%  void prologue_kernel<(int)8, (int)3, (bool)0>
+    24    19.855     827.3   1.2%  void mix_raw_kernel<(int)2, (int)4>
+    20    11.008     550.4   0.7%  void mix_raw_kernel<(int)4, (int)1>
+    22    10.082     458.3   0.6%  void mix_raw_kernel<(int)3, (int)1>
+     8     9.404    1175.5   0.6%  void bias_kernel<(int)8, (int)3, (bool)1>
+     8     8.146    1018.3   0.5%  void prologue_kernel<(int)8, (int)3, (bool)1>
+   126     5.843      46.4   0.3%  own_remap_kernel
+    11     5.810     528.2   0.3%  void mix_kernel<(int)5, (int)1>
+    40     5.263     131.6   0.3%  void ring_write_kernel<(int)8>
+    11     4.896     445.1   0.3%  void mix_kernel<(int)4, (int)1>
+    11     3.996     363.3   0.2%  void mix_kernel<(int)3, (int)1>
+    11     3.050     277.2   0.2%  void mix_kernel<(int)2, (int)1>
+    48     2.974      62.0   0.2%  void conv_commit_kernel<(int)8>
+     2     1.772     886.0   0.1%  void mix_raw_kernel<(int)4, (int)3>
+    48     1.667      34.7   0.1%  select_kernel
+
+== chunk 9: kernels 3324, span 1949.81 ms, union-busy 1943.68 ms, idle gaps 6.13 ms, sum of kernel times 1951.67 ms
+-- by category: launches | total ms | share
+     8   403.625  20.7%  attn: core global
+   378   389.699  20.0%  moe: gate/up GEMM
+   288   236.051  12.1%  dense EXL3 GEMM
+   378   179.835   9.2%  moe: down GEMM
+   192   118.522   6.1%  controller glue
+   126   108.158   5.5%  moe: rot_in
+    40    98.434   5.0%  attn: core local
+   400    96.940   5.0%  bf16 linear (taps, sink, controllers)
+    48    74.270   3.8%  moe: combine
+   120    64.567   3.3%  AttnRes mix
+    48    52.799   2.7%  attn: bias tables
+   288    49.344   2.5%  dense EXL3 input rotation
+    48    34.140   1.7%  attn: prologue
+    96    26.422   1.4%  short conv
+    88     8.283   0.4%  attn: ring/commit
+   631     7.734   0.4%  moe: plan/remap
+    48     1.687   0.1%  other: <unnamed>::select_kernel
+    96     0.836   0.0%  other: <unnamed>::commit_kernel
+     3     0.321   0.0%  norm/embed
+-- by kernel: launches | total ms | mean us | share
+     8   403.625   50453.2  20.7%  void attn_kernel<(int)8, (int)3, (bool)1, (int)32, (bool)1>
+    89   314.338    3531.9  16.1%  void gateup_kernel<(int)8, (int)2, (int)2, (int)2, (int)1, (int)1, (int)1, (int)2, (int)2>
+   288   236.051     819.6  12.1%  void big_kernel<(int)4, (int)12, (int)2, (int)2, (int)1, (int)0>
+    48   109.206    2275.1   5.6%  void down_kernel<(int)8, (int)2, (int)2, (int)2, (int)1, (int)1, (int)4, (int)2>
+   126   108.158     858.4   5.5%  rot_in_kernel
+    40    98.434    2460.9   5.0%  void attn_kernel<(int)8, (int)3, (bool)0, (int)32, (bool)1>
+   400    96.940     242.3   5.0%  lin_wide2_kernel
+    37    74.973    2026.3   3.8%  void gateup_kernel<(int)10, (int)2, (int)2, (int)2, (int)1, (int)0, (int)1, (int)2, (int)2>
+    48    74.270    1547.3   3.8%  void combine_f32_kernel<(bool)1>
+    96    71.807     748.0   3.7%  blend_kernel
+    78    70.292     901.2   3.6%  void down_kernel<(int)10, (int)2, (int)2, (int)2, (int)1, (int)0, (int)4, (int)2>
+   288    49.344     171.3   2.5%  rot_in_frag_kernel
+    96    46.716     486.6   2.4%  pair_kernel
+    40    43.153    1078.8   2.2%  void bias_kernel<(int)8, (int)3, (bool)0>
+    96    26.422     275.2   1.4%  conv_kernel
+    40    25.561     639.0   1.3%  void prologue_kernel<(int)8, (int)3, (bool)0>
+    24    19.742     822.6   1.0%  void mix_raw_kernel<(int)2, (int)4>
+    20    11.013     550.7   0.6%  void mix_raw_kernel<(int)4, (int)1>
+    22    10.062     457.4   0.5%  void mix_raw_kernel<(int)3, (int)1>
+     8     9.646    1205.7   0.5%  void bias_kernel<(int)8, (int)3, (bool)1>
+     8     8.579    1072.4   0.4%  void prologue_kernel<(int)8, (int)3, (bool)1>
+   126     5.826      46.2   0.3%  own_remap_kernel
+    11     5.815     528.7   0.3%  void mix_kernel<(int)5, (int)1>
+    40     5.189     129.7   0.3%  void ring_write_kernel<(int)8>
+    11     4.880     443.7   0.3%  void mix_kernel<(int)4, (int)1>
+    11     3.971     361.0   0.2%  void mix_kernel<(int)3, (int)1>
+    48     3.094      64.5   0.2%  void conv_commit_kernel<(int)8>
+    11     3.032     275.6   0.2%  void mix_kernel<(int)2, (int)1>
+     2     1.708     853.9   0.1%  void mix_raw_kernel<(int)4, (int)3>
+    48     1.687      35.1   0.1%  select_kernel
+
+== chunk 33: kernels 3328, span 3096.28 ms, union-busy 3075.38 ms, idle gaps 20.89 ms, sum of kernel times 3083.82 ms
+-- by category: launches | total ms | share
+     8  1523.068  49.4%  attn: core global
+   378   391.633  12.7%  moe: gate/up GEMM
+   288   238.373   7.7%  dense EXL3 GEMM
+   378   181.503   5.9%  moe: down GEMM
+   192   118.961   3.9%  controller glue
+   127   110.375   3.6%  moe: rot_in
+    40    99.158   3.2%  attn: core local
+   400    96.396   3.1%  bf16 linear (taps, sink, controllers)
+    48    74.437   2.4%  moe: combine
+   120    65.374   2.1%  AttnRes mix
+    48    52.355   1.7%  attn: bias tables
+   288    50.091   1.6%  dense EXL3 input rotation
+    48    34.118   1.1%  attn: prologue
+    96    26.866   0.9%  short conv
+    88     8.656   0.3%  attn: ring/commit
+   630     7.810   0.3%  moe: plan/remap
+    48     1.697   0.1%  other: <unnamed>::select_kernel
+     1     1.582   0.1%  other: void <unnamed>::linear_kernel<
+    96     0.919   0.0%  other: <unnamed>::commit_kernel
+     3     0.317   0.0%  norm/embed
+     1     0.072   0.0%  attn: merge
+     1     0.055   0.0%  other: <unnamed>::split_local_kernel
+     1     0.004   0.0%  other: <unnamed>::epilogue_kernel
+-- by kernel: launches | total ms | mean us | share
+     8  1523.068  190383.5  49.4%  void attn_kernel<(int)8, (int)3, (bool)1, (int)32, (bool)1>
+    89   314.134    3529.6  10.2%  void gateup_kernel<(int)8, (int)2, (int)2, (int)2, (int)1, (int)1, (int)1, (int)2, (int)2>
+   288   238.373     827.7   7.7%  void big_kernel<(int)4, (int)12, (int)2, (int)2, (int)1, (int)0>
+   127   110.375     869.1   3.6%  rot_in_kernel
+    48   110.242    2296.7   3.6%  void down_kernel<(int)8, (int)2, (int)2, (int)2, (int)1, (int)1, (int)4, (int)2>
+    40    99.158    2478.9   3.2%  void attn_kernel<(int)8, (int)3, (bool)0, (int)32, (bool)1>
+   400    96.396     241.0   3.1%  lin_wide2_kernel
+    37    77.142    2084.9   2.5%  void gateup_kernel<(int)10, (int)2, (int)2, (int)2, (int)1, (int)0, (int)1, (int)2, (int)2>
+    48    74.437    1550.8   2.4%  void combine_f32_kernel<(bool)1>
+    96    72.309     753.2   2.3%  blend_kernel
+    78    70.926     909.3   2.3%  void down_kernel<(int)10, (int)2, (int)2, (int)2, (int)1, (int)0, (int)4, (int)2>
+   288    50.091     173.9   1.6%  rot_in_frag_kernel
+    96    46.652     486.0   1.5%  pair_kernel
+    40    42.910    1072.7   1.4%  void bias_kernel<(int)8, (int)3, (bool)0>
+    96    26.866     279.9   0.9%  conv_kernel
+    40    25.443     636.1   0.8%  void prologue_kernel<(int)8, (int)3, (bool)0>
+    24    20.238     843.3   0.7%  void mix_raw_kernel<(int)2, (int)4>
+    20    11.044     552.2   0.4%  void mix_raw_kernel<(int)4, (int)1>
+    22    10.165     462.0   0.3%  void mix_raw_kernel<(int)3, (int)1>
+     8     9.446    1180.7   0.3%  void bias_kernel<(int)8, (int)3, (bool)1>
+     8     8.676    1084.5   0.3%  void prologue_kernel<(int)8, (int)3, (bool)1>
+   126     5.963      47.3   0.2%  own_remap_kernel
+    11     5.862     532.9   0.2%  void mix_kernel<(int)5, (int)1>
+    40     5.567     139.2   0.2%  void ring_write_kernel<(int)8>
+    11     4.896     445.1   0.2%  void mix_kernel<(int)4, (int)1>
+    11     3.978     361.7   0.1%  void mix_kernel<(int)3, (int)1>
+    48     3.089      64.3   0.1%  void conv_commit_kernel<(int)8>
+    11     3.083     280.3   0.1%  void mix_kernel<(int)2, (int)1>
+     2     1.723     861.5   0.1%  void mix_raw_kernel<(int)4, (int)3>
+    48     1.697      35.3   0.1%  select_kernel

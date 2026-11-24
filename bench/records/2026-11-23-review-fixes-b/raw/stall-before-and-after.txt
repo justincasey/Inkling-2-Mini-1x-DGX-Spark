@@ -1,0 +1,8 @@
+Before the tower change (engine 6f227ee + the stall test, LoopEncoder's blocking stream; inkling2_loop_stall.rs, LOOP_ENC_STREAM=blocking), as printed:
+LOOP_STALL_blocking quiet_median_ms 24.07 during_windows 5 during_median_ms 34.38 during_max_ms 2860.90 encode_ms 3187.9
+Same test, a non-blocking encoder stream but the OLD tower (legacy cudaMemcpy staging and read-back), as printed:
+LOOP_STALL_nonblocking quiet_median_ms 24.06 during_windows 10 during_median_ms 413.14 during_max_ms 415.63 encode_ms 3253.2
+Tower with stream-ordered copies but WITHOUT the sync before the pageable async read-back (a thread parked inside cudaMemcpyAsync held up the other
+thread's CUDA calls), non-blocking stream, rank at default priority, as printed:
+LOOP_STALL_nonblocking quiet_median_ms 24.05 during_windows 5 during_median_ms 26.46 during_max_ms 2910.68 encode_ms 3362.4
+The final tower (sync before the read-back), see stall-final.txt (rank at greatest priority, and with REXL3_INKLING2_LOOP_PRIORITY=0).

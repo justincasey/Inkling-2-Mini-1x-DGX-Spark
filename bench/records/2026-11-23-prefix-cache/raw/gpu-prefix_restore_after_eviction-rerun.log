@@ -1,0 +1,6 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-state/target/release/deps/inkling2_loop_prefix-1b9273b4b3b48c2f
+== gb-model prefix_restore_after_eviction
+test prefix_restore_after_eviction ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.0
+LOOP_PFX_snapshot_slot_bytes 170835968 slots 2
+LOOP_PFX_eviction cut 1092 restores 3 after_reuse after_eviction after_refill identical pages_returned 400
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 20.11s

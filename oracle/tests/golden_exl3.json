@@ -1,0 +1,32 @@
+{
+ "note": "sha256 of gb-exl3 (exl3dq wq / dense) output for make_group(seed,k,n,bits) in tests/test_exl3.py; wq = uint16 fp16 bits [K,N], dense = float64 [K,N], C order",
+ "groups": {
+  "g4": {
+   "k": 256,
+   "n": 384,
+   "bits": 4,
+   "seed": 4004,
+   "codebook": "mul1",
+   "wq_sha256": "27ca52d2b9f65c4f1ecd1fde398edd53fce2b1ba9527313abde2b9283a194708",
+   "dense_sha256": "142f3aecf2840dc376f56648ae4da156e2765a0d4f5a3219cc049366d2982d27"
+  },
+  "g5": {
+   "k": 256,
+   "n": 384,
+   "bits": 5,
+   "seed": 5005,
+   "codebook": "mul1",
+   "wq_sha256": "ad62a89013fcad7a740ffa05a4396dc2d1785593467c1a179c3bbeb7703386c4",
+   "dense_sha256": "dbe57b0c36acdcbb80128d15890609a358c75056cd80c066d2bc46c3e7f36913"
+  },
+  "g6": {
+   "k": 256,
+   "n": 384,
+   "bits": 6,
+   "seed": 6006,
+   "codebook": "mul1",
+   "wq_sha256": "85c5ddc607f9e14c253ea0c87bbe228418a4884267d431f3fe5b07c975061348",
+   "dense_sha256": "af16c05bdfafc4037de4e226773034e381baef76e6ffb82bdc6134eea2b1a548"
+  }
+ }
+}

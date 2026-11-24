@@ -1,0 +1,5 @@
+serve   pid 2012440, up 0h11m46s
+guard   pid 2012309, ready floor
+memory  MemAvailable 68648 MiB now; guard min 68439 MiB at 2026-11-23T08:43:43Z (loading 68918, ready 68439, window 68439); swap 507 MiB (base 507)
+gpu     util/mem/temp/power/sm clock: 0 %, [N/A], 60, 14.80 W, 2197 MHz; processes: 2012440, /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve, 49493 MiB
+log     rexl3 event=http ts=1795423473 method=GET route=/v1/models status=200 headers_ms=0.125 id=req-000000000000016d

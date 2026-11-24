@@ -1,0 +1,276 @@
+{
+ "name": "expert-arena",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "a0aa530b327ed875a9b50a47a2c2ec0e0735807a",
+  "dirty_files": []
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "0a6b7e26e6c4b6f78d34a83ed026144930497c7f",
+  "sha256": "a65ce542d75b6ea2c119e2cd657148a451eef808894bfcdaa5a969b858901294",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "0a6b7e26e6c4b6f78d34a83ed026144930497c7f",
+   "system_fingerprint": "fp_0a6b7e26e6c4_0677d17b_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "0677d17bcd2acfa4",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2190 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "none",
+  "PREFIX_CACHE": "off",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec none --prefix-cache off --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "tests": [
+  {
+   "bin": "inkling2_loop_rank (gb-model, node-1)",
+   "filter": "forward_oracle_gate: dump sha256 c25f9876...c45c0 twice, 90,056,120 bytes",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_rank (gb-model, node-1)",
+   "filter": "forward_oracle_gate: chunk widths 7 and 11, logits sha256 a105f245...f41a",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_graphs (gb-model, node-1)",
+   "filter": "graph_replay_equals_eager: 37 windows, graph == eager == overlapped, 12 captures, 213 replays",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_graphs (gb-model, node-1)",
+   "filter": "capture_refusal_runs_eager_and_counts",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_moe (gb-cuda, node-1)",
+   "filter": "golden_inkling2_moe_hashes (the Small's golden)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_moe (gb-cuda, node-1)",
+   "filter": "partial_equals_the_float64_reference, four_rank_banks_sum_to_the_tp4_result, graph_replay_equals_eager",
+   "passed": 3,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_moe (gb-cuda, node-1)",
+   "filter": "prefill_equals_decode (2), prefill_with_tight_class_grids_equals_decode",
+   "passed": 3,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_moe_mixed (gb-cuda, node-1)",
+   "filter": "mul1_bands (2), band_split (2), real_mini_layers_equal_the_oracle, graph_replay_equals_eager_over_bands",
+   "passed": 5,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_ops (gb-cuda, node-1)",
+   "filter": "golden_inkling2_ops_hashes",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "exactness.py record + diff (node-1)",
+   "filter": "4 replies identical to the graph-exact pin (replies sha256 d0cf6b3c...c3bc2)",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "exactness.py concurrent (node-1)",
+   "filter": "concurrent == solo, 4 prompts",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2 (the Small's 31 and the Mini's)",
+   "passed": 119,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "bootstrap: plan predicts MemAvailable at ready within 1 GiB (error +415 MiB)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "bootstrap: weights stage 14114 MiB (was 20133), process 33588 MiB (was 39680)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "long: plan predicts MemAvailable at ready within 1 GiB (error +107 MiB)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "long: weights stage 13837 MiB (was 20700), process 50927 MiB (was 57031)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "max cache off: plan predicts MemAvailable at ready within 1 GiB (error +749 MiB)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "max cache off: weights stage 14313 MiB (was 21269), process 84294 MiB (was 90386)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "max cache auto: plan predicts MemAvailable at ready within 1 GiB (error +491 MiB)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "max cache auto: weights stage 14116 MiB (was 21088), process 106295 MiB (was 94872)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "bootstrap vision+cache: plan predicts MemAvailable at ready within 1 GiB (error +7 MiB)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2mini.sh start + status (node-1)",
+   "filter": "bootstrap vision+cache: weights stage 14058 MiB (was 20809), process 43206 MiB (was 49296)",
+   "passed": 1,
+   "failed": 0
+  }
+ ],
+ "gate": "expert-arena",
+ "result": "pass",
+ "node": "node-1",
+ "metrics": {
+  "bootstrap_before_weights_stage": 20133,
+  "bootstrap_after_weights_stage": 14114,
+  "bootstrap_before_gpu": 39680,
+  "bootstrap_after_gpu": 33588,
+  "bootstrap_before_ready": 66247,
+  "bootstrap_after_ready": 84577,
+  "bootstrap_before_pred": 65905,
+  "bootstrap_after_pred": 84992,
+  "bootstrap_before_err": -342,
+  "bootstrap_after_err": 415,
+  "bootstrap_before_guard_min": 66097,
+  "bootstrap_after_guard_min": 84482,
+  "bootstrap_before_cache_gib": 0.0,
+  "bootstrap_after_cache_gib": 0.0,
+  "long_before_weights_stage": 20700,
+  "long_after_weights_stage": 13837,
+  "long_before_gpu": 57031,
+  "long_after_gpu": 50927,
+  "long_before_ready": 48406,
+  "long_after_ready": 67549,
+  "long_before_pred": 48568,
+  "long_after_pred": 67656,
+  "long_before_err": 162,
+  "long_after_err": 107,
+  "long_before_guard_min": 48339,
+  "long_after_guard_min": 67416,
+  "long_before_cache_gib": 0.0,
+  "long_after_cache_gib": 0.0,
+  "max_cache_off_before_weights_stage": 21269,
+  "max_cache_off_after_weights_stage": 14313,
+  "max_cache_off_before_gpu": 90386,
+  "max_cache_off_after_gpu": 84294,
+  "max_cache_off_before_ready": 15722,
+  "max_cache_off_after_ready": 33545,
+  "max_cache_off_before_pred": 15196,
+  "max_cache_off_after_pred": 34294,
+  "max_cache_off_before_err": -526,
+  "max_cache_off_after_err": 749,
+  "max_cache_off_before_guard_min": 15612,
+  "max_cache_off_after_guard_min": 33422,
+  "max_cache_off_before_cache_gib": 0.0,
+  "max_cache_off_after_cache_gib": 0.0,
+  "max_cache_auto_before_weights_stage": 21088,
+  "max_cache_auto_after_weights_stage": 14116,
+  "max_cache_auto_before_gpu": 94872,
+  "max_cache_auto_after_gpu": 106295,
+  "max_cache_auto_before_ready": 12243,
+  "max_cache_auto_after_ready": 11797,
+  "max_cache_auto_before_pred": 11735,
+  "max_cache_auto_after_pred": 12288,
+  "max_cache_auto_before_err": -508,
+  "max_cache_auto_after_err": 491,
+  "max_cache_auto_before_guard_min": 11928,
+  "max_cache_auto_after_guard_min": 11605,
+  "max_cache_auto_before_cache_gib": 4.38,
+  "max_cache_auto_after_cache_gib": 21.49,
+  "bootstrap_visionandcache_before_weights_stage": 20809,
+  "bootstrap_visionandcache_after_weights_stage": 14058,
+  "bootstrap_visionandcache_before_gpu": 49296,
+  "bootstrap_visionandcache_after_gpu": 43206,
+  "bootstrap_visionandcache_before_ready": 57923,
+  "bootstrap_visionandcache_after_ready": 75380,
+  "bootstrap_visionandcache_before_pred": 57324,
+  "bootstrap_visionandcache_after_pred": 75387,
+  "bootstrap_visionandcache_before_err": -599,
+  "bootstrap_visionandcache_after_err": 7,
+  "bootstrap_visionandcache_before_guard_min": 57867,
+  "bootstrap_visionandcache_after_guard_min": 75259,
+  "bootstrap_visionandcache_before_cache_gib": 8.59,
+  "bootstrap_visionandcache_after_cache_gib": 8.59
+ },
+ "commands": [
+  "NODES=node-1 REXL3_SRC=<engine worktree> ./inkling2mini.sh build 7746bee31dda... (arena), 0a6b7e26e6c4... (plan constants)",
+  "run_profile.sh (as in memory-plan) per profile",
+  "scripts/ops_dev.sh test inkling2_loop_rank forward_oracle_gate; inkling2_loop_graphs graph_replay_equals capture_refusal (TEST_ENV LOOP_LONG_IDS_FILE); inkling2_moe, inkling2_moe_mixed, inkling2_ops golden (gb-cuda)",
+  "inkling2mini.sh start; exactness.py record OUT --max-tokens 128; exactness.py diff PIN OUT; exactness.py concurrent --max-tokens 64; inkling2mini.sh stop"
+ ],
+ "notes": "Boots on engine 0a6b7e26e6c4 (arena + plan constants); proofs run from the committed tree f8bcdea (the only change after 0a6b7e2 is the test constants). Before = engine abc6813 (the memory-plan record's after). Node-1's other tenant (LoopRank's CPU job) ended between the before and after boots: boot_start MemAvailable rose from about 107 GiB to 119 GiB, so ready MemAvailable is not comparable across the two; the process's GPU MiB and the weights stage are."
+}

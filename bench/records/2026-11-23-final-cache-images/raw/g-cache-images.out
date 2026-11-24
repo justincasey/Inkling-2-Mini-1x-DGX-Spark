@@ -1,0 +1,9 @@
+16:36:05 bench cache-images against http://node-1:8000 (inkling-2-mini-1x-dgx-spark, window 262144); results in bench/runs/20261123T223605Z-cache-images
+16:36:05 gate cache-images: python3 ~/projects/inkling2-mini-k-real/bench/tools/cache_images.py --out ~/projects/inkling2-mini-k-real/bench/runs/20261123T223605Z-cache-images/cache-images.json --url http://node-1:8000 --model inkling-2-mini-1x-dgx-spark
+PASS cache-images
+METRIC cache_images_lookups_total=14.0
+METRIC cache_images_hits_total=11.0
+METRIC cache_images_tokens_saved_total=40689.0
+METRIC cache_images_inserts_total=4.0
+METRIC cache_images_evictions_total=0.0
+bench cache-images: pass run=bench/runs/20261123T223605Z-cache-images

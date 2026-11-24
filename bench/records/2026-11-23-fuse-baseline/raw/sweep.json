@@ -1,0 +1,980 @@
+{
+ "url": "http://node-2:8000",
+ "model": "inkling-2-mini-1x-dgx-spark",
+ "window": 262144,
+ "ctxs": [
+  4096
+ ],
+ "conc": [
+  1,
+  2,
+  4
+ ],
+ "shallow": [
+  {
+   "phase": "shallow",
+   "mode": "serial",
+   "c": 1,
+   "ctx": 4096,
+   "rep": 1,
+   "ok": true,
+   "per_prompt": {
+    "prose": {
+     "prompt_tokens": 79,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 9.7138,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "ttft_s": 0.1322,
+     "decode_s": 9.5688,
+     "decode_tok_s": 53.403,
+     "generated_tokens": 512
+    },
+    "code": {
+     "prompt_tokens": 225,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 9.6511,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "ttft_s": 0.1925,
+     "decode_s": 9.4459,
+     "decode_tok_s": 54.097,
+     "generated_tokens": 512
+    },
+    "structured": {
+     "prompt_tokens": 158,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 9.7075,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "ttft_s": 0.1687,
+     "decode_s": 9.5265,
+     "decode_tok_s": 53.64,
+     "generated_tokens": 512
+    },
+    "json": {
+     "prompt_tokens": 251,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 9.7828,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "ttft_s": 0.2055,
+     "decode_s": 9.5661,
+     "decode_tok_s": 53.418,
+     "generated_tokens": 512
+    }
+   },
+   "tok_s": 53.6395,
+   "ttft_s": 0.174725,
+   "tokens": 2048,
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 2044,
+    "acceptance": null,
+    "tokens_per_round": 1.002
+   },
+   "tokens_per_round": 1.002,
+   "epoch_start": 1795441492.60256,
+   "epoch_end": 1795441531.614474
+  },
+  {
+   "phase": "shallow",
+   "mode": "serial",
+   "c": 1,
+   "ctx": 4096,
+   "rep": 2,
+   "ok": true,
+   "per_prompt": {
+    "prose": {
+     "prompt_tokens": 79,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 9.7154,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "ttft_s": 0.1303,
+     "decode_s": 9.5721,
+     "decode_tok_s": 53.384,
+     "generated_tokens": 512
+    },
+    "code": {
+     "prompt_tokens": 225,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 9.6496,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "ttft_s": 0.1883,
+     "decode_s": 9.4492,
+     "decode_tok_s": 54.079,
+     "generated_tokens": 512
+    },
+    "structured": {
+     "prompt_tokens": 158,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 9.705,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "ttft_s": 0.17,
+     "decode_s": 9.5219,
+     "decode_tok_s": 53.665,
+     "generated_tokens": 512
+    },
+    "json": {
+     "prompt_tokens": 251,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 9.779,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "ttft_s": 0.205,
+     "decode_s": 9.5643,
+     "decode_tok_s": 53.428,
+     "generated_tokens": 512
+    }
+   },
+   "tok_s": 53.638999999999996,
+   "ttft_s": 0.1734,
+   "tokens": 2048,
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 2044,
+    "acceptance": null,
+    "tokens_per_round": 1.002
+   },
+   "tokens_per_round": 1.002,
+   "epoch_start": 1795441531.615794,
+   "epoch_end": 1795441570.6190898
+  },
+  {
+   "phase": "shallow",
+   "mode": "serial",
+   "c": 1,
+   "ctx": 4096,
+   "rep": 3,
+   "ok": true,
+   "per_prompt": {
+    "prose": {
+     "prompt_tokens": 79,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 9.7259,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "ttft_s": 0.1311,
+     "decode_s": 9.5709,
+     "decode_tok_s": 53.391,
+     "generated_tokens": 512
+    },
+    "code": {
+     "prompt_tokens": 225,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 9.6492,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "ttft_s": 0.1894,
+     "decode_s": 9.4488,
+     "decode_tok_s": 54.081,
+     "generated_tokens": 512
+    },
+    "structured": {
+     "prompt_tokens": 158,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 9.7072,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "ttft_s": 0.169,
+     "decode_s": 9.5253,
+     "decode_tok_s": 53.646,
+     "generated_tokens": 512
+    },
+    "json": {
+     "prompt_tokens": 251,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 9.7851,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "ttft_s": 0.2062,
+     "decode_s": 9.5698,
+     "decode_tok_s": 53.397,
+     "generated_tokens": 512
+    }
+   },
+   "tok_s": 53.62875,
+   "ttft_s": 0.173925,
+   "tokens": 2048,
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 2044,
+    "acceptance": null,
+    "tokens_per_round": 1.002
+   },
+   "tokens_per_round": 1.002,
+   "epoch_start": 1795441570.619754,
+   "epoch_end": 1795441609.627119
+  },
+  {
+   "phase": "shallow",
+   "mode": "serial",
+   "c": 2,
+   "ctx": 4096,
+   "rep": 1,
+   "ok": true,
+   "tok_s": 75.78790744385174,
+   "tokens": 1024,
+   "wall_s": 13.5113903330639,
+   "per_stream_tok_s": 37.89395372192587,
+   "streams": {
+    "prose#0": {
+     "prompt_tokens": 79,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 13.4925,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "generated_tokens": 512
+    },
+    "code#1": {
+     "prompt_tokens": 225,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 13.5113,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "generated_tokens": 512
+    }
+   },
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 1022,
+    "acceptance": null,
+    "tokens_per_round": 1.002
+   },
+   "tokens_per_round": 1.002,
+   "epoch_start": 1795441609.627848,
+   "epoch_end": 1795441623.139669
+  },
+  {
+   "phase": "shallow",
+   "mode": "serial",
+   "c": 2,
+   "ctx": 4096,
+   "rep": 2,
+   "ok": true,
+   "tok_s": 75.70968798568182,
+   "tokens": 1024,
+   "wall_s": 13.525349624920636,
+   "per_stream_tok_s": 37.85484399284091,
+   "streams": {
+    "prose#0": {
+     "prompt_tokens": 79,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 13.525,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "generated_tokens": 512
+    },
+    "code#1": {
+     "prompt_tokens": 225,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 13.5067,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "generated_tokens": 512
+    }
+   },
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 1022,
+    "acceptance": null,
+    "tokens_per_round": 1.002
+   },
+   "tokens_per_round": 1.002,
+   "epoch_start": 1795441623.141449,
+   "epoch_end": 1795441636.6670709
+  },
+  {
+   "phase": "shallow",
+   "mode": "serial",
+   "c": 2,
+   "ctx": 4096,
+   "rep": 3,
+   "ok": true,
+   "tok_s": 75.40670535717237,
+   "tokens": 1024,
+   "wall_s": 13.579694208223373,
+   "per_stream_tok_s": 37.703352678586185,
+   "streams": {
+    "prose#0": {
+     "prompt_tokens": 79,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 13.5793,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "generated_tokens": 512
+    },
+    "code#1": {
+     "prompt_tokens": 225,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 13.5786,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "generated_tokens": 512
+    }
+   },
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 1022,
+    "acceptance": null,
+    "tokens_per_round": 1.002
+   },
+   "tokens_per_round": 1.002,
+   "epoch_start": 1795441636.668052,
+   "epoch_end": 1795441650.248272
+  },
+  {
+   "phase": "shallow",
+   "mode": "serial",
+   "c": 4,
+   "ctx": 4096,
+   "rep": 1,
+   "ok": true,
+   "tok_s": 100.81888742093743,
+   "tokens": 2048,
+   "wall_s": 20.313654042314738,
+   "per_stream_tok_s": 25.204721855234357,
+   "streams": {
+    "prose#0": {
+     "prompt_tokens": 79,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 20.3132,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "generated_tokens": 512
+    },
+    "code#1": {
+     "prompt_tokens": 225,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 20.267,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "generated_tokens": 512
+    },
+    "structured#2": {
+     "prompt_tokens": 158,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 20.2932,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "generated_tokens": 512
+    },
+    "json#3": {
+     "prompt_tokens": 251,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 20.2343,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "generated_tokens": 512
+    }
+   },
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 2044,
+    "acceptance": null,
+    "tokens_per_round": 1.002
+   },
+   "tokens_per_round": 1.002,
+   "epoch_start": 1795441650.2514482,
+   "epoch_end": 1795441670.5657558
+  },
+  {
+   "phase": "shallow",
+   "mode": "serial",
+   "c": 4,
+   "ctx": 4096,
+   "rep": 2,
+   "ok": true,
+   "tok_s": 100.73293229982595,
+   "tokens": 2048,
+   "wall_s": 20.330987624824047,
+   "per_stream_tok_s": 25.183233074956487,
+   "streams": {
+    "prose#0": {
+     "prompt_tokens": 79,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 20.3303,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "generated_tokens": 512
+    },
+    "code#1": {
+     "prompt_tokens": 225,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 20.3307,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "generated_tokens": 512
+    },
+    "structured#2": {
+     "prompt_tokens": 158,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 20.3305,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "generated_tokens": 512
+    },
+    "json#3": {
+     "prompt_tokens": 251,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 20.3306,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "generated_tokens": 512
+    }
+   },
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 2044,
+    "acceptance": null,
+    "tokens_per_round": 1.002
+   },
+   "tokens_per_round": 1.002,
+   "epoch_start": 1795441670.566815,
+   "epoch_end": 1795441690.898038
+  },
+  {
+   "phase": "shallow",
+   "mode": "serial",
+   "c": 4,
+   "ctx": 4096,
+   "rep": 3,
+   "ok": true,
+   "tok_s": 100.49585972252714,
+   "tokens": 2048,
+   "wall_s": 20.37894900003448,
+   "per_stream_tok_s": 25.123964930631786,
+   "streams": {
+    "prose#0": {
+     "prompt_tokens": 79,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 20.3771,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "generated_tokens": 512
+    },
+    "code#1": {
+     "prompt_tokens": 225,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 20.3776,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "generated_tokens": 512
+    },
+    "structured#2": {
+     "prompt_tokens": 158,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 20.3785,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "generated_tokens": 512
+    },
+    "json#3": {
+     "prompt_tokens": 251,
+     "finish_reason": "length",
+     "completion_tokens": 512,
+     "wall_s": 20.3784,
+     "spec": {
+      "drafted": 0,
+      "accepted": 0,
+      "rounds": 511,
+      "acceptance": null,
+      "tokens_per_round": 1.002
+     },
+     "cached_tokens": 0,
+     "generated_tokens": 512
+    }
+   },
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 2044,
+    "acceptance": null,
+    "tokens_per_round": 1.002
+   },
+   "tokens_per_round": 1.002,
+   "epoch_start": 1795441690.899356,
+   "epoch_end": 1795441711.278621
+  }
+ ],
+ "depth": [
+  {
+   "phase": "depth",
+   "mode": "serial",
+   "c": 1,
+   "ctx": 4096,
+   "rep": 1,
+   "ok": true,
+   "tok_s": 51.394,
+   "ttft_s": 1.6185,
+   "prompt_tokens": 4096,
+   "tokens": 256,
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 255,
+    "acceptance": null,
+    "tokens_per_round": 1.0039
+   },
+   "tokens_per_round": 1.0039,
+   "prefill_tok_s": 2530.7,
+   "finish_reason": "length",
+   "epoch_start": 1795441711.330782,
+   "epoch_end": 1795441717.956031
+  },
+  {
+   "phase": "depth",
+   "mode": "serial",
+   "c": 1,
+   "ctx": 4096,
+   "rep": 2,
+   "ok": true,
+   "tok_s": 51.545,
+   "ttft_s": 1.6119,
+   "prompt_tokens": 4096,
+   "tokens": 256,
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 255,
+    "acceptance": null,
+    "tokens_per_round": 1.0039
+   },
+   "tokens_per_round": 1.0039,
+   "prefill_tok_s": 2541.1,
+   "finish_reason": "length",
+   "epoch_start": 1795441717.958113,
+   "epoch_end": 1795441724.562678
+  },
+  {
+   "phase": "depth",
+   "mode": "serial",
+   "c": 1,
+   "ctx": 4096,
+   "rep": 3,
+   "ok": true,
+   "tok_s": 51.547,
+   "ttft_s": 1.612,
+   "prompt_tokens": 4096,
+   "tokens": 256,
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 255,
+    "acceptance": null,
+    "tokens_per_round": 1.0039
+   },
+   "tokens_per_round": 1.0039,
+   "prefill_tok_s": 2540.9,
+   "finish_reason": "length",
+   "epoch_start": 1795441724.5651882,
+   "epoch_end": 1795441731.1754282
+  },
+  {
+   "phase": "depth",
+   "mode": "serial",
+   "c": 2,
+   "ctx": 4096,
+   "rep": 1,
+   "ok": false,
+   "reason": "a stream failed or produced fewer than 2 events",
+   "tok_s": null,
+   "errors": [
+    "ApiError: /v1/completions: HTTP 400: {'error': {'message': 'return_token_ids is supported by non-streamed completions and by chat completions', 'type': 'invalid_request_error', 'code': 400, 'param': 'return_token_ids'}}",
+    "ApiError: /v1/completions: HTTP 400: {'error': {'message': 'return_token_ids is supported by non-streamed completions and by chat completions', 'type': 'invalid_request_error', 'code': 400, 'param': 'return_token_ids'}}"
+   ],
+   "cached_tokens": [
+    0,
+    0
+   ],
+   "spec": null,
+   "tokens_per_round": null,
+   "prompt_tokens": [
+    null,
+    null
+   ],
+   "tokens": 0,
+   "flag": "a stream failed or produced fewer than 2 events",
+   "epoch_start": 1795441731.22165,
+   "epoch_end": 1795441731.242999
+  },
+  {
+   "phase": "depth",
+   "mode": "serial",
+   "c": 2,
+   "ctx": 4096,
+   "rep": 2,
+   "ok": false,
+   "reason": "a stream failed or produced fewer than 2 events",
+   "tok_s": null,
+   "errors": [
+    "ApiError: /v1/completions: HTTP 400: {'error': {'message': 'return_token_ids is supported by non-streamed completions and by chat completions', 'type': 'invalid_request_error', 'code': 400, 'param': 'return_token_ids'}}",
+    "ApiError: /v1/completions: HTTP 400: {'error': {'message': 'return_token_ids is supported by non-streamed completions and by chat completions', 'type': 'invalid_request_error', 'code': 400, 'param': 'return_token_ids'}}"
+   ],
+   "cached_tokens": [
+    0,
+    0
+   ],
+   "spec": null,
+   "tokens_per_round": null,
+   "prompt_tokens": [
+    null,
+    null
+   ],
+   "tokens": 0,
+   "flag": "a stream failed or produced fewer than 2 events",
+   "epoch_start": 1795441731.247383,
+   "epoch_end": 1795441731.2633421
+  },
+  {
+   "phase": "depth",
+   "mode": "serial",
+   "c": 2,
+   "ctx": 4096,
+   "rep": 3,
+   "ok": false,
+   "reason": "a stream failed or produced fewer than 2 events",
+   "tok_s": null,
+   "errors": [
+    "ApiError: /v1/completions: HTTP 400: {'error': {'message': 'return_token_ids is supported by non-streamed completions and by chat completions', 'type': 'invalid_request_error', 'code': 400, 'param': 'return_token_ids'}}",
+    "ApiError: /v1/completions: HTTP 400: {'error': {'message': 'return_token_ids is supported by non-streamed completions and by chat completions', 'type': 'invalid_request_error', 'code': 400, 'param': 'return_token_ids'}}"
+   ],
+   "cached_tokens": [
+    0,
+    0
+   ],
+   "spec": null,
+   "tokens_per_round": null,
+   "prompt_tokens": [
+    null,
+    null
+   ],
+   "tokens": 0,
+   "flag": "a stream failed or produced fewer than 2 events",
+   "epoch_start": 1795441731.271366,
+   "epoch_end": 1795441731.28791
+  },
+  {
+   "phase": "depth",
+   "mode": "serial",
+   "c": 4,
+   "ctx": 4096,
+   "rep": 1,
+   "ok": false,
+   "reason": "a stream failed or produced fewer than 2 events",
+   "tok_s": null,
+   "errors": [
+    "ApiError: /v1/completions: HTTP 400: {'error': {'message': 'return_token_ids is supported by non-streamed completions and by chat completions', 'type': 'invalid_request_error', 'code': 400, 'param': 'return_token_ids'}}",
+    "ApiError: /v1/completions: HTTP 400: {'error': {'message': 'return_token_ids is supported by non-streamed completions and by chat completions', 'type': 'invalid_request_error', 'code': 400, 'param': 'return_token_ids'}}",
+    "ApiError: /v1/completions: HTTP 400: {'error': {'message': 'return_token_ids is supported by non-streamed completions and by chat completions', 'type': 'invalid_request_error', 'code': 400, 'param': 'return_token_ids'}}",
+    "ApiError: /v1/completions: HTTP 400: {'error': {'message': 'return_token_ids is supported by non-streamed completions and by chat completions', 'type': 'invalid_request_error', 'code': 400, 'param': 'return_token_ids'}}"
+   ],
+   "cached_tokens": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "spec": null,
+   "tokens_per_round": null,
+   "prompt_tokens": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "tokens": 0,
+   "flag": "a stream failed or produced fewer than 2 events",
+   "epoch_start": 1795441731.378675,
+   "epoch_end": 1795441731.402536
+  },
+  {
+   "phase": "depth",
+   "mode": "serial",
+   "c": 4,
+   "ctx": 4096,
+   "rep": 2,
+   "ok": false,
+   "reason": "a stream failed or produced fewer than 2 events",
+   "tok_s": null,
+   "errors": [
+    "ApiError: /v1/completions: HTTP 400: {'error': {'message': 'return_token_ids is supported by non-streamed completions and by chat completions', 'type': 'invalid_request_error', 'code': 400, 'param': 'return_token_ids'}}",
+    "ApiError: /v1/completions: HTTP 400: {'error': {'message': 'return_token_ids is supported by non-streamed completions and by chat completions', 'type': 'invalid_request_error', 'code': 400, 'param': 'return_token_ids'}}",
+    "ApiError: /v1/completions: HTTP 400: {'error': {'message': 'return_token_ids is supported by non-streamed completions and by chat completions', 'type': 'invalid_request_error', 'code': 400, 'param': 'return_token_ids'}}",
+    "ApiError: /v1/completions: HTTP 400: {'error': {'message': 'return_token_ids is supported by non-streamed completions and by chat completions', 'type': 'invalid_request_error', 'code': 400, 'param': 'return_token_ids'}}"
+   ],
+   "cached_tokens": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "spec": null,
+   "tokens_per_round": null,
+   "prompt_tokens": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "tokens": 0,
+   "flag": "a stream failed or produced fewer than 2 events",
+   "epoch_start": 1795441731.408216,
+   "epoch_end": 1795441731.4337878
+  },
+  {
+   "phase": "depth",
+   "mode": "serial",
+   "c": 4,
+   "ctx": 4096,
+   "rep": 3,
+   "ok": false,
+   "reason": "a stream failed or produced fewer than 2 events",
+   "tok_s": null,
+   "errors": [
+    "ApiError: /v1/completions: HTTP 400: {'error': {'message': 'return_token_ids is supported by non-streamed completions and by chat completions', 'type': 'invalid_request_error', 'code': 400, 'param': 'return_token_ids'}}",
+    "ApiError: /v1/completions: HTTP 400: {'error': {'message': 'return_token_ids is supported by non-streamed completions and by chat completions', 'type': 'invalid_request_error', 'code': 400, 'param': 'return_token_ids'}}",
+    "ApiError: /v1/completions: HTTP 400: {'error': {'message': 'return_token_ids is supported by non-streamed completions and by chat completions', 'type': 'invalid_request_error', 'code': 400, 'param': 'return_token_ids'}}",
+    "ApiError: /v1/completions: HTTP 400: {'error': {'message': 'return_token_ids is supported by non-streamed completions and by chat completions', 'type': 'invalid_request_error', 'code': 400, 'param': 'return_token_ids'}}"
+   ],
+   "cached_tokens": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "spec": null,
+   "tokens_per_round": null,
+   "prompt_tokens": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "tokens": 0,
+   "flag": "a stream failed or produced fewer than 2 events",
+   "epoch_start": 1795441731.438741,
+   "epoch_end": 1795441731.4607549
+  }
+ ],
+ "summary": {
+  "shallow_runs": 9,
+  "depth_runs": 9,
+  "flagged": 6,
+  "bench_failures": []
+ }
+}

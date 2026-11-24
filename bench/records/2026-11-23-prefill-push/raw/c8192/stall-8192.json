@@ -1,0 +1,14 @@
+{
+ "prompt_tokens": 32768,
+ "long_wall_s": 14.25,
+ "events": 331,
+ "steady_gap_median_s": 0.04346,
+ "steady_gap_max_s": 0.05794,
+ "max_gap_s": 3.7986,
+ "gaps_over_0p1s": [
+  3.257,
+  3.433,
+  3.618,
+  3.799
+ ]
+}

@@ -1,0 +1,362 @@
+{
+ "prose": {
+  "median_ms": {
+   "plan": 0.002,
+   "feed": 0.087,
+   "commit": 0.013,
+   "propose": -0.1,
+   "alloc": 0.0,
+   "prepare": 0.115,
+   "launch": 0.007,
+   "wait": 19.063,
+   "read": 0.021,
+   "accept": 0.002,
+   "tail": 0.0,
+   "gap": 0.028,
+   "in_round": 19.235,
+   "period": 19.276
+  },
+  "runs": [
+   {
+    "rounds": 511,
+    "rounds_full": 510,
+    "ms": {
+     "plan": 0.002,
+     "feed": 0.087,
+     "commit": 0.013,
+     "propose": -0.1,
+     "alloc": 0.0,
+     "prepare": 0.115,
+     "launch": 0.007,
+     "wait": 18.973,
+     "read": 0.021,
+     "accept": 0.002,
+     "tail": 0.0,
+     "gap": 0.028,
+     "in_round": 19.12,
+     "period": 19.148
+    },
+    "completion_tokens": 512,
+    "wall_s": 9.9391,
+    "tok_s_wall": 51.51
+   },
+   {
+    "rounds": 511,
+    "rounds_full": 510,
+    "ms": {
+     "plan": 0.003,
+     "feed": 0.096,
+     "commit": 0.014,
+     "propose": -0.109,
+     "alloc": 0.001,
+     "prepare": 0.126,
+     "launch": 0.008,
+     "wait": 19.063,
+     "read": 0.028,
+     "accept": 0.005,
+     "tail": 0.0,
+     "gap": 0.041,
+     "in_round": 19.235,
+     "period": 19.276
+    },
+    "completion_tokens": 512,
+    "wall_s": 10.0022,
+    "tok_s_wall": 51.19
+   },
+   {
+    "rounds": 502,
+    "rounds_full": 501,
+    "ms": {
+     "plan": 0.0,
+     "feed": 0.059,
+     "commit": 0.008,
+     "propose": 0.092,
+     "alloc": 0.0,
+     "prepare": 0.074,
+     "launch": 0.003,
+     "wait": 19.311,
+     "read": 0.015,
+     "accept": 0.001,
+     "tail": 0.0,
+     "gap": 0.011,
+     "in_round": 19.563,
+     "period": 19.574
+    },
+    "completion_tokens": 512,
+    "wall_s": 9.9746,
+    "tok_s_wall": 51.33
+   }
+  ],
+  "tokens_per_round": 1.002
+ },
+ "code": {
+  "median_ms": {
+   "plan": 0.001,
+   "feed": 0.062,
+   "commit": 0.01,
+   "propose": 7.407,
+   "alloc": 0.0,
+   "prepare": 0.039,
+   "launch": 0.306,
+   "wait": 39.757,
+   "read": 0.02,
+   "accept": 0.002,
+   "tail": 0.0,
+   "gap": 0.019,
+   "in_round": 47.32,
+   "period": 47.34
+  },
+  "runs": [
+   {
+    "rounds": 141,
+    "rounds_full": 140,
+    "ms": {
+     "plan": 0.001,
+     "feed": 0.061,
+     "commit": 0.009,
+     "propose": 4.507,
+     "alloc": 0.0,
+     "prepare": 0.039,
+     "launch": 0.835,
+     "wait": 29.894,
+     "read": 0.02,
+     "accept": 0.001,
+     "tail": 0.0,
+     "gap": 0.012,
+     "in_round": 35.368,
+     "period": 35.38
+    },
+    "completion_tokens": 512,
+    "wall_s": 5.1767,
+    "tok_s_wall": 98.91
+   },
+   {
+    "rounds": 89,
+    "rounds_full": 88,
+    "ms": {
+     "plan": 0.001,
+     "feed": 0.062,
+     "commit": 0.01,
+     "propose": 7.407,
+     "alloc": 0.0,
+     "prepare": 0.014,
+     "launch": 0.306,
+     "wait": 40.0,
+     "read": 0.023,
+     "accept": 0.002,
+     "tail": 0.0,
+     "gap": 0.02,
+     "in_round": 47.826,
+     "period": 47.846
+    },
+    "completion_tokens": 512,
+    "wall_s": 4.4616,
+    "tok_s_wall": 114.76
+   },
+   {
+    "rounds": 89,
+    "rounds_full": 88,
+    "ms": {
+     "plan": 0.001,
+     "feed": 0.062,
+     "commit": 0.01,
+     "propose": 7.412,
+     "alloc": 0.0,
+     "prepare": 0.048,
+     "launch": 0.007,
+     "wait": 39.757,
+     "read": 0.02,
+     "accept": 0.002,
+     "tail": 0.0,
+     "gap": 0.019,
+     "in_round": 47.32,
+     "period": 47.34
+    },
+    "completion_tokens": 512,
+    "wall_s": 4.4124,
+    "tok_s_wall": 116.04
+   }
+  ],
+  "tokens_per_round": 5.753
+ },
+ "structured": {
+  "median_ms": {
+   "plan": 0.001,
+   "feed": 0.063,
+   "commit": 0.01,
+   "propose": 7.26,
+   "alloc": 0.0,
+   "prepare": 0.015,
+   "launch": 0.007,
+   "wait": 38.841,
+   "read": 0.023,
+   "accept": 0.002,
+   "tail": 0.0,
+   "gap": 0.021,
+   "in_round": 46.235,
+   "period": 46.291
+  },
+  "runs": [
+   {
+    "rounds": 153,
+    "rounds_full": 152,
+    "ms": {
+     "plan": 0.001,
+     "feed": 0.061,
+     "commit": 0.01,
+     "propose": 7.252,
+     "alloc": 0.0,
+     "prepare": 0.014,
+     "launch": 0.007,
+     "wait": 38.974,
+     "read": 0.022,
+     "accept": 0.002,
+     "tail": 0.0,
+     "gap": 0.017,
+     "in_round": 46.344,
+     "period": 46.361
+    },
+    "completion_tokens": 512,
+    "wall_s": 7.2771,
+    "tok_s_wall": 70.36
+   },
+   {
+    "rounds": 153,
+    "rounds_full": 152,
+    "ms": {
+     "plan": 0.002,
+     "feed": 0.066,
+     "commit": 0.011,
+     "propose": 7.26,
+     "alloc": 0.001,
+     "prepare": 0.016,
+     "launch": 0.009,
+     "wait": 38.841,
+     "read": 0.025,
+     "accept": 0.003,
+     "tail": 0.0,
+     "gap": 0.056,
+     "in_round": 46.235,
+     "period": 46.291
+    },
+    "completion_tokens": 512,
+    "wall_s": 7.2634,
+    "tok_s_wall": 70.49
+   },
+   {
+    "rounds": 153,
+    "rounds_full": 152,
+    "ms": {
+     "plan": 0.001,
+     "feed": 0.063,
+     "commit": 0.01,
+     "propose": 7.262,
+     "alloc": 0.0,
+     "prepare": 0.015,
+     "launch": 0.007,
+     "wait": 38.837,
+     "read": 0.023,
+     "accept": 0.002,
+     "tail": 0.0,
+     "gap": 0.021,
+     "in_round": 46.222,
+     "period": 46.243
+    },
+    "completion_tokens": 512,
+    "wall_s": 7.2511,
+    "tok_s_wall": 70.61
+   }
+  ],
+  "tokens_per_round": 3.346
+ },
+ "json": {
+  "median_ms": {
+   "plan": 0.001,
+   "feed": 0.058,
+   "commit": 0.009,
+   "propose": 7.416,
+   "alloc": 0.0,
+   "prepare": 0.012,
+   "launch": 0.005,
+   "wait": 43.611,
+   "read": 0.02,
+   "accept": 0.002,
+   "tail": 0.0,
+   "gap": 0.016,
+   "in_round": 51.134,
+   "period": 51.145
+  },
+  "runs": [
+   {
+    "rounds": 115,
+    "rounds_full": 114,
+    "ms": {
+     "plan": 0.001,
+     "feed": 0.061,
+     "commit": 0.01,
+     "propose": 7.383,
+     "alloc": 0.0,
+     "prepare": 0.014,
+     "launch": 0.127,
+     "wait": 43.335,
+     "read": 0.02,
+     "accept": 0.002,
+     "tail": 0.0,
+     "gap": 0.016,
+     "in_round": 50.954,
+     "period": 50.97
+    },
+    "completion_tokens": 512,
+    "wall_s": 6.0889,
+    "tok_s_wall": 84.09
+   },
+   {
+    "rounds": 115,
+    "rounds_full": 114,
+    "ms": {
+     "plan": 0.001,
+     "feed": 0.058,
+     "commit": 0.009,
+     "propose": 7.416,
+     "alloc": 0.0,
+     "prepare": 0.012,
+     "launch": 0.005,
+     "wait": 43.611,
+     "read": 0.02,
+     "accept": 0.002,
+     "tail": 0.0,
+     "gap": 0.012,
+     "in_round": 51.134,
+     "period": 51.145
+    },
+    "completion_tokens": 512,
+    "wall_s": 6.1084,
+    "tok_s_wall": 83.82
+   },
+   {
+    "rounds": 115,
+    "rounds_full": 114,
+    "ms": {
+     "plan": 0.001,
+     "feed": 0.058,
+     "commit": 0.009,
+     "propose": 7.435,
+     "alloc": 0.0,
+     "prepare": 0.012,
+     "launch": 0.004,
+     "wait": 43.993,
+     "read": 0.019,
+     "accept": 0.002,
+     "tail": 0.0,
+     "gap": 0.084,
+     "in_round": 51.534,
+     "period": 51.617
+    },
+    "completion_tokens": 512,
+    "wall_s": 6.1561,
+    "tok_s_wall": 83.17
+   }
+  ],
+  "tokens_per_round": 4.452
+ }
+}

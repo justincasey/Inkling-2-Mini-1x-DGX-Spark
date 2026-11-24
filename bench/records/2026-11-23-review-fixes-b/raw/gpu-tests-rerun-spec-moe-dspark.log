@@ -1,0 +1,17 @@
+### gb-model inkling2_loop_spec
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 114.28s
+### gb-cuda inkling2_moe
+test bench_real_moe_layer ... ignored
+test four_rank_banks_sum_to_the_tp4_result ... TP4 sum: cosine 0.9999972, max error 0.0181 of the row RMS
+test partial_equals_the_float64_reference ... rank None: cosine 0.9999980, max error 0.0171 of the row RMS
+test result: ok. 8 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 1.14s
+### gb-cuda inkling2_moe_mixed
+error[E0425]: cannot find function `not_run` in this scope
+error[E0425]: cannot find function `not_run` in this scope
+error[E0425]: cannot find function `not_run` in this scope
+error[E0425]: cannot find function `not_run` in this scope
+error[E0425]: cannot find function `not_run` in this scope
+error[E0425]: cannot find function `not_run` in this scope
+### gb-cuda inkling2_dspark
+test bench_propose ... ignored
+test result: ok. 28 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 18.68s

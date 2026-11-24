@@ -1,0 +1,20 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-draftwire/target/release/deps/inkling2_loop_spec-123725ce3eae0eb8
+== gb-model a_snapshot_restores
+test a_snapshot_restores_the_drafters_proposals ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.0
+LOOP_SPEC_snapshot_bytes 179294720 priced 179294720
+LOOP_SPEC_snapshot cut 512 pages 2 drafts [126038, 109773, 55147, 11657, 19086, 89616, 19086] accepted 0 next_drafts [82, 25208, 21584, 131480, 131480, 131480, 131480]
+LOOP_SPEC_snapshot cut 700 pages 3 drafts [126038, 109773, 55147, 11657, 19086, 89616, 19086] accepted 0 next_drafts [82, 25208, 21584, 131480, 131480, 131480, 131480]
+LOOP_SPEC_snapshot cut 1024 pages 4 drafts [126038, 109773, 55147, 11657, 19086, 89616, 19086] accepted 0 next_drafts [82, 25208, 21584, 131480, 131480, 131480, 131480]
+LOOP_SPEC_snapshot cut 1100 pages 5 drafts [126038, 109773, 55147, 11657, 19086, 89616, 19086] accepted 0 next_drafts [82, 25208, 21584, 131480, 131480, 131480, 131480]
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 16.21s
+== gb-model a_cached_decode_equals
+test a_cached_decode_equals_the_uncached_one_through_windows ... rexl3 event=inkling2_loop_load layers=4 gib=2.85 s=2.0
+LOOP_SPEC_snapshot_bytes 179294720 priced 179294720
+LOOP_SPEC_cached_decode round 0 pos 1401 drafts [126038, 109773, 55147, 11657, 19086, 89616, 19086] accepted 0 next 49192
+LOOP_SPEC_cached_decode round 1 pos 1402 drafts [82, 25208, 21584, 131480, 131480, 131480, 131480] accepted 0 next 71793
+LOOP_SPEC_cached_decode round 2 pos 1403 drafts [25208, 19084, 131480, 131480, 131480, 131480, 172] accepted 0 next 88310
+LOOP_SPEC_cached_decode round 3 pos 1404 drafts [11, 220, 131480, 11, 220, 131480, 11] accepted 0 next 6633
+LOOP_SPEC_cached_decode round 4 pos 1405 drafts [1020, 96971, 30, 1, 11, 1, 11] accepted 0 next 6633
+LOOP_SPEC_cached_decode round 5 pos 1406 drafts [14781, 25208, 14771, 6633, 14781, 131480, 6633] accepted 0 next 6633
+LOOP_SPEC_cached_decode committed 6 tokens [50459, 49192, 71793, 88310, 6633, 6633] final_drafts [14141, 25208, 6633, 14781, 6633, 14781, 25208]
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 13.00s

@@ -1,0 +1,25 @@
+gate rank-graphs-on done
+gate rank-graphs-off done
+gate graphs done
+gate spec done
+gate prefix done
+gate dspark-mini done
+gate attn done
+gate ops done
+gate moe done
+gate moe-mixed done
+GATE attn               passed=28 failed=0 (2 binaries)
+GATE dspark-mini        passed=19 failed=0 (1 binaries)
+GATE graphs             passed=2 failed=0 (2 binaries)
+GATE moe-mixed          passed=1 failed=0 (1 binaries)
+GATE moe                passed=2 failed=0 (2 binaries)
+GATE ops                passed=4 failed=0 (4 binaries)
+GATE prefix             passed=7 failed=0 (1 binaries)
+GATE rank-graphs-off    passed=2 failed=0 (2 binaries)
+GATE rank-graphs-on     passed=2 failed=0 (2 binaries)
+GATE spec               passed=9 failed=0 (1 binaries)
+graphs | LOOP_GRAPH_equal windows 37 logits_sha256 44294f72e147c7e0ccd317d3aa3d1dda2b27534b50189915abb2c065f6ad90e1 captures 24 replays 189 eager 112 capture_failures 0 evictions 0
+rank-graphs-off | LOOP_dump_a sha256 c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0 bytes 90056120
+rank-graphs-off | LOOP_dump_b sha256 c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0 bytes 90056120
+rank-graphs-off | LOOP_chunk_width 7 logits_identical 20806032 bytes sha256 a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a
+rank-graphs-off | LOOP_chunk_width 11 logits_identical 20806032 bytes sha256 a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a

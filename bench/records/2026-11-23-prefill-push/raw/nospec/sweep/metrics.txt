@@ -1,0 +1,12 @@
+METRIC decode_after_8k_tok_s=50.557
+METRIC prefill_8k_tok_s=2542.6
+METRIC prefill_8k_ttft_s=3.2219
+METRIC decode_after_32k_tok_s=45.977
+METRIC prefill_32k_tok_s=2344.7
+METRIC prefill_32k_ttft_s=13.9751
+METRIC decode_after_128k_tok_s=34.21
+METRIC prefill_128k_tok_s=1777.4
+METRIC prefill_128k_ttft_s=73.743
+METRIC decode_after_224k_tok_s=27.321
+METRIC prefill_224k_tok_s=1429.5
+METRIC prefill_224k_ttft_s=160.4572

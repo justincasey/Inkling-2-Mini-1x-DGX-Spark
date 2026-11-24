@@ -1,0 +1,33 @@
+# The README's headline table: label<TAB>gate<TAB>metric<TAB>unit. Every value is read from a record by
+# `python3 scripts/records_index.py --headline docs/headline.tsv --update README.md`. `gate` is a gate (its newest record) or
+# `@RECORD-DIRECTORY` (one named record, for a figure a newer record of the same gate does not replace). A missing record or metric, or a
+# record that did not pass, stops the run. Change a row here, never the table.
+# The shipping profile (bootstrap: 4 slots x 262,144), measured by the final run at the pin
+Cold prefill, 8K prompt	speed-prefill	prefill_8k_tok_s	tok/s
+Cold prefill, 32K prompt	speed-prefill	prefill_32k_tok_s	tok/s
+Cold prefill, 128K prompt	speed-prefill	prefill_128k_tok_s	tok/s
+Cold prefill, 224K prompt	speed-prefill	prefill_224k_tok_s	tok/s
+Decode, one stream, mean of prose, code, structured and JSON (drafter on)	speed-decode	decode_mean4_tok_s	tok/s
+Decode, one stream, prose	speed-decode	decode_prose_tok_s	tok/s
+Decode, one stream, code	speed-decode	decode_code_tok_s	tok/s
+Decode, one stream, structured	speed-decode	decode_structured_tok_s	tok/s
+Decode, one stream, JSON	speed-decode	decode_json_tok_s	tok/s
+Decode, four streams in a closed loop (drafter on)	speed-c4	decode_c4_rolling_tok_s	tok/s
+Decode, four streams, wall time to the last reply (drafter on)	speed-c4	decode_c4_tok_s	tok/s
+Boot to ready	boot	boot_s	s
+Weights resident	boot	weights_gib	GiB
+KV pool	capacity	kv_tokens	tokens
+Lanes at the full window	capacity	lanes_at_max_context
+Needle test at the window, prompt length	needle	prompt_tokens	tokens
+Needle test at the window, needles found	needle	needles_found
+Needle test at the window, needles planted	needle	needles_total
+Lowest MemAvailable while four cold 260K prompts run at once	memory	guard_min_mib	MiB
+# Serial decode (no drafter): measured on an earlier engine; the serial path is the same kernels, the drafter does not touch it
+Decode, one stream, serial	@2026-11-23-c4-baseline	serial_decode_c1_tok_s	tok/s
+Decode, four streams in a closed loop, serial	@2026-11-23-c4-baseline	serial_decode_c4_rolling_tok_s	tok/s
+# The long profile (PROFILE=long: 2 slots x 1,048,576), measured on an earlier engine
+KV pool, long profile	@2026-11-23-profile-long-capacity	kv_tokens	tokens
+Lanes at the full window, long profile	@2026-11-23-profile-long-capacity	lanes_at_max_context
+Needle test at the long window, prompt length	@2026-11-23-needle-window	prompt_tokens	tokens
+Needle test at the long window, needles found	@2026-11-23-needle-window	needles_found
+Needle test at the long window, needles planted	@2026-11-23-needle-window	needles_total

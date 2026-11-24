@@ -1,0 +1,2 @@
+raw-long-window: cached == recompute (<= 2 fp32 ulp): 0 differing logits, max 0.0 fp32 ulp, max 0 abs
+raw-long-window: 1119 + 8 tokens in 922s -> fixtures/spec/raw-long-window.safetensors

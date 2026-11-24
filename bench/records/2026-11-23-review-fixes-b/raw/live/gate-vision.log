@@ -1,0 +1,5 @@
+07:28:39 bench vision against http://node-2:8000 (inkling-2-mini-1x-dgx-spark, window 262144); results in bench/runs/20261123T132839Z-vision
+07:28:39 no bench/reference-vision.json: the vision replies are recorded, not compared (bench pin writes it)
+07:28:39 gate vision-record: bench_vision_record
+PASS vision-record
+bench vision: pass run=bench/runs/20261123T132839Z-vision

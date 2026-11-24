@@ -1,0 +1,89 @@
+{
+ "name": "forward-oracle-engine-emulation",
+ "gate": "forward-oracle",
+ "date": "2026-11-23",
+ "result": "pass",
+ "node": "node-3",
+ "engine": {
+  "commit": "aeaaa4f94944672578bac340379729ba87f85d8a",
+  "dirty": false,
+  "version": "0.1.1"
+ },
+ "recipe": {
+  "commit": "7955cbb58ed4417e8c838f85e4b706586e84642d"
+ },
+ "tests": [
+  {
+   "bin": "inkling2_loop_rank",
+   "filter": "forward_oracle_gate (determinism: byte-identical dumps, sky and counting)",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_rank",
+   "filter": "forward_oracle_gate (chunk-width invariance 1/7/11 rows)",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_rank",
+   "filter": "forward_oracle_gate (decode row == prefill row)",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_rank",
+   "filter": "forward_oracle_gate (window commit and rollback)",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_rank",
+   "filter": "long_context_gate (1119 tokens, chunks and decode)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "teacher_force.py",
+   "filter": "stock gate, variant kv8+attn_bf16_p+dense_fp16 + moe_fp16, sky 26 tokens, passes 0-47",
+   "passed": 48,
+   "failed": 0
+  },
+  {
+   "bin": "teacher_force.py",
+   "filter": "stock gate, same variant, counting 35 tokens, passes 0-47",
+   "passed": 48,
+   "failed": 0
+  }
+ ],
+ "commands": [
+  "engine runs: see ../2026-11-23-forward-oracle/meta.json (same dumps, raw/ copied from there)",
+  "nice -n 19 oracle/.venv/bin/python oracle/teacher_force.py --pack <pack> --engine <lab>/out_<p>/a/prefill00000.safetensors --out report.json --workers 6 --threads 2   (p = sky, counting; no wrapper; oracle at recipe commit 7955cbb58ed4417e8c838f85e4b706586e84642d)"
+ ],
+ "metrics": {
+  "passes_compared": 96,
+  "passes_compared_sky": 48,
+  "passes_compared_counting": 48,
+  "attn_core_rel_med_max": 0.000931,
+  "attn_core_rel_med_max_sky": 0.000931,
+  "attn_core_rel_med_max_counting": 0.000704,
+  "attn_output_rel_med_max": 0.00218,
+  "attn_output_rel_med_max_sky": 0.00218,
+  "attn_output_rel_med_max_counting": 0.001608,
+  "attn_core_rel_max_max": 0.003068,
+  "mix_rel_max": 0.000795,
+  "msg_rel_max": 1.8e-07,
+  "attn_in_rel_max": 0.000897,
+  "moe_rel_med_max": 0.000589,
+  "router_logit_err_rel_sumabs_max": 3.17e-07,
+  "router_flips": 0,
+  "restart_mismatch": 0,
+  "residual_mismatch_sky": 0,
+  "residual_mismatch_counting_elements": 2,
+  "weight_gib_loaded": 13.553,
+  "sky_tokens": 26,
+  "counting_tokens": 35,
+  "long_tokens": 1119
+ },
+ "notes": "Supersedes 2026-11-23-forward-oracle (result fail against the oracle before it carried dense_fp16). Same engine commit, same dumps (sky sha256 c25f9876..c45c0, counting 0773323c..f43d), oracle at the recipe commit above with Emulation.dense_fp16 and the stock limits unchanged: both prompts pass all 48 passes."
+}

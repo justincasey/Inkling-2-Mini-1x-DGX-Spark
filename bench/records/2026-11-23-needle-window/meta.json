@@ -1,0 +1,105 @@
+{
+ "name": "needle-window",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "9e4c4bd84f6745e18111f93db9c2fdd07df65df5",
+  "dirty_files": [
+   "bench/records/2026-11-23-profile-bootstrap-capacity/",
+   "bench/records/2026-11-23-profile-bootstrap/",
+   "bench/records/2026-11-23-profile-max-capacity/",
+   "bench/records/2026-11-23-profile-max/",
+   "bench/tools/profile_table.py"
+  ]
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "918e6854bb9d4cfe2a9857d92f592722fdf826eb",
+  "sha256": "a9b77320979ee81b2728eb23ed4bed1dd02021ec9dc1771f6ef644e73609fbae",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "918e6854bb9d4cfe2a9857d92f592722fdf826eb",
+   "system_fingerprint": "fp_918e6854bb9d_0677d17b_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "0677d17bcd2acfa4",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2190 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "max",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "1048576",
+  "SLOTS": "4",
+  "KV_TOKENS": "4194304",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "none",
+  "PREFIX_CACHE": "8192",
+  "VISION": "off",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "--request-timeout 14400 --prefill-budget 14400 --decision-timeout 14400 --queue-timeout 14400",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 1048576 --slots 4 --kv-tokens 4194304 --prefill-chunk 4096 --kv-dtype int8 --spec none --prefix-cache-mib 8192 --no-vision --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000 --request-timeout 14400 --prefill-budget 14400 --decision-timeout 14400 --queue-timeout 14400"
+ },
+ "results": [],
+ "node": "node-4",
+ "tests": [
+  {
+   "bin": "needle.py",
+   "filter": "1M depth 0.1 and 0.5 (bench needle)",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "needle.py",
+   "filter": "1M solo depth 0.5",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "needle.py",
+   "filter": "1M four concurrent lanes",
+   "passed": 4,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "prompt_tokens": 1042827,
+  "prefill_s_depth_0_1": 1927.087,
+  "prefill_s_depth_0_5": 1925.907,
+  "lanes_found": 4,
+  "lane_prefill_s_max": 7708.167,
+  "needles_found": 7,
+  "needles_total": 7
+ },
+ "commands": [
+  "PROFILE=max PREFIX_CACHE=8192 VISION=off EXTRA_FLAGS='--request-timeout 14400 ...' ./inkling2mini.sh start",
+  "./inkling2mini.sh bench needle",
+  "PROFILE_LANES=1 ./inkling2mini.sh bench profile",
+  "PROFILE_SOLO=0 PROFILE_LANES=4 ./inkling2mini.sh bench profile"
+ ],
+ "notes": "1M needles pass at depth 0.1/0.5 and with 4 concurrent lanes; solo==lane byte equality not run at 1M.",
+ "gate": "needle",
+ "result": "pass"
+}

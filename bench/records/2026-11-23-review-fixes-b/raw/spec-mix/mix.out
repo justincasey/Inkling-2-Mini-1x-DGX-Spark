@@ -1,0 +1,12 @@
+# specmix 2026-11-23T13:31:26Z - fresh prose then code
+
+model inkling-2-mini-1x-dgx-spark, mix chat,code, 12 greedy requests of 256 tokens per phase
+
+| phase | kind | tokens/round | first third | last third | median tok/s | drafted | accepted |
+|---|---|---|---|---|---|---|---|
+| 1 | chat | 1.863 | 1.918 | 1.842 | 53.15 | 4162 | 1411 |
+| 2 | code | 5.053 | 5.02 | 5.12 | 103.12 | 3720 | 2452 |
+
+reference tokens/round of the final kind on a fresh server: 5.447
+
+PASS drafting follows the traffic

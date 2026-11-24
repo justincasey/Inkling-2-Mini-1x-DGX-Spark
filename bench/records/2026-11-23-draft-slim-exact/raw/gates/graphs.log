@@ -1,0 +1,10 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-slim/target/release/deps/inkling2_loop_graphs-76816e451b7b124b
+== gb-model graph_replay_equals
+test graph_replay_equals_eager ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=113578 took_mib=0.0 mem_available_mib=116996
+LOOP_GRAPH_equal windows 37 logits_sha256 44294f72e147c7e0ccd317d3aa3d1dda2b27534b50189915abb2c065f6ad90e1 captures 24 replays 189 eager 112 capture_failures 0 evictions 0
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 19.42s
+== gb-model capture_refusal
+test capture_refusal_runs_eager_and_counts ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=114833 took_mib=0.0 mem_available_mib=118251
+rexl3 level=warn event=inkling2_loop_graph_capture_failed rows=1 blocks=1 chunks=2 count=64 a launch failed while capturing: CUDA error 900 (cudaErrorStreamCaptureUnsupported) (this window shape runs eagerly)
+LOOP_GRAPH_refusal captures 0 capture_failures 1 eager 5 replays 0 last_failure Some("a launch failed while capturing: CUDA error 900 (cudaErrorStreamCaptureUnsupported)")
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 10.48s

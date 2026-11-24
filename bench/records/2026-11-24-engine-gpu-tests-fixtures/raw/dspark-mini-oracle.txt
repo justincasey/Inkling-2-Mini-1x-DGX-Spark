@@ -1,0 +1,106 @@
+GPU SM clock capped at 2200 MHz on node-3
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-pintests/target/release/deps/inkling2_dspark-2190377fb6671b23
+GPU SM clock capped at 2200 MHz on node-3
+== gb-cuda mini_matches_the_oracle
+running 1 test
+test mini_drafter::mini_matches_the_oracle ... long Bf16 plane (anchors [1, 600, 1023, 1024, 1025, 1031, 1032, 1100]):
+  ctx K/V max 5.51 steps, 644361 of 6447104 differ, rel L2 9.25e-4
+  f_rnn max 0.00 steps, 0 of 18432 differ, rel L2 0.00e0
+  hd max 18.65 steps, 123944 of 147456 differ, rel L2 1.14e-2
+  Markov state max 38.87 steps, 9424 of 14336 differ, rel L2 1.20e-2
+  Markov latent max 23.24 steps, 5807 of 14336 differ, rel L2 8.62e-3
+  logits max |d| 0.375 mean 3.11e-2
+  drafts 56/56 equal (first divergence per anchor [7, 7, 7, 7, 7, 7, 7, 7]); teacher-forced picks 56/56 equal (0 flips, worst reference gap 0)
+  drafts equal to the target's next tokens (greedy prefix, of at most 7): [0, 0, 0, 0, 0, 0, 0, 0]
+long Int8 plane (anchors [1, 600, 1023, 1024, 1025, 1031, 1032, 1100]):
+  ctx K/V max 10.94 steps, 2413440 of 6447104 differ, rel L2 6.21e-3
+  f_rnn max 0.00 steps, 0 of 18432 differ, rel L2 0.00e0
+  hd max 34.47 steps, 129065 of 147456 differ, rel L2 1.54e-2
+  Markov state max 49.36 steps, 10051 of 14336 differ, rel L2 1.55e-2
+  Markov latent max 36.76 steps, 6153 of 14336 differ, rel L2 1.16e-2
+  logits max |d| 0.4375 mean 3.88e-2
+  drafts 56/56 equal (first divergence per anchor [7, 7, 7, 7, 7, 7, 7, 7]); teacher-forced picks 56/56 equal (0 flips, worst reference gap 0)
+  drafts equal to the target's next tokens (greedy prefix, of at most 7): [0, 0, 0, 0, 0, 0, 0, 0]
+real_chat-capital-effort0 Bf16 plane (anchors [1, 8, 16, 24, 25, 30, 36, 40]):
+  ctx K/V max 3.63 steps, 23221 of 245760 differ, rel L2 8.81e-4
+  f_rnn max 0.00 steps, 0 of 18432 differ, rel L2 0.00e0
+  hd max 17.24 steps, 101280 of 147456 differ, rel L2 6.11e-3
+  Markov state max 18.31 steps, 7057 of 14336 differ, rel L2 6.80e-3
+  Markov latent max 11.52 steps, 4097 of 14336 differ, rel L2 4.66e-3
+  logits max |d| 0.25 mean 1.94e-2
+  drafts 52/56 equal (first divergence per anchor [4, 6, 7, 7, 7, 7, 7, 7]); teacher-forced picks 54/56 equal (2 flips, worst reference gap 0.125)
+  drafts equal to the target's next tokens (greedy prefix, of at most 7): [0, 0, 0, 5, 4, 5, 4, 0]
+real_chat-capital-effort0 Int8 plane (anchors [1, 8, 16, 24, 25, 30, 36, 40]):
+  ctx K/V max 11.76 steps, 88447 of 245760 differ, rel L2 6.16e-3
+  f_rnn max 0.00 steps, 0 of 18432 differ, rel L2 0.00e0
+  hd max 17.24 steps, 114810 of 147456 differ, rel L2 9.54e-3
+  Markov state max 23.52 steps, 7857 of 14336 differ, rel L2 9.62e-3
+  Markov latent max 18.56 steps, 4563 of 14336 differ, rel L2 6.72e-3
+  logits max |d| 0.375 mean 2.99e-2
+  drafts 55/56 equal (first divergence per anchor [7, 6, 7, 7, 7, 7, 7, 7]); teacher-forced picks 55/56 equal (1 flips, worst reference gap 0)
+  drafts equal to the target's next tokens (greedy prefix, of at most 7): [0, 0, 0, 5, 4, 5, 4, 0]
+real_chat-sky-effort0.9 Bf16 plane (anchors [1, 13, 25, 26, 30, 36, 42, 49]):
+  ctx K/V max 3.63 steps, 28829 of 301056 differ, rel L2 9.31e-4
+  f_rnn max 0.00 steps, 0 of 18432 differ, rel L2 0.00e0
+  hd max 17.24 steps, 101885 of 147456 differ, rel L2 6.04e-3
+  Markov state max 16.31 steps, 6694 of 14336 differ, rel L2 6.73e-3
+  Markov latent max 12.55 steps, 4015 of 14336 differ, rel L2 4.65e-3
+  logits max |d| 0.25 mean 2.02e-2
+  drafts 53/56 equal (first divergence per anchor [4, 7, 7, 7, 7, 7, 7, 7]); teacher-forced picks 55/56 equal (1 flips, worst reference gap 0.125)
+  drafts equal to the target's next tokens (greedy prefix, of at most 7): [0, 0, 7, 5, 1, 6, 4, 0]
+real_chat-sky-effort0.9 Int8 plane (anchors [1, 13, 25, 26, 30, 36, 42, 49]):
+  ctx K/V max 12.02 steps, 108515 of 301056 differ, rel L2 6.18e-3
+  f_rnn max 0.00 steps, 0 of 18432 differ, rel L2 0.00e0
+  hd max 19.61 steps, 118462 of 147456 differ, rel L2 1.15e-2
+  Markov state max 40.34 steps, 8030 of 14336 differ, rel L2 1.15e-2
+  Markov latent max 23.55 steps, 4729 of 14336 differ, rel L2 8.09e-3
+  logits max |d| 0.3828125 mean 3.34e-2
+  drafts 51/56 equal (first divergence per anchor [7, 2, 6, 7, 7, 7, 7, 7]); teacher-forced picks 54/56 equal (2 flips, worst reference gap 0.125)
+  drafts equal to the target's next tokens (greedy prefix, of at most 7): [0, 0, 6, 5, 1, 6, 4, 0]
+real_raw-counting Bf16 plane (anchors [1, 13, 25, 35, 38, 41, 44, 50]):
+  ctx K/V max 6.44 steps, 29734 of 307200 differ, rel L2 9.60e-4
+  f_rnn max 0.00 steps, 0 of 18432 differ, rel L2 0.00e0
+  hd max 25.59 steps, 96820 of 147456 differ, rel L2 6.45e-3
+  Markov state max 17.51 steps, 7320 of 14336 differ, rel L2 6.51e-3
+  Markov latent max 7.81 steps, 3729 of 14336 differ, rel L2 3.55e-3
+  logits max |d| 0.25 mean 2.17e-2
+  drafts 56/56 equal (first divergence per anchor [7, 7, 7, 7, 7, 7, 7, 7]); teacher-forced picks 56/56 equal (0 flips, worst reference gap 0)
+  drafts equal to the target's next tokens (greedy prefix, of at most 7): [4, 7, 7, 7, 7, 7, 6, 0]
+real_raw-counting Int8 plane (anchors [1, 13, 25, 35, 38, 41, 44, 50]):
+  ctx K/V max 11.56 steps, 110600 of 307200 differ, rel L2 5.54e-3
+  f_rnn max 0.00 steps, 0 of 18432 differ, rel L2 0.00e0
+  hd max 27.11 steps, 106176 of 147456 differ, rel L2 8.56e-3
+  Markov state max 16.66 steps, 7680 of 14336 differ, rel L2 7.18e-3
+  Markov latent max 9.83 steps, 3915 of 14336 differ, rel L2 4.07e-3
+  logits max |d| 0.4375 mean 2.54e-2
+  drafts 56/56 equal (first divergence per anchor [7, 7, 7, 7, 7, 7, 7, 7]); teacher-forced picks 56/56 equal (0 flips, worst reference gap 0)
+  drafts equal to the target's next tokens (greedy prefix, of at most 7): [4, 7, 7, 7, 7, 7, 6, 0]
+real_raw-long-window Bf16 plane (anchors [1, 600, 1023, 1024, 1025, 1100, 1119, 1126]):
+  ctx K/V max 6.74 steps, 628390 of 6500352 differ, rel L2 9.36e-4
+  f_rnn max 0.00 steps, 0 of 18432 differ, rel L2 0.00e0
+  hd max 13.07 steps, 96142 of 147456 differ, rel L2 5.93e-3
+  Markov state max 17.01 steps, 8126 of 14336 differ, rel L2 7.65e-3
+  Markov latent max 9.87 steps, 4782 of 14336 differ, rel L2 4.81e-3
+  logits max |d| 0.25 mean 2.15e-2
+  drafts 56/56 equal (first divergence per anchor [7, 7, 7, 7, 7, 7, 7, 7]); teacher-forced picks 56/56 equal (0 flips, worst reference gap 0)
+  drafts equal to the target's next tokens (greedy prefix, of at most 7): [0, 1, 4, 3, 2, 3, 0, 0]
+real_raw-long-window Int8 plane (anchors [1, 600, 1023, 1024, 1025, 1100, 1119, 1126]):
+  ctx K/V max 11.96 steps, 2441141 of 6500352 differ, rel L2 5.63e-3
+  f_rnn max 0.00 steps, 0 of 18432 differ, rel L2 0.00e0
+  hd max 18.74 steps, 99435 of 147456 differ, rel L2 6.29e-3
+  Markov state max 14.86 steps, 8295 of 14336 differ, rel L2 7.86e-3
+  Markov latent max 9.28 steps, 4845 of 14336 differ, rel L2 5.02e-3
+  logits max |d| 0.25 mean 2.28e-2
+  drafts 56/56 equal (first divergence per anchor [7, 7, 7, 7, 7, 7, 7, 7]); teacher-forced picks 56/56 equal (0 flips, worst reference gap 0)
+  drafts equal to the target's next tokens (greedy prefix, of at most 7): [0, 1, 4, 3, 2, 3, 0, 0]
+ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 30 filtered out; finished in 23.92s
+== gb-cuda slim_picks_the_full_heads_winner
+running 1 test
+test mini_drafter::slim_picks_the_full_heads_winner ... SLIM_AGREE real_chat-capital-effort0: 23 anchors, 0 steps where the pick is not the full argmax
+SLIM_AGREE real_chat-sky-effort0.9: 32 anchors, 1 steps where the pick is not the full argmax
+SLIM_AGREE real_raw-counting: 33 anchors, 0 steps where the pick is not the full argmax
+SLIM_AGREE real_raw-long-window: 1109 anchors, 0 steps where the pick is not the full argmax
+SLIM_AGREE real cases (stride 1): 1197 anchors, 8379 steps; steps whose pick is not the full argmax 1; drafts that differ from DraftSlim off 1 (2 tokens)
+ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 30 filtered out; finished in 21.83s

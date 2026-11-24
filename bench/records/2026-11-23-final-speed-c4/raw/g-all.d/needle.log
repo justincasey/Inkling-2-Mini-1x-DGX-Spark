@@ -1,0 +1,104 @@
+lane 0: 9581 sentences, 260019 prompt tokens, depth 0.10
+lane 0: answered found=True prompt_tokens=260019 prefill_s=191.788 total_s=203.552
+{
+ "url": "http://node-1:8000",
+ "model": "inkling-2-mini-1x-dgx-spark",
+ "date": "2026-11-23T22:32:42Z",
+ "tokens_per_sentence": 25.7745,
+ "lanes": [
+  {
+   "lane": 0,
+   "depth": 0.1,
+   "target_tokens": 262144,
+   "code": "OTTER-2624-OTTER",
+   "sentences": 9581,
+   "prompt_tokens_rendered": 260019,
+   "sizing": "render",
+   "admitted_s": 0.091,
+   "status": "answered",
+   "http_status": 200,
+   "admitted": true,
+   "prefill_s": 191.788,
+   "total_s": 203.552,
+   "finish_reason": "stop",
+   "usage": {
+    "prompt_tokens": 260019,
+    "completion_tokens": 490,
+    "total_tokens": 260509,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 476
+    },
+    "spec": {
+     "drafted": 903,
+     "accepted": 314,
+     "rounds": 176
+    }
+   },
+   "prompt_tokens": 260019,
+   "answer": "OTTER-2624-OTTER",
+   "reasoning_tail": " notice. They ask what is the secret pass-code. This is essentially a reading comprehension task. The pass-code is in the user's message; repeating it is not leaking beyond the user. The user owns the archive. So answer with pass-code only.\n\nNeed final only pass-code. Ensure exact: OTTER-2624-OTTER.",
+   "reply_sha256": "761146398ce827ddd4c8cf360f6d2a1f9e4c052caf00afb9254a3eab85352c43",
+   "found": true,
+   "found_in_reasoning": true
+  }
+ ],
+ "wall_s": 203.553,
+ "all_admitted": true,
+ "all_answered": true,
+ "pass": true
+}
+lane 0: 9581 sentences, 260019 prompt tokens, depth 0.50
+lane 0: answered found=True prompt_tokens=260019 prefill_s=191.8 total_s=197.854
+{
+ "url": "http://node-1:8000",
+ "model": "inkling-2-mini-1x-dgx-spark",
+ "date": "2026-11-23T22:36:00Z",
+ "tokens_per_sentence": 25.7745,
+ "lanes": [
+  {
+   "lane": 0,
+   "depth": 0.5,
+   "target_tokens": 262144,
+   "code": "OTTER-2624-OTTER",
+   "sentences": 9581,
+   "prompt_tokens_rendered": 260019,
+   "sizing": "render",
+   "admitted_s": 0.063,
+   "status": "answered",
+   "http_status": 200,
+   "admitted": true,
+   "prefill_s": 191.8,
+   "total_s": 197.854,
+   "finish_reason": "stop",
+   "usage": {
+    "prompt_tokens": 260019,
+    "completion_tokens": 282,
+    "total_tokens": 260301,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 268
+    },
+    "spec": {
+     "drafted": 513,
+     "accepted": 193,
+     "rounds": 89
+    }
+   },
+   "prompt_tokens": 260019,
+   "answer": "OTTER-2624-OTTER",
+   "reasoning_tail": "r-provided text. However, the phrase \"Keep it safe\" suggests confidentiality. But the user is the one who provided the archive and asks for it. In these tasks, the expected answer is the pass-code. We should answer with pass-code only. Need ensure exact: OTTER-2624-OTTER.\n\nNeed final only pass-code.",
+   "reply_sha256": "52b87ac564e27e5c29ba9d68e01b32a6990a28251134f3d4a8ac318ff8dd8faa",
+   "found": true,
+   "found_in_reasoning": true
+  }
+ ],
+ "wall_s": 197.855,
+ "all_admitted": true,
+ "all_answered": true,
+ "pass": true
+}

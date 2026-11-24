@@ -1,0 +1,91 @@
+{
+ "name": "serial-chain",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "5af5fccabbab1733cb2423065d459e9d5926665f",
+  "dirty_files": [
+   "bench/records/2026-11-23-copy-hybrid/tools/run_speed.sh",
+   "bench/records/2026-11-23-copy-hybrid-exact/raw/"
+  ]
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "f658ec6e8073ecab9725947ab5a659e3822323b9",
+  "sha256": "c2a502a04ab7e7f28dd5b5906e5360c0a127bd66eeb9a3380fb7d00cb08e75bf",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "f658ec6e8073ecab9725947ab5a659e3822323b9",
+   "system_fingerprint": "fp_efcb6ed25153_5eedc329_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "5eedc329c09b3b74",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "1",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "dspark",
+  "PREFIX_CACHE": "on",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-4",
+ "gate": "speed-serial-chain-nogo",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "bench/tools/bench.py",
+   "filter": "decode x3 and rolling x3 per configuration, serial AHEAD=0/1 and drafted AHEAD=0/1",
+   "passed": 11,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "serial_c1_ahead0_tok_s": 53.41,
+  "serial_c1_ahead1_tok_s": 53.32,
+  "serial_c4_ahead0_tok_s": 100.57,
+  "serial_c4_ahead1_tok_s": 100.17,
+  "serial_rolling_ahead0_tok_s": 100.61,
+  "serial_rolling_ahead1_tok_s": 100.28,
+  "host_turnaround_us_per_round": 50,
+  "serial_round_us": 18651
+ },
+ "commands": [
+  "bash tools/run_serial.sh none 0 raw/none-ahead0 1",
+  "bash tools/run_serial.sh none 1 raw/none-ahead1",
+  "bash tools/run_serial.sh dspark 0 raw/dspark-ahead0",
+  "bash tools/run_serial.sh dspark 1 raw/dspark-ahead1"
+ ],
+ "notes": "NO-GO: the windows run ahead gain nothing (serial c=1 53.41 vs 53.32); the round trace shows 0.05 ms of host turnaround in an 18.65 ms serial round. Chain byte-exactness not proven (GPU test failed in setup, not rerun); code removed from the engine branch."
+}

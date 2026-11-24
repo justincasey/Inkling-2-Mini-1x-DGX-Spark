@@ -1,0 +1,5 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-round/target/release/deps/inkling2_loop_graphs-76816e451b7b124b
+== gb-model graph_replay_equals
+test graph_replay_equals_eager ... rexl3 event=mem_stage stage=weights_embedding cuda_free_mib=110291 took_mib=0.0 mem_available_mib=117875
+LOOP_GRAPH_equal windows 37 logits_sha256 44294f72e147c7e0ccd317d3aa3d1dda2b27534b50189915abb2c065f6ad90e1 captures 24 replays 189 eager 112 capture_failures 0 evictions 0
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 16.71s

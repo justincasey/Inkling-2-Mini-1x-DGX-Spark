@@ -1,0 +1,22 @@
+warm: done (discarded)
+decode prose: 512 tokens, ttft 0.1302 s, 52.176 tok/s, spec {'drafted': 319, 'accepted': 81, 'rounds': 430, 'acceptance': 0.2539, 'tokens_per_round': 1.1907}
+decode code: 512 tokens, ttft 0.1773 s, 127.633 tok/s, spec {'drafted': 595, 'accepted': 412, 'rounds': 99, 'acceptance': 0.6924, 'tokens_per_round': 5.1717}
+decode structured: 512 tokens, ttft 0.1641 s, 86.137 tok/s, spec {'drafted': 672, 'accepted': 347, 'rounds': 164, 'acceptance': 0.5164, 'tokens_per_round': 3.122}
+decode json: 512 tokens, ttft 0.2001 s, 95.451 tok/s, spec {'drafted': 725, 'accepted': 384, 'rounds': 127, 'acceptance': 0.5297, 'tokens_per_round': 4.0315}
+conc c=4: 2048 tokens in 17.98 s = 113.92 tok/s (span number)
+conc c=8: 4096 tokens in 30.49 s = 134.35 tok/s (8 requests on 4 slots: two waves, not an 8-stream batch)
+prefill 32k: 32768 tokens in 14.0947 s = 2325 tok/s; then 128 tokens at 84.585 tok/s
+METRIC decode_acceptance=0.5296
+METRIC decode_c1_tok_s=90.349
+METRIC decode_c4_tok_s=113.918
+METRIC decode_c8_tok_s=134.346
+METRIC decode_code_tok_s=127.633
+METRIC decode_ctx32k_tok_s=84.585
+METRIC decode_json_tok_s=95.451
+METRIC decode_prose_tok_s=52.176
+METRIC decode_structured_tok_s=86.137
+METRIC decode_tokens=2048
+METRIC decode_tokens_per_round=2.4976
+METRIC prefill_32k_s=14.0947
+METRIC prefill_32k_tok_s=2324.8
+PASS pin

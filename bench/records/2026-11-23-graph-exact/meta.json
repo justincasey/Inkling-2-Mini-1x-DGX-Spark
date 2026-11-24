@@ -1,0 +1,146 @@
+{
+ "name": "graph-exact",
+ "gate": "exact-graph",
+ "date": "2026-11-23",
+ "result": "pass",
+ "node": "node-2",
+ "engine": {
+  "commit": "9fa93ea6e8f1671ec618ac1ee91ac42ee13749a6",
+  "dirty": false,
+  "version": "0.1.1"
+ },
+ "recipe": {
+  "commit": "a162b4f09b7664f7b70b133e3df2365e5b6e6374"
+ },
+ "tests": [
+  {
+   "bin": "inkling2_loop_rank",
+   "filter": "forward_oracle_gate (graphs on)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_rank",
+   "filter": "long_context_gate (graphs on)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_rank",
+   "filter": "forward_oracle_gate (REXL3_INKLING2_LOOP_GRAPHS=0)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_rank",
+   "filter": "long_context_gate (REXL3_INKLING2_LOOP_GRAPHS=0)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_graphs",
+   "filter": "graph_replay_equals_eager",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_graphs",
+   "filter": "capture_refusal",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_attn",
+   "filter": "mini::",
+   "passed": 14,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_attn",
+   "filter": "small::",
+   "passed": 14,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_ops",
+   "filter": "split_topk",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_ops",
+   "filter": "sharded_argmax",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_ops",
+   "filter": "unembed_softcap",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_ops",
+   "filter": "golden",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_moe",
+   "filter": "golden",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_moe",
+   "filter": "graph",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_moe_mixed",
+   "filter": "graph",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2::",
+   "passed": 31,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "families::inkling2_loop::",
+   "passed": 61,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib",
+   "filter": "window_graph::",
+   "passed": 6,
+   "failed": 0
+  }
+ ],
+ "commands": [
+  "REXL3_SRC=<engine worktree> NODES=node-2 ./inkling2mini.sh build 51f2993c1549f927a632c2c502de3d20dc261ec3  (then 9fa93ea6e8f1671ec618ac1ee91ac42ee13749a6)",
+  "EXTRA_ENV='REXL3_ALLOW_UNGATED_COMPONENTS=1 [REXL3_INKLING2_LOOP_GRAPHS=0 REXL3_INKLING2_LOOP_OVERLAP=0]' ./inkling2mini.sh start",
+  "python3 bench/tools/bench.py --url http://node-2:8000 --model inkling-2-mini-1x-dgx-spark --max-model-len 262144 --phases warm,decode,conc,prefill-32k --pin pinned.json   (51f2993; --ref pinned.json on 9fa93ea)",
+  "python3 bench/tools/exactness.py record OUT.json --max-tokens 128 --label LABEL; exactness.py diff base.json OUT.json; exactness.py concurrent --max-tokens 64",
+  "NODE=node-2 LAB_SRC=<engine worktree> PKG=gb-model TEST_ENV='LOOP_LONG_IDS_FILE=<lab>/ids_long.json [REXL3_INKLING2_LOOP_GRAPHS=0]' scripts/ops_dev.sh test inkling2_loop_rank forward_oracle_gate long_context_gate",
+  "NODE=node-2 LAB_SRC=<engine worktree> PKG=gb-model scripts/ops_dev.sh test inkling2_loop_graphs graph_replay_equals capture_refusal",
+  "NODE=node-2 LAB_SRC=<engine worktree> PKG=gb-cuda scripts/ops_dev.sh test inkling2_ops split_topk sharded_argmax unembed_softcap golden; ... inkling2_attn 'mini::' 'small::'; inkling2_moe golden graph; inkling2_moe_mixed graph",
+  "REXL3_NO_CUDA=1 cargo test -p gb-model --lib --locked -- families::inkling2:: ; families::inkling2_loop:: ; window_graph::"
+ ],
+ "metrics": {
+  "live_pin_replies_equal_to_start_engine": 5,
+  "exactness_records_identical_to_start_engine": 4,
+  "exactness_replies_sha256": "f7975a6c1dae761ef24508177ce06da5e0607d94f1e81c1c7a5a72b9e105433d",
+  "forward_oracle_dump_sha256": "c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0",
+  "chunk_width_logits_sha256": "a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a",
+  "graph_equal_logits_sha256_37_windows": "6d0a555b92e02953c9e26efecdd9dece0ab211030ba8947cbe03b8407846c06b",
+  "long_context_top1": 157,
+  "long_context_top1_logit": 23.62496
+ },
+ "notes": "Equality to the engine as it was (51f2993), not to the oracle: the family is not oracle-qualified. Starting engine and final engine are lab builds. The long_context ids are a synthetic list (the first run list was not kept); its top-1 is the same at d8a6915 with graphs off and at 9fa93ea with graphs on and off."
+}

@@ -1,0 +1,15 @@
+METRIC decode_acceptance=0.5386
+METRIC decode_c1_tok_s=83.841
+METRIC decode_c4_tok_s=107.965
+METRIC decode_c8_tok_s=120.383
+METRIC decode_code_tok_s=117.23
+METRIC decode_ctx32k_tok_s=82.006
+METRIC decode_json_tok_s=88.618
+METRIC decode_prose_tok_s=50.845
+METRIC decode_structured_tok_s=78.67
+METRIC decode_tokens=2048
+METRIC decode_tokens_per_round=2.4294
+METRIC prefill_32k_s=13.8015
+METRIC prefill_32k_tok_s=2374.2
+PASS pin
+exit 0

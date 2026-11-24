@@ -1,0 +1,203 @@
+{
+ "name": "kernels-moe",
+ "gate": "kernels-moe",
+ "date": "2026-11-22",
+ "result": "pass",
+ "node": "node-1",
+ "engine": {
+  "commit": "b6a965455ebe21dfa5e44681b8e66fc1c9c5bd57",
+  "dirty": false,
+  "version": "engine worktree branch inkling2-loop-moe (test binaries only, no server binary)"
+ },
+ "recipe": {
+  "commit": "f54ed86f2d404b2220af11aa9b18f4046d20da06"
+ },
+ "tests": [
+  {
+   "bin": "gb-cuda inkling2_moe_mixed",
+   "filter": "mul1_bands_decode_equals_prefill_small",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe_mixed",
+   "filter": "mul1_bands_decode_equals_prefill_mini_shape",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe_mixed",
+   "filter": "band_split_equals_single_band_small",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe_mixed",
+   "filter": "band_split_equals_single_band_mini_shape",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe_mixed",
+   "filter": "band_entries_on_a_uniform",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe_mixed",
+   "filter": "every_pair_row_is_written_once_small",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe_mixed",
+   "filter": "every_pair_row_is_written_once_mini_shape",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe_mixed",
+   "filter": "graph_replay_equals_eager_over_bands",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe_mixed",
+   "filter": "bands_entries_refuse",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe_mixed",
+   "filter": "real_mini_layers_equal_the_oracle",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe",
+   "filter": "mul1_prefill_equals_decode_at_k4_and_k5",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe",
+   "filter": "partial_equals_the_float64_reference",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe",
+   "filter": "prefill_equals_decode_and_rows_are_invariant",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe",
+   "filter": "prefill_with_tight_class_grids_equals_decode",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe",
+   "filter": "four_rank_banks_sum_to_the_tp4_result",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe",
+   "filter": "graph_replay_equals_eager",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe",
+   "filter": "golden_inkling2_moe_hashes",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe",
+   "filter": "real_layers_equal_the_reference_and_the_oracle",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe_mixed (REXL3_MOE_BENCH=1)",
+   "filter": "bench_decode_cost_of_bands",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib (REXL3_NO_CUDA=1, Mac)",
+   "filter": "families::inkling2::",
+   "passed": 31,
+   "failed": 0
+  }
+ ],
+ "commands": [
+  "NODE=node-1 LAB_SRC=<engine worktree inkling2-loop-moe> LANE=rexl3-inkling2-loop-moe scripts/ops_dev.sh test inkling2_moe_mixed <each filter of tests[]>   (OPS_GREP=\"^layer|bands|pairs per class\")",
+  "NODE=node-1 ... scripts/ops_dev.sh test inkling2_moe <each filter of tests[]>",
+  "NODE=node-1 ... TEST_ENV=REXL3_MOE_BENCH=1 OPS_GREP=BENCH scripts/ops_dev.sh test inkling2_moe_mixed bench_decode_cost_of_bands",
+  "REXL3_NO_CUDA=1 CARGO_BUILD_JOBS=6 cargo test -p gb-model --lib --locked families::inkling2::   (in the engine worktree, Mac)",
+  "the golden files: oracle/.venv/bin/python bench/records/2026-11-22-kernels-moe/gen_moe_golden.py (from the recipe repository; log: golden-gen.log)"
+ ],
+ "metrics": {
+  "synthetic_1_band_444.rows1.eager_median_us": 171.9,
+  "synthetic_1_band_444.rows1.graph_median_us": 148.2,
+  "synthetic_1_band_444.rows1.eager_min_us": 158.6,
+  "synthetic_1_band_444.rows1.graph_min_us": 138.9,
+  "synthetic_1_band_444.rows4.eager_median_us": 554.8,
+  "synthetic_1_band_444.rows4.graph_median_us": 534.3,
+  "synthetic_1_band_444.rows4.eager_min_us": 469.9,
+  "synthetic_1_band_444.rows4.graph_min_us": 456.5,
+  "synthetic_3_bands.rows1.eager_median_us": 261.0,
+  "synthetic_3_bands.rows1.graph_median_us": 217.8,
+  "synthetic_3_bands.rows1.eager_min_us": 224.1,
+  "synthetic_3_bands.rows1.graph_min_us": 169.0,
+  "synthetic_3_bands.rows4.eager_median_us": 668.5,
+  "synthetic_3_bands.rows4.graph_median_us": 622.2,
+  "synthetic_3_bands.rows4.eager_min_us": 568.2,
+  "synthetic_3_bands.rows4.graph_min_us": 531.3,
+  "real_layer_0.rows1.eager_median_us": 172.9,
+  "real_layer_0.rows1.graph_median_us": 148.4,
+  "real_layer_0.rows1.eager_min_us": 161.6,
+  "real_layer_0.rows1.graph_min_us": 134.2,
+  "real_layer_0.rows4.eager_median_us": 545.1,
+  "real_layer_0.rows4.graph_median_us": 538.5,
+  "real_layer_0.rows4.eager_min_us": 469.9,
+  "real_layer_0.rows4.graph_min_us": 459.5,
+  "real_layer_23.rows1.eager_median_us": 201.6,
+  "real_layer_23.rows1.graph_median_us": 162.5,
+  "real_layer_23.rows1.eager_min_us": 183.0,
+  "real_layer_23.rows1.graph_min_us": 143.1,
+  "real_layer_23.rows4.eager_median_us": 591.7,
+  "real_layer_23.rows4.graph_median_us": 559.8,
+  "real_layer_23.rows4.eager_min_us": 515.8,
+  "real_layer_23.rows4.graph_min_us": 475.9,
+  "real_layer_22.rows1.eager_median_us": 230.0,
+  "real_layer_22.rows1.graph_median_us": 173.7,
+  "real_layer_22.rows1.eager_min_us": 216.9,
+  "real_layer_22.rows1.graph_min_us": 156.5,
+  "real_layer_22.rows4.eager_median_us": 619.6,
+  "real_layer_22.rows4.graph_median_us": 575.3,
+  "real_layer_22.rows4.eager_min_us": 528.2,
+  "real_layer_22.rows4.graph_min_us": 486.0,
+  "real_layer_12.rows1.eager_median_us": 242.6,
+  "real_layer_12.rows1.graph_median_us": 193.1,
+  "real_layer_12.rows1.eager_min_us": 223.2,
+  "real_layer_12.rows1.graph_min_us": 156.6,
+  "real_layer_12.rows4.eager_median_us": 646.0,
+  "real_layer_12.rows4.graph_median_us": 602.8,
+  "real_layer_12.rows4.eager_min_us": 545.6,
+  "real_layer_12.rows4.graph_min_us": 506.6,
+  "estimate.decode_token_moe_us_graph_rows1": 8814.1,
+  "estimate.decode_token_moe_us_if_every_layer_were_layer0": 7123.2,
+  "sm_clock_mhz_samples_under_load": "2177-2184 (13 samples, 55-96 % utilisation); clocks.max.sm 3003; applications graphics 2418"
+ },
+ "notes": [
+  "The pack on node-1 was staged by NodeOps (REXL3_INKLING2_LOOP_DIR is set by scripts/ops_dev.sh to it); the Small pack is not on the node, so the Small real-pack test (real_layers_equal_the_reference_and_the_oracle) printed \"not run\" and is listed as passed only because it skips: the Small regression is the synthetic tests and golden_inkling2_moe_hashes, which equal the committed hashes.",
+  "Layer 23 of the pack has no all-5-bit class (census: 127 x (4,4,4), 1 x (4,4,5)); the all-5-bit single-expert band is in layer 22 (125 x (4,4,4), 2 x (4,4,5), 1 x (5,5,5)), so goldens exist for layers 12, 22 and 23.",
+  "Timing: CUDA events around one MoE call at the Mini shape, L2 flushed (256 MiB read) before every call, 10 warm-up then 200 calls of different random routing per case, rows 1 and 4, eager and as a graph replay (the engine decodes under graphs). A sampler thread runs nvidia-smi every 0.5 s while it measures (small host perturbation). The test neither sets nor checks a clock lock; NodeOps reports a 2,200 MHz lock; the sampled SM clock was 2177-2184 MHz.",
+  "estimate.* is derived arithmetic, not a measurement: the 48 passes of the schedule priced with the rows-1 graph medians, layers 0-5 and 20 at real layer 0 (1 band), 18, 19, 21 and 23 at real layer 23 (2 bands), 22 at real layer 22, layers 6-17 (three passes each) at real layer 12 (3 bands: layers 16 and 17 hold 62 and 68 all-5-bit experts, so they read more bytes than layer 12)."
+ ]
+}

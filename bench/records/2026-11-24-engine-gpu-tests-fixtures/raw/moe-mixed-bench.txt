@@ -1,0 +1,28 @@
+GPU SM clock capped at 2200 MHz on node-3
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-pintests/target/release/deps/inkling2_moe_mixed-107fa5e4ee85b701
+GPU SM clock capped at 2200 MHz on node-3
+== gb-cuda bench_decode_cost_of_bands
+running 1 test
+test bench_decode_cost_of_bands ... BENCH synthetic 1 band (4,4,4) bands [(4, 4, 128)] rows 1: eager median 172.9 us (min 155.6), graph replay median 149.2 us (min 137.3), 200 calls
+BENCH synthetic 1 band (4,4,4) bands [(4, 4, 128)] rows 4: eager median 551.8 us (min 471.8), graph replay median 535.5 us (min 460.4), 200 calls
+BENCH synthetic 3 bands bands [(4, 4, 73), (4, 5, 37), (5, 5, 18)] rows 1: eager median 261.9 us (min 226.1), graph replay median 218.9 us (min 166.7), 200 calls
+BENCH synthetic 3 bands bands [(4, 4, 73), (4, 5, 37), (5, 5, 18)] rows 4: eager median 674.7 us (min 570.2), graph replay median 629.8 us (min 527.0), 200 calls
+BENCH real layer 0 bands [(4, 4, 128)] rows 1: eager median 172.9 us (min 160.7), graph replay median 148.4 us (min 135.0), 200 calls
+BENCH real layer 0 bands [(4, 4, 128)] rows 4: eager median 546.5 us (min 475.2), graph replay median 542.3 us (min 465.2), 200 calls
+BENCH real layer 23 bands [(4, 5, 1), (4, 4, 127)] rows 1: eager median 204.6 us (min 189.2), graph replay median 162.5 us (min 147.1), 200 calls
+BENCH real layer 23 bands [(4, 5, 1), (4, 4, 127)] rows 4: eager median 594.8 us (min 523.1), graph replay median 560.8 us (min 489.4), 200 calls
+BENCH real layer 22 bands [(4, 4, 125), (4, 5, 2), (5, 5, 1)] rows 1: eager median 231.4 us (min 220.0), graph replay median 175.8 us (min 152.4), 200 calls
+BENCH real layer 22 bands [(4, 4, 125), (4, 5, 2), (5, 5, 1)] rows 4: eager median 618.3 us (min 527.2), graph replay median 575.1 us (min 485.0), 200 calls
+BENCH real layer 12 bands [(4, 4, 107), (5, 5, 4), (4, 5, 17)] rows 1: eager median 243.6 us (min 222.0), graph replay median 192.2 us (min 158.8), 200 calls
+BENCH real layer 12 bands [(4, 4, 107), (5, 5, 4), (4, 5, 17)] rows 4: eager median 647.9 us (min 548.7), graph replay median 606.9 us (min 503.4), 200 calls
+BENCH SM clock samples taken while measuring (clocks.sm, clocks.max.sm, clocks.applications.graphics, power.draw, utilization.gpu): ["2197 MHz, 3003 MHz, 2418 MHz, 11.07 W, 83 %", "2197 MHz, 3003 MHz, 2418 MHz, 18.99 W, 96 %", "2197 MHz, 3003 MHz, 2418 MHz, 23.58 W, 81 %", "2197 MHz, 3003 MHz, 2418 MHz, 21.71 W, 92 %", "2197 MHz, 3003 MHz, 2418 MHz, 23.49 W, 95 %", "2197 MHz, 3003 MHz, 2418 MHz, 22.28 W, 96 %", "2197 MHz, 3003 MHz, 2418 MHz, 23.07 W, 96 %", "2197 MHz, 3003 MHz, 2418 MHz, 22.69 W, 95 %", "2197 MHz, 3003 MHz, 2418 MHz, 22.70 W, 95 %", "2197 MHz, 3003 MHz, 2418 MHz, 22.96 W, 95 %", "2197 MHz, 3003 MHz, 2418 MHz, 22.45 W, 95 %", "2197 MHz, 3003 MHz, 2418 MHz, 23.09 W, 95 %", "2197 MHz, 3003 MHz, 2418 MHz, 21.83 W, 95 %"]
+ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 10.47s
+== gb-cuda bench_prefill_layers
+running 1 test
+test bench_prefill_layers ... BENCH_PF layer 0 bands [(4, 4, 128)] rows 4096: median 14.864 ms (min 14.297), 35.1 useful TFLOP/s, out fnv 4657281d2f9d2325
+BENCH_PF layer 12 bands [(4, 4, 107), (5, 5, 4), (4, 5, 17)] rows 4096: median 15.825 ms (min 15.309), 33.0 useful TFLOP/s, out fnv a32c0e60bfad2325
+BENCH_PF layer 17 bands [(5, 5, 68), (4, 4, 28), (4, 5, 32)] rows 4096: median 16.563 ms (min 15.904), 31.5 useful TFLOP/s, out fnv 23c058e56b212325
+BENCH_PF layer 22 bands [(4, 4, 125), (4, 5, 2), (5, 5, 1)] rows 4096: median 15.553 ms (min 15.212), 33.6 useful TFLOP/s, out fnv b0c9184b17542325
+ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 2.76s

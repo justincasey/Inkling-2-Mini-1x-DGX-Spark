@@ -1,0 +1,7 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-slim/target/release/deps/inkling2_moe-5a1bf6fc5d31c1ff
+== gb-cuda golden
+test golden_inkling2_moe_hashes ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.32s
+== gb-cuda graph
+test graph_replay_equals_eager ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.30s

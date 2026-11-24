@@ -1,0 +1,9 @@
+version              0.1.1
+commit               df4862be52cb831072ce420d81412f0eae7039a8
+system_fingerprint   fp_df4862be52cb_cb5454c8_cb1311
+nvcc                 13.0.88
+cuda_arch            sm_121
+kernel_hash          cb5454c888b09fa3
+cudart               13.0
+cuda_driver          13.0
+cublas               13.1.1

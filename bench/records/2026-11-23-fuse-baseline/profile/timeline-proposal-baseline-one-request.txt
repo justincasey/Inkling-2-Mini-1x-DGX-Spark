@@ -1,0 +1,139 @@
+proposals 69
+      0.0    14.0 g(8,1,1)x256 block_input_kernel<2304>
+     15.9     1.6 g(8,5,1)x128 rot_in_kernel
+     20.0    17.2 g(24,4,1)x128 linear_kernel<8, 2, 4, 1, 1>
+     38.4     1.9 g(8,6,1)x128 rot_out_kernel
+     42.5     1.7 g(8,5,1)x128 rot_in_kernel
+     46.6     8.8 g(8,4,1)x128 linear_kernel<8, 2, 4, 1, 1>
+     56.9     1.6 g(8,2,1)x128 rot_out_kernel
+     60.9     1.7 g(8,5,1)x128 rot_in_kernel
+     65.0     8.9 g(8,4,1)x128 linear_kernel<8, 2, 4, 1, 1>
+     75.5     1.9 g(8,2,1)x128 rot_out_kernel
+     76.5    35.3 g(8,40,1)x128 block_prep_kernel
+    100.0   329.3 g(3,8,1)x256 attn_part_kernel<3>
+    112.3   318.7 g(8,24,1)x128 attn_merge_kernel<3>
+    433.9     1.5 g(8,6,1)x128 rot_in_kernel
+    438.0    17.2 g(18,4,1)x128 linear_kernel<8, 2, 4, 1, 1>
+    456.5     1.8 g(8,5,1)x128 rot_out_kernel
+    457.6     7.8 g(8,1,1)x256 add_norm_kernel<2304, 1>
+    466.8     1.5 g(8,5,1)x128 rot_in_kernel
+    470.8    51.2 g(72,1,1)x256 linear_kernel<8, 2, 8, 1, 1>
+    524.0     1.4 g(8,5,1)x128 rot_in_kernel
+    528.1    53.8 g(72,1,1)x256 linear_kernel<8, 2, 8, 1, 1>
+    578.8    15.6 g(36,8,1)x256 silu_mul_kernel
+    595.6     1.7 g(8,18,1)x128 rot_in_kernel
+    599.7    49.4 g(18,16,1)x128 linear_kernel<8, 2, 4, 1, 1>
+    650.9     2.5 g(8,5,1)x128 rot_out_kernel
+    652.8     7.7 g(8,1,1)x256 add_norm_kernel<2304, 1>
+    663.2     1.5 g(8,5,1)x128 rot_in_kernel
+    667.3    17.2 g(24,4,1)x128 linear_kernel<8, 2, 4, 1, 1>
+    685.9     1.6 g(8,6,1)x128 rot_out_kernel
+    689.9     1.5 g(8,5,1)x128 rot_in_kernel
+    694.0     9.6 g(8,4,1)x128 linear_kernel<8, 2, 4, 1, 1>
+    706.2     1.6 g(8,2,1)x128 rot_out_kernel
+    710.3     1.5 g(8,5,1)x128 rot_in_kernel
+    714.5     9.7 g(8,4,1)x128 linear_kernel<8, 2, 4, 1, 1>
+    726.8     1.8 g(8,2,1)x128 rot_out_kernel
+    727.9    35.1 g(8,40,1)x128 block_prep_kernel
+    751.3  1238.4 g(3,8,1)x256 attn_part_kernel<3>
+    763.5  1227.9 g(8,24,1)x128 attn_merge_kernel<3>
+   1992.6     1.5 g(8,6,1)x128 rot_in_kernel
+   1996.5    18.5 g(18,4,1)x128 linear_kernel<8, 2, 4, 1, 1>
+   2017.0     1.7 g(8,5,1)x128 rot_out_kernel
+   2018.1     7.6 g(8,1,1)x256 add_norm_kernel<2304, 1>
+   2027.2     1.5 g(8,5,1)x128 rot_in_kernel
+   2031.3    53.8 g(72,1,1)x256 linear_kernel<8, 2, 8, 1, 1>
+   2086.6     1.5 g(8,5,1)x128 rot_in_kernel
+   2090.7    52.0 g(72,1,1)x256 linear_kernel<8, 2, 8, 1, 1>
+   2139.5    15.6 g(36,8,1)x256 silu_mul_kernel
+   2156.5     1.7 g(8,18,1)x128 rot_in_kernel
+   2160.4    48.3 g(18,16,1)x128 linear_kernel<8, 2, 4, 1, 1>
+   2211.5     2.5 g(8,5,1)x128 rot_out_kernel
+   2213.4     7.7 g(8,1,1)x256 add_norm_kernel<2304, 1>
+   2223.8     1.5 g(8,5,1)x128 rot_in_kernel
+   2227.9    16.6 g(24,4,1)x128 linear_kernel<8, 2, 4, 1, 1>
+   2246.3     1.6 g(8,6,1)x128 rot_out_kernel
+   2250.4     1.4 g(8,5,1)x128 rot_in_kernel
+   2254.5     8.7 g(8,4,1)x128 linear_kernel<8, 2, 4, 1, 1>
+   2264.8     1.6 g(8,2,1)x128 rot_out_kernel
+   2268.9     1.4 g(8,5,1)x128 rot_in_kernel
+   2273.0     8.5 g(8,4,1)x128 linear_kernel<8, 2, 4, 1, 1>
+   2283.2     1.8 g(8,2,1)x128 rot_out_kernel
+   2284.4    35.1 g(8,40,1)x128 block_prep_kernel
+   2307.7   330.1 g(3,8,1)x256 attn_part_kernel<3>
+   2319.9   319.6 g(8,24,1)x128 attn_merge_kernel<3>
+   2641.6     1.5 g(8,6,1)x128 rot_in_kernel
+   2645.7    18.4 g(18,4,1)x128 linear_kernel<8, 2, 4, 1, 1>
+   2666.2     1.8 g(8,5,1)x128 rot_out_kernel
+   2667.4     7.7 g(8,1,1)x256 add_norm_kernel<2304, 1>
+   2676.4     1.5 g(8,5,1)x128 rot_in_kernel
+   2680.5    52.0 g(72,1,1)x256 linear_kernel<8, 2, 8, 1, 1>
+   2733.9     1.5 g(8,5,1)x128 rot_in_kernel
+   2737.9    53.9 g(72,1,1)x256 linear_kernel<8, 2, 8, 1, 1>
+   2788.4    15.8 g(36,8,1)x256 silu_mul_kernel
+   2805.6     1.7 g(8,18,1)x128 rot_in_kernel
+   2809.6    47.1 g(18,16,1)x128 linear_kernel<8, 2, 4, 1, 1>
+   2858.7     2.5 g(8,5,1)x128 rot_out_kernel
+   2860.6     7.7 g(8,1,1)x256 add_norm_kernel<2304, 1>
+   2871.0     1.4 g(8,5,1)x128 rot_in_kernel
+   2875.1  1502.7 g(1571,1,1)x256 linear_kernel<12, 2, 8, 1, 1>
+   4369.7    10.1 g(7,1,1)x256 markov_concat_kernel<2304>
+   4381.4     2.1 g(7,10,1)x128 rot_in_kernel
+   4385.5    11.1 g(6,8,1)x128 linear_kernel<8, 2, 4, 1, 1>
+   4397.9     1.7 g(7,2,1)x128 rot_out_kernel
+   4402.7     1.7 g(1,1,1)x256 markov_in_kernel
+   4406.0     1.6 g(1,10,1)x128 rot_in_kernel
+   4410.0     6.2 g(6,8,1)x128 linear_kernel<8, 2, 4, 1, 1>
+   4418.3     2.0 g(1,2,1)x128 rot_out_kernel
+   4419.9     9.0 g(1,1,1)x256 markov_gate_kernel
+   4421.1   445.7 g(786,1,1)x256 markov_logits_kernel
+   4850.5    90.3 g(1,1,1)x1024 local_kernel
+   4867.4    75.2 g(1,1,1)x128 merge_kernel
+   4947.5     1.7 g(1,1,1)x256 markov_in_kernel
+   4951.7     1.9 g(1,10,1)x128 rot_in_kernel
+   4955.8    11.0 g(6,8,1)x128 linear_kernel<8, 2, 4, 1, 1>
+   4968.1     2.3 g(1,2,1)x128 rot_out_kernel
+   4969.4     9.5 g(1,1,1)x256 markov_gate_kernel
+   4970.9   444.8 g(786,1,1)x256 markov_logits_kernel
+   5398.3    89.1 g(1,1,1)x1024 local_kernel
+   5416.3    72.7 g(1,1,1)x128 merge_kernel
+   5493.3     1.6 g(1,1,1)x256 markov_in_kernel
+   5497.6     1.8 g(1,10,1)x128 rot_in_kernel
+   5501.6    10.9 g(6,8,1)x128 linear_kernel<8, 2, 4, 1, 1>
+   5513.9     2.3 g(1,2,1)x128 rot_out_kernel
+   5515.1     9.5 g(1,1,1)x256 markov_gate_kernel
+   5516.6   447.9 g(786,1,1)x256 markov_logits_kernel
+   5953.6    82.7 g(1,1,1)x1024 local_kernel
+   5965.1    73.0 g(1,1,1)x128 merge_kernel
+   6042.1     1.6 g(1,1,1)x256 markov_in_kernel
+   6046.4     1.9 g(1,10,1)x128 rot_in_kernel
+   6050.5    11.4 g(6,8,1)x128 linear_kernel<8, 2, 4, 1, 1>
+   6064.8     2.3 g(1,2,1)x128 rot_out_kernel
+   6066.0     9.5 g(1,1,1)x256 markov_gate_kernel
+   6067.5   462.2 g(786,1,1)x256 markov_logits_kernel
+   6516.0    87.5 g(1,1,1)x1024 local_kernel
+   6530.3    74.9 g(1,1,1)x128 merge_kernel
+   6609.5     1.7 g(1,1,1)x256 markov_in_kernel
+   6613.7     1.9 g(1,10,1)x128 rot_in_kernel
+   6617.8    11.0 g(6,8,1)x128 linear_kernel<8, 2, 4, 1, 1>
+   6630.1     2.2 g(1,2,1)x128 rot_out_kernel
+   6631.3     9.5 g(1,1,1)x256 markov_gate_kernel
+   6632.8   453.6 g(786,1,1)x256 markov_logits_kernel
+   7072.6    85.5 g(1,1,1)x1024 local_kernel
+   7087.0    72.8 g(1,1,1)x128 merge_kernel
+   7164.5     1.6 g(1,1,1)x256 markov_in_kernel
+   7168.7     1.8 g(1,10,1)x128 rot_in_kernel
+   7172.8    11.0 g(6,8,1)x128 linear_kernel<8, 2, 4, 1, 1>
+   7185.1     2.3 g(1,2,1)x128 rot_out_kernel
+   7186.3     9.4 g(1,1,1)x256 markov_gate_kernel
+   7187.8   456.7 g(786,1,1)x256 markov_logits_kernel
+   7631.5    87.1 g(1,1,1)x1024 local_kernel
+   7645.1    75.2 g(1,1,1)x128 merge_kernel
+   7724.6     1.7 g(1,1,1)x256 markov_in_kernel
+   7728.8     1.8 g(1,10,1)x128 rot_in_kernel
+   7732.9    11.2 g(6,8,1)x128 linear_kernel<8, 2, 4, 1, 1>
+   7745.4     2.3 g(1,2,1)x128 rot_out_kernel
+   7746.7     9.5 g(1,1,1)x256 markov_gate_kernel
+   7748.2   458.6 g(786,1,1)x256 markov_logits_kernel
+   8192.4    87.9 g(1,1,1)x1024 local_kernel
+   8207.3    74.7 g(1,1,1)x128 merge_kernel

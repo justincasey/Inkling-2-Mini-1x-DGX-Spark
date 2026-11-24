@@ -1,0 +1,31 @@
+# prefill-exact: the prefill speed work changed no byte (gate `exact-prefill`)
+
+Engine `1a36951e0b27715bf8e34b77130107ebd4ca282e` (branch `inkling2-loop-prefill`: two commits of tests and one kernel change on the integration head `7da8c61`), node-3, TP1, GPU
+clock locked at 2,200 MHz, greedy throughout. "Before" is `7da8c61`: for the GPU test binaries the same tree with `crates/cuda/csrc/moe_prefill.cu` of `7da8c61` (the one kernel file the work
+changed; `tools/gates.sh base`), for the live checks a server built from `7da8c61` itself. Every line below is in `raw/`.
+
+| # | Claim | Evidence |
+|---|---|---|
+| 1 | The rank's oracle gate is byte-identical before and after | `inkling2_loop_rank::forward_oracle_gate` (prompt "sky", 26 tokens): the dump of 90,056,120 bytes has sha256 `c25f987627a65408965a272922706185032d796bfdfcdd4da8163353e27c45c0` twice, before and after (`raw/gates-base-7da8c61.log`, `raw/gates-new.log`); chunk widths 7 and 11: logits 20,806,032 bytes, sha256 `a105f245c9792da01102b4eaf820ef783117cf027476bb20ead59dc48d97f41a`; decode rows 22-25 equal the prefill's rows; the 3-row window committed at 2 and continued equal. The hashes are the ones of `graph-exact` row 5 |
+| 2 | A prompt past the sliding window | `long_context_gate` on 1,119 ids (the first 1,119 ids of the sweep's pass-0 prompt, sha256 `d5191e8d9b9746ff09f4e5c05a76d6fbb973fe311070a5e5b812f3d8fdc1e896`; the list of `graph-exact` row 5, top-1 157 at 23.62496, is not kept anywhere reachable): top-1 149,897 at 29.695383 before and after; chunks of 129 and 300 and the decode row equal |
+| 3 | Decode windows, graphs and the refused capture | `inkling2_loop_graphs::graph_replay_equals_eager`: 37 windows, sha256 of the logits of all of them `8e214bd03306e8f0e3e1f203566b2d4d5057d7ce503b15fad57f741f2c50c2b7` before and after (12 captures, 213 replays, 160 eager, 0 capture failures); `capture_refusal_runs_eager_and_counts` passed |
+| 4 | The prefix cache, 20 cuts | `inkling2_loop_prefix`: `prefix_exact_at_cuts` (the last row's, the state's and the decode digests of all 20 cuts equal the table of `2026-11-23-prefix-cache`: 20 of 20 lines found there), `prefix_logits_planes_equal`, `prefix_restore_after_eviction`, `prefix_long_prompt` all passed |
+| 5 | A 135,168-token prompt, every chunk | `inkling2_loop_prefill_perf::prefill_curve`, real ids, `PF_EVERY=1`: the top-64 candidates (ids and values) of the last row of each of the 33 chunks hash to the same 33 digests before and after (sha256 of the digest lines `41f0df8bafd5c1c78327a26197f1981533cf2127c0d9f5aaa51908dadad14dde`), chained digest `f684af750c222810a48e72c536fc5385c0ff68f0f6316af66db127a3a709bcb3`. The KV of every earlier chunk feeds the later ones, so this covers the state; also 16K / 32K prompts at chunk widths 1,024 / 2,048 / 4,096 (`8aca0412...`, `52dba281...`) |
+| 6 | The kernels on their own | `inkling2_moe` (8 tests: decode == prefill, tight class grids, TP4 sum, graph replay, golden hashes), `inkling2_moe_mixed` (10: decode == prefill per pair over bands in three plan modes, band split == single band, every pair row written once, band entries, real layers 12 / 22 / 23 against the oracle's expert FFN), `inkling2_attn` `mini::` and `small::` (28), `inkling2_ops` (4: split top-k, sharded argmax, unembed softcap, golden), `exl3_big` (4: dense big linear == the decode path); the dense kernels were not changed by the commit (a reverted lab variant was tested) |
+| 7 | Host tests | `REXL3_NO_CUDA=1 cargo test -p gb-model --lib --locked`: `families::inkling2::` 31 passed (the Small's), `families::inkling2_loop::` 85 passed (`raw/host-tests.log`) |
+| 8 | Live: a server answers byte for byte as the starting engine | `exactness.py record` on `7da8c61` and on `1a36951` (4 prompts of 16 to 8,334 tokens, 128 greedy tokens, prompt-logprobs top-5 asked): `exactness.py diff`: "identical: 4 replies"; sha256 of the `replies` part `f7975a6c1dae761ef24508177ce06da5e0607d94f1e81c1c7a5a72b9e105433d` in both, the value of `graph-exact` row 3 |
+| 9 | Live: the pinned replies of record | `bench.py --phases warm,decode,conc,prefill-32k --ref raw/pinned-replies-engine-51f2993.json` (sha256 `5ca5bab6a2ba8540933cb6d8c2f8bc11d73a58199b6eec04c3c307198a2fbdec`, the file of `graph-exact`): `PASS pin` on `7da8c61` (`raw/base-7da8c61/bench.out`) and on `1a36951` (`raw/new/bench.out`): 4 x 512 decode tokens, c = 4 and c = 8 equal to solo, a cold 32K prompt + 128 tokens. Decode c = 1 53.4, c = 4 100.1 tok/s there (the graph record's 53.4 and 100.2) |
+| 10 | Live: concurrent equals solo | `exactness.py concurrent --max-tokens 64`: `"pass": true` (`raw/new/concurrent.out`) |
+| 11 | Live: the sweep's own replies | all 16 passes of the speed sweep (8K, 32K, 128K, 224K x warm-up and three kept, the same prompts on both engines, 16 or 128 greedy tokens): the generated ids are equal on `7da8c61` (`2026-11-23-prefill-baseline/raw/sweep-final/`) and `1a36951` (`2026-11-23-prefill-speed/raw/sweep-final/`), 16 of 16, the prompt hashes equal; sha256 of all ids `afe69323e08332948a4aad80d74f9b95f65c2dd833d98a3773bd32d1409defb8` on both |
+
+Not proved: the 1M window, images (vision is off in these boots), the 5-bit and mcg widths at prefill beyond the real-layer and golden tests (they run the unchanged kernels), TP greater than 1, and "equal"
+is equal to the engine as it was, not correct against the oracle (the family's oracle qualification is `2026-11-23-forward-oracle`). `exl3_big`'s `golden_exl3_big` is `#[ignore]` in the repository and was not run.
+
+## Commands (node-3 stands for the node's address)
+
+```sh
+tools/gates.sh base raw/gates-base-7da8c61.log && tools/gates.sh new raw/gates-new.log   # ops_dev.sh on node-3 over the 9 test binaries; `base` swaps in moe_prefill.cu of 7da8c61 and restores it
+REXL3_NO_CUDA=1 cargo test -p gb-model --lib --locked families::inkling2::;  ... families::inkling2_loop::
+./inkling2mini.sh build 7da8c61 && ./inkling2mini.sh start && python3 bench/tools/exactness.py record raw/base-7da8c61/exactness.json --max-tokens 128 --label base-7da8c61 && bench.py ... --ref raw/pinned-replies-engine-51f2993.json
+./inkling2mini.sh build 1a36951e0b27715bf8e34b77130107ebd4ca282e && ./inkling2mini.sh start && tools/live.sh   # record, diff, bench --ref, concurrent, the speed sweep
+```

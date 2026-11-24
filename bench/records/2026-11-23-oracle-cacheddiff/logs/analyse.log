@@ -1,0 +1,4 @@
+rows with differing logits: [28] elements differing per row: [1]
+row 28 token ids [64928] cached [-1.4899263381958008] full [-1.4899262189865112] row max 29.392847061157227 argmax 150409
+hidden equal in every pass (bf16 bits): True  routes equal: True
+random-row unembed test: logits 1605632 differing fp32 values between 1-row and 49-row products: 0 max abs fp64 difference of the products: 1.0658141036401503e-14

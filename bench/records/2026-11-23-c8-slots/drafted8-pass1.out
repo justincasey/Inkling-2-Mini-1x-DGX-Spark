@@ -1,0 +1,16 @@
+METRIC decode_acceptance=0.3807
+METRIC decode_c1_tok_s=81.462
+METRIC decode_c4_rolling_requests=32
+METRIC decode_c4_rolling_short_replies=0
+METRIC decode_c4_rolling_span_s=124.408
+METRIC decode_c4_rolling_tok_s=131.696
+METRIC decode_c4_steady_tok_s=132.014
+METRIC decode_c4_tok_s=102.405
+METRIC decode_c8_tok_s=147.518
+METRIC decode_code_tok_s=122.755
+METRIC decode_json_tok_s=88.369
+METRIC decode_prose_tok_s=41.48
+METRIC decode_structured_tok_s=73.246
+METRIC decode_tokens=2048
+METRIC decode_tokens_per_round=2.9767
+INFO pin: replies not compared (--raw); every concurrent reply was held to its solo reply

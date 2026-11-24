@@ -1,0 +1,190 @@
+{
+ "name": "prefill-dense-pipe-exact",
+ "date": "2026-11-23T20:16:13Z",
+ "recipe": {
+  "commit": "1a5edbd0d97dfb3446cb5e481d21ce48084cd63c",
+  "dirty_files": [
+   "bench/records/2026-11-23-prefill-dense-pipe-exact/raw/ship-pipe-on/bench-ref.json",
+   "bench/records/2026-11-23-prefill-dense-pipe-exact/raw/ship-pipe-on/bench.err",
+   "bench/records/2026-11-23-prefill-dense-pipe-exact/raw/ship-pipe-on/bench.out",
+   "bench/records/2026-11-23-prefill-dense-pipe-exact/raw/ship-pipe-on/concurrent.out",
+   "bench/records/2026-11-23-prefill-dense-pipe-exact/raw/ship-pipe-on/exactness-diff.out",
+   "bench/records/2026-11-23-prefill-dense-pipe-exact/raw/ship-pipe-on/exactness-record.out",
+   "bench/records/2026-11-23-prefill-dense-pipe-exact/raw/ship-pipe-on/exactness.json",
+   "bench/records/2026-11-23-prefill-dense-pipe-exact/raw/ship-pipe-on/memwatch-begin.txt",
+   "bench/records/2026-11-23-prefill-dense-pipe-exact/raw/ship-pipe-on/memwatch-report.txt",
+   "bench/records/2026-11-23-prefill-dense-pipe-exact/raw/ship-pipe-on/specedge.json",
+   "bench/records/2026-11-23-prefill-dense-pipe-exact/raw/ship-pipe-on/specedge.out",
+   "bench/records/2026-11-23-prefill-dense-pipe/raw/clock-lock.log",
+   "bench/records/2026-11-23-prefill-dense-pipe/raw/profile-by-kernel-pipe-off.txt",
+   "bench/records/2026-11-23-prefill-dense-pipe/raw/profile-by-kernel-pipe-on.txt",
+   "bench/records/2026-11-23-prefill-dense-pipe/raw/ship-pipe-on/sweep.out",
+   "bench/records/2026-11-23-prefill-dense-pipe/raw/ship-pipe-on/sweep/metrics.txt",
+   "bench/records/2026-11-23-prefill-dense-pipe/raw/ship-pipe-on/sweep/prefill-sweep.json",
+   "bench/records/2026-11-23-prefill-dense-pipe/raw/ship-pipe-on/sweep/prefill-sweep.log",
+   "docs/CLEANUP.md",
+   "bench/records/2026-11-23-prefill-dense-pipe-exact.tmp/",
+   "bench/records/2026-11-23-prefill-dense-pipe/meta.json",
+   "bench/records/2026-11-23-prefill-dense-pipe/raw/bench-visit-final.txt",
+   "bench/records/2026-11-23-prefill-dense-pipe/raw/ship-pipe-off/boot-mem-stages.txt",
+   "bench/records/2026-11-23-prefill-dense-pipe/raw/ship-pipe-on/boot-mem-stages.txt"
+  ]
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "fd6ef616be704ad0863bd5dbebdc97408527d4bb",
+  "sha256": "4641f1edd73c8108008dda2006e776d2e571ca9713b5857cbc3e32226af13426",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "fd6ef616be704ad0863bd5dbebdc97408527d4bb",
+   "system_fingerprint": "fp_fd6ef616be70_df709b63_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "df709b63984cc5b7",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "1",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "dspark",
+  "PREFIX_CACHE": "on",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-3",
+ "gate": "exact-prefill",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "gb-cuda inkling2_dense_pipe",
+   "filter": "equals_the_shipped small_row_counts",
+   "passed": 3,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model inkling2_loop_rank",
+   "filter": "forward_oracle_gate long_context_gate",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model inkling2_loop_graphs",
+   "filter": "graph_replay_equals_eager capture_refusal_runs_eager_and_counts",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model inkling2_loop_prefix",
+   "filter": "prefix_exact_at_cuts prefix_logits_planes_equal prefix_restore_after_eviction prefix_long_prompt",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model inkling2_loop_prefill_perf",
+   "filter": "prefill_curve PF_EVERY=1 and PF_CHUNK=8192",
+   "passed": 2,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_ops",
+   "filter": "mini_dense mini_unembed split_topk sharded_argmax unembed_softcap golden",
+   "passed": 9,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda exl3_big",
+   "filter": "big_linear_equals_the_decode_path_on big_linear_equals_the_decode_path_for big_linear_rows the_big_plan",
+   "passed": 4,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda exl3_big",
+   "filter": "golden_exl3_big_hashes (--ignored, run explicitly)",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe",
+   "filter": "partial_equals prefill_equals_decode mul1_prefill_equals prefill_with_tight four_rank_banks graph_replay_equals golden_inkling2",
+   "passed": 8,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_moe_mixed",
+   "filter": "mul1_bands_decode_equals_prefill band_split_equals every_pair_row graph_replay_equals band_entries_on bands_entries_refuse real_mini_layers",
+   "passed": 10,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_attn",
+   "filter": "mini:: small::",
+   "passed": 28,
+   "failed": 0
+  },
+  {
+   "bin": "gb-cuda inkling2_dspark",
+   "filter": "",
+   "passed": 28,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib (REXL3_NO_CUDA=1)",
+   "filter": "families::inkling2::",
+   "passed": 31,
+   "failed": 0
+  },
+  {
+   "bin": "gb-model --lib (REXL3_NO_CUDA=1)",
+   "filter": "families::inkling2_loop::",
+   "passed": 115,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "specedge_cases": 65,
+  "specedge_failures": 0,
+  "exactness_replies_identical": 4,
+  "chunk_digests_equal": 33,
+  "prefix_cuts_identical": 20,
+  "graph_windows_equal": 37,
+  "golden_exl3_big_lines_identical": 42
+ },
+ "commands": [
+  "NODE=node-3 tools/gates.sh raw/gates-new.log (the speed record's tools)",
+  "REXL3_NO_CUDA=1 cargo test -p gb-model --lib --locked families::inkling2:: ; families::inkling2_loop::",
+  "build fd6ef616be704ad0863bd5dbebdc97408527d4bb; start; tools/live.sh ship ship-pipe-on",
+  "exl3_big golden: build exl3_big, then the test binary with --ignored golden_exl3_big_hashes under /tmp/rexl3-gpu.lock, REXL3_GOLDEN_OUT diffed against testdata/gpu/golden_exl3_big.txt"
+ ],
+ "notes": "Same engine commit as the speed record. rank dump c25f9876...c45c0, chunk-width logits a105f245...f41a, 37-window logits 8e214bd0...c2b7, 33-chunk chain f684af75...bcb3, 8,192-row digest 823553ce...f140d, replies f7975a6c...105433d: all equal to the pins of prefill-exact and prefill-push-exact. Live checks (identical 4 replies, PASS pin, specedge 65 of 65, concurrent pass) ran under the verified cap; an earlier identical run before the owner's cap order was discarded. Not proved: images, the 1M window, TP>1, shapes other than the Mini's six."
+}

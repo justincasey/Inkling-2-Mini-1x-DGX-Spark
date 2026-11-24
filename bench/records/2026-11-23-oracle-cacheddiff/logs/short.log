@@ -1,0 +1,4 @@
+chat-sky-effort0.9: cached == recompute (<= 2 fp32 ulp): 1 differing logits, max 1.0 fp32 ulp, max 1.19e-07 abs
+chat-sky-effort0.9: 26 + 24 tokens in 964s -> fixtures/spec/chat-sky-effort0.9.safetensors
+raw-counting: cached == recompute (<= 2 fp32 ulp): 0 differing logits, max 0.0 fp32 ulp, max 0 abs
+raw-counting: 35 + 16 tokens in 581s -> fixtures/spec/raw-counting.safetensors

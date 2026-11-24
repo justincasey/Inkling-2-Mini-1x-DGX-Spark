@@ -1,0 +1,101 @@
+{
+ "name": "round-baseline",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "76d2c5f950928f6d19dcf2063e1bd2471062fab3",
+  "dirty_files": [
+   "inkling2mini.sh",
+   "bench/tools/roundtrace.py"
+  ]
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "1d53344d874b3a578152e35c500a2718599f5b61",
+  "sha256": "3432f9474f7d5f19fbf1a3a962448012f1adf7b8a2c806c1749df6f0f07744bc",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "1d53344d874b3a578152e35c500a2718599f5b61",
+   "system_fingerprint": "fp_1d53344d874b_2fca53d7_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "2fca53d7ca972c41",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2190 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "dspark",
+  "PREFIX_CACHE": "on",
+  "VISION": "on",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 nsys profile -t cuda\\,nvtx --cuda-graph-trace=node --delay 80 --duration 13 --kill none -f true -o /home/spark/inkling-2-mini-1x-dgx-spark/logs/nsys-round2 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec dspark --prefix-cache on --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-1",
+ "gate": "speed-round-baseline",
+ "result": "pass",
+ "tests": [
+  {
+   "bin": "bench/tools/specbench.py",
+   "filter": "drafted == serial (six kinds, c=4)",
+   "passed": 7,
+   "failed": 0
+  }
+ ],
+ "metrics": {
+  "decode_mean4_tok_s": 81.632,
+  "decode_prose_tok_s": 41.836,
+  "decode_code_tok_s": 122.61,
+  "decode_structured_tok_s": 73.374,
+  "decode_json_tok_s": 88.177,
+  "decode_c4_aggregate_tok_s": 101.38,
+  "specbench_chat_tok_s": 50.98,
+  "specbench_code_tok_s": 117.27,
+  "specbench_json_tok_s": 85.68,
+  "specbench_longctx_tok_s": 63.83,
+  "specbench_tool_tok_s": 122.21,
+  "specbench_reasoning_tok_s": 72.28,
+  "specbench_c4_aggregate_tok_s": 110.92,
+  "round_period_code_ms": 47.34,
+  "round_period_json_ms": 51.15,
+  "round_period_structured_ms": 46.29,
+  "round_host_outside_waits_ms": 0.4,
+  "window_idle_before_ms": 1.6
+ },
+ "commands": [
+  "./inkling2mini.sh bench decode (x3)",
+  "python3 bench/tools/specbench.py --out A.json --label '1d53344 shipping defaults' --concurrency 4",
+  "python3 bench/tools/roundtrace.py --url http://node-1:8000 --ssh spark@node-1 --log serve.log --out trace.json (engine 579aa8a, EXTRA_ENV=REXL3_ROUND_TRACE=1)",
+  "SERVE_WRAP='nsys profile -t cuda,nvtx --cuda-graph-trace=node --delay 80 --duration 13 --kill none -f true -o nsys-round2' ./inkling2mini.sh start; tools/nsys_rounds.py"
+ ],
+ "notes": "Engine 1d53344 is the baseline; round trace and nsys on 579aa8a (inert marks only). decode_mean4_tok_s is the median of the three run means of bench decode."
+}

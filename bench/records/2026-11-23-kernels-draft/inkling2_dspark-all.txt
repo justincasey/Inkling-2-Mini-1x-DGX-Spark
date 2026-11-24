@@ -1,0 +1,68 @@
+built /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-draft/target/release/deps/inkling2_dspark-2190377fb6671b23
+== gb-cuda 
+test bench_propose ... ignored
+test golden_inkling2_dspark_hashes ... ok
+test int8_plane_tracks_the_bf16_plane ... int8 vs bf16 plane, lengths [5, 300, 700, 1100, 1300]: free drafts agree 35/35; layer-2 K/V rel L2 max 1.179e-2; forced hd rel L2 max 2.045e-2; forced step logits max |d| 0.5; bit-equal forced step logit rows 0/35
+test matches_the_oracle_at_tp4 ... REXL3_INKLING2_DIR / REXL3_INKLING2_DSPARK_ORACLE unset: not run
+test matches_the_oracle_on_one_rank ... REXL3_INKLING2_DIR / REXL3_INKLING2_DSPARK_ORACLE unset: not run
+test mini_drafter::mini_golden_hashes ... golden hashes equal /home/spark/inkling-2-mini-1x-dgx-spark/lab/rexl3-inkling2-loop-draft/src/crates/cuda/../../testdata/gpu/golden_inkling2_loop_dspark.txt
+test mini_drafter::mini_graph_replay_equals_eager ... Bf16, pdl mask 0: graph replay == eager (free and forced; drafts, hd, Markov state)
+Bf16, pdl mask 15: graph replay == eager (free and forced; drafts, hd, Markov state)
+Int8, pdl mask 0: graph replay == eager (free and forced; drafts, hd, Markov state)
+Int8, pdl mask 15: graph replay == eager (free and forced; drafts, hd, Markov state)
+test mini_drafter::mini_incremental_commit_equals_one_commit_and_rollback_equals_replay ... Bf16: drafts at 1103: [62, 1485, 62, 102940, 62, 102940, 62]; rollback, chunked and many-commit replays are bit-equal
+Int8: drafts at 1103: [62, 1485, 62, 102940, 62, 102940, 62]; rollback, chunked and many-commit replays are bit-equal
+test mini_drafter::mini_int8_plane_tracks_the_bf16_plane ... int8 vs bf16 plane, lengths [5, 300, 700, 1100, 1300]: free drafts agree 35/35; layer-1 K/V max 5.80 steps, 9081 of 10240 differ, rel L2 1.05e-2; hd max 41.21 steps, 77890 of 92160 differ, rel L2 1.34e-2
+test mini_drafter::mini_matches_the_oracle ... long Bf16 plane (anchors [1, 600, 1023, 1024, 1025, 1031, 1032, 1100]):
+  ctx K/V max 5.51 steps, 644361 of 6447104 differ, rel L2 9.25e-4
+  f_rnn max 0.00 steps, 0 of 18432 differ, rel L2 0.00e0
+  hd max 20.63 steps, 124587 of 147456 differ, rel L2 1.15e-2
+  Markov state max 34.93 steps, 9543 of 14336 differ, rel L2 1.23e-2
+  Markov latent max 23.24 steps, 5865 of 14336 differ, rel L2 8.87e-3
+  logits max |d| 0.375 mean 3.21e-2
+  drafts 56/56 equal (first divergence per anchor [7, 7, 7, 7, 7, 7, 7, 7]); teacher-forced picks 56/56 equal (0 flips, worst reference gap 0)
+  drafts equal to the target's next tokens (greedy prefix, of at most 7): [0, 0, 0, 0, 0, 0, 0, 0]
+long Int8 plane (anchors [1, 600, 1023, 1024, 1025, 1031, 1032, 1100]):
+  ctx K/V max 10.94 steps, 2413440 of 6447104 differ, rel L2 6.21e-3
+  f_rnn max 0.00 steps, 0 of 18432 differ, rel L2 0.00e0
+  hd max 30.40 steps, 129077 of 147456 differ, rel L2 1.54e-2
+  Markov state max 40.51 steps, 10062 of 14336 differ, rel L2 1.53e-2
+  Markov latent max 34.19 steps, 6145 of 14336 differ, rel L2 1.15e-2
+  logits max |d| 0.5 mean 3.85e-2
+  drafts 56/56 equal (first divergence per anchor [7, 7, 7, 7, 7, 7, 7, 7]); teacher-forced picks 56/56 equal (0 flips, worst reference gap 0)
+  drafts equal to the target's next tokens (greedy prefix, of at most 7): [0, 0, 0, 0, 0, 0, 0, 0]
+real_chat-capital-effort0 Bf16 plane (anchors [1, 5, 13, 24, 25, 26, 30, 33, 39]):
+  ctx K/V max 3.63 steps, 22678 of 239616 differ, rel L2 8.84e-4
+  f_rnn max 0.00 steps, 0 of 20736 differ, rel L2 0.00e0
+  hd max 17.24 steps, 114576 of 165888 differ, rel L2 6.32e-3
+  Markov state max 15.07 steps, 8158 of 16128 differ, rel L2 7.24e-3
+  Markov latent max 11.65 steps, 4713 of 16128 differ, rel L2 4.97e-3
+  logits max |d| 0.3125 mean 2.12e-2
+  drafts 60/63 equal (first divergence per anchor [4, 7, 7, 7, 7, 7, 7, 7, 7]); teacher-forced picks 62/63 equal (1 flips, worst reference gap 0.125)
+  drafts equal to the target's next tokens (greedy prefix, of at most 7): [0, 0, 1, 5, 4, 3, 5, 1, 1]
+real_chat-capital-effort0 Int8 plane (anchors [1, 5, 13, 24, 25, 26, 30, 33, 39]):
+  ctx K/V max 11.76 steps, 86285 of 239616 differ, rel L2 6.17e-3
+  f_rnn max 0.00 steps, 0 of 20736 differ, rel L2 0.00e0
+  hd max 19.13 steps, 130668 of 165888 differ, rel L2 9.69e-3
+  Markov state max 21.38 steps, 9162 of 16128 differ, rel L2 1.02e-2
+  Markov latent max 29.24 steps, 5244 of 16128 differ, rel L2 6.97e-3
+  logits max |d| 0.375 mean 3.24e-2
+  drafts 63/63 equal (first divergence per anchor [7, 7, 7, 7, 7, 7, 7, 7, 7]); teacher-forced picks 63/63 equal (0 flips, worst reference gap 0)
+  drafts equal to the target's next tokens (greedy prefix, of at most 7): [0, 0, 1, 5, 4, 3, 5, 1, 1]
+test mini_drafter::mini_norm_rows_equal_the_float64_reference ... norm rows at 2,304 (256 threads of 9 columns) vs the float64 reference: 0 of 5529600 bf16 outputs differ (worst relative 0.00e0)
+test mini_drafter::mini_propose_timing ... weights on the device 339613248 bytes (the fold's fold_w + fold_b 103359232 of them); state and scratch 28592224 bytes; upload with the fold 0.04 s
+timing at 1300 positions, one request, int8 plane: propose 7.89 ms eager, 7.73 ms as a graph; commit of 8 rows 0.18 ms
+test mini_drafter::mini_refuses_what_it_cannot_draft ... the drafter refuses an empty context, an anchor past the vocabulary, a repeated slot, a hole, a short stride, a wrong geometry
+test mini_drafter::mini_rows_are_invariant_across_windows ... Bf16: lengths [5, 700, 1023, 1024, 1025, 1031, 1032, 1033, 1100, 1300]: every request alone, in a reversed batch and repeated equals the batch (drafts and traces)
+  drafts: [[196997, 1050, 13, 1432, 63, 196986, 196997], [62, 1205, 62, 256, 62, 72, 28], [809, 25, 220, 16, 13, 149954, 151226], [262, 220, 16, 12, 1976, 220, 16], [16, 5209, 16, 13, 149954, 151226, 62], [220, 21, 25, 220, 21, 189559, 25], [220, 19, 25, 220, 21, 189559, 8], [386, 220, 68028, 189559, 25, 220, 16], [12, 1980, 12, 1980, 12, 256, 12], [159415, 159302, 150220, 156053, 11, 149904, 150261]]
+Int8: lengths [5, 700, 1023, 1024, 1025, 1031, 1032, 1033, 1100, 1300]: every request alone, in a reversed batch and repeated equals the batch (drafts and traces)
+  drafts: [[196997, 1050, 13, 1432, 63, 196986, 196997], [62, 1205, 62, 256, 62, 72, 28], [809, 25, 220, 16, 13, 149954, 151226], [262, 220, 16, 12, 1976, 220, 16], [16, 5209, 16, 13, 149954, 151226, 62], [220, 21, 25, 220, 21, 189559, 25], [220, 19, 25, 220, 21, 189559, 8], [386, 220, 68028, 189559, 25, 220, 16], [12, 1980, 12, 1980, 12, 256, 12], [159415, 159302, 150220, 156053, 11, 149904, 150261]]
+test mini_drafter::mini_slot_snapshot_restores_the_bits ... a slot restored from its snapshot and plane pages proposes the same bits
+test refuses_what_it_cannot_draft ... ok
+test rollback_and_restore_equal_replay ... Bf16: drafts at 1103: [220, 16, 13, 20, 11, 220, 35252]
+test rollback_and_restore_equal_replay_int8 ... Int8: drafts at 1103: [220, 16, 13, 20, 11, 220, 35252]
+test rows_are_invariant_and_ranks_agree ... Bf16: drafts of lengths [5, 700, 1100, 1300]: [[149876, 150046, 150264, 13, 68014, 371, 152103], [68014, 2918, 149991, 150918, 149876, 220, 68111], [62, 1008, 62, 1862, 62, 1008, 7], [11, 220, 44346, 11, 220, 18, 13]]
+test rows_are_invariant_and_ranks_agree_int8 ... Int8: drafts of lengths [5, 700, 1100, 1300]: [[149876, 150046, 150264, 13, 68014, 371, 152103], [68014, 2918, 149991, 150918, 149876, 220, 68111], [62, 1008, 62, 1862, 62, 1008, 7], [11, 220, 44346, 11, 220, 18, 13]]
+test slot_snapshot_restores_the_bits ... ok
+test the_split_counts_agree ... ok
+test result: ok. 21 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 90.35s

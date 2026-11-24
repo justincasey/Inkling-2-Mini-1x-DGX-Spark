@@ -1,0 +1,10 @@
+short   (16 tokens): equal; drafted 199 accepted 63 rounds 64 acceptance 0.3166 tokens/round 2.0
+medium  (521 tokens): equal; drafted 166 accepted 94 rounds 33 acceptance 0.5663 tokens/round 3.8788
+long    (2030 tokens): equal; drafted 186 accepted 84 rounds 43 acceptance 0.4516 tokens/round 2.9767
+xlong   (8334 tokens): equal; drafted 199 accepted 83 rounds 44 acceptance 0.4171 tokens/round 2.9091
+70k     (73154 tokens): equal; drafted 149 accepted 96 rounds 31 acceptance 0.6443 tokens/round 4.129
+concurrent short  : equal
+concurrent medium : equal
+concurrent long   : equal
+concurrent xlong  : equal
+spec: pass; drafted 1512 accepted 729 rounds 414 acceptance 0.4821 tokens/round 2.7826 -> bench/records/2026-11-23-copy-hybrid-final-exact/raw/gates-spec.json

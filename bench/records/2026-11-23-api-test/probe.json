@@ -1,0 +1,224 @@
+{
+ "facts": {
+  "url": "http://node-4:8000",
+  "date": "2026-11-23T05:45:27Z",
+  "models": {
+   "id": "inkling-2-mini-1x-dgx-spark",
+   "max_model_len": 262144,
+   "configured_max_model_len": 262144,
+   "kv_pool_tokens": 1048576,
+   "prefix_cache_reach_tokens": null,
+   "pack_validated": "no (--allow-unvalidated-pack)",
+   "draft_validated": null,
+   "reasoning": {
+    "reasons": true,
+    "source": "declared",
+    "verdict": "ok",
+    "markers": {
+     "open": "<|content_thinking|>",
+     "close": "<|end_message|>",
+     "open_id": 200008,
+     "close_id": 200010
+    },
+    "controls": [],
+    "accepted_inert": [],
+    "levels": [
+     {
+      "name": "none",
+      "thinks": false,
+      "sets": {
+       "reasoning_effort": "none"
+      },
+      "default_budget": null
+     },
+     {
+      "name": "minimal",
+      "thinks": false,
+      "sets": {
+       "reasoning_effort": "minimal"
+      },
+      "default_budget": null
+     },
+     {
+      "name": "low",
+      "thinks": false,
+      "sets": {
+       "reasoning_effort": "low"
+      },
+      "default_budget": null
+     },
+     {
+      "name": "medium",
+      "thinks": false,
+      "sets": {
+       "reasoning_effort": "medium"
+      },
+      "default_budget": null
+     },
+     {
+      "name": "high",
+      "thinks": false,
+      "sets": {
+       "reasoning_effort": "high"
+      },
+      "default_budget": null
+     },
+     {
+      "name": "xhigh",
+      "thinks": false,
+      "sets": {
+       "reasoning_effort": "xhigh"
+      },
+      "default_budget": null
+     },
+     {
+      "name": "max",
+      "thinks": false,
+      "sets": {
+       "reasoning_effort": "max"
+      },
+      "default_budget": null
+     }
+    ],
+    "default": {
+     "template_thinks": false,
+     "server": "off",
+     "thinks": false
+    },
+    "budget": {
+     "supported": false,
+     "refusal": "this model's reasoning capabilities declare no reasoning budget"
+    },
+    "request_fields": [
+     "reasoning_effort",
+     "chat_template_kwargs.reasoning_effort"
+    ],
+    "aliases": [
+     {
+      "name": "openai",
+      "aliases": [
+       {
+        "place": "top_level",
+        "name": "reasoning_effort",
+        "control": "effort"
+       },
+       {
+        "place": "kwarg",
+        "name": "reasoning_effort",
+        "control": "effort"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  "usage_example": {
+   "prompt_tokens": 26,
+   "completion_tokens": 46,
+   "total_tokens": 72,
+   "prompt_tokens_details": {
+    "cached_tokens": 0
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 39
+   },
+   "spec": {
+    "drafted": 0,
+    "accepted": 0,
+    "rounds": 45
+   }
+  },
+  "prefix_cache_enabled": false,
+  "spec": {
+   "drafted": 0,
+   "accepted": 0,
+   "rounds": 255,
+   "acceptance": null,
+   "tokens_per_round": 1.0039
+  }
+ },
+ "metrics": {
+  "probe_max_model_len": 262144,
+  "probe_reasoning_tokens_high": 188,
+  "probe_spec_drafted": 0,
+  "probe_cached_tokens_repeat": 0
+ },
+ "checks": [
+  {
+   "status": "PASS",
+   "check": "health",
+   "detail": "{'status': 'ok'}"
+  },
+  {
+   "status": "PASS",
+   "check": "models",
+   "detail": "['inkling-2-mini-1x-dgx-spark'] max_model_len=262144 configured=262144 kv_pool_tokens=1048576 prefix_cache_reach_tokens=None"
+  },
+  {
+   "status": "PASS",
+   "check": "window",
+   "detail": "max_model_len 262144 >= 262144"
+  },
+  {
+   "status": "PASS",
+   "check": "tokenize",
+   "detail": "'hello world' = 2 tokens [32205, 150770]"
+  },
+  {
+   "status": "PASS",
+   "check": "chat",
+   "detail": "17*23 -> 391 (1.33s, reasoning_tokens=39)"
+  },
+  {
+   "status": "PASS",
+   "check": "usage",
+   "detail": "{\"prompt_tokens\": 26, \"completion_tokens\": 46, \"total_tokens\": 72, \"prompt_tokens_details\": {\"cached_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 39}, \"spec\": {\"drafted\": 0, \"accepted\": 0, \"rounds\": 45}}"
+  },
+  {
+   "status": "PASS",
+   "check": "reasoning",
+   "detail": "619 chars, reasoning_tokens=188, content '**9 sheep.**\\n\\n\"All but 9 run away\" means that 9 sheep stay b'"
+  },
+  {
+   "status": "PASS",
+   "check": "effort system level 0",
+   "detail": "accepted, completion_tokens=42"
+  },
+  {
+   "status": "PASS",
+   "check": "effort effort none",
+   "detail": "accepted, completion_tokens=43"
+  },
+  {
+   "status": "PASS",
+   "check": "effort effort high",
+   "detail": "accepted, completion_tokens=75"
+  },
+  {
+   "status": "PASS",
+   "check": "tools",
+   "detail": "get_weather({'city': 'Paris'})"
+  },
+  {
+   "status": "PASS",
+   "check": "metrics",
+   "detail": "476 samples; cache enabled=0.0"
+  },
+  {
+   "status": "PASS",
+   "check": "spec",
+   "detail": "drafter off: drafted=0 accepted=0 rounds=255 acceptance=None tokens/round=1.0039"
+  },
+  {
+   "status": "PASS",
+   "check": "spec serial",
+   "detail": "draft:false drafted 0 tokens"
+  },
+  {
+   "status": "PASS",
+   "check": "prefix-cache",
+   "detail": "cache off: cached_tokens 0"
+  }
+ ],
+ "fails": 0
+}

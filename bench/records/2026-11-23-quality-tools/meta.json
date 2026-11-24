@@ -1,0 +1,128 @@
+{
+ "name": "quality-tools",
+ "date": "2026-11-23",
+ "recipe": {
+  "commit": "1a44ff82525c5f09b50b9c250352227a5c037d6f",
+  "dirty_files": []
+ },
+ "pack": {
+  "repo": "vcruz305/Inkling-2-Mini-SAGE-REXL3-4.23bpw",
+  "revision": "44c78c9d229b43dd45e41506071b9f5f939bed44",
+  "dir": "/home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw"
+ },
+ "engine": {
+  "commit": "3287e80d16363703ed3c77725a1732dd4bd254b4",
+  "sha256": "ebcff82705fa38d9119b8b18013106fc707156747a65c1b6628456a26286e7df",
+  "pinned_commit": "",
+  "lab_build": true,
+  "upstream_base": "02ef8cba920e1a86b911c6e20c248c43724ddd66",
+  "version": {
+   "version": "0.1.1",
+   "commit": "3287e80d16363703ed3c77725a1732dd4bd254b4",
+   "system_fingerprint": "fp_3287e80d1636_ca3ba287_cb1311",
+   "nvcc": "13.0.88",
+   "cuda_arch": "sm_121",
+   "kernel_hash": "ca3ba287e1a5ac9e",
+   "cudart": "13.0",
+   "cuda_driver": "13.0",
+   "cublas": "13.1.1"
+  },
+  "dirty": false
+ },
+ "gpu_clock_sm_max": "2197 MHz, 3003 MHz",
+ "config": {
+  "PROFILE": "bootstrap",
+  "PROFILE_MEASURED": "0",
+  "SERVED_NAME": "inkling-2-mini-1x-dgx-spark",
+  "PORT": "8000",
+  "MAX_MODEL_LEN": "262144",
+  "SLOTS": "4",
+  "KV_TOKENS": "1048576",
+  "PREFILL_CHUNK": "4096",
+  "SPEC": "none",
+  "PREFIX_CACHE": "off",
+  "VISION": "off",
+  "MEMORY_FLOOR_GIB": "",
+  "EXTRA_FLAGS": "",
+  "EXTRA_ENV": "REXL3_ALLOW_UNGATED_COMPONENTS=1",
+  "GPU_CLOCKS": "2200",
+  "GUARD_START_MIB": "2048",
+  "GUARD_MIB": "1024",
+  "GUARD_SWAP_MAX_MIB": "64",
+  "GUARD_SWAP_AVAIL_MIB": "8192",
+  "DROP_CACHES_EVERY_S": "20"
+ },
+ "serve": {
+  "ssh_user": "spark",
+  "command": "exec env -i HOME=/home/spark USER=spark LOGNAME=spark PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_BACKTRACE=1 REXL3_ALLOW_UNGATED_COMPONENTS=1 /home/spark/inkling-2-mini-1x-dgx-spark/bin/rexl3-serve --model /home/spark/models/Inkling-2-Mini-SAGE-REXL3-4.23bpw --max-model-len 262144 --slots 4 --kv-tokens 1048576 --prefill-chunk 4096 --kv-dtype int8 --spec none --prefix-cache off --no-vision --allow-unvalidated-pack --served-model-name inkling-2-mini-1x-dgx-spark --host 0.0.0.0 --port 8000"
+ },
+ "results": [],
+ "node": "node-4",
+ "gate": "quality-tools",
+ "result": "fail",
+ "tests": [
+  {
+   "bin": "bench/quality_gate.py",
+   "filter": "60 exact-answer questions, effort none",
+   "passed": 60,
+   "failed": 0
+  },
+  {
+   "bin": "bench/toolgate.py",
+   "filter": "schema cases (3 expected create_order, model called run_sql first)",
+   "passed": 25,
+   "failed": 3
+  },
+  {
+   "bin": "bench/toolgate.py",
+   "filter": "destructive probes: safe requests with no destructive call",
+   "passed": 11,
+   "failed": 0
+  },
+  {
+   "bin": "scripts/loop_probe.py",
+   "filter": "agentic: no destructive call",
+   "passed": 6,
+   "failed": 0
+  },
+  {
+   "bin": "scripts/loop_probe.py",
+   "filter": "reasoning: no loop, finished or cut by budget",
+   "passed": 12,
+   "failed": 0
+  },
+  {
+   "bin": "scripts/loop_probe.py",
+   "filter": "text: not flagged as a loop (baseline, no threshold)",
+   "passed": 17,
+   "failed": 17
+  }
+ ],
+ "metrics": {
+  "quality_correct": 60,
+  "quality_total": 60,
+  "quality_reasoning_tokens_mean": 77.8,
+  "toolgate_pass": 25,
+  "toolgate_total": 28,
+  "toolgate_invalid_calls": 0,
+  "toolgate_unrequested_destructive": 0,
+  "toolgate_explicit_called": 0,
+  "toolgate_reasoning_tokens_mean": 53.3,
+  "loop_text_prompts": 34,
+  "loop_text_loops": 17,
+  "loop_text_mean_distinct4": 0.5191,
+  "loop_reasoning_prompts": 12,
+  "loop_reasoning_loops": 0,
+  "loop_reasoning_unfinished": 0,
+  "loop_reasoning_tokens_mean": 610.5,
+  "loop_reasoning_tokens_max": 3466,
+  "loop_agentic_prompts": 6,
+  "loop_agentic_destructive_calls": 0
+ },
+ "commands": [
+  "./inkling2mini.sh bench quality",
+  "./inkling2mini.sh bench tools",
+  "./inkling2mini.sh bench loop"
+ ],
+ "notes": "Baselines, no pass threshold exists. result=fail is the tool's own verdict (toolgate --min-pass 28: 25/28); the 3 misses are run_sql lookups before create_order, not invalid or destructive calls. The loop text entry (17 flagged of 34) is a baseline count, not a gate. Lab build, REXL3_ALLOW_UNGATED_COMPONENTS=1: outputs unqualified by the oracle."
+}

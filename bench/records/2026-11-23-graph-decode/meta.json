@@ -1,0 +1,72 @@
+{
+ "name": "graph-decode",
+ "gate": "speed-graph",
+ "date": "2026-11-23",
+ "result": "pass",
+ "node": "node-2",
+ "engine": {
+  "commit": "9fa93ea6e8f1671ec618ac1ee91ac42ee13749a6",
+  "dirty": false,
+  "version": "0.1.1"
+ },
+ "recipe": {
+  "commit": "a162b4f09b7664f7b70b133e3df2365e5b6e6374"
+ },
+ "tests": [
+  {
+   "bin": "inkling2_loop_graphs",
+   "filter": "decode_step_timing",
+   "passed": 1,
+   "failed": 0
+  },
+  {
+   "bin": "inkling2_loop_graphs",
+   "filter": "graph_replay_equals_eager",
+   "passed": 1,
+   "failed": 0
+  }
+ ],
+ "commands": [
+  "REXL3_SRC=<engine worktree> NODES=node-2 ./inkling2mini.sh build 9fa93ea6e8f1671ec618ac1ee91ac42ee13749a6",
+  "./inkling2mini.sh gpu-clocks lock; EXTRA_ENV='REXL3_ALLOW_UNGATED_COMPONENTS=1' ./inkling2mini.sh start",
+  "./inkling2mini.sh bench decode   (warm-up discarded)",
+  "python3 bench/rexl3/sweep_decode.py --url http://node-2:8000 --model inkling-2-mini-1x-dgx-spark --window 262144 --max-total 1048576 --phase both --ctxs 4096 --conc 1,2,4 --modes serial --depth-modes serial --reps 3 --depth-reps 3 --out sweep.json",
+  "python3 bench/tools/bench.py --url http://node-2:8000 --model inkling-2-mini-1x-dgx-spark --max-model-len 262144 --phases warm,decode,conc,prefill-32k --ref pinned.json",
+  "curl -s http://node-2:8000/metrics | grep ^rexl3_graph ; ./inkling2mini.sh stop",
+  "NODE=node-2 LAB_SRC=<engine worktree> PKG=gb-model TEST_ENV='LOOP_PROFILE_STEPS=100 LOOP_LONG_IDS_FILE=<lab>/ids_long.json [REXL3_INKLING2_LOOP_OVERLAP=0]' scripts/ops_dev.sh test inkling2_loop_graphs decode_step_timing",
+  "tools/nsys_run.sh NAME   (nsys profile -t cuda --cuda-graph-trace=node on the lab test binary under /tmp/rexl3-gpu.lock)"
+ ],
+ "metrics": {
+  "decode_c1_short_tok_s": 53.386,
+  "decode_c1_4k_tok_s": 51.318,
+  "decode_c2_short_tok_s": 75.358,
+  "decode_c4_short_tok_s": 100.195,
+  "bench_decode_c1_tok_s": 53.394,
+  "bench_decode_c4_tok_s": 100.385,
+  "bench_decode_c8_tok_s": 103.708,
+  "decode_ctx32k_tok_s": 46.293,
+  "prefill_32k_s": 14.4684,
+  "baseline_decode_c1_short_tok_s": 37.232,
+  "baseline_decode_c1_4k_tok_s": 36.158,
+  "baseline_decode_c2_short_tok_s": 56.246,
+  "baseline_decode_c4_short_tok_s": 80.351,
+  "baseline_bench_decode_c1_tok_s": 37.238,
+  "baseline_decode_ctx32k_tok_s": 33.46,
+  "baseline_prefill_32k_s": 27.2494,
+  "step_us_graph_3800": 19137,
+  "step_us_eager_3800": 22064,
+  "step_us_graph_no_overlap_3800": 22018,
+  "step_us_eager_no_overlap_3800": 24409,
+  "baseline_step_us_eager_3800": 29136,
+  "graph_nodes_per_window": 2883,
+  "graph_replays": 13747,
+  "graph_captures": 10,
+  "graph_capture_failures": 0,
+  "graph_evictions": 0,
+  "roofline_ceiling_4k_tok_s": 70.1,
+  "target_4k_tok_s": 62,
+  "fraction_of_ceiling_4k": 0.732,
+  "fraction_of_target_4k": 0.828
+ },
+ "notes": "GPU clock locked at 2200 MHz (sampled 2190 MHz idle after the runs). Medians of 3 after a discarded warm-up. The step times are the in-process decode_step_timing test (one row, 3,800 positions, median of 100); server tok/s only where a server ran. The per-visit gap breakdown is extrapolated from one visit timeline and is an inference. Not measured: c=2/c=4 at 4K prompts (tool limitation), 1M, drafted windows, memory at ready, device memory of the graphs."
+}

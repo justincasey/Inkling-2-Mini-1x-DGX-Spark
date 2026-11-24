@@ -1,0 +1,8 @@
+lane 0: 38302 sentences, 1042932 prompt tokens, depth 0.20
+lane 1: 38288 sentences, 1042862 prompt tokens, depth 0.40
+lane 2: 38281 sentences, 1042850 prompt tokens, depth 0.60
+lane 3: 38271 sentences, 1042854 prompt tokens, depth 0.80
+lane 0: empty found=False prompt_tokens=None prefill_s=None total_s=1800.054 error={'message': 'the request deadline expired', 'type': 'request_timeout', 'code': 'request_timeout'}
+lane 1: empty found=False prompt_tokens=None prefill_s=None total_s=1800.071 error={'message': 'the request deadline expired', 'type': 'request_timeout', 'code': 'request_timeout'}
+lane 2: empty found=False prompt_tokens=None prefill_s=None total_s=1800.062 error={'message': 'the request deadline expired', 'type': 'request_timeout', 'code': 'request_timeout'}
+lane 3: empty found=False prompt_tokens=None prefill_s=None total_s=1800.076 error={'message': 'the request deadline expired', 'type': 'request_timeout', 'code': 'request_timeout'}
